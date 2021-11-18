@@ -70,23 +70,5 @@
       <description></description>
     </item>
     
-    <item>
-      <title>test</title>
-      <link>http://localhost:1313/categories/test/</link>
-      <pubDate>Wed, 30 Aug 2017 15:43:48 +0800</pubDate>
-      
-      <guid>http://localhost:1313/categories/test/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Syntax Highlighting</title>
-      <link>http://localhost:1313/categories/syntax-highlighting/</link>
-      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
-      
-      <guid>http://localhost:1313/categories/syntax-highlighting/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>

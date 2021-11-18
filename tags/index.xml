@@ -160,23 +160,5 @@
       <description></description>
     </item>
     
-    <item>
-      <title>Syntax Highlighting</title>
-      <link>http://localhost:1313/tags/syntax-highlighting/</link>
-      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
-      
-      <guid>http://localhost:1313/tags/syntax-highlighting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag-5</title>
-      <link>http://localhost:1313/tags/tag-5/</link>
-      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
-      
-      <guid>http://localhost:1313/tags/tag-5/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
