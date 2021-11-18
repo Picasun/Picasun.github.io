@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Picasun&#39;s blog</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://picasun.github.io/categories/</link>
     <description>Recent content in Categories on Picasun&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://picasun.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Development</title>
-      <link>http://localhost:1313/categories/development/</link>
+      <link>https://picasun.github.io/categories/development/</link>
       <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/categories/development/</guid>
+      <guid>https://picasun.github.io/categories/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>golang</title>
-      <link>http://localhost:1313/categories/golang/</link>
+      <link>https://picasun.github.io/categories/golang/</link>
       <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/categories/golang/</guid>
+      <guid>https://picasun.github.io/categories/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>index</title>
-      <link>http://localhost:1313/categories/index/</link>
+      <link>https://picasun.github.io/categories/index/</link>
       <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/categories/index/</guid>
+      <guid>https://picasun.github.io/categories/index/</guid>
       <description></description>
     </item>
     

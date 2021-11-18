@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Picasun&#39;s blog</title>
-    <link>http://localhost:1313/post/</link>
+    <link>https://picasun.github.io/post/</link>
     <description>Recent content in Posts on Picasun&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Nov 2021 20:43:36 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Nov 2021 20:43:36 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MyFirstBlog</title>
-      <link>http://localhost:1313/post/myfirstblog/</link>
+      <link>https://picasun.github.io/post/myfirstblog/</link>
       <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/myfirstblog/</guid>
+      <guid>https://picasun.github.io/post/myfirstblog/</guid>
       <description></description>
     </item>
     
     <item>
       <title>OperationSystem</title>
-      <link>http://localhost:1313/post/operatingsystem/</link>
+      <link>https://picasun.github.io/post/operatingsystem/</link>
       <pubDate>Thu, 18 Nov 2021 20:43:36 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/operatingsystem/</guid>
+      <guid>https://picasun.github.io/post/operatingsystem/</guid>
       <description>排列组合两问 组合恒等式的解释 母函数 已知序列求母函数 / 已知关系求母函数 组合型母函数 应用题 解递归关系 特征方程 背 不一定是齐次的 也可能非齐次 容斥原理</description>
     </item>
     

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>go on Picasun&#39;s blog</title>
-    <link>http://localhost:1313/tags/go/</link>
+    <link>https://picasun.github.io/tags/go/</link>
     <description>Recent content in go on Picasun&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 18 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://picasun.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MyFirstBlog</title>
-      <link>http://localhost:1313/post/myfirstblog/</link>
+      <link>https://picasun.github.io/post/myfirstblog/</link>
       <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/myfirstblog/</guid>
+      <guid>https://picasun.github.io/post/myfirstblog/</guid>
       <description></description>
     </item>
     
