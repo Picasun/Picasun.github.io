@@ -6,7 +6,7 @@
     <description>Recent content on Picasun&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Nov 2021 14:26:36 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 20 Nov 2021 16:09:37 +0800</lastBuildDate>
     
         <atom:link href="https://picasun.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -78,6 +78,377 @@
     </item>
     
     <item>
+      <title>OperatingSystem-2</title>
+      <link>https://picasun.github.io/post/operatingsystem-2/</link>
+      <pubDate>Sat, 20 Nov 2021 16:09:37 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/operatingsystem-2/</guid>
+      
+        <description>&lt;h1 id=&#34;操作系统-chapter2&#34;&gt;操作系统 Chapter2&lt;/h1&gt;
+&lt;h2 id=&#34;前趋图和程序执行-p32&#34;&gt;前趋图和程序执行 P32&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;前趋图&#34;&gt;前趋图&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I：输入操作&lt;/li&gt;
+&lt;li&gt;C：计算操作&lt;/li&gt;
+&lt;li&gt;P：打印操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;程序顺序执行&#34;&gt;程序顺序执行&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;程序顺序执行&lt;/li&gt;
+&lt;li&gt;程序顺序执行时的特征
+&lt;ul&gt;
+&lt;li&gt;顺序性：严格按照规定的顺序执行&lt;/li&gt;
+&lt;li&gt;封闭性：程序运行时独占全机资源&lt;/li&gt;
+&lt;li&gt;可再现性：只要环境和初始条件相同 结果相同&lt;br&gt;
+从头到尾不停顿的执行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;程序并发执行&#34;&gt;程序并发执行&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;程序的并发执行
+不存在前趋关系，可以并发执行&lt;/li&gt;
+&lt;li&gt;程序并发执行时的特征
+&lt;ul&gt;
+&lt;li&gt;间断性&lt;br&gt;
+因为为完成同一项任务而互相合作，共享系统资源，所以执行期间形成了相互制约的关系，导致程序会有“执行-暂停-执行”的规律，“走走停停”&lt;/li&gt;
+&lt;li&gt;失去封闭性
+当存在多个可以并发执行的的程序时，系统中的各种资源将为他们所共享，资源状态也会因为这些程序改变，&lt;/li&gt;
+&lt;li&gt;不可再现性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;进程的描述-p35&#34;&gt;进程的描述 P35&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;进程的定义和特征&#34;&gt;进程的定义和特征&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;进程的定义&lt;br&gt;
+为了对并发执行的程序加以描述和控制，引入了“进程”概念&lt;br&gt;
+为了让并发执行的每个程序都能独立的运行，引入了专门的数据结构：进程控制块 PCB &lt;strong&gt;（Process Control Block）&lt;/strong&gt;&lt;br&gt;
+（1）&lt;strong&gt;进程是程序的一次执行&lt;/strong&gt;&lt;br&gt;
+（2）进程是一个程序及其数据在处理机上顺序执行所发生的活动&lt;br&gt;
+（3）进程是具有独立功能的程序在一个数据集合上运行的过程，他&lt;strong&gt;是系统进行资源分配和调度的一个独立单位&lt;/strong&gt;&lt;br&gt;
+进程是进程实体的运行过程&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;进程的特征&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;动态性：&lt;br&gt;
+是进程实体的执行过程&lt;br&gt;
+创建而产生  调度而执行  撤销而消亡&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;并发性&lt;br&gt;
+多个进程实体同存于内存中&lt;br&gt;
+没有建立PCB的程序是不能并发执行的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;独立性&lt;br&gt;
+在传统的OS中，独立性指的是：进程实体是一个能独立运行，独立获得资源和独立接受调度的基本单位。凡是未建立PCB的程序是不能作为一个独立的单位参与运行&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;异步性
+为使进程在并发执行时虽然具有异步性，但依旧能保证进程并发执行的结果是可以再现的，配置了进程同步机制&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;进程的基本状态及转换&#34;&gt;进程的基本状态及转换&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;进程的三种基本状态&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;就绪状态（Ready）
+已经被分配到除了CPU以外的所有必要资源
+如果有许多处于就绪状态的进程，就会产生就绪队列&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;执行状态（Running）
+已经获得CPU
+单处理机 只有一个进程处于执行状态
+多处理机 会有多个进程属于执行状态&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;阻塞状态（Block）
+因为某事件暂时无法继续执行时的状态（如申请缓冲区失败？）
+OS会把处理机分配给另一个就绪进程，让受阻的进程处于暂停状态
+阻塞态的进程也会排成&lt;strong&gt;阻塞队列&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;三种基本状态的转换&lt;br&gt;
+就绪-&amp;gt;执行：进程调度 分配CPU&lt;br&gt;
+执行-&amp;gt;就绪：时间片完 被剥夺处理机&lt;br&gt;
+执行-&amp;gt;阻塞：I/O请求 （如进程需要访问某正在被其他进程访问的临界资源）&lt;br&gt;
+阻塞-&amp;gt;就绪：I/O完成&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建状态和终止状态&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建状态
+申请一个空白PCB -&amp;gt; 填写用于控制和管理进程的信息&lt;br&gt;
+如果系统没有足够的内存装入进程 进程无法被调度执行&lt;br&gt;
+此时就是创建状态&lt;/li&gt;
+&lt;li&gt;终止状态 
+删除进程 -&amp;gt; PCB清零 -&amp;gt; 把PCB归还给系统&lt;br&gt;
+当进程到了一个自然结束点，或者是出现了无法克服的的错误，或者被操作系统终结，就会进入终止状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;挂起操作和进程状态的转换&#34;&gt;挂起操作和进程状态的转换&lt;/h2&gt;
+&lt;p&gt;用于某个进程，和进程会被挂起，进程暂时不接受调度，对应激活操作&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;挂起操作的引入&lt;/p&gt;
+&lt;p&gt;基于系统和用户的如下需要&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;终端用户的需要&lt;/li&gt;
+&lt;li&gt;父进程请求&lt;/li&gt;
+&lt;li&gt;负荷调节的需要&lt;/li&gt;
+&lt;li&gt;操作系统的需要&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;引入挂起原语操作后&lt;strong&gt;三&lt;/strong&gt;个进程状态的转换&lt;/p&gt;
+&lt;p&gt;挂起原语：Suspend  激活原语：Active&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;活动就绪 -&amp;gt; 静止就绪&lt;/li&gt;
+&lt;li&gt;活动阻塞 -&amp;gt; 静止阻塞&lt;/li&gt;
+&lt;li&gt;静止就绪 -&amp;gt; 活动就绪&lt;/li&gt;
+&lt;li&gt;静止阻塞 -&amp;gt; 活动阻塞&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;引入挂起操作后&lt;strong&gt;五&lt;/strong&gt;个进程状态的转换&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;进程管理中的数据结构&#34;&gt;进程管理中的数据结构&lt;/h2&gt;
+&lt;p&gt;操作系统对进程运行情况、资源使用等信息的组织和维护是通过建立各种数据结构的方式来实现&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;操作系统中用于管理控制的数据结构
+&lt;ul&gt;
+&lt;li&gt;内存表&lt;/li&gt;
+&lt;li&gt;设备表&lt;/li&gt;
+&lt;li&gt;文件表&lt;/li&gt;
+&lt;li&gt;用于进程管理的进程表（PCB）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;PCB的作用
+&lt;em&gt;为了便于系统描述和管理进程的运行&lt;/em&gt;
+&lt;ul&gt;
+&lt;li&gt;作为独立运行基本单位的标志（能取得OS服务&lt;/li&gt;
+&lt;li&gt;能实现间断性运行方式（恢复CPU现场&lt;/li&gt;
+&lt;li&gt;提供进程管理所需要的信息（在内外存的指针&lt;/li&gt;
+&lt;li&gt;提供进程调度所需要的信息（比如状态信息&lt;/li&gt;
+&lt;li&gt;实现与其他进程的同步与通信（信号量机制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;进程控制块中的信息
+&lt;ul&gt;
+&lt;li&gt;进程标识符&lt;br&gt;
+&lt;em&gt;唯一的标识一个进程&lt;/em&gt;
+&lt;ul&gt;
+&lt;li&gt;外部标识符
+方便用户/进程对进程的访问&lt;/li&gt;
+&lt;li&gt;内部标识符
+方便系统对进程的使用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;处理机状态&lt;br&gt;
+&lt;em&gt;由处理机中各种寄存器的内容组成&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;进程调度信息&lt;br&gt;
+&lt;em&gt;状态、优先级、进程调度所需的其他信息、事件（阻塞原因）&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;进程控制信息&lt;br&gt;
+&lt;em&gt;程序和数据的地址、进程同步和通信机制、资源清单、链接指针&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;进程控制块的组织方式
+&lt;ul&gt;
+&lt;li&gt;线性方式&lt;br&gt;
+系统中所有的PCB组织在一张线性表中
+实现简单开销小，但每一次都要扫描整张表，适合进程不多的系统&lt;/li&gt;
+&lt;li&gt;链接方式&lt;br&gt;
+通过PCB中的链接字链接成一个队列，形成就绪队列、阻塞队列、空闲队列&lt;/li&gt;
+&lt;li&gt;索引方式&lt;br&gt;
+索引表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;进程控制-p42&#34;&gt;进程控制 P42&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;操作系统内核&#34;&gt;操作系统内核&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;用户态 核心态
+用户态执行特权比较低 系统态&lt;/li&gt;
+&lt;li&gt;支撑功能
+&lt;ul&gt;
+&lt;li&gt;中断处理&lt;/li&gt;
+&lt;li&gt;时钟管理&lt;/li&gt;
+&lt;li&gt;原语操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;资源管理功能
+&lt;ul&gt;
+&lt;li&gt;进程管理&lt;/li&gt;
+&lt;li&gt;存储器管理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;进程的创建&#34;&gt;进程的创建&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;进程的层次结构&lt;/li&gt;
+&lt;li&gt;进程图（有向树）&lt;/li&gt;
+&lt;li&gt;引起创建进程的事件
+&lt;ul&gt;
+&lt;li&gt;用户登录&lt;/li&gt;
+&lt;li&gt;作业调度&lt;/li&gt;
+&lt;li&gt;提供服务&lt;/li&gt;
+&lt;li&gt;应用请求&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;进程的创建
+&lt;ul&gt;
+&lt;li&gt;申请空白PCB&lt;/li&gt;
+&lt;li&gt;分配资源&lt;/li&gt;
+&lt;li&gt;初始化PCB&lt;/li&gt;
+&lt;li&gt;如果进程就绪队列能够接纳新进程，插入队列&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;进程的终止&#34;&gt;进程的终止&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;引起进程终止的事件
+&lt;ul&gt;
+&lt;li&gt;正常结束&lt;/li&gt;
+&lt;li&gt;异常结束&lt;/li&gt;
+&lt;li&gt;外界干预&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;进程的终止过程
+&lt;ul&gt;
+&lt;li&gt;根据被终止进程的标识符，从PCB集合中检索出该进程的PCB，读出进程状态&lt;/li&gt;
+&lt;li&gt;如果正处于执行状态，终止执行，置调度标志为真，用于指示被终止后应该重新调度&lt;/li&gt;
+&lt;li&gt;如果有子孙进程，予以终止&lt;/li&gt;
+&lt;li&gt;被终止的进程资源全部还给父进程，或者系统&lt;/li&gt;
+&lt;li&gt;将PCB从队列中（或链表）中移除，等待其他程序收集信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;进程的阻塞与唤醒&#34;&gt;进程的阻塞与唤醒&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;引起进程阻塞和唤醒的事件
+&lt;ul&gt;
+&lt;li&gt;向系统请求共享资源失败&lt;/li&gt;
+&lt;li&gt;等待某种操作的完成&lt;/li&gt;
+&lt;li&gt;新数据尚未到达&lt;/li&gt;
+&lt;li&gt;等待新任务的到达&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;进程阻塞过程
+阻塞是进程自身的一种主动行为&lt;/li&gt;
+&lt;li&gt;进程唤醒过程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;进程同步-p47&#34;&gt;进程同步 P47&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;进程同步的基本概念&#34;&gt;进程同步的基本概念&lt;/h2&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;硬件同步机制&#34;&gt;硬件同步机制&lt;/h2&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;信号量机制&#34;&gt;信号量机制&lt;/h2&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;信号量的应用&#34;&gt;信号量的应用&lt;/h2&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;管程机制&#34;&gt;管程机制&lt;/h2&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;经典进程同步问题&#34;&gt;经典进程同步问题&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;生产者-消费者问题&#34;&gt;生产者-消费者问题&lt;/h2&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;哲学家进餐问题&#34;&gt;哲学家进餐问题&lt;/h2&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;读者写者问题&#34;&gt;读者写者问题&lt;/h2&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;进程通信-p67&#34;&gt;进程通信 P67&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;进程通信的累心&#34;&gt;进程通信的累心&lt;/h2&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;消息传递通信的实现方式&#34;&gt;消息传递通信的实现方式&lt;/h2&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;直接消息传递系统实例&#34;&gt;直接消息传递系统实例&lt;/h2&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;线程的基本概念-p67&#34;&gt;线程的基本概念 P67&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;线程的引入&#34;&gt;线程的引入&lt;/h2&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;进程与线程的比较&#34;&gt;进程与线程的比较&lt;/h2&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;线程的状态和线程控制块&#34;&gt;线程的状态和线程控制块&lt;/h2&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;线程的实现-p79&#34;&gt;线程的实现 P79&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;线程的实现方式&#34;&gt;线程的实现方式&lt;/h2&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;线程的实现&#34;&gt;线程的实现&lt;/h2&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;线程的创建和终止&#34;&gt;线程的创建和终止&lt;/h2&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>OperatingSystem-1</title>
       <link>https://picasun.github.io/post/operatingsystem-1/</link>
       <pubDate>Sat, 20 Nov 2021 14:26:36 +0800</pubDate>
@@ -86,25 +457,35 @@
       
         <description>&lt;h1 id=&#34;操作系统-chapter1&#34;&gt;操作系统 Chapter1&lt;/h1&gt;
 &lt;h2 id=&#34;操作系统的目标和作用-p1&#34;&gt;操作系统的目标和作用 P1&lt;/h2&gt;
+&lt;p&gt;是配置在计算机硬件上的第一层软件，对硬件系统的首次扩充，管理好硬件设备，提高利用率和吞吐量。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;h3 id=&#34;操作系统的目标&#34;&gt;操作系统的目标&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;方便：不用直接在硬件运行  机器可以编译命令将用户写的程序翻译成机器代码
+&lt;p&gt;方便性&lt;br&gt;
+不用直接在硬件运行&lt;br&gt;
+机器可以编译命令将用户写的程序翻译成机器代码&lt;br&gt;
 方便用户操作计算机系统&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;有效性：1.提高系统资源利用率  （软硬件） 2.合理组织工作流程&lt;/p&gt;
+&lt;p&gt;有效性&lt;br&gt;
+提高系统资源利用率  （软硬件）&lt;br&gt;
+合理组织工作流程&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;可扩展性：微内核结构能方便增添新的功能和模块&lt;/p&gt;
+&lt;p&gt;可扩展性&lt;br&gt;
+微内核结构能方便增添新的功能和模块&lt;br&gt;
+无结构 -&amp;gt; 模块化结构 -&amp;gt; 层次化结构&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;开放性：软硬件兼容  方便实现互联&lt;/p&gt;
+&lt;p&gt;开放性&lt;br&gt;
+软硬件兼容  方便实现互联&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;扩展性&lt;/p&gt;
+&lt;p&gt;扩展性&lt;br&gt;
+需要遵循世界的标准规范 特别是OSI国际标准&lt;br&gt;
+由单机环境变成了网络环境&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -115,7 +496,8 @@
 &lt;p&gt;作为用户和计算机硬件系统之间的接口&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;计算机系统资源（处理机、存储器、IO、文件）的管理者&lt;/p&gt;
+&lt;p&gt;计算机系统资源（处理机、存储器、IO、文件）的管理者&lt;br&gt;
+&lt;strong&gt;四类资源：处理机、存储器、I/O设备以及文件（数据和程序）&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;实现对计算机资源的抽象&lt;/p&gt;
@@ -182,12 +564,15 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;h3 id=&#34;单道批处理系统&#34;&gt;单道批处理系统&lt;/h3&gt;
+&lt;p&gt;为解决CPU与I/O设备速度不匹配的问题&lt;br&gt;
+虽然系统对作业的处理是成批进行，但在内存中只保持一道作业&lt;br&gt;
+因此被称为单道批处理系统&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;脱机方法（把作业输入磁带）➕监督程序Monitor 监督程序给予控制权给作业&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;CPU利用率降低&lt;/p&gt;
+&lt;p&gt;CPU利用率低&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -248,10 +633,10 @@
 &lt;p&gt;分时系统的引入&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;希望 人机交互&lt;/p&gt;
+&lt;p&gt;为了 &lt;strong&gt;人机交互&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;希望 共享主机&lt;/p&gt;
+&lt;p&gt;为了 &lt;strong&gt;共享主机&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -261,17 +646,17 @@
 &lt;li&gt;
 &lt;p&gt;及时接受：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;设置多路卡 （xx个终端就配置一个xx用户的多路卡）&lt;/li&gt;
+&lt;li&gt;设置多路卡 （xx个终端就配置一个xx用户的多路卡，需要缓冲区来暂存用户键入的命令或数据）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;及时处理：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;直接进内存&lt;/p&gt;
+&lt;p&gt;作业直接进&lt;strong&gt;内存&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;轮转运行方式（时间片：一个很短的时间 运行完立即调度下一个作业）&lt;/p&gt;
+&lt;p&gt;轮转运行方式（时间片：一个很短的时间 运行完立即调度下一个作业，这样每个用户都能及时和自己的作业进行交互）&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -281,13 +666,13 @@
 &lt;p&gt;特征：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;多路性&lt;/p&gt;
+&lt;p&gt;多路性（多个用户共享一台计算机 提高了资源利用率 降低费用）&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;独立性&lt;/p&gt;
+&lt;p&gt;独立性（每个用户在自己的终端进行操作 互不干扰）&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;及时性&lt;/p&gt;
+&lt;p&gt;及时性（很短时间获得响应）&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;交互性（通过终端与系统人机对话） 广泛性（多方面服务）&lt;/p&gt;
@@ -326,11 +711,15 @@
 &lt;p&gt;周期性（周期的发送激励信号给计算机 要求按照制定周期循环执行）&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;非周期性（联系截止时间 1⃣️开始截止时间2⃣️完成截止时间）&lt;/p&gt;
+&lt;p&gt;非周期性（联系截止时间 1.开始截止时间 2.完成截止时间）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;硬实时任务和软实时任务&lt;/p&gt;
-&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;硬：系统必须满足对&lt;strong&gt;截止时间&lt;/strong&gt;的要求（工业、武器&lt;/li&gt;
+&lt;li&gt;软：也联系一个截止时间但并不严格（信息查询、多媒体&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -358,7 +747,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h3 id=&#34;微机操作发展&#34;&gt;微机操作发展&lt;/h3&gt;
+&lt;h3 id=&#34;微机操作系统的发展&#34;&gt;微机操作系统的发展&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;单用户单任务操作系统&lt;/p&gt;
@@ -475,14 +864,11 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;进程同步&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;进程互斥：对临界资源&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;进程同步
-当进程合作完成公共任务时，由同步机构对其次序加以协调
-最简单的方法：对临界资源配置一把锁&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;进程同步：当进程合作完成公共任务时，由同步机构对其次序加以协调&lt;br&gt;
+最简单的方法：对临界资源配置一把锁&lt;/li&gt;
+&lt;li&gt;进程互斥：对临界资源&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;进程通信
@@ -684,7 +1070,7 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;基本概念&lt;/p&gt;
-&lt;ul&gt;
+&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;模块独立性&lt;/p&gt;
 &lt;ul&gt;
@@ -698,19 +1084,17 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;模块接口法的优缺点&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;优点
+&lt;p&gt;优点  ：&lt;br&gt;
 提高OS设计的正确性、可理解性、可维护性
 增强OS可适应性
 加速OS开发&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;缺点
+&lt;p&gt;缺点  ：&lt;br&gt;
 设计时的接口规定很难满足模块设计完成后对接口的实际需求
 设计阶段需要作出很多决定，每个决定必须建立在上一个决定的基础上
 模块化结构设计中，各模块齐头并进设计，很难每一步决定都建立在可靠基础上
@@ -724,7 +1108,7 @@
 &lt;p&gt;分层式操作系统&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;基本概念
+&lt;p&gt;基本概念：&lt;br&gt;
 为了让模块接口法中的无序变得有序，引入有序分层法
 在目标系统An和逻辑系统调用A0之间铺设若干层次软件
 让目标系统通过中间若干软件层最终在A0上运行
@@ -787,6 +1171,8 @@
 &lt;p&gt;4.客户机接受消息&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;客户/服务器模式的优点&lt;/p&gt;
 &lt;p&gt;在分布式系统和网络环境下软件的主要工作模式之一&lt;/p&gt;
 &lt;ul&gt;
@@ -860,6 +1246,8 @@
 &lt;li&gt;
 &lt;p&gt;客户和服务器之间的通信&lt;/p&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;基于客户/服务器模式
 系统的绝大部分功能都放在微内核外的一组服务器中实现
@@ -872,8 +1260,6 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;采用面向对象技术&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -890,6 +1276,8 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;中断和陷入处理&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;微内核操作系统的优点&lt;/p&gt;
@@ -919,8 +1307,6 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;文件系统放在核外&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;

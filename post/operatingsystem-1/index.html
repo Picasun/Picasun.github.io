@@ -23,9 +23,9 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Picasun" />
-  <meta name="description" content="操作系统 Chapter1 操作系统的目标和作用 P1 操作系统的目标 方便：不用直接在硬件运行 机器可以编译命令将用户写的程序翻译成机器代码 方便用户操作计算机系统 有效" />
+  <meta name="description" content="操作系统 Chapter1 操作系统的目标和作用 P1 是配置在计算机硬件上的第一层软件，对硬件系统的首次扩充，管理好硬件设备，提高利用率和吞吐量。 操作系统的目标 方" />
 
-  <meta name="keywords" content="Hugo, theme, jane" />
+  <meta name="keywords" content="Hugo, theme" />
 
 
 
@@ -60,19 +60,19 @@
 
 
 <meta property="og:title" content="OperatingSystem-1" />
-<meta property="og:description" content="操作系统 Chapter1 操作系统的目标和作用 P1 操作系统的目标 方便：不用直接在硬件运行 机器可以编译命令将用户写的程序翻译成机器代码 方便用户操作计算机系统 有效" />
+<meta property="og:description" content="操作系统 Chapter1 操作系统的目标和作用 P1 是配置在计算机硬件上的第一层软件，对硬件系统的首次扩充，管理好硬件设备，提高利用率和吞吐量。 操作系统的目标 方" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://picasun.github.io/post/operatingsystem-1/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-11-20T14:26:36+08:00" />
 <meta property="article:modified_time" content="2021-11-20T14:26:36+08:00" />
 
 <meta itemprop="name" content="OperatingSystem-1">
-<meta itemprop="description" content="操作系统 Chapter1 操作系统的目标和作用 P1 操作系统的目标 方便：不用直接在硬件运行 机器可以编译命令将用户写的程序翻译成机器代码 方便用户操作计算机系统 有效"><meta itemprop="datePublished" content="2021-11-20T14:26:36+08:00" />
+<meta itemprop="description" content="操作系统 Chapter1 操作系统的目标和作用 P1 是配置在计算机硬件上的第一层软件，对硬件系统的首次扩充，管理好硬件设备，提高利用率和吞吐量。 操作系统的目标 方"><meta itemprop="datePublished" content="2021-11-20T14:26:36+08:00" />
 <meta itemprop="dateModified" content="2021-11-20T14:26:36+08:00" />
-<meta itemprop="wordCount" content="3732">
+<meta itemprop="wordCount" content="4056">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="OperatingSystem-1"/>
-<meta name="twitter:description" content="操作系统 Chapter1 操作系统的目标和作用 P1 操作系统的目标 方便：不用直接在硬件运行 机器可以编译命令将用户写的程序翻译成机器代码 方便用户操作计算机系统 有效"/>
+<meta name="twitter:description" content="操作系统 Chapter1 操作系统的目标和作用 P1 是配置在计算机硬件上的第一层软件，对硬件系统的首次扩充，管理好硬件设备，提高利用率和吞吐量。 操作系统的目标 方"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -348,7 +348,7 @@
         <li><a href="#多道批处理系统">多道批处理系统</a></li>
         <li><a href="#分时系统">分时系统</a></li>
         <li><a href="#实时系统">实时系统</a></li>
-        <li><a href="#微机操作发展">微机操作发展</a></li>
+        <li><a href="#微机操作系统的发展">微机操作系统的发展</a></li>
       </ul>
     </li>
     <li><a href="#操作系统的基本特性-p13">操作系统的基本特性 P13</a>
@@ -386,25 +386,35 @@
     <div class="post-content">
       <h1 id="操作系统-chapter1">操作系统 Chapter1</h1>
 <h2 id="操作系统的目标和作用-p1">操作系统的目标和作用 P1</h2>
+<p>是配置在计算机硬件上的第一层软件，对硬件系统的首次扩充，管理好硬件设备，提高利用率和吞吐量。</p>
 <ul>
 <li>
 <h3 id="操作系统的目标">操作系统的目标</h3>
 <ul>
 <li>
-<p>方便：不用直接在硬件运行  机器可以编译命令将用户写的程序翻译成机器代码
+<p>方便性<br>
+不用直接在硬件运行<br>
+机器可以编译命令将用户写的程序翻译成机器代码<br>
 方便用户操作计算机系统</p>
 </li>
 <li>
-<p>有效性：1.提高系统资源利用率  （软硬件） 2.合理组织工作流程</p>
+<p>有效性<br>
+提高系统资源利用率  （软硬件）<br>
+合理组织工作流程</p>
 </li>
 <li>
-<p>可扩展性：微内核结构能方便增添新的功能和模块</p>
+<p>可扩展性<br>
+微内核结构能方便增添新的功能和模块<br>
+无结构 -&gt; 模块化结构 -&gt; 层次化结构</p>
 </li>
 <li>
-<p>开放性：软硬件兼容  方便实现互联</p>
+<p>开放性<br>
+软硬件兼容  方便实现互联</p>
 </li>
 <li>
-<p>扩展性</p>
+<p>扩展性<br>
+需要遵循世界的标准规范 特别是OSI国际标准<br>
+由单机环境变成了网络环境</p>
 </li>
 </ul>
 </li>
@@ -415,7 +425,8 @@
 <p>作为用户和计算机硬件系统之间的接口</p>
 </li>
 <li>
-<p>计算机系统资源（处理机、存储器、IO、文件）的管理者</p>
+<p>计算机系统资源（处理机、存储器、IO、文件）的管理者<br>
+<strong>四类资源：处理机、存储器、I/O设备以及文件（数据和程序）</strong></p>
 </li>
 <li>
 <p>实现对计算机资源的抽象</p>
@@ -482,12 +493,15 @@
 </li>
 <li>
 <h3 id="单道批处理系统">单道批处理系统</h3>
+<p>为解决CPU与I/O设备速度不匹配的问题<br>
+虽然系统对作业的处理是成批进行，但在内存中只保持一道作业<br>
+因此被称为单道批处理系统</p>
 <ul>
 <li>
 <p>脱机方法（把作业输入磁带）➕监督程序Monitor 监督程序给予控制权给作业</p>
 </li>
 <li>
-<p>CPU利用率降低</p>
+<p>CPU利用率低</p>
 </li>
 </ul>
 </li>
@@ -548,10 +562,10 @@
 <p>分时系统的引入</p>
 <ul>
 <li>
-<p>希望 人机交互</p>
+<p>为了 <strong>人机交互</strong></p>
 </li>
 <li>
-<p>希望 共享主机</p>
+<p>为了 <strong>共享主机</strong></p>
 </li>
 </ul>
 </li>
@@ -561,17 +575,17 @@
 <li>
 <p>及时接受：</p>
 <ul>
-<li>设置多路卡 （xx个终端就配置一个xx用户的多路卡）</li>
+<li>设置多路卡 （xx个终端就配置一个xx用户的多路卡，需要缓冲区来暂存用户键入的命令或数据）</li>
 </ul>
 </li>
 <li>
 <p>及时处理：</p>
 <ul>
 <li>
-<p>直接进内存</p>
+<p>作业直接进<strong>内存</strong></p>
 </li>
 <li>
-<p>轮转运行方式（时间片：一个很短的时间 运行完立即调度下一个作业）</p>
+<p>轮转运行方式（时间片：一个很短的时间 运行完立即调度下一个作业，这样每个用户都能及时和自己的作业进行交互）</p>
 </li>
 </ul>
 </li>
@@ -581,13 +595,13 @@
 <p>特征：</p>
 <ul>
 <li>
-<p>多路性</p>
+<p>多路性（多个用户共享一台计算机 提高了资源利用率 降低费用）</p>
 </li>
 <li>
-<p>独立性</p>
+<p>独立性（每个用户在自己的终端进行操作 互不干扰）</p>
 </li>
 <li>
-<p>及时性</p>
+<p>及时性（很短时间获得响应）</p>
 </li>
 <li>
 <p>交互性（通过终端与系统人机对话） 广泛性（多方面服务）</p>
@@ -626,11 +640,15 @@
 <p>周期性（周期的发送激励信号给计算机 要求按照制定周期循环执行）</p>
 </li>
 <li>
-<p>非周期性（联系截止时间 1⃣️开始截止时间2⃣️完成截止时间）</p>
+<p>非周期性（联系截止时间 1.开始截止时间 2.完成截止时间）</p>
+</li>
+</ul>
 </li>
 <li>
 <p>硬实时任务和软实时任务</p>
-</li>
+<ul>
+<li>硬：系统必须满足对<strong>截止时间</strong>的要求（工业、武器</li>
+<li>软：也联系一个截止时间但并不严格（信息查询、多媒体</li>
 </ul>
 </li>
 <li>
@@ -658,7 +676,7 @@
 </ul>
 </li>
 <li>
-<h3 id="微机操作发展">微机操作发展</h3>
+<h3 id="微机操作系统的发展">微机操作系统的发展</h3>
 <ul>
 <li>
 <p>单用户单任务操作系统</p>
@@ -775,14 +793,11 @@
 </li>
 <li>
 <p>进程同步</p>
-</li>
-<li>
-<p>进程互斥：对临界资源</p>
-</li>
-<li>
-<p>进程同步
-当进程合作完成公共任务时，由同步机构对其次序加以协调
-最简单的方法：对临界资源配置一把锁</p>
+<ul>
+<li>进程同步：当进程合作完成公共任务时，由同步机构对其次序加以协调<br>
+最简单的方法：对临界资源配置一把锁</li>
+<li>进程互斥：对临界资源</li>
+</ul>
 </li>
 <li>
 <p>进程通信
@@ -984,7 +999,7 @@
 <ul>
 <li>
 <p>基本概念</p>
-<ul>
+</li>
 <li>
 <p>模块独立性</p>
 <ul>
@@ -998,19 +1013,17 @@
 </li>
 </ul>
 </li>
-</ul>
-</li>
 <li>
 <p>模块接口法的优缺点</p>
 <ul>
 <li>
-<p>优点
+<p>优点  ：<br>
 提高OS设计的正确性、可理解性、可维护性
 增强OS可适应性
 加速OS开发</p>
 </li>
 <li>
-<p>缺点
+<p>缺点  ：<br>
 设计时的接口规定很难满足模块设计完成后对接口的实际需求
 设计阶段需要作出很多决定，每个决定必须建立在上一个决定的基础上
 模块化结构设计中，各模块齐头并进设计，很难每一步决定都建立在可靠基础上
@@ -1024,7 +1037,7 @@
 <p>分层式操作系统</p>
 <ul>
 <li>
-<p>基本概念
+<p>基本概念：<br>
 为了让模块接口法中的无序变得有序，引入有序分层法
 在目标系统An和逻辑系统调用A0之间铺设若干层次软件
 让目标系统通过中间若干软件层最终在A0上运行
@@ -1087,6 +1100,8 @@
 <p>4.客户机接受消息</p>
 </li>
 </ul>
+</li>
+<li>
 <p>客户/服务器模式的优点</p>
 <p>在分布式系统和网络环境下软件的主要工作模式之一</p>
 <ul>
@@ -1160,6 +1175,8 @@
 <li>
 <p>客户和服务器之间的通信</p>
 </li>
+</ul>
+</li>
 <li>
 <p>基于客户/服务器模式
 系统的绝大部分功能都放在微内核外的一组服务器中实现
@@ -1172,8 +1189,6 @@
 </li>
 <li>
 <p>采用面向对象技术</p>
-</li>
-</ul>
 </li>
 </ul>
 </li>
@@ -1190,6 +1205,8 @@
 </li>
 <li>
 <p>中断和陷入处理</p>
+</li>
+</ul>
 </li>
 <li>
 <p>微内核操作系统的优点</p>
@@ -1219,8 +1236,6 @@
 </li>
 <li>
 <p>文件系统放在核外</p>
-</li>
-</ul>
 </li>
 </ul>
 </li>
@@ -1261,7 +1276,7 @@
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/myfirstblog/">
+          <a class="prev" href="/post/operatingsystem-2/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -1271,7 +1286,7 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">MyFirstBlog</span>
+            <span class="prev-text nav-default">OperatingSystem-2</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
