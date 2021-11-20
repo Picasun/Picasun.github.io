@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>OperatingSystem-1 - Picasun&#39;s blog</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Picasun" />
+  <meta name="description" content="操作系统 Chapter1 操作系统的目标和作用 P1 操作系统的目标 方便：不用直接在硬件运行 机器可以编译命令将用户写的程序翻译成机器代码 方便用户操作计算机系统 有效" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.89.0" />
+
+
+<link rel="canonical" href="https://picasun.github.io/post/operatingsystem-1/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="OperatingSystem-1" />
+<meta property="og:description" content="操作系统 Chapter1 操作系统的目标和作用 P1 操作系统的目标 方便：不用直接在硬件运行 机器可以编译命令将用户写的程序翻译成机器代码 方便用户操作计算机系统 有效" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://picasun.github.io/post/operatingsystem-1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-20T14:26:36+08:00" />
+<meta property="article:modified_time" content="2021-11-20T14:26:36+08:00" />
+
+<meta itemprop="name" content="OperatingSystem-1">
+<meta itemprop="description" content="操作系统 Chapter1 操作系统的目标和作用 P1 操作系统的目标 方便：不用直接在硬件运行 机器可以编译命令将用户写的程序翻译成机器代码 方便用户操作计算机系统 有效"><meta itemprop="datePublished" content="2021-11-20T14:26:36+08:00" />
+<meta itemprop="dateModified" content="2021-11-20T14:26:36+08:00" />
+<meta itemprop="wordCount" content="3719">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="OperatingSystem-1"/>
+<meta name="twitter:description" content="操作系统 Chapter1 操作系统的目标和作用 P1 操作系统的目标 方便：不用直接在硬件运行 机器可以编译命令将用户写的程序翻译成机器代码 方便用户操作计算机系统 有效"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Picasun's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/about/">About</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/friends/">Friends</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Picasun's Blog
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/about/">About</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/friends/">Friends</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">OperatingSystem-1</h1>
+      
+      <div class="post-meta">
+        <time datetime="2021-11-20" class="post-time">
+          2021-11-20
+        </time>
+        
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#操作系统的目标和作用-p1">操作系统的目标和作用 P1</a>
+      <ul>
+        <li><a href="#操作系统的目标">操作系统的目标</a></li>
+        <li><a href="#操作系统的作用">操作系统的作用</a></li>
+        <li><a href="#操作系统发展的动力">操作系统发展的动力</a></li>
+      </ul>
+    </li>
+    <li><a href="#操作系统的发展过程-p5">操作系统的发展过程 P5</a>
+      <ul>
+        <li><a href="#未配置的操作系统">未配置的操作系统</a></li>
+        <li><a href="#单道批处理系统">单道批处理系统</a></li>
+        <li><a href="#多道批处理系统">多道批处理系统</a></li>
+        <li><a href="#分时系统">分时系统</a></li>
+        <li><a href="#实时系统">实时系统</a></li>
+        <li><a href="#微机操作发展">微机操作发展</a></li>
+      </ul>
+    </li>
+    <li><a href="#操作系统的基本特性-p13">操作系统的基本特性 P13</a>
+      <ul>
+        <li><a href="#并发concurrence">并发（Concurrence）</a></li>
+        <li><a href="#共享资源复用在内存中">共享（资源复用）（在内存中）</a></li>
+        <li><a href="#虚拟">虚拟</a></li>
+        <li><a href="#异步">异步</a></li>
+      </ul>
+    </li>
+    <li><a href="#操作系统的主要功能-p16">操作系统的主要功能 P16</a>
+      <ul>
+        <li><a href="#处理机管理功能">处理机管理功能</a></li>
+        <li><a href="#存储器管理功能">存储器管理功能</a></li>
+        <li><a href="#设备管理功能">设备管理功能</a></li>
+        <li><a href="#文件管理功能">文件管理功能</a></li>
+        <li><a href="#操作系统与用户之间的接口">操作系统与用户之间的接口</a></li>
+        <li><a href="#现代操作系统的新功能">现代操作系统的新功能</a></li>
+      </ul>
+    </li>
+    <li><a href="#os结构设计-p22">OS结构设计 P22</a>
+      <ul>
+        <li><a href="#传统操作系统结构">传统操作系统结构</a></li>
+        <li><a href="#客户服务器模式">客户/服务器模式</a></li>
+        <li><a href="#面向对象的程序设计技术简介">面向对象的程序设计技术简介</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h1 id="操作系统-chapter1">操作系统 Chapter1</h1>
+<h2 id="操作系统的目标和作用-p1">操作系统的目标和作用 P1</h2>
+<ul>
+<li>
+<h3 id="操作系统的目标">操作系统的目标</h3>
+<ul>
+<li>
+<p>方便：不用直接在硬件运行  机器可以编译命令将用户写的程序翻译成机器代码
+方便用户操作计算机系统</p>
+</li>
+<li>
+<p>有效性：1.提高系统资源利用率  （软硬件） 2.合理组织工作流程</p>
+</li>
+<li>
+<p>可扩展性：微内核结构能方便增添新的功能和模块</p>
+</li>
+<li>
+<p>开放性：软硬件兼容  方便实现互联</p>
+</li>
+<li>
+<p>扩展性</p>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="操作系统的作用">操作系统的作用</h3>
+<ul>
+<li>
+<p>作为用户和计算机硬件系统之间的接口</p>
+</li>
+<li>
+<p>计算机系统资源（处理机、存储器、IO、文件）的管理者</p>
+</li>
+<li>
+<p>实现对计算机资源的抽象</p>
+<ul>
+<li>
+<p>I/O设备管理软件对计算机硬件操作的第一层抽象</p>
+</li>
+<li>
+<p>文件管理软件实现了第二层抽象</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="操作系统发展的动力">操作系统发展的动力</h3>
+<ul>
+<li>
+<p>不断提高计算机资源利用率</p>
+</li>
+<li>
+<p>方便用户</p>
+</li>
+<li>
+<p>器件的更新换代</p>
+</li>
+<li>
+<p>计算机体系结构的不断发展</p>
+</li>
+<li>
+<p>新的应用需求</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="操作系统的发展过程-p5">操作系统的发展过程 P5</h2>
+<ul>
+<li>
+<h3 id="未配置的操作系统">未配置的操作系统</h3>
+<ul>
+<li>
+<p>人工操作：纸带机器</p>
+<ul>
+<li>
+<p>资源空闲</p>
+</li>
+<li>
+<p>用户独占全机器</p>
+</li>
+</ul>
+</li>
+<li>
+<p>脱机输入/输出方式：输入到磁盘上 需要时调入内存</p>
+<ul>
+<li>
+<p>减少CPU空闲</p>
+</li>
+<li>
+<p>提高I/O速度</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="单道批处理系统">单道批处理系统</h3>
+<ul>
+<li>
+<p>脱机方法（把作业输入磁带）➕监督程序Monitor 监督程序给予控制权给作业</p>
+</li>
+<li>
+<p>CPU利用率降低</p>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="多道批处理系统">多道批处理系统</h3>
+<ul>
+<li>
+<p>设计基本概念：进一步提高资源利用率和系统吞吐量</p>
+<ul>
+<li>
+<p>1.作业放在外存 形成后备队列</p>
+</li>
+<li>
+<p>2.按照算法调入内存 共享CPU等资源</p>
+</li>
+</ul>
+</li>
+<li>
+<p>优缺点：</p>
+<ul>
+<li>
+<p>1.资源利用率高（多道程序交替进行） 2.系统吞吐量大（资源始终“忙碌”）</p>
+</li>
+<li>
+<p>1.平均周转时间长（要排队） 2.无交互能力（交给系统后不能交互）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>需要解决的问题</p>
+<ul>
+<li>
+<p>处理机争用：要满足各程序运行 也要提高处理机利用率</p>
+</li>
+<li>
+<p>内存分配保护 不会因某程序异常破坏其他</p>
+</li>
+<li>
+<p>I/O 设备分配问题</p>
+</li>
+<li>
+<p>文件组织和管理问题</p>
+</li>
+<li>
+<p>作业管理问题</p>
+</li>
+<li>
+<p>用户与系统接口问题</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="分时系统">分时系统</h3>
+<ul>
+<li>
+<p>分时系统的引入</p>
+<ul>
+<li>
+<p>希望 人机交互</p>
+</li>
+<li>
+<p>希望 共享主机</p>
+</li>
+</ul>
+</li>
+<li>
+<p>实现中的关键问题</p>
+<ul>
+<li>
+<p>及时接受：</p>
+<ul>
+<li>设置多路卡 （xx个终端就配置一个xx用户的多路卡）</li>
+</ul>
+</li>
+<li>
+<p>及时处理：</p>
+<ul>
+<li>
+<p>直接进内存</p>
+</li>
+<li>
+<p>轮转运行方式（时间片：一个很短的时间 运行完立即调度下一个作业）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>特征：</p>
+<ul>
+<li>
+<p>多路性</p>
+</li>
+<li>
+<p>独立性</p>
+</li>
+<li>
+<p>及时性</p>
+</li>
+<li>
+<p>交互性（通过终端与系统人机对话） 广泛性（多方面服务）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="实时系统">实时系统</h3>
+<ul>
+<li>
+<p>实时系统的类型</p>
+<ul>
+<li>
+<p>工业/武器控制</p>
+</li>
+<li>
+<p>信息查询</p>
+</li>
+<li>
+<p>多媒体</p>
+</li>
+<li>
+<p>嵌入式</p>
+</li>
+</ul>
+</li>
+<li>
+<p>实时任务的类型</p>
+<ul>
+<li>
+<p>周期性实时任务和非周期性实时任务</p>
+<ul>
+<li>
+<p>周期性（周期的发送激励信号给计算机 要求按照制定周期循环执行）</p>
+</li>
+<li>
+<p>非周期性（联系截止时间 1⃣️开始截止时间2⃣️完成截止时间）</p>
+</li>
+<li>
+<p>硬实时任务和软实时任务</p>
+</li>
+</ul>
+</li>
+<li>
+<p>实时系统和分时系统的特征比较</p>
+<ul>
+<li>
+<p>多路性：实时系统的多路性指的是系统周期性的对多路现场信息采集</p>
+</li>
+<li>
+<p>独立性：互不干扰</p>
+</li>
+<li>
+<p>及时性：分时系统1-3s   /  实时系统毫秒级（音乐/电视）</p>
+</li>
+<li>
+<p>交互性：分时系统可以多种服务 / 实时系统仅限于特定命令</p>
+</li>
+<li>
+<p>可靠性：可靠性</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="微机操作发展">微机操作发展</h3>
+<ul>
+<li>
+<p>单用户单任务操作系统</p>
+<ul>
+<li>
+<p>CP/M</p>
+</li>
+<li>
+<p>MS-DOS</p>
+</li>
+</ul>
+</li>
+<li>
+<p>单用户多任务操作系统</p>
+<ul>
+<li>windows</li>
+</ul>
+</li>
+<li>
+<p>多用户多任务操作系统</p>
+<ul>
+<li>
+<p>UNIX OS</p>
+</li>
+<li>
+<p>Solaris OS</p>
+</li>
+<li>
+<p>Linux OS（UNIX主要变种）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="操作系统的基本特性-p13">操作系统的基本特性 P13</h2>
+<ul>
+<li>
+<h3 id="并发concurrence">并发（Concurrence）</h3>
+<ul>
+<li>
+<p>并行：两个或者多个事件在同一时刻发生</p>
+</li>
+<li>
+<p>并发：两个或者多个事件在同一时间间隔发生（单处理机系统 每刻一道程序）</p>
+</li>
+<li>
+<p>进程：在系统中独立运行并作为资源分配的基本单位 （能独立运行的实体）</p>
+</li>
+<li>
+<p>由 一组堆栈 一组机器指令 数据 组成</p>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="共享资源复用在内存中">共享（资源复用）（在内存中）</h3>
+<ul>
+<li>
+<p>互斥共享方式
+-   提出请求 若空闲分配 否则就等待 （临界资源，独占资源）</p>
+</li>
+<li>
+<p>同时访问方式</p>
+<ul>
+<li>允许多个进程访问 比如磁盘</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="虚拟">虚拟</h3>
+<ul>
+<li>
+<p>时分复用技术</p>
+<p>利用某设备为一用户服务的空闲时间为其他用户服务</p>
+<ul>
+<li>
+<p>虚拟处理机技术
+利用多道程序设计技术 每道程序至少一个进程 多道程序并发
+虽然只有一台处理机 但可以实现为多个用户服务
+一台物理上的处理机 虚拟为 多台逻辑上的处理机</p>
+</li>
+<li>
+<p>虚拟设备技术
+一台物理设备 虚拟为 多台逻辑上的I/O设备</p>
+</li>
+</ul>
+</li>
+<li>
+<p>空分复用技术
+用存储器的空闲空间分区域存放和运行其他多道程序 提高内存利用率</p>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="异步">异步</h3>
+<p>因为多个进程并发执行，当正在执行的进程提出对某种资源要求（临界资源）
+而此时临界资源正在为其他进程服务 其必须等待 释放资源 直到资源空闲归还
+所以因为资源等因素的限制，往往不能 “一气呵成” 必须 “走走停停”
+进程以人们不可预知的速度向前推进，此即进程异步性</p>
+</li>
+</ul>
+<h2 id="操作系统的主要功能-p16">操作系统的主要功能 P16</h2>
+<p>操作系统为了多道程序的运行提供良好的运行环境</p>
+<ul>
+<li>
+<h3 id="处理机管理功能">处理机管理功能</h3>
+<p>处理机的分配和运行以进程为基本单位</p>
+<ul>
+<li>
+<p>进程控制
+多程序环境下为使作业并发执行 必须为每道作业创建一个或几个进程 并分配资源
+进程结束 撤销进程 回收资源  控制进程在运行过程中的状态转换</p>
+</li>
+<li>
+<p>进程同步</p>
+</li>
+<li>
+<p>进程互斥：对临界资源</p>
+</li>
+<li>
+<p>进程同步
+当进程合作完成公共任务时，由同步机构对其次序加以协调
+最简单的方法：对临界资源配置一把锁</p>
+</li>
+<li>
+<p>进程通信
+合作完成共同任务需要交换信息
+进程通信实现了相互合作的进程之间的信息交换
+通过进程的消息队列</p>
+</li>
+<li>
+<p>进程调度</p>
+<ul>
+<li>
+<p>作业调度
+从后备队列选取若干作业，分配所需资源，分别建立进程，插入就绪队列</p>
+</li>
+<li>
+<p>进程调度
+从进程就绪队列选出一个进程 分配处理机给他</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="存储器管理功能">存储器管理功能</h3>
+<ul>
+<li>
+<p>内存分配</p>
+<p>主要任务：为程序分配内存空间；提高存储器利用率；      <br>
+允许正在运行的程序申请附加内存空间</p>
+<ul>
+<li>
+<p>静态分配方式
+作业装入时确定内存空间，不许作业在内存中移动或申请</p>
+</li>
+<li>
+<p>动态分配方式
+允许继续申请新的空间，适应数据和程序的动态增长 允许移动</p>
+</li>
+</ul>
+</li>
+<li>
+<p>内存保护
+确保程序在自己的内存空间运行；不允许用户程序访问操作系统的程序和数据
+不允许用户程序转移到非共享的其他程序中执行；（越界则中断请求，停止执行）</p>
+</li>
+<li>
+<p>地址映射
+将地址空间中的逻辑地址转化为内存空间中对应的物理地址（硬件支持）</p>
+</li>
+<li>
+<p>内存扩充</p>
+<p>用虚拟存储技术，逻辑扩大</p>
+<ul>
+<li>
+<p>请求调入功能
+仅仅装入部分程序和数据就能启动，需要再从磁盘调入</p>
+</li>
+<li>
+<p>置换功能
+如果没有调入空间，就把先不用的程序和数据调到硬盘，腾出内存</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="设备管理功能">设备管理功能</h3>
+<p>完成用户进程提出的 I/O 请求，分配设备，完成操作
+提高 CPU 和 I/O 设备的使用率 提高 I/O 速度 方便用户使用 I/O</p>
+<ul>
+<li>
+<p>缓冲管理
+缓和 CPU 和 I/O 设备速度不匹配的问题</p>
+</li>
+<li>
+<p>设备分配</p>
+</li>
+<li>
+<p>设备处理
+又称 设备驱动程序：实现CPU和设备控制器之间的通信</p>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="文件管理功能">文件管理功能</h3>
+<ul>
+<li>
+<p>文件存储空间的管理
+为每个文件分配必要的外存空间，提高外存利用率，进而提高文件系统的存取速度
+需要相应的数据结构来记录文件存储空间的使用情况，以供分配存储空间时参考
+有分配和回收功能</p>
+</li>
+<li>
+<p>目录管理
+文件建立目录项 加以组织  只需要在外存保留一份该共享文件的副本</p>
+</li>
+<li>
+<p>文件的读/写管理和保护</p>
+<ul>
+<li>
+<p>文件的读/写管理
+读写不同时 可以和用指针；读写完成便修改指针</p>
+</li>
+<li>
+<p>文件保护
+防止未经核准的用户存取文件；防止冒名顶替存取文件；防止以不正确的方式使用文件</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="操作系统与用户之间的接口">操作系统与用户之间的接口</h3>
+<ul>
+<li>
+<p>用户接口</p>
+<ul>
+<li>
+<p>联机用户接口
+终端命令</p>
+</li>
+<li>
+<p>脱机用户接口
+用作业控制语言JCL把控制和命令写在作业说明书上，一起给系统</p>
+</li>
+<li>
+<p>图形用户接口</p>
+</li>
+<li>
+<p>程序接口
+由一组系统调用组成，每个系统调用都是一个能完成特定功能的子程序</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="现代操作系统的新功能">现代操作系统的新功能</h3>
+<ul>
+<li>
+<p>系统安全</p>
+<ul>
+<li>
+<p>认证技术</p>
+</li>
+<li>
+<p>密码技术</p>
+</li>
+<li>
+<p>控制访问技术</p>
+</li>
+<li>
+<p>反病毒技术</p>
+</li>
+</ul>
+</li>
+<li>
+<p>网络的功能和服务</p>
+<ul>
+<li>
+<p>网络通信</p>
+</li>
+<li>
+<p>资源管理</p>
+</li>
+<li>
+<p>应用互操作</p>
+</li>
+</ul>
+</li>
+<li>
+<p>支持多媒体</p>
+<ul>
+<li>
+<p>接纳控制功能</p>
+</li>
+<li>
+<p>实时调度</p>
+</li>
+<li>
+<p>多媒体文件的存储</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="os结构设计-p22">OS结构设计 P22</h2>
+<ul>
+<li>
+<h3 id="传统操作系统结构">传统操作系统结构</h3>
+<p>无结构操作系统
+仅仅是一组过程的集合 每个过程可以任意相互调用其他 非常复杂混乱</p>
+<ul>
+<li>
+<p>模块化操作系统</p>
+<ul>
+<li>
+<p>基本概念</p>
+<ul>
+<li>
+<p>模块独立性</p>
+<ul>
+<li>
+<p>内聚性
+模块内各部分间的紧密程度 内聚性越高 独立性越强</p>
+</li>
+<li>
+<p>耦合度
+模块间相互联系相互影响的程度 耦合度越低 独立性越好</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>模块接口法的优缺点</p>
+<ul>
+<li>
+<p>优点
+提高OS设计的正确性、可理解性、可维护性
+增强OS可适应性
+加速OS开发</p>
+</li>
+<li>
+<p>缺点
+设计时的接口规定很难满足模块设计完成后对接口的实际需求
+设计阶段需要作出很多决定，每个决定必须建立在上一个决定的基础上
+模块化结构设计中，各模块齐头并进设计，很难每一步决定都建立在可靠基础上
+模块-接口法   又被称为    无序模块法</p>
+</li>
+</ul>
+</li>
+<li>
+<h4 id="分层式操作系统">分层式操作系统</h4>
+<ul>
+<li>
+<p>基本概念
+为了让模块接口法中的无序变得有序，引入有序分层法
+在目标系统An和逻辑系统调用A0之间铺设若干层次软件
+让目标系统通过中间若干软件层最终在A0上运行
+常常采用自底向上法</p>
+</li>
+<li>
+<p>优缺点</p>
+<ul>
+<li>
+<p>易保证系统正确性</p>
+</li>
+<li>
+<p>易扩充和易维护性</p>
+</li>
+<li>
+<p>系统效率低
+单项依赖，必须每层之间都建立通信机制 一个功能穿越多个层次
+通信开销大 导致效率降低</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="客户服务器模式">客户/服务器模式</h3>
+<ul>
+<li>
+<p>客户/服务器模式的由来、组成和类型</p>
+<ul>
+<li>
+<p>客户机
+一个LAN网络上链接有多台客户机，客户进程在其上运行</p>
+</li>
+<li>
+<p>服务器
+为所有网上的用户提供服务，被动等待客户机请求</p>
+</li>
+<li>
+<p>网络系统
+链接所有客户机和服务器，实现通信和网络资源共享</p>
+</li>
+</ul>
+</li>
+<li>
+<p>客户/服务器之间的交互</p>
+<p>利用消息机制通信，客户机和服务器共同完成对程序处理</p>
+<ul>
+<li>
+<p>1.客户发送请求消息</p>
+</li>
+<li>
+<p>2.服务器接受消息</p>
+</li>
+<li>
+<p>3.服务器回送消息</p>
+</li>
+<li>
+<p>4.客户机接受消息</p>
+</li>
+</ul>
+</li>
+<li>
+<p>客户/服务器模式的优点</p>
+<p>在分布式系统和网络环境下软件的主要工作模式之一</p>
+<ul>
+<li>
+<p>1.数据的分布处理和存储</p>
+</li>
+<li>
+<p>2.便于集中管理</p>
+</li>
+<li>
+<p>3.灵活性和可扩展性
+数量</p>
+</li>
+<li>
+<p>4.易于改编应用软件</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="面向对象的程序设计技术简介">面向对象的程序设计技术简介</h3>
+<ul>
+<li>
+<p>面向对象技术的基本概念</p>
+<ul>
+<li>
+<p>对象</p>
+</li>
+<li>
+<p>对象类</p>
+</li>
+<li>
+<p>继承</p>
+</li>
+</ul>
+</li>
+<li>
+<p>面向对象技术的优点</p>
+</li>
+</ul>
+</li>
+<li>
+<p>微内核OS结构</p>
+<p>有效支持多处理机运行，适用于分布式系统环境</p>
+<ul>
+<li>
+<p>微内核操作系统的基本概念</p>
+<ul>
+<li>
+<p>足够小的内核</p>
+<p>只将操作系统中最基本的部分放入微内核，如：</p>
+<ul>
+<li>
+<p>与硬件处理紧密相关的部分</p>
+</li>
+<li>
+<p>一些较为基本的功能</p>
+</li>
+<li>
+<p>客户和服务器之间的通信</p>
+</li>
+</ul>
+</li>
+<li>
+<p>基于客户/服务器模式
+系统的绝大部分功能都放在微内核外的一组服务器中实现
+线程运行在用户态，客户与服务器之间是利用微内核提供的消息传递机制实现交互</p>
+</li>
+<li>
+<p>应用“机制与策略分离”原理
+机制：实现某一功能的具体执行机构（放在OS微内核）
+策略：在机制的基础上借助某些参数和算法来执行功能的优化</p>
+</li>
+<li>
+<p>采用面向对象技术</p>
+</li>
+</ul>
+</li>
+<li>
+<p>微内核的基本功能</p>
+<ul>
+<li>
+<p>进程（线程）管理
+进程调度 优先级队列
+进程通信</p>
+</li>
+<li>
+<p>低级存储器管理</p>
+</li>
+<li>
+<p>中断和陷入处理</p>
+</li>
+</ul>
+</li>
+<li>
+<p>微内核操作系统的优点</p>
+<ul>
+<li>
+<p>提高系统的可扩展性</p>
+</li>
+<li>
+<p>增强了系统的可靠性</p>
+</li>
+<li>
+<p>可移植性强</p>
+</li>
+<li>
+<p>提供了对分布式系统的支持</p>
+</li>
+<li>
+<p>融入了面向对象技术</p>
+</li>
+</ul>
+</li>
+<li>
+<p>微内核操作系统存在的问题</p>
+<ul>
+<li>
+<p>性能很差</p>
+</li>
+<li>
+<p>文件系统放在核外</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Picasun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2021-11-20
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/myfirstblog/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">MyFirstBlog</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/combinatorics/">
+            <span class="next-text nav-default">Combinatorics</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="http://localhost:1313" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://picasun.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2021
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Picasun
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
