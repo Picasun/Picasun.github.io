@@ -69,7 +69,7 @@
 <meta itemprop="name" content="OperatingSystem-1">
 <meta itemprop="description" content="操作系统 Chapter1 操作系统的目标和作用 P1 操作系统的目标 方便：不用直接在硬件运行 机器可以编译命令将用户写的程序翻译成机器代码 方便用户操作计算机系统 有效"><meta itemprop="datePublished" content="2021-11-20T14:26:36+08:00" />
 <meta itemprop="dateModified" content="2021-11-20T14:26:36+08:00" />
-<meta itemprop="wordCount" content="3719">
+<meta itemprop="wordCount" content="3732">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="OperatingSystem-1"/>
 <meta name="twitter:description" content="操作系统 Chapter1 操作系统的目标和作用 P1 操作系统的目标 方便：不用直接在硬件运行 机器可以编译命令将用户写的程序翻译成机器代码 方便用户操作计算机系统 有效"/>
@@ -374,6 +374,7 @@
         <li><a href="#传统操作系统结构">传统操作系统结构</a></li>
         <li><a href="#客户服务器模式">客户/服务器模式</a></li>
         <li><a href="#面向对象的程序设计技术简介">面向对象的程序设计技术简介</a></li>
+        <li><a href="#微内核os结构">微内核OS结构</a></li>
       </ul>
     </li>
   </ul>
@@ -973,8 +974,10 @@
 <ul>
 <li>
 <h3 id="传统操作系统结构">传统操作系统结构</h3>
-<p>无结构操作系统
-仅仅是一组过程的集合 每个过程可以任意相互调用其他 非常复杂混乱</p>
+<ul>
+<li>无结构操作系统</li>
+</ul>
+<p>仅仅是一组过程的集合 每个过程可以任意相互调用其他 非常复杂混乱</p>
 <ul>
 <li>
 <p>模块化操作系统</p>
@@ -1015,8 +1018,10 @@
 </li>
 </ul>
 </li>
+</ul>
+</li>
 <li>
-<h4 id="分层式操作系统">分层式操作系统</h4>
+<p>分层式操作系统</p>
 <ul>
 <li>
 <p>基本概念
@@ -1082,8 +1087,6 @@
 <p>4.客户机接受消息</p>
 </li>
 </ul>
-</li>
-<li>
 <p>客户/服务器模式的优点</p>
 <p>在分布式系统和网络环境下软件的主要工作模式之一</p>
 <ul>
@@ -1123,11 +1126,22 @@
 </li>
 <li>
 <p>面向对象技术的优点</p>
+<ul>
+<li>
+<p>重用</p>
+</li>
+<li>
+<p>易修改 扩展</p>
+</li>
+<li>
+<p>正确性可靠性</p>
+</li>
+</ul>
 </li>
 </ul>
 </li>
 <li>
-<p>微内核OS结构</p>
+<h3 id="微内核os结构">微内核OS结构</h3>
 <p>有效支持多处理机运行，适用于分布式系统环境</p>
 <ul>
 <li>
@@ -1146,8 +1160,6 @@
 <li>
 <p>客户和服务器之间的通信</p>
 </li>
-</ul>
-</li>
 <li>
 <p>基于客户/服务器模式
 系统的绝大部分功能都放在微内核外的一组服务器中实现
@@ -1160,6 +1172,8 @@
 </li>
 <li>
 <p>采用面向对象技术</p>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -1176,8 +1190,6 @@
 </li>
 <li>
 <p>中断和陷入处理</p>
-</li>
-</ul>
 </li>
 <li>
 <p>微内核操作系统的优点</p>

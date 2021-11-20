@@ -674,8 +674,10 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;h3 id=&#34;传统操作系统结构&#34;&gt;传统操作系统结构&lt;/h3&gt;
-&lt;p&gt;无结构操作系统
-仅仅是一组过程的集合 每个过程可以任意相互调用其他 非常复杂混乱&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无结构操作系统&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;仅仅是一组过程的集合 每个过程可以任意相互调用其他 非常复杂混乱&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;模块化操作系统&lt;/p&gt;
@@ -716,8 +718,10 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;
-&lt;h4 id=&#34;分层式操作系统&#34;&gt;分层式操作系统&lt;/h4&gt;
+&lt;p&gt;分层式操作系统&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;基本概念
@@ -783,8 +787,6 @@
 &lt;p&gt;4.客户机接受消息&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
 &lt;p&gt;客户/服务器模式的优点&lt;/p&gt;
 &lt;p&gt;在分布式系统和网络环境下软件的主要工作模式之一&lt;/p&gt;
 &lt;ul&gt;
@@ -824,11 +826,22 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;面向对象技术的优点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;重用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;易修改 扩展&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;正确性可靠性&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;微内核OS结构&lt;/p&gt;
+&lt;h3 id=&#34;微内核os结构&#34;&gt;微内核OS结构&lt;/h3&gt;
 &lt;p&gt;有效支持多处理机运行，适用于分布式系统环境&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -847,8 +860,6 @@
 &lt;li&gt;
 &lt;p&gt;客户和服务器之间的通信&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;基于客户/服务器模式
 系统的绝大部分功能都放在微内核外的一组服务器中实现
@@ -861,6 +872,8 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;采用面向对象技术&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -877,8 +890,6 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;中断和陷入处理&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;微内核操作系统的优点&lt;/p&gt;
