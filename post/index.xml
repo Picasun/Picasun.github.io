@@ -8,15 +8,6 @@
     <language>en</language>
     <lastBuildDate>Sat, 20 Nov 2021 16:09:37 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>MyFirstBlog</title>
-      <link>https://picasun.github.io/post/myfirstblog/</link>
-      <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://picasun.github.io/post/myfirstblog/</guid>
-      <description>1 2 3 4 5 6  package main import &amp;#34;fmt&amp;#34;	func main(){ fmt.Println(&amp;#34;hello&amp;#34;) }   </description>
-    </item>
-    
-    <item>
       <title>OperatingSystem-2</title>
       <link>https://picasun.github.io/post/operatingsystem-2/</link>
       <pubDate>Sat, 20 Nov 2021 16:09:37 +0800</pubDate>
@@ -41,6 +32,15 @@
       
       <guid>https://picasun.github.io/post/combinatorics/</guid>
       <description>排列组合两问 组合恒等式的解释 母函数 已知序列求母函数 / 已知关系求母函数 组合型母函数 应用题 解递归关系 特征方程 背 不一定是齐次的 也可能非齐次 容斥原理</description>
+    </item>
+    
+    <item>
+      <title>MyFirstBlog</title>
+      <link>https://picasun.github.io/post/myfirstblog/</link>
+      <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://picasun.github.io/post/myfirstblog/</guid>
+      <description>1 2 3 4 5 6  package main import &amp;#34;fmt&amp;#34;	func main(){ fmt.Println(&amp;#34;hello&amp;#34;) }   </description>
     </item>
     
   </channel>

@@ -69,7 +69,7 @@
 <meta itemprop="name" content="OperatingSystem-2">
 <meta itemprop="description" content="操作系统 Chapter2 前趋图和程序执行 P32 前趋图 I：输入操作 C：计算操作 P：打印操作 程序顺序执行 程序顺序执行 程序顺序执行时的特征 顺序性：严格按照规定的顺序"><meta itemprop="datePublished" content="2021-11-20T16:09:37+08:00" />
 <meta itemprop="dateModified" content="2021-11-20T16:09:37+08:00" />
-<meta itemprop="wordCount" content="2318">
+<meta itemprop="wordCount" content="2782">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="OperatingSystem-2"/>
 <meta name="twitter:description" content="操作系统 Chapter2 前趋图和程序执行 P32 前趋图 I：输入操作 C：计算操作 P：打印操作 程序顺序执行 程序顺序执行 程序顺序执行时的特征 顺序性：严格按照规定的顺序"/>
@@ -348,13 +348,14 @@
     <li><a href="#进程的创建">进程的创建</a></li>
     <li><a href="#进程的终止">进程的终止</a></li>
     <li><a href="#进程的阻塞与唤醒">进程的阻塞与唤醒</a></li>
+    <li><a href="#进程的挂起与激活">进程的挂起与激活</a></li>
     <li><a href="#进程同步-p47">进程同步 P47</a></li>
     <li><a href="#进程同步的基本概念">进程同步的基本概念</a></li>
     <li><a href="#硬件同步机制">硬件同步机制</a></li>
     <li><a href="#信号量机制">信号量机制</a></li>
     <li><a href="#信号量的应用">信号量的应用</a></li>
     <li><a href="#管程机制">管程机制</a></li>
-    <li><a href="#经典进程同步问题">经典进程同步问题</a></li>
+    <li><a href="#经典进程同步问题-p60-">经典进程同步问题 P60 ⭐️</a></li>
     <li><a href="#生产者-消费者问题">生产者-消费者问题</a></li>
     <li><a href="#哲学家进餐问题">哲学家进餐问题</a></li>
     <li><a href="#读者写者问题">读者写者问题</a></li>
@@ -666,8 +667,18 @@ OS会把处理机分配给另一个就绪进程，让受阻的进程处于暂停
 </ul>
 </li>
 <li>进程阻塞过程
-阻塞是进程自身的一种主动行为</li>
-<li>进程唤醒过程</li>
+阻塞是进程自身的一种主动行为
+PCB插入阻塞队列</li>
+<li>进程唤醒过程
+当被阻塞进程所期待的事情发生（I/O完成 数据到达
+PCB插入就绪队列</li>
+</ul>
+</li>
+<li>
+<h2 id="进程的挂起与激活">进程的挂起与激活</h2>
+<ul>
+<li>进程的挂起</li>
+<li>进程的激活过程</li>
 </ul>
 </li>
 </ul>
@@ -675,21 +686,71 @@ OS会把处理机分配给另一个就绪进程，让受阻的进程处于暂停
 <ul>
 <li>
 <h2 id="进程同步的基本概念">进程同步的基本概念</h2>
+<ul>
+<li>两种形式的制约关系
+<ul>
+<li>间接相互制约关系（临界资源</li>
+<li>直接相互制约关系 （输入 计算的缓冲区共享</li>
+</ul>
+</li>
+<li>临界资源
+把counter当成临界资源处理
+要让生产者和消费者进程互斥地访问变量counter</li>
+<li>临界区
+把每个进程中访问临界资源的代码称为临界区
+每个进程进入临界区之前需要对临界资源检查 看是否在被使用
+需要在临界区之前加上一段进入区 entry section
+后面加入退出区 exit section
+其他部分都叫做剩余区</li>
+</ul>
 </li>
 <li>
 <h2 id="硬件同步机制">硬件同步机制</h2>
+<ul>
+<li>关中断
+<ul>
+<li>滥用会导致严重后果</li>
+<li>时间过长会影响系统效率 限制处理器</li>
+<li>不适用于多CPU 因为一个处理器上关中断并不能防止进程在其他处理器上执行相同的临界段代码</li>
+</ul>
+</li>
+<li>利用Test-and-Set指令实现互斥</li>
+<li>利用Swap指令实现进程互斥</li>
+</ul>
 </li>
 <li>
 <h2 id="信号量机制">信号量机制</h2>
+<ul>
+<li>整型信号量</li>
+<li>记录型信号量</li>
+<li>AND信号量</li>
+<li>信号量集</li>
+</ul>
 </li>
 <li>
 <h2 id="信号量的应用">信号量的应用</h2>
+<ul>
+<li>wait（）</li>
+<li>signal（）</li>
+<li>前趋关系</li>
+<li>signal（x）  会使x+1 如此wait（x）才会执行</li>
+</ul>
 </li>
 <li>
 <h2 id="管程机制">管程机制</h2>
+<ul>
+<li>实现进程互斥
+<ul>
+<li>名称</li>
+<li>局部于管程的共享数据结构说明</li>
+<li>对该数据结构进行操作的一组过程</li>
+<li>对局部于管程的共享数据设置初始值的语句</li>
+</ul>
 </li>
 </ul>
-<h2 id="经典进程同步问题">经典进程同步问题</h2>
+</li>
+</ul>
+<h2 id="经典进程同步问题-p60-">经典进程同步问题 P60 ⭐️</h2>
 <ul>
 <li>
 <h2 id="生产者-消费者问题">生产者-消费者问题</h2>
@@ -771,19 +832,6 @@ OS会把处理机分配给另一个就绪进程，让受阻的进程处于暂停
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/myfirstblog/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">MyFirstBlog</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
         
           <a class="next" href="/post/operatingsystem-1/">
             <span class="next-text nav-default">OperatingSystem-1</span>
