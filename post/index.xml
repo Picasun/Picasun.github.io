@@ -6,7 +6,25 @@
     <description>Recent content in Posts on Picasun&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Nov 2021 16:09:37 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Nov 2021 00:00:02 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OperatingSystem</title>
+      <link>https://picasun.github.io/post/operatingsystem/</link>
+      <pubDate>Tue, 23 Nov 2021 00:00:02 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/operatingsystem/</guid>
+      <description>操作系统考点 共五页 五道题 判断题 20题 20` 信号 signal kill 最后五道是linux的内容 其中有一道题 是系统功能调用 实验 写过 fork() exec wait等待子进程结束 main</description>
+    </item>
+    
+    <item>
+      <title>OperatingSystem 3</title>
+      <link>https://picasun.github.io/post/operatingsystem-3/</link>
+      <pubDate>Mon, 22 Nov 2021 22:57:41 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/operatingsystem-3/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>OperatingSystem-2</title>
       <link>https://picasun.github.io/post/operatingsystem-2/</link>

@@ -6,7 +6,7 @@
     <description>Recent content on Picasun&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Nov 2021 16:09:37 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 23 Nov 2021 00:00:02 +0800</lastBuildDate>
     
         <atom:link href="https://picasun.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -49,6 +49,190 @@
     </item>
     
     <item>
+      <title>OperatingSystem</title>
+      <link>https://picasun.github.io/post/operatingsystem/</link>
+      <pubDate>Tue, 23 Nov 2021 00:00:02 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/operatingsystem/</guid>
+      
+        <description>&lt;h1 id=&#34;操作系统考点&#34;&gt;操作系统考点&lt;/h1&gt;
+&lt;p&gt;共五页 五道题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;判断题-20题----20&#34;&gt;判断题 20题    20`&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;信号 signal kill&lt;/li&gt;
+&lt;li&gt;最后五道是linux的内容
+其中有一道题 是系统功能调用 实验 写过
+fork()
+exec
+wait等待子进程结束 main只能返回8位整形
+signal()
+kill
+pipe
+exit
+dup&lt;/li&gt;
+&lt;li&gt;有两道关于shell语言&lt;/li&gt;
+&lt;li&gt;两道关于两个linux命令&lt;/li&gt;
+&lt;li&gt;操作系统基本概念
+&lt;ul&gt;
+&lt;li&gt;信号量&lt;/li&gt;
+&lt;li&gt;并发并行&lt;/li&gt;
+&lt;li&gt;微内核&lt;/li&gt;
+&lt;li&gt;实时操作系统分时操作系统&lt;/li&gt;
+&lt;li&gt;多道单道&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;进程
+&lt;ul&gt;
+&lt;li&gt;基本概念&lt;/li&gt;
+&lt;li&gt;运行阻塞就绪&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;调度和死锁
+&lt;ul&gt;
+&lt;li&gt;一个调度算法&lt;/li&gt;
+&lt;li&gt;一个死锁的题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;选择题-20题-20&#34;&gt;选择题 20题 20`&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;操作系统 1- 17
+&lt;ul&gt;
+&lt;li&gt;接口 命令接口 图形接口？P22&lt;/li&gt;
+&lt;li&gt;微内核&lt;br&gt;
+公认的几点：&lt;br&gt;
+1.FS核心外&lt;br&gt;
+2.性能比较差&lt;br&gt;
+3.微内核 非主流&lt;/li&gt;
+&lt;li&gt;CPU的状态 多题&lt;br&gt;
+他会混乱着考 比如说 cpu在阻塞态&lt;/li&gt;
+&lt;li&gt;核心态 用户态
+区别于进程状态&lt;/li&gt;
+&lt;li&gt;当前优先级 请求优先级 程序优先级 cpl rpl dpl 在CS保存&lt;/li&gt;
+&lt;li&gt;互斥类的指令&lt;br&gt;
+比如书上用开关中断&lt;br&gt;
+测试设置指令 交换指令（奔腾用交换）&lt;br&gt;
+信号量&lt;br&gt;
+信号 signal kill&lt;/li&gt;
+&lt;li&gt;semaphore信号量&lt;/li&gt;
+&lt;li&gt;关于死锁&lt;br&gt;
+什么是死锁&lt;br&gt;
+引起死锁的原因：资源不足 推进非法&lt;br&gt;
+四个必要条件：1 2 3 4环路？&lt;br&gt;
+死锁解决方法：&lt;br&gt;
+发现死锁&lt;br&gt;
+解除死锁&lt;br&gt;
+预防死锁 （？）（⬆️ 小题）&lt;br&gt;
+避免死锁 （银行家算法）安全性的检测算法：所有的资源砸给一个进程 运行完释放（大题）&lt;br&gt;
+pcb cpu现场 中断&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;linux 18 19 20
+&lt;ul&gt;
+&lt;li&gt;命令 getpid / getppid&lt;/li&gt;
+&lt;li&gt;文件链接 link unlink（win下没有）&lt;br&gt;
+属于文件 专门讲文件&lt;br&gt;
+文件链接：文件名的构成规则 副目录子目录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;填空题-20&#34;&gt;填空题 20`&lt;/h2&gt;
+&lt;p&gt;（标题性内容）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;信号量规则 ：2.4.2 同步机制遵循的原则规则&lt;/li&gt;
+&lt;li&gt;死锁的四个必要条件：
+&lt;ul&gt;
+&lt;li&gt;处理死锁的方法 ：预防避免检测解除&lt;/li&gt;
+&lt;li&gt;操作系统的特征 ：并发共享同步虚拟&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;简答题-10&#34;&gt;简答题 10`&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;第一章的内容&lt;br&gt;
+｜ CPU状态：用户态核心态；库函数和系统功能调用；特权指令？&lt;br&gt;
+｜ 微内核与宏内核&lt;/li&gt;
+&lt;li&gt;第二章的内容&lt;br&gt;
+｜ 进程与线程&lt;br&gt;
+｜ 进程通信IPC  消息缓冲区 进程xx区&lt;br&gt;
+｜ PV操作 的一些应用的算法&lt;br&gt;
+｜ 进程的基本概念 PCB&lt;br&gt;
+｜ 中断与异常&lt;br&gt;
+｜ 异常：非法指令 普通用户执行了特权指令❌&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;大题-30&#34;&gt;大题 30`&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;生产者消费者问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;上课PV操作的应用&lt;br&gt;
+｜ 趣味游戏题&lt;br&gt;
+｜缓冲区的库房&lt;br&gt;
+｜读写问题：改进&lt;br&gt;
+｜猴子过桥问题 人过桥&lt;br&gt;
+｜执行顺序调度 没有中央控制器 用pv操作器协调 红绿灯 吃水果&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;算法&lt;br&gt;
+｜调度算法题  FCFS 不常常见到&lt;br&gt;
+｜描述一下算法  做计算题 第三章&lt;br&gt;
+｜处理机调度 指标 P86 算这些时间 一个或者多个算法 第三章开头&lt;br&gt;
+｜调度大题&lt;br&gt;
+｜ 进程调度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;死锁大题 6分（倒2）&lt;br&gt;
+｜ 银行家算法&lt;br&gt;
+｜ 列表 不能分配&lt;br&gt;
+｜ 按照书上套路来&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;linux 读程序&lt;br&gt;
+｜ 函数 系统功能调用 ：什么是系统功能调用 干嘛用的 功能&lt;br&gt;
+｜ 读程序 说明用途&lt;br&gt;
+｜ fork() if else 都执行&lt;br&gt;
+｜ **execlp() 会返回 写错就会返回-1&lt;br&gt;
+｜ 正确不返回&lt;br&gt;
+｜ 下面的printf不执行&lt;br&gt;
+｜ **&lt;br&gt;
+｜ exit()进程终止 main返回值就给他了&lt;br&gt;
+｜ 下面不执行&lt;br&gt;
+｜&lt;br&gt;
+｜ wait () 等待子进程结束 相当复杂 用不止一个fork()&lt;br&gt;
+｜ 描述性题目 答案不唯一 多写&lt;br&gt;
+｜&lt;br&gt;
+｜ puts() ➕字符串 ：输出     没有 printf()这样的格式&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>OperatingSystem 3</title>
+      <link>https://picasun.github.io/post/operatingsystem-3/</link>
+      <pubDate>Mon, 22 Nov 2021 22:57:41 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/operatingsystem-3/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
       <title>OperatingSystem-2</title>
       <link>https://picasun.github.io/post/operatingsystem-2/</link>
       <pubDate>Sat, 20 Nov 2021 16:09:37 +0800</pubDate>
@@ -59,7 +243,7 @@
 &lt;h2 id=&#34;前趋图和程序执行-p32&#34;&gt;前趋图和程序执行 P32&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;前趋图&#34;&gt;前趋图&lt;/h2&gt;
+&lt;h3 id=&#34;前趋图&#34;&gt;前趋图&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;I：输入操作&lt;/li&gt;
 &lt;li&gt;C：计算操作&lt;/li&gt;
@@ -67,7 +251,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;程序顺序执行&#34;&gt;程序顺序执行&lt;/h2&gt;
+&lt;h3 id=&#34;程序顺序执行&#34;&gt;程序顺序执行&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;程序顺序执行&lt;/li&gt;
 &lt;li&gt;程序顺序执行时的特征
@@ -81,7 +265,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;程序并发执行&#34;&gt;程序并发执行&lt;/h2&gt;
+&lt;h3 id=&#34;程序并发执行&#34;&gt;程序并发执行&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;程序的并发执行
 不存在前趋关系，可以并发执行&lt;/li&gt;
@@ -100,7 +284,7 @@
 &lt;h2 id=&#34;进程的描述-p35&#34;&gt;进程的描述 P35&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;进程的定义和特征&#34;&gt;进程的定义和特征&lt;/h2&gt;
+&lt;h3 id=&#34;进程的定义和特征&#34;&gt;进程的定义和特征&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;进程的定义&lt;br&gt;
@@ -137,7 +321,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;进程的基本状态及转换&#34;&gt;进程的基本状态及转换&lt;/h2&gt;
+&lt;h3 id=&#34;进程的基本状态及转换&#34;&gt;进程的基本状态及转换&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;进程的三种基本状态&lt;/p&gt;
@@ -183,7 +367,7 @@ OS会把处理机分配给另一个就绪进程，让受阻的进程处于暂停
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;挂起操作和进程状态的转换&#34;&gt;挂起操作和进程状态的转换&lt;/h2&gt;
+&lt;h3 id=&#34;挂起操作和进程状态的转换&#34;&gt;挂起操作和进程状态的转换&lt;/h3&gt;
 &lt;p&gt;用于某个进程，和进程会被挂起，进程暂时不接受调度，对应激活操作&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -212,7 +396,7 @@ OS会把处理机分配给另一个就绪进程，让受阻的进程处于暂停
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;进程管理中的数据结构&#34;&gt;进程管理中的数据结构&lt;/h2&gt;
+&lt;h3 id=&#34;进程管理中的数据结构&#34;&gt;进程管理中的数据结构&lt;/h3&gt;
 &lt;p&gt;操作系统对进程运行情况、资源使用等信息的组织和维护是通过建立各种数据结构的方式来实现&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;操作系统中用于管理控制的数据结构
@@ -269,7 +453,7 @@ OS会把处理机分配给另一个就绪进程，让受阻的进程处于暂停
 &lt;h2 id=&#34;进程控制-p42&#34;&gt;进程控制 P42&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;操作系统内核&#34;&gt;操作系统内核&lt;/h2&gt;
+&lt;h3 id=&#34;操作系统内核&#34;&gt;操作系统内核&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;用户态 核心态
 用户态执行特权比较低 系统态&lt;/li&gt;
@@ -289,7 +473,7 @@ OS会把处理机分配给另一个就绪进程，让受阻的进程处于暂停
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;进程的创建&#34;&gt;进程的创建&lt;/h2&gt;
+&lt;h3 id=&#34;进程的创建&#34;&gt;进程的创建&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;进程的层次结构&lt;/li&gt;
 &lt;li&gt;进程图（有向树）&lt;/li&gt;
@@ -312,7 +496,7 @@ OS会把处理机分配给另一个就绪进程，让受阻的进程处于暂停
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;进程的终止&#34;&gt;进程的终止&lt;/h2&gt;
+&lt;h3 id=&#34;进程的终止&#34;&gt;进程的终止&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;引起进程终止的事件
 &lt;ul&gt;
@@ -333,7 +517,7 @@ OS会把处理机分配给另一个就绪进程，让受阻的进程处于暂停
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;进程的阻塞与唤醒&#34;&gt;进程的阻塞与唤醒&lt;/h2&gt;
+&lt;h3 id=&#34;进程的阻塞与唤醒&#34;&gt;进程的阻塞与唤醒&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;引起进程阻塞和唤醒的事件
 &lt;ul&gt;
@@ -352,7 +536,7 @@ PCB插入就绪队列&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;进程的挂起与激活&#34;&gt;进程的挂起与激活&lt;/h2&gt;
+&lt;h3 id=&#34;进程的挂起与激活&#34;&gt;进程的挂起与激活&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;进程的挂起&lt;/li&gt;
 &lt;li&gt;进程的激活过程&lt;/li&gt;
@@ -382,7 +566,7 @@ PCB插入就绪队列&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;硬件同步机制&#34;&gt;硬件同步机制&lt;/h2&gt;
+&lt;h3 id=&#34;硬件同步机制&#34;&gt;硬件同步机制&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;关中断
 &lt;ul&gt;
@@ -396,7 +580,7 @@ PCB插入就绪队列&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;信号量机制&#34;&gt;信号量机制&lt;/h2&gt;
+&lt;h3 id=&#34;信号量机制&#34;&gt;信号量机制&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;整型信号量&lt;/li&gt;
 &lt;li&gt;记录型信号量&lt;/li&gt;
@@ -405,7 +589,7 @@ PCB插入就绪队列&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;信号量的应用&#34;&gt;信号量的应用&lt;/h2&gt;
+&lt;h3 id=&#34;信号量的应用&#34;&gt;信号量的应用&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;wait（）&lt;/li&gt;
 &lt;li&gt;signal（）&lt;/li&gt;
@@ -414,7 +598,7 @@ PCB插入就绪队列&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;管程机制&#34;&gt;管程机制&lt;/h2&gt;
+&lt;h3 id=&#34;管程机制&#34;&gt;管程机制&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;实现进程互斥
 &lt;ul&gt;
@@ -430,49 +614,49 @@ PCB插入就绪队列&lt;/li&gt;
 &lt;h2 id=&#34;经典进程同步问题-p60-&#34;&gt;经典进程同步问题 P60 ⭐️&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;生产者-消费者问题&#34;&gt;生产者-消费者问题&lt;/h2&gt;
+&lt;h3 id=&#34;生产者-消费者问题&#34;&gt;生产者-消费者问题&lt;/h3&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;哲学家进餐问题&#34;&gt;哲学家进餐问题&lt;/h2&gt;
+&lt;h3 id=&#34;哲学家进餐问题&#34;&gt;哲学家进餐问题&lt;/h3&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;读者写者问题&#34;&gt;读者写者问题&lt;/h2&gt;
+&lt;h3 id=&#34;读者写者问题&#34;&gt;读者写者问题&lt;/h3&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;进程通信-p67&#34;&gt;进程通信 P67&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;进程通信的累心&#34;&gt;进程通信的累心&lt;/h2&gt;
+&lt;h3 id=&#34;进程通信的类型&#34;&gt;进程通信的类型&lt;/h3&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;消息传递通信的实现方式&#34;&gt;消息传递通信的实现方式&lt;/h2&gt;
+&lt;h3 id=&#34;消息传递通信的实现方式&#34;&gt;消息传递通信的实现方式&lt;/h3&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;直接消息传递系统实例&#34;&gt;直接消息传递系统实例&lt;/h2&gt;
+&lt;h3 id=&#34;直接消息传递系统实例&#34;&gt;直接消息传递系统实例&lt;/h3&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;线程的基本概念-p67&#34;&gt;线程的基本概念 P67&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;线程的引入&#34;&gt;线程的引入&lt;/h2&gt;
+&lt;h3 id=&#34;线程的引入&#34;&gt;线程的引入&lt;/h3&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;进程与线程的比较&#34;&gt;进程与线程的比较&lt;/h2&gt;
+&lt;h3 id=&#34;进程与线程的比较&#34;&gt;进程与线程的比较&lt;/h3&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;线程的状态和线程控制块&#34;&gt;线程的状态和线程控制块&lt;/h2&gt;
+&lt;h3 id=&#34;线程的状态和线程控制块&#34;&gt;线程的状态和线程控制块&lt;/h3&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;线程的实现-p79&#34;&gt;线程的实现 P79&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;线程的实现方式&#34;&gt;线程的实现方式&lt;/h2&gt;
+&lt;h3 id=&#34;线程的实现方式&#34;&gt;线程的实现方式&lt;/h3&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;线程的实现&#34;&gt;线程的实现&lt;/h2&gt;
+&lt;h3 id=&#34;线程的实现&#34;&gt;线程的实现&lt;/h3&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;h2 id=&#34;线程的创建和终止&#34;&gt;线程的创建和终止&lt;/h2&gt;
+&lt;h3 id=&#34;线程的创建和终止&#34;&gt;线程的创建和终止&lt;/h3&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 </description>
