@@ -682,7 +682,8 @@ OS会把处理机分配给另一个就绪进程，让受阻的进程处于暂停
 <li>
 <h3 id="进程的阻塞与唤醒">进程的阻塞与唤醒</h3>
 <ul>
-<li>引起进程阻塞和唤醒的事件
+<li>
+<p>引起进程阻塞和唤醒的事件</p>
 <ul>
 <li>向系统请求共享资源失败</li>
 <li>等待某种操作的完成</li>
@@ -690,12 +691,16 @@ OS会把处理机分配给另一个就绪进程，让受阻的进程处于暂停
 <li>等待新任务的到达</li>
 </ul>
 </li>
-<li>进程阻塞过程
-阻塞是进程自身的一种主动行为
-PCB插入阻塞队列</li>
-<li>进程唤醒过程
-当被阻塞进程所期待的事情发生（I/O完成 数据到达
-PCB插入就绪队列</li>
+<li>
+<p>进程阻塞过程</p>
+<p>阻塞是进程自身的一种主动行为
+PCB插入阻塞队列</p>
+</li>
+<li>
+<p>进程唤醒过程</p>
+<p>当被阻塞进程所期待的事情发生（I/O完成 数据到达
+PCB插入就绪队列</p>
+</li>
 </ul>
 </li>
 <li>
@@ -711,21 +716,26 @@ PCB插入就绪队列</li>
 <li>
 <h2 id="进程同步的基本概念">进程同步的基本概念</h2>
 <ul>
-<li>两种形式的制约关系
+<li>
+<p>两种形式的制约关系</p>
 <ul>
 <li>间接相互制约关系（临界资源</li>
 <li>直接相互制约关系 （输入 计算的缓冲区共享</li>
 </ul>
 </li>
-<li>临界资源
-把counter当成临界资源处理
-要让生产者和消费者进程互斥地访问变量counter</li>
-<li>临界区
-把每个进程中访问临界资源的代码称为临界区
+<li>
+<p>临界资源</p>
+<p>把counter当成临界资源处理
+要让生产者和消费者进程互斥地访问变量counter</p>
+</li>
+<li>
+<p>临界区</p>
+<p>把每个进程中访问临界资源的代码称为临界区
 每个进程进入临界区之前需要对临界资源检查 看是否在被使用
 需要在临界区之前加上一段进入区 entry section
 后面加入退出区 exit section
-其他部分都叫做剩余区</li>
+其他部分都叫做剩余区</p>
+</li>
 </ul>
 </li>
 <li>
@@ -866,7 +876,7 @@ PCB插入就绪队列</li>
 </svg>
 
             </i>
-            <span class="prev-text nav-default">OperatingSystem 3</span>
+            <span class="prev-text nav-default">OperatingSystem-3</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
@@ -916,7 +926,7 @@ PCB插入就绪队列</li>
       <div class="icon-links">
   
   
-    <a href="http://localhost:1313" rel="me noopener" class="iconfont"
+    <a href="http://picasun.github.io" rel="me noopener" class="iconfont"
       title="github"  target="_blank"
       >
       <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
