@@ -35,42 +35,6 @@
     </item>
     
     <item>
-      <title>OperatingSystem</title>
-      <link>https://picasun.github.io/post/operatingsystem/</link>
-      <pubDate>Tue, 23 Nov 2021 00:00:02 +0800</pubDate>
-      
-      <guid>https://picasun.github.io/post/operatingsystem/</guid>
-      <description>操作系统考点 共五页 五道题 判断题 20题 20` 信号 signal kill 最后五道是linux的内容 其中有一道题 是系统功能调用 实验 写过 fork() exec wait等待子进程结束 main</description>
-    </item>
-    
-    <item>
-      <title>OperatingSystem-3</title>
-      <link>https://picasun.github.io/post/operatingsystem-3/</link>
-      <pubDate>Mon, 22 Nov 2021 22:57:41 +0800</pubDate>
-      
-      <guid>https://picasun.github.io/post/operatingsystem-3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>OperatingSystem-2</title>
-      <link>https://picasun.github.io/post/operatingsystem-2/</link>
-      <pubDate>Sat, 20 Nov 2021 16:09:37 +0800</pubDate>
-      
-      <guid>https://picasun.github.io/post/operatingsystem-2/</guid>
-      <description>操作系统 Chapter2 前趋图和程序执行 P32 前趋图 I：输入操作 C：计算操作 P：打印操作 程序顺序执行 程序顺序执行 程序顺序执行时的特征 顺序性：严格按照规定的顺序</description>
-    </item>
-    
-    <item>
-      <title>OperatingSystem-1</title>
-      <link>https://picasun.github.io/post/operatingsystem-1/</link>
-      <pubDate>Sat, 20 Nov 2021 14:26:36 +0800</pubDate>
-      
-      <guid>https://picasun.github.io/post/operatingsystem-1/</guid>
-      <description>操作系统 Chapter1 操作系统的目标和作用 P1 是配置在计算机硬件上的第一层软件，对硬件系统的首次扩充，管理好硬件设备，提高利用率和吞吐量。 操作系统的目标 方</description>
-    </item>
-    
-    <item>
       <title>Combinatorics</title>
       <link>https://picasun.github.io/post/combinatorics/</link>
       <pubDate>Thu, 18 Nov 2021 20:43:36 +0800</pubDate>
