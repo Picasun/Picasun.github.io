@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Leetcode - Picasun&#39;s blog</title>
+  <title>OperatingSystem-4 - Picasun&#39;s blog</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,9 +23,9 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Picasun" />
-  <meta name="description" content="Leetcode题解 啊，我这个菜鸡也开始做leetcode了！！ 每日更新题目，看看能坚持多久！ Week1 1.二叉树的中序遍历 输入：root = [1,null,2,3] 输出：" />
+  <meta name="description" content="操作系统 Chapter4 存储器管理 存储器的层次结构 几乎每一条指令都有对存储器的访问，因此要求存储器的访问速度匹配处理器的运行速度 存储器还需要很大的容量且价" />
+<meta name="keywords" content="OperatingSystem" />
 
-  <meta name="keywords" content="Hugo, theme" />
 
 
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.89.0" />
 
 
-<link rel="canonical" href="https://picasun.github.io/post/leetcode/" />
+<link rel="canonical" href="https://picasun.github.io/post/operatingsystem-4/" />
 
 
 
@@ -59,20 +59,20 @@
 
 
 
-<meta property="og:title" content="Leetcode" />
-<meta property="og:description" content="Leetcode题解 啊，我这个菜鸡也开始做leetcode了！！ 每日更新题目，看看能坚持多久！ Week1 1.二叉树的中序遍历 输入：root = [1,null,2,3] 输出：" />
+<meta property="og:title" content="OperatingSystem-4" />
+<meta property="og:description" content="操作系统 Chapter4 存储器管理 存储器的层次结构 几乎每一条指令都有对存储器的访问，因此要求存储器的访问速度匹配处理器的运行速度 存储器还需要很大的容量且价" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://picasun.github.io/post/leetcode/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-11-25T22:24:46+08:00" />
-<meta property="article:modified_time" content="2021-11-25T22:24:46+08:00" />
+<meta property="og:url" content="https://picasun.github.io/post/operatingsystem-4/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-29T08:06:35+08:00" />
+<meta property="article:modified_time" content="2021-11-29T08:06:35+08:00" />
 
-<meta itemprop="name" content="Leetcode">
-<meta itemprop="description" content="Leetcode题解 啊，我这个菜鸡也开始做leetcode了！！ 每日更新题目，看看能坚持多久！ Week1 1.二叉树的中序遍历 输入：root = [1,null,2,3] 输出："><meta itemprop="datePublished" content="2021-11-25T22:24:46+08:00" />
-<meta itemprop="dateModified" content="2021-11-25T22:24:46+08:00" />
-<meta itemprop="wordCount" content="213">
+<meta itemprop="name" content="OperatingSystem-4">
+<meta itemprop="description" content="操作系统 Chapter4 存储器管理 存储器的层次结构 几乎每一条指令都有对存储器的访问，因此要求存储器的访问速度匹配处理器的运行速度 存储器还需要很大的容量且价"><meta itemprop="datePublished" content="2021-11-29T08:06:35+08:00" />
+<meta itemprop="dateModified" content="2021-11-29T08:06:35+08:00" />
+<meta itemprop="wordCount" content="878">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Leetcode"/>
-<meta name="twitter:description" content="Leetcode题解 啊，我这个菜鸡也开始做leetcode了！！ 每日更新题目，看看能坚持多久！ Week1 1.二叉树的中序遍历 输入：root = [1,null,2,3] 输出："/>
+<meta name="twitter:title" content="OperatingSystem-4"/>
+<meta name="twitter:description" content="操作系统 Chapter4 存储器管理 存储器的层次结构 几乎每一条指令都有对存储器的访问，因此要求存储器的访问速度匹配处理器的运行速度 存储器还需要很大的容量且价"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -310,11 +310,11 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">Leetcode</h1>
+      <h1 class="post-title">OperatingSystem-4</h1>
       
       <div class="post-meta">
-        <time datetime="2021-11-25" class="post-time">
-          2021-11-25
+        <time datetime="2021-11-29" class="post-time">
+          2021-11-29
         </time>
         
         
@@ -334,9 +334,51 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#week1">Week1</a>
+    <li><a href="#存储器的层次结构">存储器的层次结构</a>
       <ul>
-        <li><a href="#1二叉树的中序遍历">1.二叉树的中序遍历</a></li>
+        <li><a href="#多层结构的存储器系统">多层结构的存储器系统</a></li>
+        <li><a href="#主存储器与寄存器">主存储器与寄存器</a></li>
+        <li><a href="#高速缓存和磁盘存储">高速缓存和磁盘存储</a></li>
+      </ul>
+    </li>
+    <li><a href="#程序的装入和链接">程序的装入和链接</a>
+      <ul>
+        <li><a href="#程序的装入">程序的装入</a></li>
+        <li><a href="#程序的链接">程序的链接</a></li>
+      </ul>
+    </li>
+    <li><a href="#连续分配存储管理方式">连续分配存储管理方式</a>
+      <ul>
+        <li><a href="#单一连续分配">单一连续分配</a></li>
+        <li><a href="#固定分区分配">固定分区分配</a></li>
+        <li><a href="#动态分区分配">动态分区分配</a></li>
+        <li><a href="#基于顺序搜索的动态分区分配算法">基于顺序搜索的动态分区分配算法</a></li>
+        <li><a href="#基于索引搜索的动态分区分配算法">基于索引搜索的动态分区分配算法</a></li>
+        <li><a href="#动态可重定位分区分配">动态可重定位分区分配</a></li>
+      </ul>
+    </li>
+    <li><a href="#对换">对换</a>
+      <ul>
+        <li><a href="#多道程序环境下的对换技术">多道程序环境下的对换技术</a></li>
+        <li><a href="#对换空间的管理">对换空间的管理</a></li>
+        <li><a href="#进程的换出与换入">进程的换出与换入</a></li>
+      </ul>
+    </li>
+    <li><a href="#分页存储管理方式">分页存储管理方式</a>
+      <ul>
+        <li><a href="#分页存储管理的基本方法">分页存储管理的基本方法</a></li>
+        <li><a href="#地址变换机构">地址变换机构</a></li>
+        <li><a href="#访问内存的有效时间">访问内存的有效时间</a></li>
+        <li><a href="#两级和多级页表">两级和多级页表</a></li>
+        <li><a href="#反置页表">反置页表</a></li>
+      </ul>
+    </li>
+    <li><a href="#分段存储管理方式">分段存储管理方式</a>
+      <ul>
+        <li><a href="#分段存储方式的引入">分段存储方式的引入</a></li>
+        <li><a href="#分段系统的基本原理">分段系统的基本原理</a></li>
+        <li><a href="#信息共享">信息共享</a></li>
+        <li><a href="#段页式存储管理方式">段页式存储管理方式</a></li>
       </ul>
     </li>
   </ul>
@@ -346,58 +388,83 @@
 
     
     <div class="post-content">
-      <h1 id="leetcode题解">Leetcode题解</h1>
-<p>啊，我这个菜鸡也开始做leetcode了！！<br>
-每日更新题目，看看能坚持多久！</p>
-<h2 id="week1">Week1</h2>
-<h3 id="1二叉树的中序遍历">1.二叉树的中序遍历</h3>
-<p>输入：root = [1,null,2,3]
-输出：[1,3,2]<br>
-输入：root = []
-输出：[]<br>
-输入：root = [1]
-输出：[1]</p>
+      <h1 id="操作系统-chapter4-存储器管理">操作系统 Chapter4 存储器管理</h1>
+<h2 id="存储器的层次结构">存储器的层次结构</h2>
+<p>几乎每一条指令都有对存储器的访问，因此要求存储器的访问速度匹配处理器的运行速度<br>
+存储器还需要很大的容量且价格便宜</p>
+<h3 id="多层结构的存储器系统">多层结构的存储器系统</h3>
 <ul>
-<li>Go语言代码</li>
+<li>多层结构的存储器	系统
+<ul>
+<li>存储器的多层结构
+至少三级：CPU寄存器、主存、辅存<br>
+可以根据具体功能细分为寄存器、高速缓存、主存储器、磁盘缓存、固定磁盘、可移动存储介质等六层<br>
+层级越高、访问速度越快、价格越高、相对配置的存储容量越小</li>
+<li>可执行存储器
+寄存器和主存储器又可被称为可执行存储器</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">inorderTraversal</span><span class="p">(</span><span class="nx">root</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">)(</span><span class="nx">res</span> <span class="p">[]</span><span class="kt">int</span><span class="p">){</span>
-    <span class="kd">var</span> <span class="nx">inorder</span> <span class="kd">func</span><span class="p">(</span><span class="nx">node</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span>
-    <span class="nx">inorder</span> <span class="p">=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">node</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">){</span>
-        <span class="k">if</span> <span class="nx">node</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-            <span class="k">return</span>
-        <span class="p">}</span>
-        <span class="nf">inorder</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">Left</span><span class="p">)</span>
-        <span class="nx">res</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="nx">node</span><span class="p">.</span><span class="nx">Val</span><span class="p">)</span>
-        <span class="nf">inorder</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">Right</span><span class="p">)</span>
-    <span class="p">}</span>
-    <span class="nf">inorder</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nx">res</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>分析<br>
-#2：为了能写在一个函数体里递归调用，要事先声明这个函数<br>
-#4：Go语言的空指针用nil<br>
-#8：append函数的使用</li>
+</li>
 </ul>
+<h3 id="主存储器与寄存器">主存储器与寄存器</h3>
+<ul>
+<li>
+<p>主存储器
+简称内存、主存，用于保存进程运行时的程序和数据<br>
+通常处理器都是从主存储器中取得指令和数据，并将其取得的指令放入指令寄存器中，将所读到的数据装入数据寄存器中</p>
+</li>
+<li>
+<p>寄存器
+具有与处理机相同的速度，故对寄存器的访问速度最快，可以和CPU协调工作，但价格昂贵，因此容量不可能做得很大<br>
+目前的中大型机器中，寄存器增加到数百个，字长一般是32位 or 64位
+小型的嵌入式计算机中，寄存器只有几个到十几个，字长通常8位</p>
+</li>
+</ul>
+<h3 id="高速缓存和磁盘存储">高速缓存和磁盘存储</h3>
+<ul>
+<li>
+<p>高速缓存
+高速缓存是介于<strong>寄存器</strong>和<strong>主存储器</strong>之间的存储器<br>
+比内存约小两道是那个数量级，访问速度快<br>
+为了缓和内存与处理器速度之间的矛盾</p>
+</li>
+<li>
+<p>磁盘缓存
+利用<em>主存的部分存储空间</em>暂时存放从磁盘读出或写入的信息<br>
+主存也可以看作是辅存的高速缓存<br>
+一个数据通常被存储在辅存，需要时调入主存</p>
+</li>
+</ul>
+<h2 id="程序的装入和链接">程序的装入和链接</h2>
+<p>用户的程序要运行，先要装入内存，然后转变成一个可执行程序</p>
+<ul>
+<li>编译：用<strong>Compiler</strong>对用户源程序进行编译形成多个<strong>Object Module</strong></li>
+<li>链接：用<strong>Linker</strong>将目标模块和他们需要的库函数链接在一起，形成<strong>Load Module</strong></li>
+<li>装入：用<strong>Loader将Load Module</strong>装入内存</li>
+</ul>
+<h3 id="程序的装入">程序的装入</h3>
+<h3 id="程序的链接">程序的链接</h3>
+<h2 id="连续分配存储管理方式">连续分配存储管理方式</h2>
+<h3 id="单一连续分配">单一连续分配</h3>
+<h3 id="固定分区分配">固定分区分配</h3>
+<h3 id="动态分区分配">动态分区分配</h3>
+<h3 id="基于顺序搜索的动态分区分配算法">基于顺序搜索的动态分区分配算法</h3>
+<h3 id="基于索引搜索的动态分区分配算法">基于索引搜索的动态分区分配算法</h3>
+<h3 id="动态可重定位分区分配">动态可重定位分区分配</h3>
+<h2 id="对换">对换</h2>
+<h3 id="多道程序环境下的对换技术">多道程序环境下的对换技术</h3>
+<h3 id="对换空间的管理">对换空间的管理</h3>
+<h3 id="进程的换出与换入">进程的换出与换入</h3>
+<h2 id="分页存储管理方式">分页存储管理方式</h2>
+<h3 id="分页存储管理的基本方法">分页存储管理的基本方法</h3>
+<h3 id="地址变换机构">地址变换机构</h3>
+<h3 id="访问内存的有效时间">访问内存的有效时间</h3>
+<h3 id="两级和多级页表">两级和多级页表</h3>
+<h3 id="反置页表">反置页表</h3>
+<h2 id="分段存储管理方式">分段存储管理方式</h2>
+<h3 id="分段存储方式的引入">分段存储方式的引入</h3>
+<h3 id="分段系统的基本原理">分段系统的基本原理</h3>
+<h3 id="信息共享">信息共享</h3>
+<h3 id="段页式存储管理方式">段页式存储管理方式</h3>
 
     </div>
 
@@ -411,7 +478,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2021-11-25
+      2021-11-29
       
     </span>
   </p>
@@ -432,9 +499,22 @@
       
       <nav class="post-nav">
         
+          <a class="prev" href="/post/softwareengineering/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">SoftwareEngineering</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         
-          <a class="next" href="/post/softwareengineering/">
-            <span class="next-text nav-default">SoftwareEngineering</span>
+          <a class="next" href="/post/operatingsystem/">
+            <span class="next-text nav-default">OperatingSystem</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

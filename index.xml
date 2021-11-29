@@ -6,7 +6,7 @@
     <description>Recent content on Picasun&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 25 Nov 2021 22:24:46 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Nov 2021 17:20:55 +0800</lastBuildDate>
     
         <atom:link href="https://picasun.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -49,17 +49,17 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;inorderTraversal&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;TreeNode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-    &lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;zhongxu&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;node&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;TreeNode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;nx&#34;&gt;zhongxu&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;node&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;TreeNode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
-        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;node&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;nil&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;inorderTraversal&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;TreeNode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+    &lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;inorder&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;node&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;TreeNode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;inorder&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;node&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;TreeNode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;node&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;nil&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
             &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;
         &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-        &lt;span class=&#34;nf&#34;&gt;zhongxu&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;node&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Left&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;nx&#34;&gt;res&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;res&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;node&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Val&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-        &lt;span class=&#34;nf&#34;&gt;zhongxu&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;node&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Right&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;nf&#34;&gt;inorder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;node&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Left&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;nx&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;res&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;node&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Val&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;nf&#34;&gt;inorder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;node&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Right&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
     &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-    &lt;span class=&#34;nf&#34;&gt;zhongxu&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nf&#34;&gt;inorder&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;res&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -108,6 +108,106 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SoftwareEngineering</title>
+      <link>https://picasun.github.io/post/softwareengineering/</link>
+      <pubDate>Mon, 29 Nov 2021 17:20:55 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/softwareengineering/</guid>
+      
+        <description>&lt;h1 id=&#34;软件工程&#34;&gt;软件工程&lt;/h1&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>OperatingSystem-4</title>
+      <link>https://picasun.github.io/post/operatingsystem-4/</link>
+      <pubDate>Mon, 29 Nov 2021 08:06:35 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/operatingsystem-4/</guid>
+      
+        <description>&lt;h1 id=&#34;操作系统-chapter4-存储器管理&#34;&gt;操作系统 Chapter4 存储器管理&lt;/h1&gt;
+&lt;h2 id=&#34;存储器的层次结构&#34;&gt;存储器的层次结构&lt;/h2&gt;
+&lt;p&gt;几乎每一条指令都有对存储器的访问，因此要求存储器的访问速度匹配处理器的运行速度&lt;br&gt;
+存储器还需要很大的容量且价格便宜&lt;/p&gt;
+&lt;h3 id=&#34;多层结构的存储器系统&#34;&gt;多层结构的存储器系统&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;多层结构的存储器	系统
+&lt;ul&gt;
+&lt;li&gt;存储器的多层结构
+至少三级：CPU寄存器、主存、辅存&lt;br&gt;
+可以根据具体功能细分为寄存器、高速缓存、主存储器、磁盘缓存、固定磁盘、可移动存储介质等六层&lt;br&gt;
+层级越高、访问速度越快、价格越高、相对配置的存储容量越小&lt;/li&gt;
+&lt;li&gt;可执行存储器
+寄存器和主存储器又可被称为可执行存储器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;主存储器与寄存器&#34;&gt;主存储器与寄存器&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;主存储器
+简称内存、主存，用于保存进程运行时的程序和数据&lt;br&gt;
+通常处理器都是从主存储器中取得指令和数据，并将其取得的指令放入指令寄存器中，将所读到的数据装入数据寄存器中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;寄存器
+具有与处理机相同的速度，故对寄存器的访问速度最快，可以和CPU协调工作，但价格昂贵，因此容量不可能做得很大&lt;br&gt;
+目前的中大型机器中，寄存器增加到数百个，字长一般是32位 or 64位
+小型的嵌入式计算机中，寄存器只有几个到十几个，字长通常8位&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;高速缓存和磁盘存储&#34;&gt;高速缓存和磁盘存储&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;高速缓存
+高速缓存是介于&lt;strong&gt;寄存器&lt;/strong&gt;和&lt;strong&gt;主存储器&lt;/strong&gt;之间的存储器&lt;br&gt;
+比内存约小两道是那个数量级，访问速度快&lt;br&gt;
+为了缓和内存与处理器速度之间的矛盾&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;磁盘缓存
+利用&lt;em&gt;主存的部分存储空间&lt;/em&gt;暂时存放从磁盘读出或写入的信息&lt;br&gt;
+主存也可以看作是辅存的高速缓存&lt;br&gt;
+一个数据通常被存储在辅存，需要时调入主存&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;程序的装入和链接&#34;&gt;程序的装入和链接&lt;/h2&gt;
+&lt;p&gt;用户的程序要运行，先要装入内存，然后转变成一个可执行程序&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;编译：用&lt;strong&gt;Compiler&lt;/strong&gt;对用户源程序进行编译形成多个&lt;strong&gt;Object Module&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;链接：用&lt;strong&gt;Linker&lt;/strong&gt;将目标模块和他们需要的库函数链接在一起，形成&lt;strong&gt;Load Module&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;装入：用&lt;strong&gt;Loader将Load Module&lt;/strong&gt;装入内存&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;程序的装入&#34;&gt;程序的装入&lt;/h3&gt;
+&lt;h3 id=&#34;程序的链接&#34;&gt;程序的链接&lt;/h3&gt;
+&lt;h2 id=&#34;连续分配存储管理方式&#34;&gt;连续分配存储管理方式&lt;/h2&gt;
+&lt;h3 id=&#34;单一连续分配&#34;&gt;单一连续分配&lt;/h3&gt;
+&lt;h3 id=&#34;固定分区分配&#34;&gt;固定分区分配&lt;/h3&gt;
+&lt;h3 id=&#34;动态分区分配&#34;&gt;动态分区分配&lt;/h3&gt;
+&lt;h3 id=&#34;基于顺序搜索的动态分区分配算法&#34;&gt;基于顺序搜索的动态分区分配算法&lt;/h3&gt;
+&lt;h3 id=&#34;基于索引搜索的动态分区分配算法&#34;&gt;基于索引搜索的动态分区分配算法&lt;/h3&gt;
+&lt;h3 id=&#34;动态可重定位分区分配&#34;&gt;动态可重定位分区分配&lt;/h3&gt;
+&lt;h2 id=&#34;对换&#34;&gt;对换&lt;/h2&gt;
+&lt;h3 id=&#34;多道程序环境下的对换技术&#34;&gt;多道程序环境下的对换技术&lt;/h3&gt;
+&lt;h3 id=&#34;对换空间的管理&#34;&gt;对换空间的管理&lt;/h3&gt;
+&lt;h3 id=&#34;进程的换出与换入&#34;&gt;进程的换出与换入&lt;/h3&gt;
+&lt;h2 id=&#34;分页存储管理方式&#34;&gt;分页存储管理方式&lt;/h2&gt;
+&lt;h3 id=&#34;分页存储管理的基本方法&#34;&gt;分页存储管理的基本方法&lt;/h3&gt;
+&lt;h3 id=&#34;地址变换机构&#34;&gt;地址变换机构&lt;/h3&gt;
+&lt;h3 id=&#34;访问内存的有效时间&#34;&gt;访问内存的有效时间&lt;/h3&gt;
+&lt;h3 id=&#34;两级和多级页表&#34;&gt;两级和多级页表&lt;/h3&gt;
+&lt;h3 id=&#34;反置页表&#34;&gt;反置页表&lt;/h3&gt;
+&lt;h2 id=&#34;分段存储管理方式&#34;&gt;分段存储管理方式&lt;/h2&gt;
+&lt;h3 id=&#34;分段存储方式的引入&#34;&gt;分段存储方式的引入&lt;/h3&gt;
+&lt;h3 id=&#34;分段系统的基本原理&#34;&gt;分段系统的基本原理&lt;/h3&gt;
+&lt;h3 id=&#34;信息共享&#34;&gt;信息共享&lt;/h3&gt;
+&lt;h3 id=&#34;段页式存储管理方式&#34;&gt;段页式存储管理方式&lt;/h3&gt;
+</description>
       
     </item>
     
