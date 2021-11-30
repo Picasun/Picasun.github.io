@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Picasun&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 29 Nov 2021 17:20:55 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Nov 2021 16:43:40 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Leetcode</title>
       <link>https://picasun.github.io/post/leetcode/</link>
@@ -14,6 +14,15 @@
       
       <guid>https://picasun.github.io/post/leetcode/</guid>
       <description>Leetcode题解 啊，我这个菜鸡也开始做leetcode了！！ 每日更新题目，看看能坚持多久！ Week1 1.二叉树的中序遍历 输入：root = [1,null,2,3] 输出：</description>
+    </item>
+    
+    <item>
+      <title>DatabasePrinciple</title>
+      <link>https://picasun.github.io/post/databaseprinciple/</link>
+      <pubDate>Tue, 30 Nov 2021 16:43:40 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/databaseprinciple/</guid>
+      <description></description>
     </item>
     
     <item>
