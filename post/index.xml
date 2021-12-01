@@ -6,23 +6,32 @@
     <description>Recent content in Posts on Picasun&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 30 Nov 2021 16:43:40 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Dec 2021 21:48:16 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Leetcode</title>
       <link>https://picasun.github.io/post/leetcode/</link>
       <pubDate>Thu, 25 Nov 2021 22:24:46 +0800</pubDate>
       
       <guid>https://picasun.github.io/post/leetcode/</guid>
-      <description>Leetcode题解 啊，我这个菜鸡也开始做leetcode了！！ 每日更新题目，看看能坚持多久！ Week1 1.二叉树的中序遍历 输入：root = [1,null,2,3] 输出：</description>
+      <description>Leetcode题解 啊，我这个菜鸡也开始做leetcode了！！ 每日更新题目，看看能坚持多久！ Week1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1</description>
     </item>
     
     <item>
-      <title>DatabasePrinciple</title>
-      <link>https://picasun.github.io/post/databaseprinciple/</link>
+      <title>GoDeployment</title>
+      <link>https://picasun.github.io/post/godeployment/</link>
+      <pubDate>Wed, 01 Dec 2021 21:48:16 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/godeployment/</guid>
+      <description>Go项目Linux服务器部署 掘金文档 Windows 生成二进制文件 1 2 3 4 set CGO_ENABLED=0 //禁用CGO set GOOS=linux //目标平台为linux set GOARCH=amd64 //目标处理器架构是amd64</description>
+    </item>
+    
+    <item>
+      <title>DatabasePrinciple-1</title>
+      <link>https://picasun.github.io/post/databaseprinciple-1/</link>
       <pubDate>Tue, 30 Nov 2021 16:43:40 +0800</pubDate>
       
-      <guid>https://picasun.github.io/post/databaseprinciple/</guid>
-      <description></description>
+      <guid>https://picasun.github.io/post/databaseprinciple-1/</guid>
+      <description>数据库原理-1 数据库发展史 数据管理技术的发展 人工管理阶段 数据物理结构逻辑结构相同 数据不保存在机器中 没有专用的软件管理 只有程序的概念没有文件的</description>
     </item>
     
     <item>

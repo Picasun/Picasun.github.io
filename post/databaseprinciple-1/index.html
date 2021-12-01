@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SoftwareEngineering - Picasun&#39;s blog</title>
+  <title>DatabasePrinciple-1 - Picasun&#39;s blog</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,8 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Picasun" />
-  <meta name="description" content="软件工程 1 软件工程学概述 1.1 软件危机 1.2 软件工程 1.3 软件生命周期 1.4 软件过程 2 可行性研究 3 需求分析 4 形式化说明技术 5 总体设计 6 详细设计 7 实现 8 维护 9" />
-<meta name="keywords" content="SoftwareEngineering" />
+  <meta name="description" content="数据库原理-1 数据库发展史 数据管理技术的发展 人工管理阶段 数据物理结构逻辑结构相同 数据不保存在机器中 没有专用的软件管理 只有程序的概念没有文件的" />
+<meta name="keywords" content="DB" />
 
 
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.89.0" />
 
 
-<link rel="canonical" href="https://picasun.github.io/post/softwareengineering/" />
+<link rel="canonical" href="https://picasun.github.io/post/databaseprinciple-1/" />
 
 
 
@@ -59,20 +59,20 @@
 
 
 
-<meta property="og:title" content="SoftwareEngineering" />
-<meta property="og:description" content="软件工程 1 软件工程学概述 1.1 软件危机 1.2 软件工程 1.3 软件生命周期 1.4 软件过程 2 可行性研究 3 需求分析 4 形式化说明技术 5 总体设计 6 详细设计 7 实现 8 维护 9" />
+<meta property="og:title" content="DatabasePrinciple-1" />
+<meta property="og:description" content="数据库原理-1 数据库发展史 数据管理技术的发展 人工管理阶段 数据物理结构逻辑结构相同 数据不保存在机器中 没有专用的软件管理 只有程序的概念没有文件的" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://picasun.github.io/post/softwareengineering/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-11-29T17:20:55+08:00" />
-<meta property="article:modified_time" content="2021-11-29T17:20:55+08:00" />
+<meta property="og:url" content="https://picasun.github.io/post/databaseprinciple-1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-30T16:43:40+08:00" />
+<meta property="article:modified_time" content="2021-11-30T16:43:40+08:00" />
 
-<meta itemprop="name" content="SoftwareEngineering">
-<meta itemprop="description" content="软件工程 1 软件工程学概述 1.1 软件危机 1.2 软件工程 1.3 软件生命周期 1.4 软件过程 2 可行性研究 3 需求分析 4 形式化说明技术 5 总体设计 6 详细设计 7 实现 8 维护 9"><meta itemprop="datePublished" content="2021-11-29T17:20:55+08:00" />
-<meta itemprop="dateModified" content="2021-11-29T17:20:55+08:00" />
-<meta itemprop="wordCount" content="107">
+<meta itemprop="name" content="DatabasePrinciple-1">
+<meta itemprop="description" content="数据库原理-1 数据库发展史 数据管理技术的发展 人工管理阶段 数据物理结构逻辑结构相同 数据不保存在机器中 没有专用的软件管理 只有程序的概念没有文件的"><meta itemprop="datePublished" content="2021-11-30T16:43:40+08:00" />
+<meta itemprop="dateModified" content="2021-11-30T16:43:40+08:00" />
+<meta itemprop="wordCount" content="1219">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="SoftwareEngineering"/>
-<meta name="twitter:description" content="软件工程 1 软件工程学概述 1.1 软件危机 1.2 软件工程 1.3 软件生命周期 1.4 软件过程 2 可行性研究 3 需求分析 4 形式化说明技术 5 总体设计 6 详细设计 7 实现 8 维护 9"/>
+<meta name="twitter:title" content="DatabasePrinciple-1"/>
+<meta name="twitter:description" content="数据库原理-1 数据库发展史 数据管理技术的发展 人工管理阶段 数据物理结构逻辑结构相同 数据不保存在机器中 没有专用的软件管理 只有程序的概念没有文件的"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -310,11 +310,11 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">SoftwareEngineering</h1>
+      <h1 class="post-title">DatabasePrinciple-1</h1>
       
       <div class="post-meta">
-        <time datetime="2021-11-29" class="post-time">
-          2021-11-29
+        <time datetime="2021-11-30" class="post-time">
+          2021-11-30
         </time>
         
         
@@ -334,26 +334,25 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-软件工程学概述">1 软件工程学概述</a>
+    <li><a href="#数据库发展史">数据库发展史</a>
       <ul>
-        <li><a href="#11-软件危机">1.1 软件危机</a></li>
-        <li><a href="#12-软件工程">1.2 软件工程</a></li>
-        <li><a href="#13-软件生命周期">1.3 软件生命周期</a></li>
-        <li><a href="#14-软件过程">1.4 软件过程</a></li>
+        <li><a href="#数据管理技术的发展">数据管理技术的发展</a></li>
+        <li><a href="#数据库技术的产生和发展">数据库技术的产生和发展</a></li>
+        <li><a href="#数据库技术的术语">数据库技术的术语</a></li>
+        <li><a href="#数据库技术的发展">数据库技术的发展</a></li>
+        <li><a href="#新特征和发展趋势">新特征和发展趋势</a></li>
       </ul>
     </li>
-    <li><a href="#2-可行性研究">2 可行性研究</a></li>
-    <li><a href="#3-需求分析">3 需求分析</a></li>
-    <li><a href="#4-形式化说明技术">4 形式化说明技术</a></li>
-    <li><a href="#5-总体设计">5 总体设计</a></li>
-    <li><a href="#6-详细设计">6 详细设计</a></li>
-    <li><a href="#7-实现">7 实现</a></li>
-    <li><a href="#8-维护">8 维护</a></li>
-    <li><a href="#9-面向对象方法学引论">9 面向对象方法学引论</a></li>
-    <li><a href="#10-面向对象分析">10 面向对象分析</a></li>
-    <li><a href="#11-面向对象设计">11 面向对象设计</a></li>
-    <li><a href="#12-面向对象实现">12 面向对象实现</a></li>
-    <li><a href="#13-软件项目管理">13 软件项目管理</a></li>
+    <li><a href="#数据库系统结构">数据库系统结构</a>
+      <ul>
+        <li><a href="#数据描述">数据描述</a></li>
+        <li><a href="#数据模型">数据模型</a></li>
+        <li><a href="#层次模型">层次模型</a></li>
+        <li><a href="#网状模型">网状模型</a></li>
+        <li><a href="#关系模型">关系模型</a></li>
+        <li><a href="#面向对象模型">面向对象模型</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -361,24 +360,176 @@
 
     
     <div class="post-content">
-      <h1 id="软件工程">软件工程</h1>
-<h2 id="1-软件工程学概述">1 软件工程学概述</h2>
-<h3 id="11-软件危机">1.1 软件危机</h3>
-<h3 id="12-软件工程">1.2 软件工程</h3>
-<h3 id="13-软件生命周期">1.3 软件生命周期</h3>
-<h3 id="14-软件过程">1.4 软件过程</h3>
-<h2 id="2-可行性研究">2 可行性研究</h2>
-<h2 id="3-需求分析">3 需求分析</h2>
-<h2 id="4-形式化说明技术">4 形式化说明技术</h2>
-<h2 id="5-总体设计">5 总体设计</h2>
-<h2 id="6-详细设计">6 详细设计</h2>
-<h2 id="7-实现">7 实现</h2>
-<h2 id="8-维护">8 维护</h2>
-<h2 id="9-面向对象方法学引论">9 面向对象方法学引论</h2>
-<h2 id="10-面向对象分析">10 面向对象分析</h2>
-<h2 id="11-面向对象设计">11 面向对象设计</h2>
-<h2 id="12-面向对象实现">12 面向对象实现</h2>
-<h2 id="13-软件项目管理">13 软件项目管理</h2>
+      <h1 id="数据库原理-1">数据库原理-1</h1>
+<h2 id="数据库发展史">数据库发展史</h2>
+<h3 id="数据管理技术的发展">数据管理技术的发展</h3>
+<ul>
+<li>人工管理阶段
+<ul>
+<li>数据物理结构逻辑结构相同</li>
+<li>数据不保存在机器中</li>
+<li>没有专用的软件管理</li>
+<li>只有程序的概念没有文件的概念，一组数据对应一个程序</li>
+</ul>
+</li>
+<li>文件系统阶段
+<ul>
+<li>逻辑结构和物理结构有一定区别</li>
+<li>可以长期保存在外存</li>
+<li>组织形式多样化</li>
+<li>数据可以重复使用，不属于某特定程序</li>
+<li>对数据的访问以记录为单位，数据仍面向应用</li>
+</ul>
+</li>
+<li>文件系统阶段的缺点
+<ul>
+<li>数据冗余</li>
+<li>数据不一致</li>
+<li>数据联系弱</li>
+</ul>
+</li>
+<li>倒排文件系统
+为了提高系统性能，对索引文件进行推广，即：对每个字段都提供单独的索引</li>
+<li>倒排文件系统的缺点
+<ul>
+<li>索引需要维护</li>
+<li>需要占存储空间</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据库技术的产生和发展">数据库技术的产生和发展</h3>
+<ul>
+<li>
+<p>数据库技术的产生</p>
+<ul>
+<li>IMS系统（层次模型）树（信息管理系统 IBM）</li>
+<li>DBTG报告（网状系统）图（一个顾客一个环，对应其数据）</li>
+<li>E.F.Codd（关系模型）</li>
+</ul>
+</li>
+<li>
+<p>数据库阶段(数据管理)的特点</p>
+<ul>
+<li>面向全组织的复杂的数据结构，实现了数据的结构化</li>
+<li>有较高的数据独立性（逻辑独立/物理独立）</li>
+</ul>
+<p><em>外模式：每个用户看见自己数据的结构（局部逻辑结构）</em><br>
+映像功能：（逻辑数据独立性）
+<em>（概念）模式：整个数据库的整体逻辑结构</em><br>
+映像功能：（物理数据独立性）
+<em>内模式（存储模式）： 数据库的物理结构</em></p>
+<ul>
+<li>提供了四个方面的控制功能
+<ul>
+<li>数据库恢复</li>
+<li>数据库的并发控制</li>
+<li>数据完整性</li>
+<li>数据安全性</li>
+</ul>
+</li>
+<li>对数据的操作可以以数据项为单位，增加灵活性</li>
+<li>用户可以使用程序方式（嵌入程序）也可以使用交互方式（命令行）</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据库技术的术语">数据库技术的术语</h3>
+<p>数据库的三级模式<br>
+<em>模式是数据库中的全部数据的整体逻辑结构的描述</em><br>
+？？？？？？</p>
+<p>DBMS：数据库管理系统（介于操作系统和程序之间）<br>
+DB：数据库<br>
+数据库技术<br>
+DBS：数据库系统（包含数据库本身 软件资源 硬件资源 数据）</p>
+<h3 id="数据库技术的发展">数据库技术的发展</h3>
+<ul>
+<li>分布式数据库技术
+每个场地既可以执行局部应用，也可以执行全局应用
+<ul>
+<li>逻辑是一个整体 物理不一定</li>
+<li>数据切片</li>
+<li>数据分配</li>
+<li>甚至异构</li>
+</ul>
+</li>
+<li>面向对象数据库</li>
+<li>数据仓库</li>
+<li>云数据库
+<ul>
+<li>量大</li>
+<li>密度低（有用的少）</li>
+<li>变化快</li>
+</ul>
+</li>
+<li>大数据</li>
+<li>其他新型数据库技术</li>
+</ul>
+<h3 id="新特征和发展趋势">新特征和发展趋势</h3>
+<ul>
+<li>商业智能成为重点</li>
+<li>数据集成和数据仓库将向内容管理过渡</li>
+<li>主数据管理（有些数据会被共享，都要用但每个地方逻辑结构不同）</li>
+<li>时序数据正在崛起</li>
+<li>移动数据管理</li>
+</ul>
+<h2 id="数据库系统结构">数据库系统结构</h2>
+<p>数据描述 数据模型 数据库的体系结构 数据库管理系统</p>
+<h3 id="数据描述">数据描述</h3>
+<ul>
+<li>信息的三个领域
+<ul>
+<li>现实世界</li>
+<li>信息世界（对应概念模型）</li>
+<li>机器世界</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据模型">数据模型</h3>
+<ul>
+<li>概念数据模型（实体联系模型ER Entity Relationship ➕ 属性）
+<ul>
+<li>确定实体类型和联系类型</li>
+<li>接着把实体类型和联系类型组合成E-R图</li>
+<li>确定实体类型和联系类型的属性</li>
+<li>确定实体的键（下划横线）<br>
+图书借阅系统</li>
+</ul>
+</li>
+<li>逻辑数据模型（结构数据模型）
+<ul>
+<li>数据结构：实体和实体之间的联系</li>
+<li>数据操作：crud</li>
+<li>数据完整性约束：数据之间制约和依赖（一人借最多10本）
+（程序控制）后端   /  （DBMS控制）触发器</li>
+</ul>
+</li>
+</ul>
+<h3 id="层次模型">层次模型</h3>
+<ul>
+<li>非根节点有且只有只有一个父节点</li>
+<li>永远是一对一或者一对多 （ 一对一 是 一对多 的特例 ）</li>
+<li>查询效率高</li>
+<li>多对多麻烦</li>
+<li>编写程序复杂</li>
+</ul>
+<h3 id="网状模型">网状模型</h3>
+<ul>
+<li>不方便维护</li>
+<li>查询效率高</li>
+<li>必须非常熟悉结构才能编程</li>
+<li>独立性差</li>
+</ul>
+<h3 id="关系模型">关系模型</h3>
+<ul>
+<li>二维表格表示实体集</li>
+<li><em>外键</em>表示实体间联系的模型</li>
+<li>编写程序不涉及存储结构</li>
+</ul>
+<h3 id="面向对象模型">面向对象模型</h3>
+<ul>
+<li>对象</li>
+<li>类</li>
+<li>允许表里套表</li>
+</ul>
 
     </div>
 
@@ -392,7 +543,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2021-11-29
+      2021-11-30
       
     </span>
   </p>
@@ -413,7 +564,7 @@
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/databaseprinciple-1/">
+          <a class="prev" href="/post/godeployment/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -423,12 +574,12 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">DatabasePrinciple-1</span>
+            <span class="prev-text nav-default">GoDeployment</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/operatingsystem-4/">
-            <span class="next-text nav-default">OperatingSystem-4</span>
+          <a class="next" href="/post/softwareengineering/">
+            <span class="next-text nav-default">SoftwareEngineering</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

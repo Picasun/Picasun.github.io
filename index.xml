@@ -6,7 +6,7 @@
     <description>Recent content on Picasun&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 30 Nov 2021 16:43:40 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 01 Dec 2021 21:48:16 +0800</lastBuildDate>
     
         <atom:link href="https://picasun.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -22,7 +22,7 @@
 &lt;p&gt;啊，我这个菜鸡也开始做leetcode了！！&lt;br&gt;
 每日更新题目，看看能坚持多久！&lt;/p&gt;
 &lt;h2 id=&#34;week1&#34;&gt;Week1&lt;/h2&gt;
-&lt;h3 id=&#34;1二叉树的中序遍历&#34;&gt;1.二叉树的中序遍历&lt;/h3&gt;
+&lt;h3 id=&#34;二叉树的中序遍历&#34;&gt;二叉树的中序遍历&lt;/h3&gt;
 &lt;p&gt;输入：root = [1,null,2,3]
 输出：[1,3,2]&lt;br&gt;
 输入：root = []
@@ -70,6 +70,14 @@
 #4：Go语言的空指针用nil&lt;br&gt;
 #8：append函数的使用&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;汉明距离&#34;&gt;汉明距离&lt;/h3&gt;
+&lt;p&gt;输入：x = 1, y = 4&lt;br&gt;
+输出：2&lt;br&gt;
+解释：&lt;br&gt;
+1     (0 0 0 1)&lt;br&gt;
+4     (0 1 0 0)&lt;br&gt;
+↑  ↑&lt;br&gt;
+上面的箭头指出了对应二进制位不同的位置。&lt;/p&gt;
 </description>
       
     </item>
@@ -114,13 +122,237 @@ I will stay calm and think seriously about the meaning of the day.&lt;/p&gt;
     </item>
     
     <item>
-      <title>DatabasePrinciple</title>
-      <link>https://picasun.github.io/post/databaseprinciple/</link>
+      <title>GoDeployment</title>
+      <link>https://picasun.github.io/post/godeployment/</link>
+      <pubDate>Wed, 01 Dec 2021 21:48:16 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/godeployment/</guid>
+      
+        <description>&lt;h1 id=&#34;go项目linux服务器部署&#34;&gt;Go项目Linux服务器部署&lt;/h1&gt;
+&lt;h2 id=&#34;掘金文档&#34;&gt;掘金文档&lt;/h2&gt;
+&lt;h3 id=&#34;windows-生成二进制文件&#34;&gt;Windows 生成二进制文件&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;set CGO_ENABLED=0 //禁用CGO
+set GOOS=linux //目标平台为linux
+set GOARCH=amd64 //目标处理器架构是amd64
+go build -o name //编译可执行文件到当前目录 （-o：自定义文件名）
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;mac-生成二进制文件&#34;&gt;Mac 生成二进制文件&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;参考文档&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.cn/post/6954309251892248612&#34;&gt;https://juejin.cn/post/6954309251892248612&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;李文周文档&#34;&gt;李文周文档&lt;/h2&gt;
+&lt;h3 id=&#34;mac-生成二进制文件-1&#34;&gt;Mac 生成二进制文件&lt;/h3&gt;
+&lt;p&gt;nohup 用于在系统后台不挂断地运行命令，不挂断指的是退出执行命令的终端也不会影响程序的运行。&lt;/p&gt;
+&lt;p&gt;我们可以使用 nohup 命令来运行应用程序，使其作为后台守护进程运行。由于在主流的 Linux 发行版中都会默认安装 nohup 命令工具，我们可以直接输入以下命令来启动我们的项目：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;sudo nohup ./bin/bluebell conf/config.yaml &amp;gt; nohup_bluebell.log 2&amp;gt;&lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt;1 &lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;参考文档&amp;gt;https://www.liwenzhou.com/posts/Go/deploy_go_app/#autoid-1-1-3&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>DatabasePrinciple-1</title>
+      <link>https://picasun.github.io/post/databaseprinciple-1/</link>
       <pubDate>Tue, 30 Nov 2021 16:43:40 +0800</pubDate>
       
-      <guid>https://picasun.github.io/post/databaseprinciple/</guid>
+      <guid>https://picasun.github.io/post/databaseprinciple-1/</guid>
       
-        <description></description>
+        <description>&lt;h1 id=&#34;数据库原理-1&#34;&gt;数据库原理-1&lt;/h1&gt;
+&lt;h2 id=&#34;数据库发展史&#34;&gt;数据库发展史&lt;/h2&gt;
+&lt;h3 id=&#34;数据管理技术的发展&#34;&gt;数据管理技术的发展&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;人工管理阶段
+&lt;ul&gt;
+&lt;li&gt;数据物理结构逻辑结构相同&lt;/li&gt;
+&lt;li&gt;数据不保存在机器中&lt;/li&gt;
+&lt;li&gt;没有专用的软件管理&lt;/li&gt;
+&lt;li&gt;只有程序的概念没有文件的概念，一组数据对应一个程序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;文件系统阶段
+&lt;ul&gt;
+&lt;li&gt;逻辑结构和物理结构有一定区别&lt;/li&gt;
+&lt;li&gt;可以长期保存在外存&lt;/li&gt;
+&lt;li&gt;组织形式多样化&lt;/li&gt;
+&lt;li&gt;数据可以重复使用，不属于某特定程序&lt;/li&gt;
+&lt;li&gt;对数据的访问以记录为单位，数据仍面向应用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;文件系统阶段的缺点
+&lt;ul&gt;
+&lt;li&gt;数据冗余&lt;/li&gt;
+&lt;li&gt;数据不一致&lt;/li&gt;
+&lt;li&gt;数据联系弱&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;倒排文件系统
+为了提高系统性能，对索引文件进行推广，即：对每个字段都提供单独的索引&lt;/li&gt;
+&lt;li&gt;倒排文件系统的缺点
+&lt;ul&gt;
+&lt;li&gt;索引需要维护&lt;/li&gt;
+&lt;li&gt;需要占存储空间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;数据库技术的产生和发展&#34;&gt;数据库技术的产生和发展&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;数据库技术的产生&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;IMS系统（层次模型）树（信息管理系统 IBM）&lt;/li&gt;
+&lt;li&gt;DBTG报告（网状系统）图（一个顾客一个环，对应其数据）&lt;/li&gt;
+&lt;li&gt;E.F.Codd（关系模型）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数据库阶段(数据管理)的特点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;面向全组织的复杂的数据结构，实现了数据的结构化&lt;/li&gt;
+&lt;li&gt;有较高的数据独立性（逻辑独立/物理独立）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;外模式：每个用户看见自己数据的结构（局部逻辑结构）&lt;/em&gt;&lt;br&gt;
+映像功能：（逻辑数据独立性）
+&lt;em&gt;（概念）模式：整个数据库的整体逻辑结构&lt;/em&gt;&lt;br&gt;
+映像功能：（物理数据独立性）
+&lt;em&gt;内模式（存储模式）： 数据库的物理结构&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提供了四个方面的控制功能
+&lt;ul&gt;
+&lt;li&gt;数据库恢复&lt;/li&gt;
+&lt;li&gt;数据库的并发控制&lt;/li&gt;
+&lt;li&gt;数据完整性&lt;/li&gt;
+&lt;li&gt;数据安全性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;对数据的操作可以以数据项为单位，增加灵活性&lt;/li&gt;
+&lt;li&gt;用户可以使用程序方式（嵌入程序）也可以使用交互方式（命令行）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;数据库技术的术语&#34;&gt;数据库技术的术语&lt;/h3&gt;
+&lt;p&gt;数据库的三级模式&lt;br&gt;
+&lt;em&gt;模式是数据库中的全部数据的整体逻辑结构的描述&lt;/em&gt;&lt;br&gt;
+？？？？？？&lt;/p&gt;
+&lt;p&gt;DBMS：数据库管理系统（介于操作系统和程序之间）&lt;br&gt;
+DB：数据库&lt;br&gt;
+数据库技术&lt;br&gt;
+DBS：数据库系统（包含数据库本身 软件资源 硬件资源 数据）&lt;/p&gt;
+&lt;h3 id=&#34;数据库技术的发展&#34;&gt;数据库技术的发展&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;分布式数据库技术
+每个场地既可以执行局部应用，也可以执行全局应用
+&lt;ul&gt;
+&lt;li&gt;逻辑是一个整体 物理不一定&lt;/li&gt;
+&lt;li&gt;数据切片&lt;/li&gt;
+&lt;li&gt;数据分配&lt;/li&gt;
+&lt;li&gt;甚至异构&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;面向对象数据库&lt;/li&gt;
+&lt;li&gt;数据仓库&lt;/li&gt;
+&lt;li&gt;云数据库
+&lt;ul&gt;
+&lt;li&gt;量大&lt;/li&gt;
+&lt;li&gt;密度低（有用的少）&lt;/li&gt;
+&lt;li&gt;变化快&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;大数据&lt;/li&gt;
+&lt;li&gt;其他新型数据库技术&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;新特征和发展趋势&#34;&gt;新特征和发展趋势&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;商业智能成为重点&lt;/li&gt;
+&lt;li&gt;数据集成和数据仓库将向内容管理过渡&lt;/li&gt;
+&lt;li&gt;主数据管理（有些数据会被共享，都要用但每个地方逻辑结构不同）&lt;/li&gt;
+&lt;li&gt;时序数据正在崛起&lt;/li&gt;
+&lt;li&gt;移动数据管理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;数据库系统结构&#34;&gt;数据库系统结构&lt;/h2&gt;
+&lt;p&gt;数据描述 数据模型 数据库的体系结构 数据库管理系统&lt;/p&gt;
+&lt;h3 id=&#34;数据描述&#34;&gt;数据描述&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;信息的三个领域
+&lt;ul&gt;
+&lt;li&gt;现实世界&lt;/li&gt;
+&lt;li&gt;信息世界（对应概念模型）&lt;/li&gt;
+&lt;li&gt;机器世界&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;数据模型&#34;&gt;数据模型&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;概念数据模型（实体联系模型ER Entity Relationship ➕ 属性）
+&lt;ul&gt;
+&lt;li&gt;确定实体类型和联系类型&lt;/li&gt;
+&lt;li&gt;接着把实体类型和联系类型组合成E-R图&lt;/li&gt;
+&lt;li&gt;确定实体类型和联系类型的属性&lt;/li&gt;
+&lt;li&gt;确定实体的键（下划横线）&lt;br&gt;
+图书借阅系统&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;逻辑数据模型（结构数据模型）
+&lt;ul&gt;
+&lt;li&gt;数据结构：实体和实体之间的联系&lt;/li&gt;
+&lt;li&gt;数据操作：crud&lt;/li&gt;
+&lt;li&gt;数据完整性约束：数据之间制约和依赖（一人借最多10本）
+（程序控制）后端   /  （DBMS控制）触发器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;层次模型&#34;&gt;层次模型&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;非根节点有且只有只有一个父节点&lt;/li&gt;
+&lt;li&gt;永远是一对一或者一对多 （ 一对一 是 一对多 的特例 ）&lt;/li&gt;
+&lt;li&gt;查询效率高&lt;/li&gt;
+&lt;li&gt;多对多麻烦&lt;/li&gt;
+&lt;li&gt;编写程序复杂&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;网状模型&#34;&gt;网状模型&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;不方便维护&lt;/li&gt;
+&lt;li&gt;查询效率高&lt;/li&gt;
+&lt;li&gt;必须非常熟悉结构才能编程&lt;/li&gt;
+&lt;li&gt;独立性差&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;关系模型&#34;&gt;关系模型&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;二维表格表示实体集&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;外键&lt;/em&gt;表示实体间联系的模型&lt;/li&gt;
+&lt;li&gt;编写程序不涉及存储结构&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;面向对象模型&#34;&gt;面向对象模型&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;对象&lt;/li&gt;
+&lt;li&gt;类&lt;/li&gt;
+&lt;li&gt;允许表里套表&lt;/li&gt;
+&lt;/ul&gt;
+</description>
       
     </item>
     
