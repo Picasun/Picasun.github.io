@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Picasun" />
-  <meta name="description" content="Leetcode题解 啊，我这个菜鸡也开始做leetcode了！！ 每日更新题目，看看能坚持多久！ Week1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1" />
+  <meta name="description" content="Leetcode题解 Week1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1,3,2] 输入：root = [] 输出：[] 输入：root = [1] 输出：[1] Go语" />
 
   <meta name="keywords" content="Hugo, theme" />
 
@@ -60,19 +60,19 @@
 
 
 <meta property="og:title" content="Leetcode" />
-<meta property="og:description" content="Leetcode题解 啊，我这个菜鸡也开始做leetcode了！！ 每日更新题目，看看能坚持多久！ Week1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1" />
+<meta property="og:description" content="Leetcode题解 Week1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1,3,2] 输入：root = [] 输出：[] 输入：root = [1] 输出：[1] Go语" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://picasun.github.io/post/leetcode/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-11-25T22:24:46+08:00" />
 <meta property="article:modified_time" content="2021-11-25T22:24:46+08:00" />
 
 <meta itemprop="name" content="Leetcode">
-<meta itemprop="description" content="Leetcode题解 啊，我这个菜鸡也开始做leetcode了！！ 每日更新题目，看看能坚持多久！ Week1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1"><meta itemprop="datePublished" content="2021-11-25T22:24:46+08:00" />
+<meta itemprop="description" content="Leetcode题解 Week1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1,3,2] 输入：root = [] 输出：[] 输入：root = [1] 输出：[1] Go语"><meta itemprop="datePublished" content="2021-11-25T22:24:46+08:00" />
 <meta itemprop="dateModified" content="2021-11-25T22:24:46+08:00" />
-<meta itemprop="wordCount" content="263">
+<meta itemprop="wordCount" content="675">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode"/>
-<meta name="twitter:description" content="Leetcode题解 啊，我这个菜鸡也开始做leetcode了！！ 每日更新题目，看看能坚持多久！ Week1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1"/>
+<meta name="twitter:description" content="Leetcode题解 Week1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1,3,2] 输入：root = [] 输出：[] 输入：root = [1] 输出：[1] Go语"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -338,6 +338,7 @@
       <ul>
         <li><a href="#二叉树的中序遍历">二叉树的中序遍历</a></li>
         <li><a href="#汉明距离">汉明距离</a></li>
+        <li><a href="#二叉树的层序遍历">二叉树的层序遍历</a></li>
       </ul>
     </li>
   </ul>
@@ -348,8 +349,6 @@
     
     <div class="post-content">
       <h1 id="leetcode题解">Leetcode题解</h1>
-<p>啊，我这个菜鸡也开始做leetcode了！！<br>
-每日更新题目，看看能坚持多久！</p>
 <h2 id="week1">Week1</h2>
 <h3 id="二叉树的中序遍历">二叉树的中序遍历</h3>
 <p>输入：root = [1,null,2,3]
@@ -405,8 +404,180 @@
 解释：<br>
 1     (0 0 0 1)<br>
 4     (0 1 0 0)<br>
-↑  ↑<br>
 上面的箭头指出了对应二进制位不同的位置。</p>
+<ul>
+<li>Go语言代码</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">hammingDistance</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">y</span> <span class="kt">int</span><span class="p">)(</span><span class="nx">dis</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="nx">x</span><span class="o">!=</span><span class="mi">0</span><span class="o">||</span><span class="nx">y</span><span class="o">!=</span><span class="mi">0</span><span class="p">{</span>
+		<span class="k">if</span> <span class="nx">x</span><span class="o">&amp;</span><span class="mi">1</span> <span class="o">!=</span> <span class="nx">y</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">{</span>
+			<span class="nx">dis</span><span class="o">++</span>
+		<span class="p">}</span>
+		<span class="nx">x</span><span class="o">/=</span><span class="mi">2</span>
+		<span class="nx">y</span><span class="o">/=</span><span class="mi">2</span>
+	<span class="p">}</span>
+	<span class="k">return</span> 
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>分析<br>
+#2：Go语言中无while，用for代替，语法一致<br>
+#3：转换为二进制，按位相与，结果变成十进制</p>
+</li>
+<li>
+<p>Go另写法</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="err">&lt;&lt;</span>=	左移后赋值	C <span class="err">&lt;&lt;</span>= 2 相当于 C = C <span class="err">&lt;</span><span class="p">&lt;</span> <span class="nt">2</span>
+<span class="p">&gt;</span>&gt;=	右移后赋值	C &gt;&gt;= 2 相当于 C = C &gt;&gt; 2
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="二叉树的层序遍历">二叉树的层序遍历</h3>
+<p>示例：
+二叉树：<br>
+[3,9,20,null,null,15,7]</p>
+<p>返回其层序遍历结果：<br>
+[<br>
+[3],<br>
+[9,20],<br>
+[15,7]<br>
+]</p>
+<ul>
+<li>Go语言代码</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">levelOrder</span><span class="p">(</span><span class="nx">root</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span> <span class="p">[][]</span><span class="kt">int</span> <span class="p">{</span>
+    <span class="nx">ret</span> <span class="o">:=</span> <span class="p">[][]</span><span class="kt">int</span><span class="p">{}</span>
+    <span class="k">if</span> <span class="nx">root</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">ret</span>
+    <span class="p">}</span>
+    <span class="nx">q</span> <span class="o">:=</span> <span class="p">[]</span><span class="o">*</span><span class="nx">TreeNode</span><span class="p">{</span><span class="nx">root</span><span class="p">}</span>
+    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">q</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+        <span class="nx">ret</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">ret</span><span class="p">,</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{})</span>
+        <span class="nx">p</span> <span class="o">:=</span> <span class="p">[]</span><span class="o">*</span><span class="nx">TreeNode</span><span class="p">{}</span>
+        <span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">q</span><span class="p">);</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
+            <span class="nx">node</span> <span class="o">:=</span> <span class="nx">q</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span>
+            <span class="nx">ret</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">ret</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">node</span><span class="p">.</span><span class="nx">Val</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nx">node</span><span class="p">.</span><span class="nx">Left</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="nx">p</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span> <span class="nx">node</span><span class="p">.</span><span class="nx">Left</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="nx">node</span><span class="p">.</span><span class="nx">Right</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="nx">p</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span> <span class="nx">node</span><span class="p">.</span><span class="nx">Right</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="nx">q</span> <span class="p">=</span> <span class="nx">p</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">ret</span>
+<span class="p">}</span>
+<span class="cm">/**
+</span><span class="cm"> * Definition for a binary tree node.
+</span><span class="cm"> * type TreeNode struct {
+</span><span class="cm"> *     Val int
+</span><span class="cm"> *     Left *TreeNode
+</span><span class="cm"> *     Right *TreeNode
+</span><span class="cm"> * }
+</span><span class="cm"> */</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>分析
+#2：定义一个空的二维切片q用于存放答案
+#6：定义指针数组存放当层（下一层）的节点
+#8：给答案赋新的空一维切片
+#12：给答案的每一层的一维切片赋值
+#13/16：存放下一层节点</p>
+</li>
+<li>
+<p>解惑</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">ret</span> <span class="p">[][]</span><span class="kt">int</span>
+<span class="nx">ret</span> <span class="o">:=</span> <span class="p">[][]</span><span class="kt">int</span><span class="p">{}</span>  
+</code></pre></td></tr></table>
+</div>
+</div><p>编译器并不希望你写第二种形式，因此会报错自动修改  replace with nil slice declaration<br>
+不能写成</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">ret</span> <span class="o">:=</span> <span class="p">[][]</span><span class="kt">int</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>因为这相当于</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">ret</span> <span class="o">:=</span> <span class="kt">int</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>你觉得对吗？</p>
 
     </div>
 

@@ -13,7 +13,7 @@
       <pubDate>Thu, 25 Nov 2021 22:24:46 +0800</pubDate>
       
       <guid>https://picasun.github.io/post/leetcode/</guid>
-      <description>Leetcode题解 啊，我这个菜鸡也开始做leetcode了！！ 每日更新题目，看看能坚持多久！ Week1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1</description>
+      <description>Leetcode题解 Week1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1,3,2] 输入：root = [] 输出：[] 输入：root = [1] 输出：[1] Go语</description>
     </item>
     
     <item>
