@@ -23,15 +23,22 @@
   </url>
   
   <url>
+    <loc>https://picasun.github.io/post/ml_platform/</loc>
+    <lastmod>2021-12-06T22:51:50+08:00</lastmod>
+    <changefreq>Ramdomly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://picasun.github.io/</loc>
-    <lastmod>2021-12-05T10:42:45+08:00</lastmod>
+    <lastmod>2021-12-06T22:51:50+08:00</lastmod>
     <changefreq>Ramdomly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://picasun.github.io/post/</loc>
-    <lastmod>2021-12-05T10:42:45+08:00</lastmod>
+    <lastmod>2021-12-06T22:51:50+08:00</lastmod>
     <changefreq>Ramdomly</changefreq>
     <priority>0.5</priority>
   </url>

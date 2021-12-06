@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Picasun&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 05 Dec 2021 10:42:45 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Dec 2021 22:51:50 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Leetcode</title>
       <link>https://picasun.github.io/post/leetcode/</link>
@@ -17,12 +17,21 @@
     </item>
     
     <item>
+      <title>ML_Platform</title>
+      <link>https://picasun.github.io/post/ml_platform/</link>
+      <pubDate>Mon, 06 Dec 2021 22:51:50 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/ml_platform/</guid>
+      <description>ML_Platform Golang 在 Mac、Linux、Windows 下如何交叉编译 (https://blog.csdn.net/panshiqu/article/details/53788067) Mac 下编译 Linux 和 Windows 64位可执行程序 1 2 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go Linux 下编译 Mac 和 Windows 64位可执行</description>
+    </item>
+    
+    <item>
       <title>ShareRadio</title>
       <link>https://picasun.github.io/post/shareradio/</link>
       <pubDate>Sun, 05 Dec 2021 10:42:45 +0800</pubDate>
       
       <guid>https://picasun.github.io/post/shareradio/</guid>
-      <description>点歌台片头 段落1 你总喜欢和我讲述那些年的上海 坐上绿皮火车去追寻热爱 感谢你放在留声机里翻录的磁带 虽在远方 却让我满怀期待 伴奏：Love of my life 作者</description>
+      <description>点歌台片头 段落1 他总喜欢和我讲述那些年的上海 坐上绿皮火车去追寻热爱 感谢你放在留声机里翻录的磁带 虽在远方 却让我满怀期待 伴奏：Love of my life 作者</description>
     </item>
     
     <item>
@@ -49,7 +58,7 @@
       <pubDate>Mon, 29 Nov 2021 17:20:55 +0800</pubDate>
       
       <guid>https://picasun.github.io/post/softwareengineering/</guid>
-      <description>软件工程 1 软件工程学概述 1.1 软件危机 1.2 软件工程 1.3 软件生命周期 1.4 软件过程 2 可行性研究 3 需求分析 4 形式化说明技术 5 总体设计 6 详细设计 7 实现 8 维护 9</description>
+      <description>软件工程 1 软件工程学概述 1.1 软件危机 1.2 软件工程 1.3 软件生命周期 1.4 软件过程 瀑布模型 快速原型模型 增量模型 2 可行性研究 3 需求分析 4 形式化说明技术 5 总体</description>
     </item>
     
     <item>

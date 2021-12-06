@@ -6,7 +6,7 @@
     <description>Recent content on Picasun&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 05 Dec 2021 10:42:45 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 Dec 2021 22:51:50 +0800</lastBuildDate>
     
         <atom:link href="https://picasun.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -292,6 +292,67 @@ I will stay calm and think seriously about the meaning of the day.&lt;/p&gt;
     </item>
     
     <item>
+      <title>ML_Platform</title>
+      <link>https://picasun.github.io/post/ml_platform/</link>
+      <pubDate>Mon, 06 Dec 2021 22:51:50 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/ml_platform/</guid>
+      
+        <description>&lt;h1 id=&#34;ml_platform&#34;&gt;ML_Platform&lt;/h1&gt;
+&lt;h2 id=&#34;golang-在-maclinuxwindows-下如何交叉编译&#34;&gt;Golang 在 Mac、Linux、Windows 下如何交叉编译&lt;/h2&gt;
+&lt;p&gt;(&lt;a href=&#34;https://blog.csdn.net/panshiqu/article/details/53788067&#34;&gt;https://blog.csdn.net/panshiqu/article/details/53788067&lt;/a&gt;)&lt;/p&gt;
+&lt;h3 id=&#34;mac-下编译-linux-和-windows-64位可执行程序&#34;&gt;Mac 下编译 Linux 和 Windows 64位可执行程序&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;linux-下编译-mac-和-windows-64位可执行程序&#34;&gt;Linux 下编译 Mac 和 Windows 64位可执行程序&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.go
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;windows-下编译-mac-和-linux-64位可执行程序&#34;&gt;Windows 下编译 Mac 和 Linux 64位可执行程序&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;SET CGO_ENABLED=0
+SET GOOS=darwin
+SET GOARCH=amd64
+go build main.go
+
+SET CGO_ENABLED=0
+SET GOOS=linux
+SET GOARCH=amd64
+go build main.go
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>ShareRadio</title>
       <link>https://picasun.github.io/post/shareradio/</link>
       <pubDate>Sun, 05 Dec 2021 10:42:45 +0800</pubDate>
@@ -300,7 +361,7 @@ I will stay calm and think seriously about the meaning of the day.&lt;/p&gt;
       
         <description>&lt;h1 id=&#34;点歌台片头&#34;&gt;点歌台片头&lt;/h1&gt;
 &lt;h2 id=&#34;段落1&#34;&gt;段落1&lt;/h2&gt;
-&lt;p&gt;你总喜欢和我讲述那些年的上海&lt;br&gt;
+&lt;p&gt;他总喜欢和我讲述那些年的上海&lt;br&gt;
 坐上绿皮火车去追寻热爱&lt;br&gt;
 感谢你放在&lt;strong&gt;留声机&lt;/strong&gt;里翻录的磁带&lt;br&gt;
 虽在远方 却让我满怀期待&lt;/p&gt;
@@ -324,9 +385,13 @@ I will stay calm and think seriously about the meaning of the day.&lt;/p&gt;
 &lt;li&gt;时代：随身听时代&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;段落3&#34;&gt;段落3&lt;/h2&gt;
-&lt;p&gt;终于他可以随处听到那首挚爱&lt;br&gt;
+&lt;p&gt;终于你可以随处听到那首挚爱&lt;br&gt;
+在车流间、在树荫底、在星空下
+每周四傍晚&lt;br&gt;
 &lt;strong&gt;shareradio点歌台&lt;/strong&gt;&lt;br&gt;
-他本想离开 但 还好你在&lt;/p&gt;
+或许是命运的安排&lt;br&gt;
+原来你一直在我心里&lt;br&gt;
+从未离开&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;伴奏：&lt;/li&gt;
 &lt;li&gt;作者&lt;/li&gt;
@@ -589,6 +654,11 @@ DBS：数据库系统（包含数据库本身 软件资源 硬件资源 数据�
 &lt;h3 id=&#34;12-软件工程&#34;&gt;1.2 软件工程&lt;/h3&gt;
 &lt;h3 id=&#34;13-软件生命周期&#34;&gt;1.3 软件生命周期&lt;/h3&gt;
 &lt;h3 id=&#34;14-软件过程&#34;&gt;1.4 软件过程&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;瀑布模型&lt;/li&gt;
+&lt;li&gt;快速原型模型&lt;/li&gt;
+&lt;li&gt;增量模型&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;2-可行性研究&#34;&gt;2 可行性研究&lt;/h2&gt;
 &lt;h2 id=&#34;3-需求分析&#34;&gt;3 需求分析&lt;/h2&gt;
 &lt;h2 id=&#34;4-形式化说明技术&#34;&gt;4 形式化说明技术&lt;/h2&gt;
