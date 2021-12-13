@@ -20,7 +20,7 @@
       
         <description>&lt;h1 id=&#34;leetcode题解&#34;&gt;Leetcode题解&lt;/h1&gt;
 &lt;h2 id=&#34;week1&#34;&gt;Week1&lt;/h2&gt;
-&lt;h3 id=&#34;二叉树的中序遍历&#34;&gt;二叉树的中序遍历&lt;/h3&gt;
+&lt;h3 id=&#34;1_1-二叉树的中序遍历&#34;&gt;1_1 二叉树的中序遍历&lt;/h3&gt;
 &lt;p&gt;输入：root = [1,null,2,3]
 输出：[1,3,2]&lt;br&gt;
 输入：root = []
@@ -68,7 +68,7 @@
 #4：Go语言的空指针用nil&lt;br&gt;
 #8：append函数的使用&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;汉明距离&#34;&gt;汉明距离&lt;/h3&gt;
+&lt;h3 id=&#34;1_2-汉明距离&#34;&gt;1_2 汉明距离&lt;/h3&gt;
 &lt;p&gt;输入：x = 1, y = 4&lt;br&gt;
 输出：2&lt;br&gt;
 解释：&lt;br&gt;
@@ -124,7 +124,7 @@
 &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;&amp;gt;=	右移后赋值	C &amp;gt;&amp;gt;= 2 相当于 C = C &amp;gt;&amp;gt; 2
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;二叉树的层序遍历&#34;&gt;二叉树的层序遍历&lt;/h3&gt;
+&lt;/div&gt;&lt;h3 id=&#34;1_3-二叉树的层序遍历&#34;&gt;1_3 二叉树的层序遍历&lt;/h3&gt;
 &lt;p&gt;示例：
 二叉树：&lt;br&gt;
 [3,9,20,null,null,15,7]&lt;/p&gt;
@@ -207,11 +207,11 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;分析
-#2：定义一个空的二维切片q用于存放答案
-#6：定义指针数组存放当层（下一层）的节点
-#8：给答案赋新的空一维切片
-#12：给答案的每一层的一维切片赋值
+&lt;p&gt;分析&lt;br&gt;
+#2：定义一个空的二维切片q用于存放答案&lt;br&gt;
+#6：定义指针数组存放当层（下一层）的节点&lt;br&gt;
+#8：给答案赋新的空一维切片&lt;br&gt;
+#12：给答案的每一层的一维切片赋值&lt;br&gt;
 #13/16：存放下一层节点&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -248,7 +248,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;你觉得对吗？&lt;/p&gt;
-&lt;h3 id=&#34;eratosthenes筛法&#34;&gt;Eratosthenes筛法&lt;/h3&gt;
+&lt;h3 id=&#34;1_4-eratosthenes筛法&#34;&gt;1_4 Eratosthenes筛法&lt;/h3&gt;
 &lt;p&gt;必须把不大于根号n的所有素数的倍数剔除，剩下的就是素数&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Go语言代码&lt;/li&gt;
@@ -294,11 +294,67 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;分析
-#5：先全部命为素数
-#8：遍历所有的数字 并在循环内判断素数个数
+&lt;li&gt;分析&lt;br&gt;
+#5：先全部命为素数&lt;br&gt;
+#8：遍历所有的数字 并在循环内判断素数个数&lt;br&gt;
 #12：在循环内剔除素数的倍数&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;1_5-跳跃游戏&#34;&gt;1_5 跳跃游戏&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Go语言代码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Go&#34; data-lang=&#34;Go&#34;&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;jump&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;nums&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ans&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+    &lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;now&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;     
+    &lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;nx&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;nx&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;now&lt;/span&gt;
+            &lt;span class=&#34;nx&#34;&gt;ans&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ans&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;分析&lt;br&gt;
+#2：判断长度是否为1，特殊情况&lt;br&gt;
+#5：定义参数&amp;rsquo;ans&amp;rsquo;存放答案&lt;br&gt;
+#6：定义参数&amp;rsquo;now&amp;rsquo;存放当前轮次能走到的最远距离&lt;br&gt;
+#7：定义参数&amp;rsquo;end&amp;rsquo;决定本轮次的终止位置&lt;br&gt;
+#9：更新能走到的最远位置&lt;br&gt;
+#10：走到本轮次的终止位置时，需要更新下一轮次的终止位置&lt;br&gt;
+&lt;em&gt;每次走到了终止位置，就等于走了&lt;strong&gt;最优的&lt;/strong&gt;一步&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;week2&#34;&gt;Week2&lt;/h2&gt;
+&lt;h3 id=&#34;2_1&#34;&gt;2_1&lt;/h3&gt;
 </description>
       
     </item>
@@ -738,10 +794,10 @@ DBS：数据库系统（包含数据库本身 软件资源 硬件资源 数据�
 &lt;/ul&gt;
 &lt;p&gt;单表查询
 select sname,sno,sdept from S;&lt;br&gt;
-select * from S;&lt;br&gt;
-select sname,2021-sage from S;&lt;br&gt;
-&lt;em&gt;sname (as) &amp;lsquo;姓名&amp;rsquo;,2021-sage &amp;lsquo;age&amp;rsquo;&lt;/em&gt;
-select distinct sno from SC;
+select * from S;&lt;/p&gt;
+&lt;p&gt;select sname,2021-sage from S;&lt;br&gt;
+&lt;em&gt;sname (as) &amp;lsquo;姓名&amp;rsquo;,2021-sage &amp;lsquo;age&amp;rsquo;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;select distinct sno from SC;
 select sname from S where sdept=&amp;rsquo;s&#39;;&lt;/p&gt;
 &lt;p&gt;where sage &amp;gt;= 20 and sage &amp;lt;23
 sage (not) between 20 and 23;
@@ -753,7 +809,7 @@ where  sname like &amp;lsquo;刘%&amp;rsquo;&lt;/p&gt;
 where cno =&amp;lsquo;3&amp;rsquo;
 order by grade desc , sno asc;&lt;/p&gt;
 &lt;p&gt;多表查询
-from  表1 链接类型 表2 链接类型
+from  表1 链接类型 表2 链接类型 表3
 联结类型&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;内联结：匹配行的联结&lt;/li&gt;
@@ -799,40 +855,6 @@ select *
 from SC
 where sno=S.sno and cno=&amp;lsquo;2&amp;rsquo;
 )&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>SoftwareEngineering</title>
-      <link>https://picasun.github.io/post/softwareengineering/</link>
-      <pubDate>Mon, 29 Nov 2021 17:20:55 +0800</pubDate>
-      
-      <guid>https://picasun.github.io/post/softwareengineering/</guid>
-      
-        <description>&lt;h1 id=&#34;软件工程&#34;&gt;软件工程&lt;/h1&gt;
-&lt;h2 id=&#34;1-软件工程学概述&#34;&gt;1 软件工程学概述&lt;/h2&gt;
-&lt;h3 id=&#34;11-软件危机&#34;&gt;1.1 软件危机&lt;/h3&gt;
-&lt;h3 id=&#34;12-软件工程&#34;&gt;1.2 软件工程&lt;/h3&gt;
-&lt;h3 id=&#34;13-软件生命周期&#34;&gt;1.3 软件生命周期&lt;/h3&gt;
-&lt;h3 id=&#34;14-软件过程&#34;&gt;1.4 软件过程&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;瀑布模型&lt;/li&gt;
-&lt;li&gt;快速原型模型&lt;/li&gt;
-&lt;li&gt;增量模型&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;2-可行性研究&#34;&gt;2 可行性研究&lt;/h2&gt;
-&lt;h2 id=&#34;3-需求分析&#34;&gt;3 需求分析&lt;/h2&gt;
-&lt;h2 id=&#34;4-形式化说明技术&#34;&gt;4 形式化说明技术&lt;/h2&gt;
-&lt;h2 id=&#34;5-总体设计&#34;&gt;5 总体设计&lt;/h2&gt;
-&lt;h2 id=&#34;6-详细设计&#34;&gt;6 详细设计&lt;/h2&gt;
-&lt;h2 id=&#34;7-实现&#34;&gt;7 实现&lt;/h2&gt;
-&lt;h2 id=&#34;8-维护&#34;&gt;8 维护&lt;/h2&gt;
-&lt;h2 id=&#34;9-面向对象方法学引论&#34;&gt;9 面向对象方法学引论&lt;/h2&gt;
-&lt;h2 id=&#34;10-面向对象分析&#34;&gt;10 面向对象分析&lt;/h2&gt;
-&lt;h2 id=&#34;11-面向对象设计&#34;&gt;11 面向对象设计&lt;/h2&gt;
-&lt;h2 id=&#34;12-面向对象实现&#34;&gt;12 面向对象实现&lt;/h2&gt;
-&lt;h2 id=&#34;13-软件项目管理&#34;&gt;13 软件项目管理&lt;/h2&gt;
 </description>
       
     </item>

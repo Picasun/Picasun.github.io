@@ -13,7 +13,7 @@
       <pubDate>Thu, 25 Nov 2021 22:24:46 +0800</pubDate>
       
       <guid>https://picasun.github.io/post/leetcode/</guid>
-      <description>Leetcode题解 Week1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1,3,2] 输入：root = [] 输出：[] 输入：root = [1] 输出：[1] Go语</description>
+      <description>Leetcode题解 Week1 1_1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1,3,2] 输入：root = [] 输出：[] 输入：root = [1] 输出：[1] Go</description>
     </item>
     
     <item>
@@ -50,15 +50,6 @@
       
       <guid>https://picasun.github.io/post/databaseprinciple-1/</guid>
       <description>数据库原理-1 chapter1 数据库发展史 数据管理技术的发展 人工管理阶段 数据物理结构逻辑结构相同 数据不保存在机器中 没有专用的软件管理 只有程序的概念没有文件</description>
-    </item>
-    
-    <item>
-      <title>SoftwareEngineering</title>
-      <link>https://picasun.github.io/post/softwareengineering/</link>
-      <pubDate>Mon, 29 Nov 2021 17:20:55 +0800</pubDate>
-      
-      <guid>https://picasun.github.io/post/softwareengineering/</guid>
-      <description>软件工程 1 软件工程学概述 1.1 软件危机 1.2 软件工程 1.3 软件生命周期 1.4 软件过程 瀑布模型 快速原型模型 增量模型 2 可行性研究 3 需求分析 4 形式化说明技术 5 总体</description>
     </item>
     
     <item>
