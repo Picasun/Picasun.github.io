@@ -69,7 +69,7 @@
 <meta itemprop="name" content="DatabasePrinciple-1">
 <meta itemprop="description" content="数据库原理-1 chapter1 数据库发展史 数据管理技术的发展 人工管理阶段 数据物理结构逻辑结构相同 数据不保存在机器中 没有专用的软件管理 只有程序的概念没有文件"><meta itemprop="datePublished" content="2021-11-30T16:43:40+08:00" />
 <meta itemprop="dateModified" content="2021-11-30T16:43:40+08:00" />
-<meta itemprop="wordCount" content="2312">
+<meta itemprop="wordCount" content="3096">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="DatabasePrinciple-1"/>
 <meta name="twitter:description" content="数据库原理-1 chapter1 数据库发展史 数据管理技术的发展 人工管理阶段 数据物理结构逻辑结构相同 数据不保存在机器中 没有专用的软件管理 只有程序的概念没有文件"/>
@@ -750,7 +750,7 @@ from  表1 链接类型 表2 链接类型 表3<br>
 </span><span class="w"></span><span class="p">(</span><span class="w">
 </span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">cno</span><span class="w">
 </span><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w">
-</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">sno</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="n">sno</span><span class="w">
+</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">sno</span><span class="o">=</span><span class="n">S</span><span class="p">.</span><span class="n">sno</span><span class="w">
 </span><span class="w"></span><span class="p">)</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
@@ -774,6 +774,156 @@ from  表1 链接类型 表2 链接类型 表3<br>
 </span><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w">
 </span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">sno</span><span class="o">=</span><span class="n">S</span><span class="p">.</span><span class="n">sno</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">cno</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="w">
 </span><span class="w"></span><span class="p">)</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w"> </span><span class="n">sanme</span><span class="p">,</span><span class="n">age</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">s</span><span class="w">
+</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">age</span><span class="o">&lt;</span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">sdept</span><span class="o">=</span><span class="s1">&#39;IS&#39;</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">and</span><span class="w">
+</span><span class="w"></span><span class="n">sdept</span><span class="o">!=</span><span class="s1">&#39;IS&#39;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>全集</li>
+</ul>
+<p>选择了全部课程
+不存在一门课 他没选</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w"> </span><span class="n">sname</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">S</span><span class="w">
+</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="p">(</span><span class="err">不存在一门课他没选</span><span class="p">)</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="w">
+</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w"> </span><span class="n">sname</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">S</span><span class="w">
+</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">C</span><span class="w">
+</span><span class="w">      </span><span class="k">where</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">exists</span><span class="p">(</span><span class="k">select</span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w">
+</span><span class="w">      		</span><span class="k">where</span><span class="w"> </span><span class="n">SC</span><span class="p">.</span><span class="n">cno</span><span class="o">=</span><span class="k">C</span><span class="p">.</span><span class="n">cno</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">SC</span><span class="p">.</span><span class="n">sno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">sno</span><span class="w">
+</span><span class="w">      </span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="p">)</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>遍历S 同时遍历C 查看SC中 是不是 存在有这条记录</p>
+<p>求选了 学号为 xxxx 的 选的全部课程的学生
+相当于
+不存在一门课 xxxx选了 但 他没选</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">S</span><span class="p">;</span><span class="w"> </span><span class="o">#</span><span class="err">学生总人数</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="k">distinct</span><span class="w"> </span><span class="n">sno</span><span class="p">)</span><span class="k">from</span><span class="w"> </span><span class="n">sc</span><span class="p">;</span><span class="w"> </span><span class="o">#</span><span class="err">选课了的人数</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">sc</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">cno</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">;</span><span class="w"> </span><span class="o">#</span><span class="err">选了</span><span class="mi">1</span><span class="err">号课的学生的平均成绩</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>细化聚合函数的作用范围</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w"> </span><span class="n">cno</span><span class="p">,</span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w"> 
+</span><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">cno</span><span class="w"> </span><span class="o">#</span><span class="err">各个课程号及相应的选课人数</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">cno</span><span class="p">,</span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w">
+</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">grade</span><span class="w"> </span><span class="o">&gt;=</span><span class="mi">90</span><span class="w">
+</span><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">cno</span><span class="w">
+</span><span class="w"></span><span class="o">#</span><span class="err">各个课程号以及相应课程在</span><span class="mi">90</span><span class="err">分以上的的选课人数</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">sno</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w">
+</span><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sno</span><span class="w">
+</span><span class="w"></span><span class="k">having</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="w">
+</span><span class="w"></span><span class="err">（</span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">desc</span><span class="p">,</span><span class="mi">1</span><span class="err">）</span><span class="w">
+</span><span class="w"></span><span class="o">#</span><span class="err">查询选修了两门以上课程的学生学号</span><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">grade</span><span class="o">&gt;=</span><span class="mi">90</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">grade</span><span class="o">&gt;=</span><span class="mi">90</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sno</span><span class="p">;</span><span class="o">#</span><span class="err">不用</span><span class="k">distinct</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">grade</span><span class="o">&gt;=</span><span class="mi">90</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sno</span><span class="p">;</span><span class="o">#</span><span class="err">不用</span><span class="k">distinct</span><span class="w">
+</span><span class="w"></span><span class="o">#</span><span class="err">查询有成绩在</span><span class="mi">90</span><span class="err">分以上的学生学号</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">sno</span><span class="p">,</span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> 
+</span><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w">
+</span><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">grade</span><span class="w"> </span><span class="o">&gt;=</span><span class="mi">90</span><span class="w">
+</span><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sno</span><span class="w">
+</span><span class="w"></span><span class="k">having</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">3</span><span class="p">;</span><span class="w">  
+</span><span class="w"></span><span class="o">#</span><span class="mi">8</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">sno</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w">
+</span><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sno</span><span class="w">
+</span><span class="w"></span><span class="k">having</span><span class="w"> </span><span class="k">min</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">80</span><span class="p">;</span><span class="w">
+</span><span class="w">	
 </span></code></pre></td></tr></table>
 </div>
 </div>

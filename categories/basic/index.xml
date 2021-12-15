@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>basic on Picasun&#39;s blog</title>
+    <link>https://picasun.github.io/categories/basic/</link>
+    <description>Recent content in basic on Picasun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Picasun</copyright>
+    <lastBuildDate>Tue, 14 Dec 2021 14:26:21 +0800</lastBuildDate><atom:link href="https://picasun.github.io/categories/basic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WebBasic</title>
+      <link>https://picasun.github.io/post/webbasic/</link>
+      <pubDate>Tue, 14 Dec 2021 14:26:21 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/webbasic/</guid>
+      <description>Web开发基础 Web程序运行原理 基本原理 运行原理 用户打开浏览器，输入URL地址 客户端浏览器通过HTTP协议向服务器端发送浏览请求 服务器端通过</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -7,7 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Picasun</copyright>
-    <lastBuildDate>Thu, 18 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://picasun.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Dec 2021 14:26:21 +0800</lastBuildDate><atom:link href="https://picasun.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>basic</title>
+      <link>https://picasun.github.io/categories/basic/</link>
+      <pubDate>Tue, 14 Dec 2021 14:26:21 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/categories/basic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://picasun.github.io/categories/go/</link>
+      <pubDate>Tue, 14 Dec 2021 14:26:21 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/categories/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web</title>
+      <link>https://picasun.github.io/categories/web/</link>
+      <pubDate>Tue, 14 Dec 2021 14:26:21 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/categories/web/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Development</title>
       <link>https://picasun.github.io/categories/development/</link>

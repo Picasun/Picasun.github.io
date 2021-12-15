@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>go on Picasun&#39;s blog</title>
-    <link>https://picasun.github.io/tags/go/</link>
+    <link>https://picasun.github.io/categories/go/</link>
     <description>Recent content in go on Picasun&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Picasun</copyright>
-    <lastBuildDate>Tue, 14 Dec 2021 14:26:21 +0800</lastBuildDate><atom:link href="https://picasun.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Dec 2021 14:26:21 +0800</lastBuildDate><atom:link href="https://picasun.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>WebBasic</title>
       <link>https://picasun.github.io/post/webbasic/</link>
@@ -15,15 +15,6 @@
       
       <guid>https://picasun.github.io/post/webbasic/</guid>
       <description>Web开发基础 Web程序运行原理 基本原理 运行原理 用户打开浏览器，输入URL地址 客户端浏览器通过HTTP协议向服务器端发送浏览请求 服务器端通过</description>
-    </item>
-    
-    <item>
-      <title>MyFirstBlog</title>
-      <link>https://picasun.github.io/post/myfirstblog/</link>
-      <pubDate>Thu, 18 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://picasun.github.io/post/myfirstblog/</guid>
-      <description>1 2 3 4 5 6  package main import &amp;#34;fmt&amp;#34;	func main(){ fmt.Println(&amp;#34;hello&amp;#34;) }   </description>
     </item>
     
   </channel>

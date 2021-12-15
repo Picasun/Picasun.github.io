@@ -69,7 +69,7 @@
 <meta itemprop="name" content="Leetcode">
 <meta itemprop="description" content="Leetcode题解 Week1 1_1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1,3,2] 输入：root = [] 输出：[] 输入：root = [1] 输出：[1] Go"><meta itemprop="datePublished" content="2021-11-25T22:24:46+08:00" />
 <meta itemprop="dateModified" content="2021-11-25T22:24:46+08:00" />
-<meta itemprop="wordCount" content="1074">
+<meta itemprop="wordCount" content="1429">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode"/>
 <meta name="twitter:description" content="Leetcode题解 Week1 1_1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1,3,2] 输入：root = [] 输出：[] 输入：root = [1] 输出：[1] Go"/>
@@ -345,7 +345,7 @@
     </li>
     <li><a href="#week2">Week2</a>
       <ul>
-        <li><a href="#2_1">2_1</a></li>
+        <li><a href="#2_1-54_螺旋矩阵">2_1 54_螺旋矩阵</a></li>
       </ul>
     </li>
   </ul>
@@ -691,7 +691,94 @@
 <em>每次走到了终止位置，就等于走了<strong>最优的</strong>一步</em></li>
 </ul>
 <h2 id="week2">Week2</h2>
-<h3 id="2_1">2_1</h3>
+<h3 id="2_1-54_螺旋矩阵">2_1 54_螺旋矩阵</h3>
+<ul>
+<li>Go语言代码</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">spiralOrder</span><span class="p">(</span><span class="nx">matrix</span> <span class="p">[][]</span><span class="kt">int</span><span class="p">)</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span>
+
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">matrix</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="nb">len</span><span class="p">(</span><span class="nx">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{}</span>
+	<span class="p">}</span>
+
+	<span class="nx">rows</span><span class="p">,</span> <span class="nx">columns</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">matrix</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="nx">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+	<span class="nx">visited</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([][]</span><span class="kt">bool</span><span class="p">,</span> <span class="nx">rows</span><span class="p">)</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">rows</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">visited</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">bool</span><span class="p">,</span> <span class="nx">columns</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="kd">var</span> <span class="p">(</span>
+		<span class="nx">total</span> <span class="p">=</span> <span class="nx">rows</span> <span class="o">*</span> <span class="nx">columns</span>
+		<span class="nx">order</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">total</span><span class="p">)</span>
+		<span class="nx">row</span><span class="p">,</span> <span class="nx">column</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+		<span class="nx">directions</span> <span class="p">=</span> <span class="p">[][]</span><span class="kt">int</span><span class="p">{[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">},</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}}</span>
+		<span class="nx">directionIndex</span> <span class="p">=</span> <span class="mi">0</span>
+	<span class="p">)</span>
+
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">total</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">order</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">matrix</span><span class="p">[</span><span class="nx">row</span><span class="p">][</span><span class="nx">column</span><span class="p">]</span>
+		<span class="nx">visited</span><span class="p">[</span><span class="nx">row</span><span class="p">][</span><span class="nx">column</span><span class="p">]</span> <span class="p">=</span> <span class="kc">true</span>
+		<span class="nx">nextRow</span><span class="p">,</span> <span class="nx">nextColumn</span> <span class="o">:=</span> <span class="nx">row</span> <span class="o">+</span> <span class="nx">directions</span><span class="p">[</span><span class="nx">directionIndex</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nx">column</span> <span class="o">+</span> <span class="nx">directions</span><span class="p">[</span><span class="nx">directionIndex</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+		<span class="k">if</span> <span class="nx">nextRow</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">nextRow</span> <span class="o">&gt;=</span> <span class="nx">rows</span> <span class="o">||</span> <span class="nx">nextColumn</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">nextColumn</span> <span class="o">&gt;=</span> <span class="nx">columns</span> <span class="o">||</span> <span class="nx">visited</span><span class="p">[</span><span class="nx">nextRow</span><span class="p">][</span><span class="nx">nextColumn</span><span class="p">]</span> <span class="p">{</span>
+			<span class="nx">directionIndex</span> <span class="p">=</span> <span class="p">(</span><span class="nx">directionIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span>
+		<span class="p">}</span>
+		<span class="nx">row</span> <span class="o">+=</span> <span class="nx">directions</span><span class="p">[</span><span class="nx">directionIndex</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+		<span class="nx">column</span> <span class="o">+=</span> <span class="nx">directions</span><span class="p">[</span><span class="nx">directionIndex</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">order</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>分析
+#3：判断长度是否为0，特殊情况<br>
+#7：取出参数数组的行长和列长<br>
+#9：定义数组，访问情况<br>
+#14：定义总数total、答案数组order、起始行列 [0，0]，方向（顺时），目前长度<br>
+#23：循环存放路径数据
+#24：修改访问情况为true
+#25：预判本路径的下一个位置
+#26：如果超出边界or被访问过，就顺时针改变路径方向
+#29-30：按照（正确的）路径方向走</li>
+</ul>
 
     </div>
 
@@ -727,8 +814,8 @@
       <nav class="post-nav">
         
         
-          <a class="next" href="/post/ml_platform/">
-            <span class="next-text nav-default">ML_Platform</span>
+          <a class="next" href="/post/sql/">
+            <span class="next-text nav-default">SQL</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">
