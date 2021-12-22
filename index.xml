@@ -502,7 +502,26 @@ I will stay calm and think seriously about the meaning of the day.&lt;/p&gt;
 &lt;li&gt;按SELECT子句中给出的列名或列表达式求值输出。&lt;/li&gt;
 &lt;li&gt;ORDER子句对输出的目标表进行排序,按附加说明ASC升序排列，或按DESC降序排列。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;格式&#34;&gt;格式&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;   SELECT  [DISTINCT]  目标表的列名或列表达式序列
+   FROM  基本表名(或)视图名序列|表引用
+    [WHERE  行条件表达式］
+    [GROUP BY  列名1序列 [HAVING  组条件表达式］］
+    [ORDER BY  列名2 [ASC|DESC］序列］；
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
@@ -763,7 +782,35 @@ SET GOARCH=amd64
 go build main.go
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;&lt;h2 id=&#34;文件操作&#34;&gt;文件操作&lt;/h2&gt;
+&lt;h3 id=&#34;创建文件夹&#34;&gt;创建文件夹&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Mkdir&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;basePath&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+		&lt;span class=&#34;c1&#34;&gt;//获取当前时间,并且格式化时间
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;		&lt;span class=&#34;nx&#34;&gt;folderName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2006/01/02&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+		&lt;span class=&#34;nx&#34;&gt;folderPath&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;filepath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Join&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;basePath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;folderName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+		&lt;span class=&#34;c1&#34;&gt;//使用mkdir会创建多层级目录
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;		&lt;span class=&#34;nx&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;MkdirAll&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;folderPath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ModePerm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+		&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;folderPath&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;最后得到的目录为basePath/2021/12/20&lt;br&gt;
+OS库&lt;/p&gt;
+</description>
       
     </item>
     
@@ -776,43 +823,45 @@ go build main.go
       
         <description>&lt;h1 id=&#34;点歌台片头&#34;&gt;点歌台片头&lt;/h1&gt;
 &lt;h2 id=&#34;段落1&#34;&gt;段落1&lt;/h2&gt;
-&lt;p&gt;他总喜欢和我讲述那些年的上海&lt;br&gt;
-坐上绿皮火车去追寻热爱&lt;br&gt;
-感谢你放在&lt;strong&gt;留声机&lt;/strong&gt;里翻录的磁带&lt;br&gt;
-虽在远方 却让我满怀期待&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;六月&lt;/strong&gt; 他总喜欢和我讲述那些年的上海 &lt;br&gt;
+&lt;strong&gt;年糕&lt;/strong&gt; 坐上绿皮火车去追寻热爱  &lt;br&gt;
+&lt;strong&gt;芝士&lt;/strong&gt; 感谢你放在&lt;strong&gt;留声机&lt;/strong&gt;里翻录的磁带  &lt;br&gt;
+&lt;strong&gt;靖一&lt;/strong&gt;  虽在远方 却让我满怀期待&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;伴奏：Love of my life&lt;/li&gt;
+&lt;li&gt;伴奏：《Somebody to love》&lt;/li&gt;
 &lt;li&gt;作者：皇后乐队&lt;/li&gt;
 &lt;li&gt;代表作：《we will rock you》、《we are the champions》&lt;/li&gt;
-&lt;li&gt;代表风格：80年代的摇滚&lt;/li&gt;
+&lt;li&gt;代表风格：80-90年代的摇滚&lt;/li&gt;
 &lt;li&gt;时代：收音机时代&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;段落2&#34;&gt;段落2&lt;/h2&gt;
-&lt;p&gt;现在我能把你放进我的口袋&lt;br&gt;
-小巧的身型让你不可取代&lt;br&gt;
-但我还是习惯把&lt;strong&gt;随身听&lt;/strong&gt;握在手里&lt;br&gt;
-把耳机的另一端借给你带&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;七七&lt;/strong&gt;  现在我能把你放进我的口袋&lt;br&gt;
+&lt;strong&gt;花花&lt;/strong&gt;  小巧的身型让你不可取代&lt;br&gt;
+&lt;strong&gt;小梦&lt;/strong&gt;  但我还是习惯把&lt;strong&gt;随身听&lt;/strong&gt;握在手里&lt;br&gt;
+&lt;strong&gt;十九&lt;/strong&gt;  把耳机的另一端借给你带&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;伴奏：&lt;/li&gt;
-&lt;li&gt;作者&lt;/li&gt;
-&lt;li&gt;代表作：&lt;/li&gt;
-&lt;li&gt;代表风格：&lt;/li&gt;
+&lt;li&gt;伴奏：《桜》&lt;/li&gt;
+&lt;li&gt;作者：FUNKY MONKEY BABYS&lt;/li&gt;
+&lt;li&gt;代表作：《桜》&lt;/li&gt;
+&lt;li&gt;代表风格：00-10年代的流行乐&lt;/li&gt;
 &lt;li&gt;时代：随身听时代&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;段落3&#34;&gt;段落3&lt;/h2&gt;
-&lt;p&gt;终于你可以随处听到那首挚爱&lt;br&gt;
-在车流间、在树荫底、在星空下
-每周四傍晚&lt;br&gt;
-&lt;strong&gt;shareradio点歌台&lt;/strong&gt;&lt;br&gt;
-或许是命运的安排&lt;br&gt;
-原来你一直在我心里&lt;br&gt;
-从未离开&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;一轩&lt;/strong&gt;  终于你可以随处听到那首挚爱&lt;br&gt;
+&lt;strong&gt;海凌&lt;/strong&gt;  在车流间、&lt;br&gt;
+&lt;strong&gt;月白&lt;/strong&gt;  在树荫底、&lt;br&gt;
+&lt;strong&gt;一痕&lt;/strong&gt;  在星空下&lt;br&gt;
+&lt;strong&gt;斯格&lt;/strong&gt;  每周四傍晚&lt;br&gt;
+&lt;strong&gt;年糕&lt;/strong&gt;  &lt;strong&gt;shareradio点歌台&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;六月&lt;/strong&gt;  或许是命运的安排  &lt;br&gt;
+&lt;strong&gt;小新&lt;/strong&gt;  原来你一直在我心里&lt;br&gt;
+&lt;strong&gt;一轩&lt;/strong&gt;  从未离开&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;伴奏：&lt;/li&gt;
-&lt;li&gt;作者&lt;/li&gt;
-&lt;li&gt;代表作：&lt;/li&gt;
-&lt;li&gt;代表风格：&lt;/li&gt;
-&lt;li&gt;时代：shareradio时代&lt;/li&gt;
+&lt;li&gt;伴奏：《风吹着我向你跑来》or《年年》&lt;/li&gt;
+&lt;li&gt;作者：焦迈奇or徐秉龙&lt;/li&gt;
+&lt;li&gt;代表作：《暝色留声》、《觉色影院》、《点击校园》、《点歌台》、《明儿周末》&amp;hellip;&lt;/li&gt;
+&lt;li&gt;代表风格：校园、懂你的SR&lt;/li&gt;
+&lt;li&gt;时代：Shareradio时代&lt;/li&gt;
 &lt;/ul&gt;
 </description>
       
@@ -1440,7 +1489,13 @@ from  表1 链接类型 表2 链接类型 表3&lt;br&gt;
 &lt;/span&gt;&lt;span class=&#34;w&#34;&gt;	
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;&lt;h3 id=&#34;视图操作&#34;&gt;视图操作&lt;/h3&gt;
+&lt;p&gt;视图被称为虚表
+select 的 where&lt;br&gt;
+相当于
+group by the having&lt;/p&gt;
+&lt;p&gt;值不容易变化 所以一般用主键作为聚集索引&lt;/p&gt;
+</description>
       
     </item>
     

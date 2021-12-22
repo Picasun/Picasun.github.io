@@ -69,7 +69,7 @@
 <meta itemprop="name" content="ML_Platform">
 <meta itemprop="description" content="ML_Platform Golang 在 Mac、Linux、Windows 下如何交叉编译 (https://blog.csdn.net/panshiqu/article/details/53788067) Mac 下编译 Linux 和 Windows 64位可执行程序 1 2 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go Linux 下编译 Mac 和 Windows 64位可执行"><meta itemprop="datePublished" content="2021-12-06T22:51:50+08:00" />
 <meta itemprop="dateModified" content="2021-12-06T22:51:50+08:00" />
-<meta itemprop="wordCount" content="128">
+<meta itemprop="wordCount" content="226">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ML_Platform"/>
 <meta name="twitter:description" content="ML_Platform Golang 在 Mac、Linux、Windows 下如何交叉编译 (https://blog.csdn.net/panshiqu/article/details/53788067) Mac 下编译 Linux 和 Windows 64位可执行程序 1 2 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go Linux 下编译 Mac 和 Windows 64位可执行"/>
@@ -341,6 +341,11 @@
         <li><a href="#windows-下编译-mac-和-linux-64位可执行程序">Windows 下编译 Mac 和 Linux 64位可执行程序</a></li>
       </ul>
     </li>
+    <li><a href="#文件操作">文件操作</a>
+      <ul>
+        <li><a href="#创建文件夹">创建文件夹</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -398,7 +403,35 @@ SET GOARCH=amd64
 go build main.go
 </code></pre></td></tr></table>
 </div>
+</div><h2 id="文件操作">文件操作</h2>
+<h3 id="创建文件夹">创建文件夹</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Mkdir</span><span class="p">(</span><span class="nx">basePath</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+		<span class="c1">//获取当前时间,并且格式化时间
+</span><span class="c1"></span>		<span class="nx">folderName</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Format</span><span class="p">(</span><span class="s">&#34;2006/01/02&#34;</span><span class="p">)</span>
+		<span class="nx">folderPath</span> <span class="o">:=</span> <span class="nx">filepath</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="nx">basePath</span><span class="p">,</span> <span class="nx">folderName</span><span class="p">)</span>
+
+		<span class="c1">//使用mkdir会创建多层级目录
+</span><span class="c1"></span>		<span class="nx">os</span><span class="p">.</span><span class="nf">MkdirAll</span><span class="p">(</span><span class="nx">folderPath</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">ModePerm</span><span class="p">)</span>
+		<span class="k">return</span> <span class="nx">folderPath</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
+</div><p>最后得到的目录为basePath/2021/12/20<br>
+OS库</p>
+
     </div>
 
     
