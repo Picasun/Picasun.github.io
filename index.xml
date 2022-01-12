@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Picasun</copyright>
-    <lastBuildDate>Tue, 14 Dec 2021 20:56:50 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jan 2022 13:55:33 +0800</lastBuildDate>
     
         <atom:link href="https://picasun.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -483,6 +483,310 @@ I will stay calm and think seriously about the meaning of the day.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>HTTP</title>
+      <link>https://picasun.github.io/post/http/</link>
+      <pubDate>Mon, 10 Jan 2022 13:55:33 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/http/</guid>
+      
+        <description>&lt;h1 id=&#34;图解http&#34;&gt;《图解HTTP》&lt;/h1&gt;
+&lt;p&gt;本书非常适合初学之进行&lt;strong&gt;HTTP&lt;/strong&gt;协议的学习，逻辑清晰，配图生动，本文会对关键部分进行不配图的摘录，方便读者进行复习或初学者进行简单了解。&lt;/p&gt;
+&lt;h2 id=&#34;1-了解web及网络基础&#34;&gt;1 了解Web及网络基础&lt;/h2&gt;
+&lt;h3 id=&#34;11-使用http协议访问web&#34;&gt;1.1 使用HTTP协议访问web&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Web页面不能凭空显示，根据Web浏览器中指定的URL，Web浏览器从Web服务器端获取文件资源（resource）等信息，从而显示出Web页面&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;像这种通过发送请求获取服务器资源的Web浏览器等，都可以成为客户端（client）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Web使用一种名为HTTP（HyperText Transfer Protocol），超文本传输协议的协议作为规范，完成从客户端到服务器等一系列运作流程&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以说，web是建立在HTTP协议上通信的&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;12-http的诞生&#34;&gt;1.2 HTTP的诞生&lt;/h3&gt;
+&lt;h4 id=&#34;121-为知识共享而规划web&#34;&gt;1.2.1 为知识共享而规划Web&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;从前互联网只属于少数人，此时HTTP诞生，为了&lt;strong&gt;共享知识&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最初设计理念：借助多文档之间的相互关联形成的超文本（HyperText），连成可以互相参阅的万维网（World Wild Web）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;已经提出的WWW构建技术&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;SGML&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HTML&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HTTP&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;URL&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;122-web成长时代&#34;&gt;1.2.2 Web成长时代&lt;/h4&gt;
+&lt;h4 id=&#34;123-驻足不前的http&#34;&gt;1.2.3 驻足不前的HTTP&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;HTTP/0.9 没有作为正式标准被建立，HTTP1.0之前版本的意思&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HTTP/1.0 1996年5月正式被公布，记载于RFC1945，广泛应用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HTTP/1.1&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;13-网络基础tcpip&#34;&gt;1.3 网络基础TCP/IP&lt;/h3&gt;
+&lt;p&gt;为了理解HTTP，有必要事先了解一下TCP/IP协议族。&lt;/p&gt;
+&lt;p&gt;通常使用的网络是在TCP/IP协议族的基础上运作的，HTTP属于内部的一个子集&lt;/p&gt;
+&lt;p&gt;因为本书为《图解HTTP》，因此仅做了需要学习本协议需要掌握的TCP/IP协议族概要，具体可以参阅我的另一篇博客：&lt;a href=&#34;http://localhost:1313/post/tcp_ip/&#34;&gt;《TCP/IP》&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;131-tcpip协议族&#34;&gt;1.3.1 TCP/IP协议族&lt;/h4&gt;
+&lt;p&gt;计算机与网络设备需要通信，双方就必须基于相同的方法。不同的硬件，操作系统之间的通信，所有的一切都需要一种规则，我们把这种规则称为协议。&lt;/p&gt;
+&lt;p&gt;协议中存在各式各样的内容，从电缆规格到IP选定方法，寻找异地用户方法，Web页面需要做的处理等&amp;hellip;&lt;/p&gt;
+&lt;p&gt;像这样把与互联网相关联的协议集合起来总称为&lt;strong&gt;TCP/IP&lt;/strong&gt;。有说法认为这是TCP和IP两种协议，我比较倾向于这是在通信过程中需要使用到的协议族的统称。&lt;/p&gt;
+&lt;h4 id=&#34;132-tcpip的分层管理&#34;&gt;1.3.2 TCP/IP的分层管理&lt;/h4&gt;
+&lt;p&gt;本书中说按照TCP/IP协议族按层次分为自顶向下4层：应用层、传输层、网络层和数据联络层。经过校内计算机网络课程的学习应该是五层：应用层、传输层、网络层、数据联络层和物理层。&lt;/p&gt;
+&lt;p&gt;分层的好处：某处需要改变设计时，仅需要替换变动的层，不需要整体改动，设计也会相对简单，只需要考虑分派给自己的任务。分层不多做赘述。&lt;/p&gt;
+&lt;h4 id=&#34;133-tcpip通信传输流&#34;&gt;1.3.3 TCP/IP通信传输流&lt;/h4&gt;
+&lt;p&gt;发送端从应用层往下走，接收端则从下层往上走&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;应用层：生成HTTP数据（报文）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;传输层：添加TCP首部&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;网络层：添加IP首部 形成IP报文&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;链路层：添加以太网首部 形成MAC帧&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;物理层：在物理媒介上传输
+发送层在层与层之间传输数据时，每经过一层必定会被打上一个该层所属的首部信息。反之，接收端在层与层之间传输数据时，每经过一层，就会把对应的首部消去。这种把数据包装起来的做法称为封装（encapsulate）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;14-与http关系密切的协议iptcp和dns&#34;&gt;1.4 与HTTP关系密切的协议：IP、TCP和DNS&lt;/h3&gt;
+&lt;h4 id=&#34;141-负责传输的ip协议&#34;&gt;1.4.1 负责传输的IP协议&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;IP（Internet Protocol）：几乎所有网络系统都会用到IP协议&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;IP地址指明了被分配到的地址，MAC地址指网卡所属的固定地址，IP地址可以和MAC地址进行配对&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;IP地址可以变换，但MAC地址基本上不会更改&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用ARP（Address Resolution Proto）协议凭借MAC地址进行通信&lt;br&gt;
+&lt;em&gt;IP间通信依赖MAC地址，网络上通信双方在同一个内网（LAN）内的情况很少，通常是通过多台计算机和网络设备的中转才能连接到对方，进行中转时，会利用下一台中转设备的MAC地址来搜索下一个中转目标。这时会采用ARP协议，用于解析地址，根据通信方的IP地址就可以反查出对应的MAC地址&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;没有人可以全面掌握互联网中的传输情况：路由选择&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;142-确保可靠性的tcp协议&#34;&gt;1.4.2 确保可靠性的TCP协议&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;TCP位于传输层，提供可靠的字节流服务&lt;/li&gt;
+&lt;li&gt;把大数据块分割成以报文段为单位的数据包进行管理&lt;/li&gt;
+&lt;li&gt;TCP协议能够确认数据最终是否送达到对方（三次握手，四次挥手）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;15-负责域名解析的dns服务&#34;&gt;1.5 负责域名解析的DNS服务&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;提供域名到IP地址之间的解析服务&lt;/li&gt;
+&lt;li&gt;计算机既可以被赋予IP地址，也可以被赋予主机名和域名&lt;/li&gt;
+&lt;li&gt;DNS协议提供通过域名查找IP地址，或逆向从IP地址反查域名的服务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;16-各种协议与http协议的关系&#34;&gt;1.6 各种协议与HTTP协议的关系&lt;/h3&gt;
+&lt;p&gt;举例说明：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;想浏览一个页面&lt;/li&gt;
+&lt;li&gt;通过DNS解析IP地址&lt;/li&gt;
+&lt;li&gt;生成对目标Web服务器的HTTP请求报文&lt;/li&gt;
+&lt;li&gt;客户端TCP把HTTP报文分割成报文段然后可靠传输&lt;/li&gt;
+&lt;li&gt;网络层IP搜索对方的地址，一边中转一遍传送&lt;/li&gt;
+&lt;li&gt;服务器端TCP重组到达的报文段&lt;/li&gt;
+&lt;li&gt;服务器端HTTP对Web服务器请求的内容进行处理&lt;/li&gt;
+&lt;li&gt;结果也利用TCP/IP回传给客户端&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;17-uri和url&#34;&gt;1.7 URI和URL&lt;/h3&gt;
+&lt;h4 id=&#34;171-统一资源标识符&#34;&gt;1.7.1 统一资源标识符&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;URL（Uniform Resource Locator）：表示某一互联网资源&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;URI（Uniform Resource Identifier）：表示了资源的地点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;登陆信息&lt;/li&gt;
+&lt;li&gt;服务器地址&lt;/li&gt;
+&lt;li&gt;服务器端口号&lt;/li&gt;
+&lt;li&gt;带层次的文件路径&lt;/li&gt;
+&lt;li&gt;查询字符串&lt;/li&gt;
+&lt;li&gt;片段标识符&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;URL是URI的子集&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2-简单的http协议&#34;&gt;2 简单的HTTP协议&lt;/h2&gt;
+&lt;h3 id=&#34;21-http协议用于客户端和服务器之间的通信&#34;&gt;2.1 HTTP协议用于客户端和服务器之间的通信&lt;/h3&gt;
+&lt;p&gt;HTTP和TCP/IP协议族呢爹众多其他协议相同，都用于客户和服务器之间的通信&lt;/p&gt;
+&lt;p&gt;请求访问的一端称为客户端，而提供资源响应的称为服务端&lt;/p&gt;
+&lt;p&gt;使用HTTP协议就可以明确区分哪一段是客户端，哪一段是服务端&lt;/p&gt;
+&lt;h3 id=&#34;22-通过请求和响应的交换达成通信&#34;&gt;2.2 通过请求和响应的交换达成通信&lt;/h3&gt;
+&lt;p&gt;请求必定由客户端发出，而由服务器端回复响应，书上还有一些具体通信的例子，在此不举例&lt;/p&gt;
+&lt;h3 id=&#34;23-http是不保存状态的协议&#34;&gt;2.3 HTTP是不保存状态的协议&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;无状态（stateless）协议：不对请求和响应之间的通信状态进行保存&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为了更快处理大量事务，确保协议的可伸缩性&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;随着Web发展，需要保存用户的状态（如：购物网站）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;引入Cookie技术，有了Cookie再用HTTP协议通信，就可以管理状态了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;24-请求uri定位资源&#34;&gt;2.4 请求URI定位资源&lt;/h3&gt;
+&lt;p&gt;HTTP使用URI定位互联网上的资源，正是因为URI的特定功能，在互联网上任意位置的资源都能访问到。&lt;/p&gt;
+&lt;h3 id=&#34;25-告知服务器意图的http方法&#34;&gt;2.5 告知服务器意图的HTTP方法&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;GET：获取资源（CGI（Common Gateway Interface ，通用网关接口）返回执行后的输出）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;POST：传输实体主体（目的不是获取响应的主体内容）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PUT：传输文件 一般Web不用，因为不带自身验证机制，任何人都可以上传（REST架构or配合Web应用程序的验证机制才开放使用PUT）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HEAD：获得报文首部（一般用于确认URI资源的有效性和更新的日期等）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;DELETE：删除文件（与PUT相反）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;TRACE：追踪路径（让Web服务器将之前的请求通信环回给客户端的方法，不常用，容易引发XST（Cross-Site Tracing），跨站攻击）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CONNECT：要求用隧道协议连接代理（实现用隧道协议进行TCP通信，主要是用SSL和TLS协议把通信内容加密后经过网络隧道传输）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;26-使用方法下达命令&#34;&gt;2.6 使用方法下达命令&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;都用大写字母&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;27-持久连接节省通信量&#34;&gt;2.7 持久连接节省通信量&lt;/h3&gt;
+&lt;p&gt;HTTP协议的初始版本中，每进行一次HTTP通信就要断开一次TCP连接。&lt;br&gt;
+每次请求都会造成无谓的TCP连接建立和断开，增加通信量的开销。&lt;/p&gt;
+&lt;h4 id=&#34;271-持久连接&#34;&gt;2.7.1 持久连接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;为解决TCP连接问题，HTTP/1.1和一部分HTTP/1.0想出了持久连接，称为HTTP keep-alive或者HTTP connection reuse 方法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;特点：只要任意一段没有明确提出断开连接，就会保持TCP连接状态&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;减少TCP重复建立和断开造成的额外开销，减轻了服务器的负载&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在HTTP/1.1中，所有的连接默认都是持久连接，但在HTTP/1.0中并未标准化&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;除了服务器端，客户端也需要支持持久连接&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;272-管线化&#34;&gt;2.7.2 管线化&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;持久连接使得多数请求以管线化（pipelining）方式发送成为可能，从前发送请求后需等待并收到响应，才能发送下一个请求。管线化技术出现后不用等待响应亦可发送下一个请求&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;相比挨个连接，用的持久连接可以让请求更快结束，而管线化技术比持久连接更加快，请求的次数越多，时间差就越明显&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;28-使用cookie的状态管理&#34;&gt;2.8 使用Cookie的状态管理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;HTTP是无状态的协议&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不必保存状态，减少CPU和内存的消耗&lt;/li&gt;
+&lt;li&gt;正因为简单，才能被应用在各种场景里&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果要求登陆认证的Web页面本身无法进行状态的管理，每次刷新页面需要&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;再次登陆&lt;/li&gt;
+&lt;li&gt;在请求报文中附加参数来管理登陆状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;保留无状态的特征，又要解决类似的矛盾问题，引入了Cookie技术。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;cookie技术&#34;&gt;Cookie技术&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;通过在请求和响应报文中写入Cookie信息来控制客户端的状态&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cookie会根据从服务端发送的根据响应报中的Set-Cookie的首部字段信息，通知客户端保存Cookie&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下次客户端再往该服务器发送请求时，客户端会自动在请求报文中加入Cookie值发送出去&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;客户端收到Cookie后会检查究竟从哪个客户端发来的连接请求，然后对比服务器上的记录得到之前的状态信息。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;没有Cookie时：客户端向服务器发送一个请求报文，服务端生成Cookie记住是向谁发送的，在响应报文中添加Cookie后返回，客户端会保存Cookie&lt;/p&gt;
+&lt;p&gt;存有Cookie后：客户端会在请求报文中添加Cookie发送给服务端，服务端进行Cookie的检查后进行响应，这样服务器就能分清客户端是谁&lt;/p&gt;
+&lt;h2 id=&#34;3&#34;&gt;3&lt;/h2&gt;
+&lt;h2 id=&#34;4&#34;&gt;4&lt;/h2&gt;
+&lt;h2 id=&#34;5&#34;&gt;5&lt;/h2&gt;
+&lt;h2 id=&#34;6&#34;&gt;6&lt;/h2&gt;
+&lt;h2 id=&#34;7&#34;&gt;7&lt;/h2&gt;
+&lt;h2 id=&#34;8&#34;&gt;8&lt;/h2&gt;
+&lt;h2 id=&#34;9&#34;&gt;9&lt;/h2&gt;
+&lt;h2 id=&#34;10&#34;&gt;10&lt;/h2&gt;
+&lt;h2 id=&#34;11&#34;&gt;11&lt;/h2&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>TCP_IP</title>
+      <link>https://picasun.github.io/post/tcp_ip/</link>
+      <pubDate>Mon, 10 Jan 2022 13:52:46 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/tcp_ip/</guid>
+      
+        <description></description>
       
     </item>
     
@@ -1583,6 +1887,7 @@ group by the having&lt;/p&gt;
 &lt;h3 id=&#34;分段系统的基本原理&#34;&gt;分段系统的基本原理&lt;/h3&gt;
 &lt;h3 id=&#34;信息共享&#34;&gt;信息共享&lt;/h3&gt;
 &lt;h3 id=&#34;段页式存储管理方式&#34;&gt;段页式存储管理方式&lt;/h3&gt;
+&lt;h1 id=&#34;操作系统-chapter5-虚拟存储器&#34;&gt;操作系统 Chapter5 虚拟存储器&lt;/h1&gt;
 </description>
       
     </item>

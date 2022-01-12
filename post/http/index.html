@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>HTTP - Picasun&#39;s blog</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Picasun" />
+  <meta name="description" content="《图解HTTP》 本书非常适合初学之进行HTTP协议的学习，逻辑清晰，配图生动，本文会对关键部分进行不配图的摘录，方便读者进行复习或初学者进行" />
+<meta name="keywords" content="http" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.89.0" />
+
+
+<link rel="canonical" href="https://picasun.github.io/post/http/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="HTTP" />
+<meta property="og:description" content="《图解HTTP》 本书非常适合初学之进行HTTP协议的学习，逻辑清晰，配图生动，本文会对关键部分进行不配图的摘录，方便读者进行复习或初学者进行" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://picasun.github.io/post/http/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-10T13:55:33+08:00" />
+<meta property="article:modified_time" content="2022-01-10T13:55:33+08:00" />
+
+<meta itemprop="name" content="HTTP">
+<meta itemprop="description" content="《图解HTTP》 本书非常适合初学之进行HTTP协议的学习，逻辑清晰，配图生动，本文会对关键部分进行不配图的摘录，方便读者进行复习或初学者进行"><meta itemprop="datePublished" content="2022-01-10T13:55:33+08:00" />
+<meta itemprop="dateModified" content="2022-01-10T13:55:33+08:00" />
+<meta itemprop="wordCount" content="3631">
+<meta itemprop="keywords" content="http,Web," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTTP"/>
+<meta name="twitter:description" content="《图解HTTP》 本书非常适合初学之进行HTTP协议的学习，逻辑清晰，配图生动，本文会对关键部分进行不配图的摘录，方便读者进行复习或初学者进行"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Picasun's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/about/">About</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/friends/">Friends</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Picasun's Blog
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/about/">About</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/friends/">Friends</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">HTTP</h1>
+      
+      <div class="post-meta">
+        <time datetime="2022-01-10" class="post-time">
+          2022-01-10
+        </time>
+        <div class="post-category">
+            <a href="https://picasun.github.io/categories/http/"> http </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-了解web及网络基础">1 了解Web及网络基础</a>
+      <ul>
+        <li><a href="#11-使用http协议访问web">1.1 使用HTTP协议访问web</a></li>
+        <li><a href="#12-http的诞生">1.2 HTTP的诞生</a></li>
+        <li><a href="#13-网络基础tcpip">1.3 网络基础TCP/IP</a></li>
+        <li><a href="#14-与http关系密切的协议iptcp和dns">1.4 与HTTP关系密切的协议：IP、TCP和DNS</a></li>
+        <li><a href="#15-负责域名解析的dns服务">1.5 负责域名解析的DNS服务</a></li>
+        <li><a href="#16-各种协议与http协议的关系">1.6 各种协议与HTTP协议的关系</a></li>
+        <li><a href="#17-uri和url">1.7 URI和URL</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-简单的http协议">2 简单的HTTP协议</a>
+      <ul>
+        <li><a href="#21-http协议用于客户端和服务器之间的通信">2.1 HTTP协议用于客户端和服务器之间的通信</a></li>
+        <li><a href="#22-通过请求和响应的交换达成通信">2.2 通过请求和响应的交换达成通信</a></li>
+        <li><a href="#23-http是不保存状态的协议">2.3 HTTP是不保存状态的协议</a></li>
+        <li><a href="#24-请求uri定位资源">2.4 请求URI定位资源</a></li>
+        <li><a href="#25-告知服务器意图的http方法">2.5 告知服务器意图的HTTP方法</a></li>
+        <li><a href="#26-使用方法下达命令">2.6 使用方法下达命令</a></li>
+        <li><a href="#27-持久连接节省通信量">2.7 持久连接节省通信量</a></li>
+        <li><a href="#28-使用cookie的状态管理">2.8 使用Cookie的状态管理</a></li>
+      </ul>
+    </li>
+    <li><a href="#3">3</a></li>
+    <li><a href="#4">4</a></li>
+    <li><a href="#5">5</a></li>
+    <li><a href="#6">6</a></li>
+    <li><a href="#7">7</a></li>
+    <li><a href="#8">8</a></li>
+    <li><a href="#9">9</a></li>
+    <li><a href="#10">10</a></li>
+    <li><a href="#11">11</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h1 id="图解http">《图解HTTP》</h1>
+<p>本书非常适合初学之进行<strong>HTTP</strong>协议的学习，逻辑清晰，配图生动，本文会对关键部分进行不配图的摘录，方便读者进行复习或初学者进行简单了解。</p>
+<h2 id="1-了解web及网络基础">1 了解Web及网络基础</h2>
+<h3 id="11-使用http协议访问web">1.1 使用HTTP协议访问web</h3>
+<ul>
+<li>
+<p>Web页面不能凭空显示，根据Web浏览器中指定的URL，Web浏览器从Web服务器端获取文件资源（resource）等信息，从而显示出Web页面</p>
+</li>
+<li>
+<p>像这种通过发送请求获取服务器资源的Web浏览器等，都可以成为客户端（client）</p>
+</li>
+<li>
+<p>Web使用一种名为HTTP（HyperText Transfer Protocol），超文本传输协议的协议作为规范，完成从客户端到服务器等一系列运作流程</p>
+</li>
+<li>
+<p>可以说，web是建立在HTTP协议上通信的</p>
+</li>
+</ul>
+<h3 id="12-http的诞生">1.2 HTTP的诞生</h3>
+<h4 id="121-为知识共享而规划web">1.2.1 为知识共享而规划Web</h4>
+<ul>
+<li>
+<p>从前互联网只属于少数人，此时HTTP诞生，为了<strong>共享知识</strong></p>
+</li>
+<li>
+<p>最初设计理念：借助多文档之间的相互关联形成的超文本（HyperText），连成可以互相参阅的万维网（World Wild Web）</p>
+</li>
+<li>
+<p>已经提出的WWW构建技术</p>
+<ul>
+<li>
+<p>SGML</p>
+</li>
+<li>
+<p>HTML</p>
+</li>
+<li>
+<p>HTTP</p>
+</li>
+<li>
+<p>URL</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="122-web成长时代">1.2.2 Web成长时代</h4>
+<h4 id="123-驻足不前的http">1.2.3 驻足不前的HTTP</h4>
+<ul>
+<li>
+<p>HTTP/0.9 没有作为正式标准被建立，HTTP1.0之前版本的意思</p>
+</li>
+<li>
+<p>HTTP/1.0 1996年5月正式被公布，记载于RFC1945，广泛应用</p>
+</li>
+<li>
+<p>HTTP/1.1</p>
+</li>
+</ul>
+<h3 id="13-网络基础tcpip">1.3 网络基础TCP/IP</h3>
+<p>为了理解HTTP，有必要事先了解一下TCP/IP协议族。</p>
+<p>通常使用的网络是在TCP/IP协议族的基础上运作的，HTTP属于内部的一个子集</p>
+<p>因为本书为《图解HTTP》，因此仅做了需要学习本协议需要掌握的TCP/IP协议族概要，具体可以参阅我的另一篇博客：<a href="http://localhost:1313/post/tcp_ip/">《TCP/IP》</a></p>
+<h4 id="131-tcpip协议族">1.3.1 TCP/IP协议族</h4>
+<p>计算机与网络设备需要通信，双方就必须基于相同的方法。不同的硬件，操作系统之间的通信，所有的一切都需要一种规则，我们把这种规则称为协议。</p>
+<p>协议中存在各式各样的内容，从电缆规格到IP选定方法，寻找异地用户方法，Web页面需要做的处理等&hellip;</p>
+<p>像这样把与互联网相关联的协议集合起来总称为<strong>TCP/IP</strong>。有说法认为这是TCP和IP两种协议，我比较倾向于这是在通信过程中需要使用到的协议族的统称。</p>
+<h4 id="132-tcpip的分层管理">1.3.2 TCP/IP的分层管理</h4>
+<p>本书中说按照TCP/IP协议族按层次分为自顶向下4层：应用层、传输层、网络层和数据联络层。经过校内计算机网络课程的学习应该是五层：应用层、传输层、网络层、数据联络层和物理层。</p>
+<p>分层的好处：某处需要改变设计时，仅需要替换变动的层，不需要整体改动，设计也会相对简单，只需要考虑分派给自己的任务。分层不多做赘述。</p>
+<h4 id="133-tcpip通信传输流">1.3.3 TCP/IP通信传输流</h4>
+<p>发送端从应用层往下走，接收端则从下层往上走</p>
+<ul>
+<li>
+<p>应用层：生成HTTP数据（报文）</p>
+</li>
+<li>
+<p>传输层：添加TCP首部</p>
+</li>
+<li>
+<p>网络层：添加IP首部 形成IP报文</p>
+</li>
+<li>
+<p>链路层：添加以太网首部 形成MAC帧</p>
+</li>
+<li>
+<p>物理层：在物理媒介上传输
+发送层在层与层之间传输数据时，每经过一层必定会被打上一个该层所属的首部信息。反之，接收端在层与层之间传输数据时，每经过一层，就会把对应的首部消去。这种把数据包装起来的做法称为封装（encapsulate）</p>
+</li>
+</ul>
+<h3 id="14-与http关系密切的协议iptcp和dns">1.4 与HTTP关系密切的协议：IP、TCP和DNS</h3>
+<h4 id="141-负责传输的ip协议">1.4.1 负责传输的IP协议</h4>
+<ul>
+<li>
+<p>IP（Internet Protocol）：几乎所有网络系统都会用到IP协议</p>
+</li>
+<li>
+<p>IP地址指明了被分配到的地址，MAC地址指网卡所属的固定地址，IP地址可以和MAC地址进行配对</p>
+</li>
+<li>
+<p>IP地址可以变换，但MAC地址基本上不会更改</p>
+</li>
+<li>
+<p>使用ARP（Address Resolution Proto）协议凭借MAC地址进行通信<br>
+<em>IP间通信依赖MAC地址，网络上通信双方在同一个内网（LAN）内的情况很少，通常是通过多台计算机和网络设备的中转才能连接到对方，进行中转时，会利用下一台中转设备的MAC地址来搜索下一个中转目标。这时会采用ARP协议，用于解析地址，根据通信方的IP地址就可以反查出对应的MAC地址</em></p>
+</li>
+<li>
+<p>没有人可以全面掌握互联网中的传输情况：路由选择</p>
+</li>
+</ul>
+<h4 id="142-确保可靠性的tcp协议">1.4.2 确保可靠性的TCP协议</h4>
+<ul>
+<li>TCP位于传输层，提供可靠的字节流服务</li>
+<li>把大数据块分割成以报文段为单位的数据包进行管理</li>
+<li>TCP协议能够确认数据最终是否送达到对方（三次握手，四次挥手）</li>
+</ul>
+<h3 id="15-负责域名解析的dns服务">1.5 负责域名解析的DNS服务</h3>
+<ul>
+<li>提供域名到IP地址之间的解析服务</li>
+<li>计算机既可以被赋予IP地址，也可以被赋予主机名和域名</li>
+<li>DNS协议提供通过域名查找IP地址，或逆向从IP地址反查域名的服务</li>
+</ul>
+<h3 id="16-各种协议与http协议的关系">1.6 各种协议与HTTP协议的关系</h3>
+<p>举例说明：</p>
+<ul>
+<li>想浏览一个页面</li>
+<li>通过DNS解析IP地址</li>
+<li>生成对目标Web服务器的HTTP请求报文</li>
+<li>客户端TCP把HTTP报文分割成报文段然后可靠传输</li>
+<li>网络层IP搜索对方的地址，一边中转一遍传送</li>
+<li>服务器端TCP重组到达的报文段</li>
+<li>服务器端HTTP对Web服务器请求的内容进行处理</li>
+<li>结果也利用TCP/IP回传给客户端</li>
+</ul>
+<h3 id="17-uri和url">1.7 URI和URL</h3>
+<h4 id="171-统一资源标识符">1.7.1 统一资源标识符</h4>
+<ul>
+<li>
+<p>URL（Uniform Resource Locator）：表示某一互联网资源</p>
+</li>
+<li>
+<p>URI（Uniform Resource Identifier）：表示了资源的地点</p>
+<ul>
+<li>登陆信息</li>
+<li>服务器地址</li>
+<li>服务器端口号</li>
+<li>带层次的文件路径</li>
+<li>查询字符串</li>
+<li>片段标识符</li>
+</ul>
+</li>
+<li>
+<p>URL是URI的子集</p>
+</li>
+</ul>
+<h2 id="2-简单的http协议">2 简单的HTTP协议</h2>
+<h3 id="21-http协议用于客户端和服务器之间的通信">2.1 HTTP协议用于客户端和服务器之间的通信</h3>
+<p>HTTP和TCP/IP协议族呢爹众多其他协议相同，都用于客户和服务器之间的通信</p>
+<p>请求访问的一端称为客户端，而提供资源响应的称为服务端</p>
+<p>使用HTTP协议就可以明确区分哪一段是客户端，哪一段是服务端</p>
+<h3 id="22-通过请求和响应的交换达成通信">2.2 通过请求和响应的交换达成通信</h3>
+<p>请求必定由客户端发出，而由服务器端回复响应，书上还有一些具体通信的例子，在此不举例</p>
+<h3 id="23-http是不保存状态的协议">2.3 HTTP是不保存状态的协议</h3>
+<ul>
+<li>
+<p>无状态（stateless）协议：不对请求和响应之间的通信状态进行保存</p>
+</li>
+<li>
+<p>为了更快处理大量事务，确保协议的可伸缩性</p>
+</li>
+<li>
+<p>随着Web发展，需要保存用户的状态（如：购物网站）</p>
+</li>
+<li>
+<p>引入Cookie技术，有了Cookie再用HTTP协议通信，就可以管理状态了。</p>
+</li>
+</ul>
+<h3 id="24-请求uri定位资源">2.4 请求URI定位资源</h3>
+<p>HTTP使用URI定位互联网上的资源，正是因为URI的特定功能，在互联网上任意位置的资源都能访问到。</p>
+<h3 id="25-告知服务器意图的http方法">2.5 告知服务器意图的HTTP方法</h3>
+<ul>
+<li>
+<p>GET：获取资源（CGI（Common Gateway Interface ，通用网关接口）返回执行后的输出）</p>
+</li>
+<li>
+<p>POST：传输实体主体（目的不是获取响应的主体内容）</p>
+</li>
+<li>
+<p>PUT：传输文件 一般Web不用，因为不带自身验证机制，任何人都可以上传（REST架构or配合Web应用程序的验证机制才开放使用PUT）</p>
+</li>
+<li>
+<p>HEAD：获得报文首部（一般用于确认URI资源的有效性和更新的日期等）</p>
+</li>
+<li>
+<p>DELETE：删除文件（与PUT相反）</p>
+</li>
+<li>
+<p>TRACE：追踪路径（让Web服务器将之前的请求通信环回给客户端的方法，不常用，容易引发XST（Cross-Site Tracing），跨站攻击）</p>
+</li>
+<li>
+<p>CONNECT：要求用隧道协议连接代理（实现用隧道协议进行TCP通信，主要是用SSL和TLS协议把通信内容加密后经过网络隧道传输）</p>
+</li>
+</ul>
+<h3 id="26-使用方法下达命令">2.6 使用方法下达命令</h3>
+<ul>
+<li>都用大写字母</li>
+</ul>
+<h3 id="27-持久连接节省通信量">2.7 持久连接节省通信量</h3>
+<p>HTTP协议的初始版本中，每进行一次HTTP通信就要断开一次TCP连接。<br>
+每次请求都会造成无谓的TCP连接建立和断开，增加通信量的开销。</p>
+<h4 id="271-持久连接">2.7.1 持久连接</h4>
+<ul>
+<li>
+<p>为解决TCP连接问题，HTTP/1.1和一部分HTTP/1.0想出了持久连接，称为HTTP keep-alive或者HTTP connection reuse 方法。</p>
+</li>
+<li>
+<p>特点：只要任意一段没有明确提出断开连接，就会保持TCP连接状态</p>
+</li>
+<li>
+<p>减少TCP重复建立和断开造成的额外开销，减轻了服务器的负载</p>
+</li>
+<li>
+<p>在HTTP/1.1中，所有的连接默认都是持久连接，但在HTTP/1.0中并未标准化</p>
+</li>
+<li>
+<p>除了服务器端，客户端也需要支持持久连接</p>
+</li>
+</ul>
+<h4 id="272-管线化">2.7.2 管线化</h4>
+<ul>
+<li>
+<p>持久连接使得多数请求以管线化（pipelining）方式发送成为可能，从前发送请求后需等待并收到响应，才能发送下一个请求。管线化技术出现后不用等待响应亦可发送下一个请求</p>
+</li>
+<li>
+<p>相比挨个连接，用的持久连接可以让请求更快结束，而管线化技术比持久连接更加快，请求的次数越多，时间差就越明显</p>
+</li>
+</ul>
+<h3 id="28-使用cookie的状态管理">2.8 使用Cookie的状态管理</h3>
+<ul>
+<li>
+<p>HTTP是无状态的协议</p>
+<ul>
+<li>不必保存状态，减少CPU和内存的消耗</li>
+<li>正因为简单，才能被应用在各种场景里</li>
+</ul>
+</li>
+<li>
+<p>如果要求登陆认证的Web页面本身无法进行状态的管理，每次刷新页面需要</p>
+<ul>
+<li>再次登陆</li>
+<li>在请求报文中附加参数来管理登陆状态</li>
+</ul>
+</li>
+<li>
+<p>保留无状态的特征，又要解决类似的矛盾问题，引入了Cookie技术。</p>
+</li>
+</ul>
+<h4 id="cookie技术">Cookie技术</h4>
+<ul>
+<li>
+<p>通过在请求和响应报文中写入Cookie信息来控制客户端的状态</p>
+</li>
+<li>
+<p>Cookie会根据从服务端发送的根据响应报中的Set-Cookie的首部字段信息，通知客户端保存Cookie</p>
+</li>
+<li>
+<p>下次客户端再往该服务器发送请求时，客户端会自动在请求报文中加入Cookie值发送出去</p>
+</li>
+<li>
+<p>客户端收到Cookie后会检查究竟从哪个客户端发来的连接请求，然后对比服务器上的记录得到之前的状态信息。</p>
+</li>
+</ul>
+<p>没有Cookie时：客户端向服务器发送一个请求报文，服务端生成Cookie记住是向谁发送的，在响应报文中添加Cookie后返回，客户端会保存Cookie</p>
+<p>存有Cookie后：客户端会在请求报文中添加Cookie发送给服务端，服务端进行Cookie的检查后进行响应，这样服务器就能分清客户端是谁</p>
+<h2 id="3">3</h2>
+<h2 id="4">4</h2>
+<h2 id="5">5</h2>
+<h2 id="6">6</h2>
+<h2 id="7">7</h2>
+<h2 id="8">8</h2>
+<h2 id="9">9</h2>
+<h2 id="10">10</h2>
+<h2 id="11">11</h2>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Picasun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-01-10
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://picasun.github.io/tags/http/">http</a>
+          <a href="https://picasun.github.io/tags/web/">Web</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/leetcode/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Leetcode</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/tcp_ip/">
+            <span class="next-text nav-default">TCP_IP</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="http://picasun.github.io" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://picasun.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2021 -
+    2022
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Picasun
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

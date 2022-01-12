@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>http on Picasun&#39;s blog</title>
+    <link>https://picasun.github.io/categories/http/</link>
+    <description>Recent content in http on Picasun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Picasun</copyright>
+    <lastBuildDate>Mon, 10 Jan 2022 13:55:33 +0800</lastBuildDate><atom:link href="https://picasun.github.io/categories/http/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTTP</title>
+      <link>https://picasun.github.io/post/http/</link>
+      <pubDate>Mon, 10 Jan 2022 13:55:33 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/http/</guid>
+      <description>《图解HTTP》 本书非常适合初学之进行HTTP协议的学习，逻辑清晰，配图生动，本文会对关键部分进行不配图的摘录，方便读者进行复习或初学者进行</description>
+    </item>
+    
+  </channel>
+</rss>
