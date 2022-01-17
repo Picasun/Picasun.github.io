@@ -766,7 +766,17 @@ I will stay calm and think seriously about the meaning of the day.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;没有Cookie时：客户端向服务器发送一个请求报文，服务端生成Cookie记住是向谁发送的，在响应报文中添加Cookie后返回，客户端会保存Cookie&lt;/p&gt;
 &lt;p&gt;存有Cookie后：客户端会在请求报文中添加Cookie发送给服务端，服务端进行Cookie的检查后进行响应，这样服务器就能分清客户端是谁&lt;/p&gt;
-&lt;h2 id=&#34;3&#34;&gt;3&lt;/h2&gt;
+&lt;h2 id=&#34;3-http报文内的http信息&#34;&gt;3 HTTP报文内的HTTP信息&lt;/h2&gt;
+&lt;h3 id=&#34;http报文&#34;&gt;HTTP报文&lt;/h3&gt;
+&lt;p&gt;用于HTTP协议交互的信息被称为HTTP报文，本身是由多行数据构成的字符串文本&lt;/p&gt;
+&lt;p&gt;HTTP报文&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;报文首部（客户/服务端需要处理的请求/响应的内容及属性）&lt;/li&gt;
+&lt;li&gt;空行（CR+LF）（回车符+换行符）&lt;/li&gt;
+&lt;li&gt;报文主体（应该发送的数据）
+客户端：请求报文&lt;br&gt;
+服务端：响应报文&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;4&#34;&gt;4&lt;/h2&gt;
 &lt;h2 id=&#34;5&#34;&gt;5&lt;/h2&gt;
 &lt;h2 id=&#34;6&#34;&gt;6&lt;/h2&gt;
