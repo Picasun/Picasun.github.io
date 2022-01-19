@@ -30,13 +30,6 @@
   </url>
   
   <url>
-    <loc>https://picasun.github.io/post/http/</loc>
-    <lastmod>2022-01-10T13:55:33+08:00</lastmod>
-    <changefreq>Ramdomly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://picasun.github.io/tags/http/</loc>
     <lastmod>2022-01-10T13:55:33+08:00</lastmod>
     <changefreq>Ramdomly</changefreq>
@@ -73,6 +66,13 @@
   
   <url>
     <loc>https://picasun.github.io/tags/web/</loc>
+    <lastmod>2022-01-10T13:55:33+08:00</lastmod>
+    <changefreq>Ramdomly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://picasun.github.io/post/%E5%9B%BE%E8%A7%A3http/</loc>
     <lastmod>2022-01-10T13:55:33+08:00</lastmod>
     <changefreq>Ramdomly</changefreq>
     <priority>0.5</priority>
