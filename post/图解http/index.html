@@ -69,7 +69,7 @@
 <meta itemprop="name" content="图解HTTP_随书笔记">
 <meta itemprop="description" content="《图解HTTP》 本书非常适合初学之进行HTTP协议的学习，逻辑清晰，配图生动，本文会对关键部分进行不配图的摘录，方便读者进行复习或初学者进行"><meta itemprop="datePublished" content="2022-01-10T13:55:33+08:00" />
 <meta itemprop="dateModified" content="2022-01-10T13:55:33+08:00" />
-<meta itemprop="wordCount" content="12953">
+<meta itemprop="wordCount" content="13486">
 <meta itemprop="keywords" content="http,Web," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="图解HTTP_随书笔记"/>
 <meta name="twitter:description" content="《图解HTTP》 本书非常适合初学之进行HTTP协议的学习，逻辑清晰，配图生动，本文会对关键部分进行不配图的摘录，方便读者进行复习或初学者进行"/>
@@ -401,10 +401,10 @@
         <li><a href="#72-http--加密--认证--完整性保护--https">7.2 HTTP + 加密 + 认证 + 完整性保护 = HTTPS</a></li>
       </ul>
     </li>
-    <li><a href="#8">8</a></li>
-    <li><a href="#9">9</a></li>
-    <li><a href="#10">10</a></li>
-    <li><a href="#11">11</a></li>
+    <li><a href="#8-确认访问用户身份的认证">8 确认访问用户身份的认证</a></li>
+    <li><a href="#9-基于http的功能追加协议">9 基于HTTP的功能追加协议</a></li>
+    <li><a href="#10-构建web内容的技术">10 构建Web内容的技术</a></li>
+    <li><a href="#11-web的攻击技术">11 Web的攻击技术</a></li>
   </ul>
 </nav>
   </div>
@@ -1471,25 +1471,54 @@ HTTPS采用<strong>共享密钥加密</strong>和<strong>公开密钥加密</str
 <p><strong>用以确认客户端的客户端证书</strong><br>
 客户端证书用于客户端认证，用来证明服务器正在通信的对方始终是预料之内的客户端。</p>
 <ul>
-<li>想要获取证书，用户需要自行安装客户端证书，但要付费</li>
-<li>让层次不同的用户自行安装证书，非常困难</li>
-<li>现状：安全性极高的认证机构可以颁发客户端证书但仅仅用于特殊业务<br>
-例如：网银用客户端证书，登陆时不仅仅需要用户输入ID和密码，还要求用户的客户端证书，以确定用户是否从特定的终端访问网银（U盾）</li>
-<li>问题：客户端证书只能证明客户端实际存在，但只要有了<strong>安装了客户端证书的计算机</strong>的使用权限，就等于拥有了<strong>客户端证书</strong>的使用权限</li>
+<li>
+<p>想要获取证书，用户需要自行安装客户端证书，但要付费</p>
+</li>
+<li>
+<p>让层次不同的用户自行安装证书，非常困难</p>
+</li>
+<li>
+<p>现状：安全性极高的认证机构可以颁发客户端证书但仅仅用于特殊业务<br>
+例如：网银用客户端证书，登陆时不仅仅需要用户输入ID和密码，还要求用户的客户端证书，以确定用户是否从特定的终端访问网银（U盾）</p>
+</li>
+<li>
+<p>问题：客户端证书只能证明客户端实际存在，但只要有了<strong>安装了客户端证书的计算机</strong>的使用权限，就等于拥有了<strong>客户端证书</strong>的使用权限</p>
+</li>
+<li></li>
+<li>
+<p>服务器和客户端协商决定加密组件</p>
+</li>
+<li>
+<p>服务器向客户端发送公开密钥证书</p>
+</li>
+<li>
+<p>客户端确定证书的有效性并取出公钥</p>
+</li>
+<li>
+<p>客户端生成一个随机数并用公钥加密后发送给服务器，同时通过加密组件生成master-secret</p>
+</li>
+<li>
+<p>服务器私钥解密后也通过加密组件生成master-secret</p>
+</li>
+<li>
+<p>开始加密通信</p>
+<ul>
+<li>共享密钥加密的密钥</li>
+<li>报文校验码的密钥</li>
+<li>生成CBC的初始向量：服务器-&gt;客户端、客户端-&gt;服务器 六份信息</li>
 </ul>
-<h4 id="725-https-的安全通信机制">7.2.5 HTTPS 的安全通信机制</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">Test-test-test-test
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="8">8</h2>
-<h2 id="9">9</h2>
-<h2 id="10">10</h2>
-<h2 id="11">11</h2>
+</li>
+</ul>
+<p><strong>SSL 和 TLS</strong>
+HTTPS使用SSL和TLS两个协议，SSL1.0在设计之初被发现出问题，就没有实际投入使用。SSL2.0也被发现存在问题，所以很多浏览器直接废除了协议版本。<br>
+<strong>SSL速度</strong>
+因为需要服务器、客户端双方加密以及解密处理，因此会消耗CPU和内存等硬件资源。SSL通信部分因为要对通信进行处理，所以时间上又延长了。<br>
+使用HTTP相比，网络负载会慢2到100倍。针对速度变慢，会使用SSL加速器这种硬件来改善问题，仅仅在SSL处理时发挥SSL加速器的功效，以分担负载。<br>
+如果每次通信都加密，会消耗相当多的资源，平摊到每一台计算机上时，能够处理的请求数量也必定随之减少。特别是每当那些访问量较多的Web网站在进行加密处理时，他们所承担的负载不容小觑。</p>
+<h2 id="8-确认访问用户身份的认证">8 确认访问用户身份的认证</h2>
+<h2 id="9-基于http的功能追加协议">9 基于HTTP的功能追加协议</h2>
+<h2 id="10-构建web内容的技术">10 构建Web内容的技术</h2>
+<h2 id="11-web的攻击技术">11 Web的攻击技术</h2>
 
     </div>
 
