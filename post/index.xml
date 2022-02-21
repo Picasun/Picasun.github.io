@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Picasun</copyright>
-    <lastBuildDate>Wed, 26 Jan 2022 21:39:29 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Feb 2022 13:51:58 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Leetcode</title>
       <link>https://picasun.github.io/post/leetcode/</link>
@@ -15,6 +15,15 @@
       
       <guid>https://picasun.github.io/post/leetcode/</guid>
       <description>Leetcode题解 Week1 1_1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1,3,2] 输入：root = [] 输出：[] 输入：root = [1] 输出：[1] Go</description>
+    </item>
+    
+    <item>
+      <title>现代操作系统</title>
+      <link>https://picasun.github.io/post/%E7%8E%B0%E4%BB%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Mon, 14 Feb 2022 13:51:58 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/%E7%8E%B0%E4%BB%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
+      <description>现代操作系统 操作系统从主机计算时代，到个人计算时代，再到移动计算时代实现了两次重大变迁。从技术本质看，操作系统“向下管理各种计算资源”，向上</description>
     </item>
     
     <item>

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Picasun</copyright>
-    <lastBuildDate>Wed, 26 Jan 2022 21:39:29 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 14 Feb 2022 13:51:58 +0800</lastBuildDate>
     
         <atom:link href="https://picasun.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -483,6 +483,174 @@ I will stay calm and think seriously about the meaning of the day.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>现代操作系统</title>
+      <link>https://picasun.github.io/post/%E7%8E%B0%E4%BB%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Mon, 14 Feb 2022 13:51:58 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/%E7%8E%B0%E4%BB%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
+      
+        <description>&lt;h1 id=&#34;现代操作系统&#34;&gt;现代操作系统&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;操作系统从主机计算时代，到个人计算时代，再到移动计算时代实现了两次重大变迁。&lt;strong&gt;从技术本质看，操作系统“向下管理各种计算资源”，向上为应用程序提供运行环境和开发支撑，为用户提供交互界面&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;好大学在线：https://www.cnmooc.org/portal/course/5610/14956.mooc&lt;br&gt;
+课程网站：https://ipads.se.sjtu.edu.cn/course/os&lt;br&gt;
+在线社区：https://ipads.se.sjtu.edu.cn/mospi/discussion&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;chapter1-操作系统概述&#34;&gt;chapter1 操作系统概述&lt;/h2&gt;
+&lt;h3 id=&#34;11-简约但不简单从hello-world说起&#34;&gt;1.1 简约但不简单：从Hello World说起&lt;/h3&gt;
+&lt;p&gt;从helloworld.c文件开始，需要思考的一些问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;hello这个可执行文件如何存储在计算机中的（gcc hello.c -o hello）&lt;/li&gt;
+&lt;li&gt;hello这个可执行文件是如何加载到内存并在CPU运行的&lt;/li&gt;
+&lt;li&gt;hello这个可执行文件是如何将“Hello World！”这行字符输出到屏幕的&lt;/li&gt;
+&lt;li&gt;两个hello程序如何同时在一个CPU中运行的（./hello &amp;amp; ./hello）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;12-什么是操作系统&#34;&gt;1.2 什么是操作系统&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;操作系统的指责：对硬件进行管理和抽象，为应用提供服务并进行管理&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;从硬件的角度看：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;管理硬件：将复杂的、具备不同功能的硬件资源纳入统一的管理&lt;br&gt;
+&lt;em&gt;例如电脑里的内存区域，操作系统识别区域的信息，再使用物理内存分配起进行管理；同时还通过设备驱动来管理各种外部设备的运行并处理可能的错误情况&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;对硬件进行抽象：负责将硬件抽象成不依赖具体硬件特性的资源
+&lt;em&gt;将有限的、离散的资源高效的抽象为无限的、连续的资源，并将硬件通过容易调用的接口提供给上层应用，从而使应用无需关心硬件的具体细节&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;从应用的角度看：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;服务于应用：提供不同层次，不同功能的接口，满足应用的需求，还提供了不同类型的访问控制、应用间交互等服务&lt;/li&gt;
+&lt;li&gt;管理应用：负责对应用生命周期的管理，包括应用的加载、启动、切换、调度、销毁等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;狭义的操作系统指操作系统内核加上一个Shell&lt;br&gt;
+广义的操作系统又可以分为操作系统内核与操作系统框架&lt;/p&gt;
+&lt;p&gt;内核负责对硬件资源的管理和抽象。为框架提供基础的系统服务&lt;br&gt;
+框架基于操作系统内核提供的服务为不同的应用领域提供编程接口与运行环境&lt;br&gt;
+（Android操作系统： Android框架 Linux内核）&lt;/p&gt;
+&lt;h3 id=&#34;13-操作系统简史&#34;&gt;1.3 操作系统简史&lt;/h3&gt;
+&lt;h4 id=&#34;131-gm-naa-io第一个批处理操作系统&#34;&gt;1.3.1 GM-NAA I/O：第一个批处理操作系统&lt;/h4&gt;
+&lt;p&gt;实现对输入与输出的自动化管理，任务交给计算机，计算机工作到所有任务执行结束&lt;/p&gt;
+&lt;h4 id=&#34;132-os360从专用走向通用&#34;&gt;1.3.2 OS/360：从专用走向通用&lt;/h4&gt;
+&lt;p&gt;指令集架构，操作系统与计算机底层硬件实现相解耦，进入通用操作系统时代&lt;/p&gt;
+&lt;h4 id=&#34;133-multicsunixlinux分时与多任务&#34;&gt;1.3.3 Multics/UNIX/Linux：分时与多任务&lt;/h4&gt;
+&lt;p&gt;Multiplexed Information and Computing Service ：多用户、多任务、多层次的操作系统，使用了分时概念，首次将文件与内存进行了分离，还提出和实现了文件系统、动态链接、CPU/内存/磁盘等硬件的热替换、特权级分层、命令处理器（后来的Shell）等开创性概念。
+Multics也是最早用高级语言来变现的操作系统之一，PL/I语言&lt;/p&gt;
+&lt;p&gt;后来UNIX系统开发，引入了Shell（命令行解释器）执行不同的计算任务，并支持通过管道等进程间相互通信的方式将不同的计算任务连接起来。UNIX在第四版以前都是基于汇编语言构建，直到C语言的设计与实现，使用C重写了UNIX。&lt;/p&gt;
+&lt;p&gt;UNIX版权复杂且收费，被用于教学的MINIX操作系统被开源，但因为商用版权不友好，不能被自由的使用，经过学习，Linus Torvalds发布了Linux操作系统，成为了目前世界上最成功，使用范围最广的开源操作系统之一。&lt;/p&gt;
+&lt;h4 id=&#34;134-macoswindows以人为本的人机交互&#34;&gt;1.3.4 macOS/Windows：以人为本的人机交互&lt;/h4&gt;
+&lt;p&gt;Shell只能用于专业的程序员，对于普通用户是非常大的挑战
+最早的GUI（Graphical User Interface）操作系统出现（Xerox Alto），引入桌面概念，乔布斯也意识到了GUI的重要性，开始开发面向图形化的计算机与操作系统，苹果成功后，微软创始人盖茨也意识到了问题，发布了Window。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;乔布斯当面训斥盖茨偷盗了他的技术，他回答：我们都有个有钱的邻居叫施乐。我闯进他们家准备偷电视机的时候，发现了你已经把他偷走了。&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;14-操作系统接口&#34;&gt;1.4 操作系统接口&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;系统调用接口（以hellowolrd 举例）
+&lt;ul&gt;
+&lt;li&gt;printf调用标准库libc中的write函数&lt;/li&gt;
+&lt;li&gt;libc库准备好相关参数执行svc指令使控制流从&lt;strong&gt;用户地址下陷到内核地址空间&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;操作系统内核的下陷处理函数根据系统调用传入的第一个参数，识别需要os内核提供的sys_write函数&lt;br&gt;
+&lt;strong&gt;系统调用是用户态应用向操作系统内核请求服务的方法&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;svc指令：一条ARM指令，表示特权调用&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;POSIX接口
+&lt;ul&gt;
+&lt;li&gt;Portable Operating System Interface for uniX：可移植操作系统接口标准&lt;/li&gt;
+&lt;li&gt;为能同时在不同UNIX操作系统上运行的软件，定义了一套标准的操作系统API&lt;/li&gt;
+&lt;li&gt;POSIX标准通常通过libc来实现&lt;/li&gt;
+&lt;li&gt;应用程序只需要调用libc提供的接口就可以实现对操作系统功能的调用，也实现了应用在类UNIX操作系统上的可移植性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;领域应用接口
+&lt;ul&gt;
+&lt;li&gt;在POSIX或者操作系统调用的基础上还可以封装面向不同领域的应用接口&lt;/li&gt;
+&lt;li&gt;比如Android系统框架为开发人员在安卓操作系统上开发App定义了应用开发接口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;15-chcore一个简单的实验操作系统&#34;&gt;1.5 ChCore：一个简单的实验操作系统&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;为本书教学开发&lt;/li&gt;
+&lt;li&gt;微内核架构&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;chapter2-硬件结构&#34;&gt;chapter2 硬件结构&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;冯 诺依曼结构&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;中央处理单元：负责运算和逻辑控制&lt;/li&gt;
+&lt;li&gt;存储器：负责存储程序指令和数据，保存程序执行的中间结果和最终结果。&lt;/li&gt;
+&lt;li&gt;输入输出：负责和外界进行交互，从外界获得输入，结果向外界输出。
+虽然今天的计算机翻天覆地，但宏观上看，现在主流计算机依旧采用此结构，本章也主要介绍一些硬件知识&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;21-cpu与指令集架构&#34;&gt;2.1 CPU与指令集架构&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;主要知识点&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU提供给软件的状态和指令有哪些？&lt;/li&gt;
+&lt;li&gt;不同的软件场景，指令集架构提供哪些特权级别？&lt;/li&gt;
+&lt;li&gt;什么是异常？&lt;/li&gt;
+&lt;li&gt;虚拟内存和物理内存的区别？如何映射？&lt;br&gt;
+&lt;strong&gt;ISA（Instruction Set Architecture）&lt;/strong&gt;（指令集架构）是CPU和软件之间的桥梁，包含指令集、特权级、寄存器、执行模式、安全扩展、性能加速扩展等诸多方面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;211-指令集&#34;&gt;2.1.1 指令集&lt;/h4&gt;
+&lt;p&gt;指令集是ISA的重要组成，CPU在运行操作系统或应用程序就是在执行他们被编译后所包含的指令，本书选择AArch64体系结构作为介绍主要平台，指令集属于RISC（Reduced Instruction Set Computer）&lt;br&gt;
+包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据搬迁：如mov&lt;/li&gt;
+&lt;li&gt;寄存器计算：如add sub&lt;/li&gt;
+&lt;li&gt;内存读写：如内存写入指令str，内存加载指令ldr&lt;/li&gt;
+&lt;li&gt;跳转指令：如无条件跳转指令b&lt;/li&gt;
+&lt;li&gt;过程调用指令：如调用指令bl、返回指令ret&lt;/li&gt;
+&lt;li&gt;特权指令：如读取系统寄存器指令msr、写入系统寄存器指令mrs等
+&lt;em&gt;x86-64属于复杂指令集计算机（CISC），指令编码长度可变，寻址方式多样&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;211-特权级&#34;&gt;2.1.1 特权级&lt;/h4&gt;
+&lt;p&gt;最低的特权级一般是应用程序运行的，也称为用户态&lt;br&gt;
+操作系统通常运行的特权集称为内核态&lt;br&gt;
+虚拟化场景需要的虚拟机监控器也有自己的特权级&lt;br&gt;
+与安全特性TrustZone相关，负责&lt;strong&gt;普通世界&lt;/strong&gt;和&lt;strong&gt;安全世界&lt;/strong&gt;之间的切换。&lt;br&gt;
+TrustZone是ARMv6体系结构开始引入的安全特性，普通世界不能访问被划分到安全世界的计算资源，安全世界可以不受限制的访问所有的计算资源。&lt;/p&gt;
+&lt;p&gt;需要从EL0切换到EL1的场景：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;程序需要调用操作系统提供的系统调用，执行svc特权调用&lt;/li&gt;
+&lt;li&gt;应用程序执行了一条指令，但指令触发了异常&lt;/li&gt;
+&lt;li&gt;应用程序在执行过程中，CPU收到了一个来自外设的中断&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;发生特权级切换的时候，CPU负责保存当前执行状态，以便操作系统内核在处理异常时使用并在结束后能够恢复应用程序的执行，需要保存的状态包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;触发异常的指令地址，保存在ELR_EL1 （Exception Link Register）&lt;/li&gt;
+&lt;li&gt;异常原因，保存在ESR_EL1 （Exception Syndrome Register）&lt;/li&gt;
+&lt;li&gt;CPU将栈指针从SP_EL0切换到SP_EL1&lt;/li&gt;
+&lt;li&gt;一些其他状态，例如缺页异常的地址保存在FAR_EL1（Fault Address Register）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;操作系统会在异常向量表中为不同的异常类型配置相应的异常处理函数，因此发生特权级切换时，CPU会读取VBAR_EL1（向量基地址寄存器）来获得异常向量表的几地址，根据异常原因调用相应的异常处理函数。&lt;/p&gt;
+&lt;h4 id=&#34;213-寄存器&#34;&gt;2.1.3 寄存器&lt;/h4&gt;
+&lt;p&gt;在EL1特权级下有两个页表基地址寄存器，负责翻译虚拟地址空间中不同的地址段，负责的地址范围由另一个控制寄存器决定。&lt;/p&gt;
+&lt;p&gt;虚拟内存（分为用于内核的地址空间、保留空间、和用于应用程序的地址空间）通过页表翻译成物理内存中的地址空间&lt;/p&gt;
+&lt;h3 id=&#34;22-物理内存与cpu缓存&#34;&gt;2.2 物理内存与CPU缓存&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;为什么要引入CPU缓存？直接访问内存的问题？&lt;/li&gt;
+&lt;li&gt;CPU缓存的结构如何？&lt;/li&gt;
+&lt;li&gt;如何访问CPU缓存？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;CPU在执行过程中可以通过&lt;strong&gt;访存指令&lt;/strong&gt;向物理内存中写入数据或者从中读取数据，通过物理总线向物理内存发送请求&lt;/p&gt;
+&lt;p&gt;为了降低CPU访存的开销，现在的CPU通常引入了缓存，用于存放一部分物理内存中的数据，CPU需要向物理内存写入数据的时候，可以直接写在CPU缓存，读取时可以先从缓存查找，没找到再去物理内存中获取，并把取回的数据放入缓存中。&lt;/p&gt;
+&lt;h4 id=&#34;221-缓存结构&#34;&gt;2.2.1 缓存结构&lt;/h4&gt;
+&lt;p&gt;缓存结构，CPU缓存是由若干个缓存行组成的，每个缓存行包括一个有效位，一个标记地址（用于标识其对应的物理地址），一些其他状态信息。通常CPU以缓存行为单位把物理内存中的数据读取到CPU缓存中。&lt;/p&gt;
+&lt;p&gt;为了通过内存的物理地址找到对应的缓存，物理地址在逻辑上分为Tag，Set，Offset三段。&lt;/p&gt;
+&lt;h4 id=&#34;222-缓存寻址&#34;&gt;2.2.2 缓存寻址&lt;/h4&gt;
+&lt;p&gt;具体内容见书p19，简单来说通过物理地址划分成Tag、Set和Offset并定位，检查Valid是否有效并进行访问。&lt;/p&gt;
+&lt;h3 id=&#34;23-设备与中断&#34;&gt;2.3 设备与中断&lt;/h3&gt;
+&lt;h4 id=&#34;231-内存映射输入输出mmio&#34;&gt;2.3.1 内存映射输入输出（MMIO）&lt;/h4&gt;
+&lt;p&gt;MMIO的原理是，把输入输出设备和物理内存放到同一个地址空间，为设备内部的内存和寄存器也分配相应的地址。CPU可以用这些地址访问和操作设备，可以用访问物理内存一样的指令去读写这些属于设备的地址，设备会通过总线监听CPU分配给自己的地址，然后完成CPU请求。&lt;/p&gt;
+&lt;h4 id=&#34;232-轮询与中断&#34;&gt;2.3.2 轮询与中断&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;轮询：让CPU不断去通过MMIO查看UART是否有输入，但会让CPU长时间都处于等待UART输入的状态，造成CPU资源浪费&lt;/li&gt;
+&lt;li&gt;中断：更为高效，赋予设备通知CPU的能力，通过向CPU发送中断来打断PCU的执行，让CPU处理中断，通过不同的中断处理函数来解决问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;中断机制除了使得设备能够主动通知CPU外，还包括让一个CPU核心去通知另一个CPU核心等用途&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MMIO使得CPU可以主动地访问设备，中断使设备能够主动地通知CPU，这两种机制使CPU与设备间交互的重要方式&lt;/strong&gt;&lt;/p&gt;
+</description>
       
     </item>
     
@@ -2591,6 +2759,8 @@ from  表1 链接类型 表2 链接类型 表3&lt;br&gt;
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cno&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SC&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
@@ -2611,8 +2781,10 @@ from  表1 链接类型 表2 链接类型 表3&lt;br&gt;
 &lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;distinct&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sno&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SC&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;where&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;grade&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;90&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sno&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SC&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;where&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;grade&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;90&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;group&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;by&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sno&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;不用&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;distinct&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sno&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SC&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;where&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;grade&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;90&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;group&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;by&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sno&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;不用&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;distinct&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sno&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SC&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;where&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;grade&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;90&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;group&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;by&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sno&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;不用&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;distinct&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sno&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SC&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;where&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;grade&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;90&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;group&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;by&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sno&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;不用&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;distinct&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;查询有成绩在&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;90&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;分以上的学生学号&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sno&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 

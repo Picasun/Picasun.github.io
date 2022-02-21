@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>现代操作系统 - Picasun&#39;s blog</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Picasun" />
+  <meta name="description" content="现代操作系统 操作系统从主机计算时代，到个人计算时代，再到移动计算时代实现了两次重大变迁。从技术本质看，操作系统“向下管理各种计算资源”，向上" />
+<meta name="keywords" content="OS" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.0" />
+
+
+<link rel="canonical" href="https://picasun.github.io/post/%E7%8E%B0%E4%BB%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="现代操作系统" />
+<meta property="og:description" content="现代操作系统 操作系统从主机计算时代，到个人计算时代，再到移动计算时代实现了两次重大变迁。从技术本质看，操作系统“向下管理各种计算资源”，向上" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://picasun.github.io/post/%E7%8E%B0%E4%BB%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-14T13:51:58+08:00" />
+<meta property="article:modified_time" content="2022-02-14T13:51:58+08:00" />
+
+<meta itemprop="name" content="现代操作系统">
+<meta itemprop="description" content="现代操作系统 操作系统从主机计算时代，到个人计算时代，再到移动计算时代实现了两次重大变迁。从技术本质看，操作系统“向下管理各种计算资源”，向上"><meta itemprop="datePublished" content="2022-02-14T13:51:58+08:00" />
+<meta itemprop="dateModified" content="2022-02-14T13:51:58+08:00" />
+<meta itemprop="wordCount" content="4126">
+<meta itemprop="keywords" content="OS," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="现代操作系统"/>
+<meta name="twitter:description" content="现代操作系统 操作系统从主机计算时代，到个人计算时代，再到移动计算时代实现了两次重大变迁。从技术本质看，操作系统“向下管理各种计算资源”，向上"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Picasun's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/about/">About</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/friends/">Friends</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Picasun's Blog
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/about/">About</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://picasun.github.io/friends/">Friends</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">现代操作系统</h1>
+      
+      <div class="post-meta">
+        <time datetime="2022-02-14" class="post-time">
+          2022-02-14
+        </time>
+        <div class="post-category">
+            <a href="https://picasun.github.io/categories/os/"> OS </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter1-操作系统概述">chapter1 操作系统概述</a>
+      <ul>
+        <li><a href="#11-简约但不简单从hello-world说起">1.1 简约但不简单：从Hello World说起</a></li>
+        <li><a href="#12-什么是操作系统">1.2 什么是操作系统</a></li>
+        <li><a href="#13-操作系统简史">1.3 操作系统简史</a></li>
+        <li><a href="#14-操作系统接口">1.4 操作系统接口</a></li>
+        <li><a href="#15-chcore一个简单的实验操作系统">1.5 ChCore：一个简单的实验操作系统</a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter2-硬件结构">chapter2 硬件结构</a>
+      <ul>
+        <li><a href="#21-cpu与指令集架构">2.1 CPU与指令集架构</a></li>
+        <li><a href="#22-物理内存与cpu缓存">2.2 物理内存与CPU缓存</a></li>
+        <li><a href="#23-设备与中断">2.3 设备与中断</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h1 id="现代操作系统">现代操作系统</h1>
+<blockquote>
+<p>操作系统从主机计算时代，到个人计算时代，再到移动计算时代实现了两次重大变迁。<strong>从技术本质看，操作系统“向下管理各种计算资源”，向上为应用程序提供运行环境和开发支撑，为用户提供交互界面</strong></p>
+</blockquote>
+<blockquote>
+<p>好大学在线：https://www.cnmooc.org/portal/course/5610/14956.mooc<br>
+课程网站：https://ipads.se.sjtu.edu.cn/course/os<br>
+在线社区：https://ipads.se.sjtu.edu.cn/mospi/discussion</p>
+</blockquote>
+<h2 id="chapter1-操作系统概述">chapter1 操作系统概述</h2>
+<h3 id="11-简约但不简单从hello-world说起">1.1 简约但不简单：从Hello World说起</h3>
+<p>从helloworld.c文件开始，需要思考的一些问题：</p>
+<ul>
+<li>hello这个可执行文件如何存储在计算机中的（gcc hello.c -o hello）</li>
+<li>hello这个可执行文件是如何加载到内存并在CPU运行的</li>
+<li>hello这个可执行文件是如何将“Hello World！”这行字符输出到屏幕的</li>
+<li>两个hello程序如何同时在一个CPU中运行的（./hello &amp; ./hello）</li>
+</ul>
+<h3 id="12-什么是操作系统">1.2 什么是操作系统</h3>
+<p><strong>操作系统的指责：对硬件进行管理和抽象，为应用提供服务并进行管理</strong></p>
+<p><strong>从硬件的角度看：</strong></p>
+<ul>
+<li>管理硬件：将复杂的、具备不同功能的硬件资源纳入统一的管理<br>
+<em>例如电脑里的内存区域，操作系统识别区域的信息，再使用物理内存分配起进行管理；同时还通过设备驱动来管理各种外部设备的运行并处理可能的错误情况</em></li>
+<li>对硬件进行抽象：负责将硬件抽象成不依赖具体硬件特性的资源
+<em>将有限的、离散的资源高效的抽象为无限的、连续的资源，并将硬件通过容易调用的接口提供给上层应用，从而使应用无需关心硬件的具体细节</em></li>
+</ul>
+<p><strong>从应用的角度看：</strong></p>
+<ul>
+<li>服务于应用：提供不同层次，不同功能的接口，满足应用的需求，还提供了不同类型的访问控制、应用间交互等服务</li>
+<li>管理应用：负责对应用生命周期的管理，包括应用的加载、启动、切换、调度、销毁等</li>
+</ul>
+<p>狭义的操作系统指操作系统内核加上一个Shell<br>
+广义的操作系统又可以分为操作系统内核与操作系统框架</p>
+<p>内核负责对硬件资源的管理和抽象。为框架提供基础的系统服务<br>
+框架基于操作系统内核提供的服务为不同的应用领域提供编程接口与运行环境<br>
+（Android操作系统： Android框架 Linux内核）</p>
+<h3 id="13-操作系统简史">1.3 操作系统简史</h3>
+<h4 id="131-gm-naa-io第一个批处理操作系统">1.3.1 GM-NAA I/O：第一个批处理操作系统</h4>
+<p>实现对输入与输出的自动化管理，任务交给计算机，计算机工作到所有任务执行结束</p>
+<h4 id="132-os360从专用走向通用">1.3.2 OS/360：从专用走向通用</h4>
+<p>指令集架构，操作系统与计算机底层硬件实现相解耦，进入通用操作系统时代</p>
+<h4 id="133-multicsunixlinux分时与多任务">1.3.3 Multics/UNIX/Linux：分时与多任务</h4>
+<p>Multiplexed Information and Computing Service ：多用户、多任务、多层次的操作系统，使用了分时概念，首次将文件与内存进行了分离，还提出和实现了文件系统、动态链接、CPU/内存/磁盘等硬件的热替换、特权级分层、命令处理器（后来的Shell）等开创性概念。
+Multics也是最早用高级语言来变现的操作系统之一，PL/I语言</p>
+<p>后来UNIX系统开发，引入了Shell（命令行解释器）执行不同的计算任务，并支持通过管道等进程间相互通信的方式将不同的计算任务连接起来。UNIX在第四版以前都是基于汇编语言构建，直到C语言的设计与实现，使用C重写了UNIX。</p>
+<p>UNIX版权复杂且收费，被用于教学的MINIX操作系统被开源，但因为商用版权不友好，不能被自由的使用，经过学习，Linus Torvalds发布了Linux操作系统，成为了目前世界上最成功，使用范围最广的开源操作系统之一。</p>
+<h4 id="134-macoswindows以人为本的人机交互">1.3.4 macOS/Windows：以人为本的人机交互</h4>
+<p>Shell只能用于专业的程序员，对于普通用户是非常大的挑战
+最早的GUI（Graphical User Interface）操作系统出现（Xerox Alto），引入桌面概念，乔布斯也意识到了GUI的重要性，开始开发面向图形化的计算机与操作系统，苹果成功后，微软创始人盖茨也意识到了问题，发布了Window。</p>
+<p><em>乔布斯当面训斥盖茨偷盗了他的技术，他回答：我们都有个有钱的邻居叫施乐。我闯进他们家准备偷电视机的时候，发现了你已经把他偷走了。</em></p>
+<h3 id="14-操作系统接口">1.4 操作系统接口</h3>
+<ul>
+<li>系统调用接口（以hellowolrd 举例）
+<ul>
+<li>printf调用标准库libc中的write函数</li>
+<li>libc库准备好相关参数执行svc指令使控制流从<strong>用户地址下陷到内核地址空间</strong></li>
+<li>操作系统内核的下陷处理函数根据系统调用传入的第一个参数，识别需要os内核提供的sys_write函数<br>
+<strong>系统调用是用户态应用向操作系统内核请求服务的方法</strong><br>
+<em>svc指令：一条ARM指令，表示特权调用</em></li>
+</ul>
+</li>
+<li>POSIX接口
+<ul>
+<li>Portable Operating System Interface for uniX：可移植操作系统接口标准</li>
+<li>为能同时在不同UNIX操作系统上运行的软件，定义了一套标准的操作系统API</li>
+<li>POSIX标准通常通过libc来实现</li>
+<li>应用程序只需要调用libc提供的接口就可以实现对操作系统功能的调用，也实现了应用在类UNIX操作系统上的可移植性</li>
+</ul>
+</li>
+<li>领域应用接口
+<ul>
+<li>在POSIX或者操作系统调用的基础上还可以封装面向不同领域的应用接口</li>
+<li>比如Android系统框架为开发人员在安卓操作系统上开发App定义了应用开发接口</li>
+</ul>
+</li>
+</ul>
+<h3 id="15-chcore一个简单的实验操作系统">1.5 ChCore：一个简单的实验操作系统</h3>
+<ul>
+<li>为本书教学开发</li>
+<li>微内核架构</li>
+</ul>
+<h2 id="chapter2-硬件结构">chapter2 硬件结构</h2>
+<p><strong>冯 诺依曼结构</strong></p>
+<ul>
+<li>中央处理单元：负责运算和逻辑控制</li>
+<li>存储器：负责存储程序指令和数据，保存程序执行的中间结果和最终结果。</li>
+<li>输入输出：负责和外界进行交互，从外界获得输入，结果向外界输出。
+虽然今天的计算机翻天覆地，但宏观上看，现在主流计算机依旧采用此结构，本章也主要介绍一些硬件知识</li>
+</ul>
+<h3 id="21-cpu与指令集架构">2.1 CPU与指令集架构</h3>
+<p><strong>主要知识点</strong></p>
+<ul>
+<li>CPU提供给软件的状态和指令有哪些？</li>
+<li>不同的软件场景，指令集架构提供哪些特权级别？</li>
+<li>什么是异常？</li>
+<li>虚拟内存和物理内存的区别？如何映射？<br>
+<strong>ISA（Instruction Set Architecture）</strong>（指令集架构）是CPU和软件之间的桥梁，包含指令集、特权级、寄存器、执行模式、安全扩展、性能加速扩展等诸多方面</li>
+</ul>
+<h4 id="211-指令集">2.1.1 指令集</h4>
+<p>指令集是ISA的重要组成，CPU在运行操作系统或应用程序就是在执行他们被编译后所包含的指令，本书选择AArch64体系结构作为介绍主要平台，指令集属于RISC（Reduced Instruction Set Computer）<br>
+包括：</p>
+<ul>
+<li>数据搬迁：如mov</li>
+<li>寄存器计算：如add sub</li>
+<li>内存读写：如内存写入指令str，内存加载指令ldr</li>
+<li>跳转指令：如无条件跳转指令b</li>
+<li>过程调用指令：如调用指令bl、返回指令ret</li>
+<li>特权指令：如读取系统寄存器指令msr、写入系统寄存器指令mrs等
+<em>x86-64属于复杂指令集计算机（CISC），指令编码长度可变，寻址方式多样</em></li>
+</ul>
+<h4 id="211-特权级">2.1.1 特权级</h4>
+<p>最低的特权级一般是应用程序运行的，也称为用户态<br>
+操作系统通常运行的特权集称为内核态<br>
+虚拟化场景需要的虚拟机监控器也有自己的特权级<br>
+与安全特性TrustZone相关，负责<strong>普通世界</strong>和<strong>安全世界</strong>之间的切换。<br>
+TrustZone是ARMv6体系结构开始引入的安全特性，普通世界不能访问被划分到安全世界的计算资源，安全世界可以不受限制的访问所有的计算资源。</p>
+<p>需要从EL0切换到EL1的场景：</p>
+<ul>
+<li>程序需要调用操作系统提供的系统调用，执行svc特权调用</li>
+<li>应用程序执行了一条指令，但指令触发了异常</li>
+<li>应用程序在执行过程中，CPU收到了一个来自外设的中断</li>
+</ul>
+<p>发生特权级切换的时候，CPU负责保存当前执行状态，以便操作系统内核在处理异常时使用并在结束后能够恢复应用程序的执行，需要保存的状态包括：</p>
+<ul>
+<li>触发异常的指令地址，保存在ELR_EL1 （Exception Link Register）</li>
+<li>异常原因，保存在ESR_EL1 （Exception Syndrome Register）</li>
+<li>CPU将栈指针从SP_EL0切换到SP_EL1</li>
+<li>一些其他状态，例如缺页异常的地址保存在FAR_EL1（Fault Address Register）</li>
+</ul>
+<p>操作系统会在异常向量表中为不同的异常类型配置相应的异常处理函数，因此发生特权级切换时，CPU会读取VBAR_EL1（向量基地址寄存器）来获得异常向量表的几地址，根据异常原因调用相应的异常处理函数。</p>
+<h4 id="213-寄存器">2.1.3 寄存器</h4>
+<p>在EL1特权级下有两个页表基地址寄存器，负责翻译虚拟地址空间中不同的地址段，负责的地址范围由另一个控制寄存器决定。</p>
+<p>虚拟内存（分为用于内核的地址空间、保留空间、和用于应用程序的地址空间）通过页表翻译成物理内存中的地址空间</p>
+<h3 id="22-物理内存与cpu缓存">2.2 物理内存与CPU缓存</h3>
+<ul>
+<li>为什么要引入CPU缓存？直接访问内存的问题？</li>
+<li>CPU缓存的结构如何？</li>
+<li>如何访问CPU缓存？</li>
+</ul>
+<p>CPU在执行过程中可以通过<strong>访存指令</strong>向物理内存中写入数据或者从中读取数据，通过物理总线向物理内存发送请求</p>
+<p>为了降低CPU访存的开销，现在的CPU通常引入了缓存，用于存放一部分物理内存中的数据，CPU需要向物理内存写入数据的时候，可以直接写在CPU缓存，读取时可以先从缓存查找，没找到再去物理内存中获取，并把取回的数据放入缓存中。</p>
+<h4 id="221-缓存结构">2.2.1 缓存结构</h4>
+<p>缓存结构，CPU缓存是由若干个缓存行组成的，每个缓存行包括一个有效位，一个标记地址（用于标识其对应的物理地址），一些其他状态信息。通常CPU以缓存行为单位把物理内存中的数据读取到CPU缓存中。</p>
+<p>为了通过内存的物理地址找到对应的缓存，物理地址在逻辑上分为Tag，Set，Offset三段。</p>
+<h4 id="222-缓存寻址">2.2.2 缓存寻址</h4>
+<p>具体内容见书p19，简单来说通过物理地址划分成Tag、Set和Offset并定位，检查Valid是否有效并进行访问。</p>
+<h3 id="23-设备与中断">2.3 设备与中断</h3>
+<h4 id="231-内存映射输入输出mmio">2.3.1 内存映射输入输出（MMIO）</h4>
+<p>MMIO的原理是，把输入输出设备和物理内存放到同一个地址空间，为设备内部的内存和寄存器也分配相应的地址。CPU可以用这些地址访问和操作设备，可以用访问物理内存一样的指令去读写这些属于设备的地址，设备会通过总线监听CPU分配给自己的地址，然后完成CPU请求。</p>
+<h4 id="232-轮询与中断">2.3.2 轮询与中断</h4>
+<ul>
+<li>轮询：让CPU不断去通过MMIO查看UART是否有输入，但会让CPU长时间都处于等待UART输入的状态，造成CPU资源浪费</li>
+<li>中断：更为高效，赋予设备通知CPU的能力，通过向CPU发送中断来打断PCU的执行，让CPU处理中断，通过不同的中断处理函数来解决问题</li>
+</ul>
+<p><em>中断机制除了使得设备能够主动通知CPU外，还包括让一个CPU核心去通知另一个CPU核心等用途</em></p>
+<p><strong>MMIO使得CPU可以主动地访问设备，中断使设备能够主动地通知CPU，这两种机制使CPU与设备间交互的重要方式</strong></p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Picasun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-02-14
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://picasun.github.io/tags/os/">OS</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/leetcode/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Leetcode</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/git/">
+            <span class="next-text nav-default">Git</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="http://picasun.github.io" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://picasun.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2021 -
+    2022
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        Picasun
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

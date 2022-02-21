@@ -69,7 +69,7 @@
 <meta itemprop="name" content="DatabasePrinciple-1">
 <meta itemprop="description" content="数据库原理-1 chapter1 数据库发展史 数据管理技术的发展 人工管理阶段 数据物理结构逻辑结构相同 数据不保存在机器中 没有专用的软件管理 只有程序的概念没有文件"><meta itemprop="datePublished" content="2021-11-30T16:43:40+08:00" />
 <meta itemprop="dateModified" content="2021-11-30T16:43:40+08:00" />
-<meta itemprop="wordCount" content="3136">
+<meta itemprop="wordCount" content="3138">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="DatabasePrinciple-1"/>
 <meta name="twitter:description" content="数据库原理-1 chapter1 数据库发展史 数据管理技术的发展 人工管理阶段 数据物理结构逻辑结构相同 数据不保存在机器中 没有专用的软件管理 只有程序的概念没有文件"/>
@@ -889,6 +889,8 @@ from  表1 链接类型 表2 链接类型 表3<br>
 </span><span class="lnt">32
 </span><span class="lnt">33
 </span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w"> </span><span class="n">cno</span><span class="p">,</span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w"> 
@@ -909,8 +911,10 @@ from  表1 链接类型 表2 链接类型 表3<br>
 </span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">grade</span><span class="o">&gt;=</span><span class="mi">90</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">grade</span><span class="o">&gt;=</span><span class="mi">90</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sno</span><span class="p">;</span><span class="o">#</span><span class="err">不用</span><span class="k">distinct</span><span class="w">
-</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">grade</span><span class="o">&gt;=</span><span class="mi">90</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sno</span><span class="p">;</span><span class="o">#</span><span class="err">不用</span><span class="k">distinct</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">grade</span><span class="o">&gt;=</span><span class="mi">90</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sno</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="o">#</span><span class="err">不用</span><span class="k">distinct</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">grade</span><span class="o">&gt;=</span><span class="mi">90</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sno</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="o">#</span><span class="err">不用</span><span class="k">distinct</span><span class="w">
 </span><span class="w"></span><span class="o">#</span><span class="err">查询有成绩在</span><span class="mi">90</span><span class="err">分以上的学生学号</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">sno</span><span class="p">,</span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> 
