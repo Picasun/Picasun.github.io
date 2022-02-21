@@ -651,7 +651,36 @@ TrustZone是ARMv6体系结构开始引入的安全特性，普通世界不能访
 &lt;p&gt;&lt;em&gt;中断机制除了使得设备能够主动通知CPU外，还包括让一个CPU核心去通知另一个CPU核心等用途&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;MMIO使得CPU可以主动地访问设备，中断使设备能够主动地通知CPU，这两种机制使CPU与设备间交互的重要方式&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;chapter3-操作系统结构&#34;&gt;chapter3 操作系统结构&lt;/h2&gt;
-&lt;p&gt;testtest&lt;/p&gt;
+&lt;p&gt;构建复杂系统，必须考虑内部结构，在不同的需求之间权衡。&lt;/p&gt;
+&lt;p&gt;操作系统的目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用户目标：方便学习、使用、学习、可靠、安全以及流畅等&lt;/li&gt;
+&lt;li&gt;系统目标：易于实现与维护、灵活、可靠、不易出错、高效等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本章围绕操作系统的设计方法和典型的操作系统结构展开介绍，从而帮助读者理解现代操作系统中的一些基础设计方法和架构。&lt;/p&gt;
+&lt;h3 id=&#34;31-操作系统的机制和策略&#34;&gt;3.1 操作系统的机制和策略&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;如何控制操作系统的复杂度？&lt;/li&gt;
+&lt;li&gt;什么是机制？什么是策略？为什么要将两者尽可能分离？&lt;/li&gt;
+&lt;li&gt;操作系统内核有哪些典型的架构？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;策略（policy）：要做什么&lt;br&gt;
+机制（mechanism）：怎么做&lt;/p&gt;
+&lt;p&gt;登陆举例：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;策略：什么用户、什么权限&lt;/li&gt;
+&lt;li&gt;机制：调度队列的设计、调度实体的标识、调度的中断处理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;通过机制与策略分离，操作系统一方面可以通过多种不同的策略来适应不同的应用需求，不需要重新实现对应的具体机制，另一方面可以通过持续优化具体的机制来完善策略。&lt;/p&gt;
+&lt;p&gt;一个策略对应一个机制，一个需求多种策略，机制可以不断优化&lt;/p&gt;
+&lt;h3 id=&#34;31&#34;&gt;3.1&lt;/h3&gt;
+&lt;h3 id=&#34;31-1&#34;&gt;3.1&lt;/h3&gt;
+&lt;h3 id=&#34;31-2&#34;&gt;3.1&lt;/h3&gt;
+&lt;h3 id=&#34;31-3&#34;&gt;3.1&lt;/h3&gt;
+&lt;h3 id=&#34;31-4&#34;&gt;3.1&lt;/h3&gt;
+&lt;h3 id=&#34;31-5&#34;&gt;3.1&lt;/h3&gt;
+&lt;h3 id=&#34;31-6&#34;&gt;3.1&lt;/h3&gt;
+&lt;h3 id=&#34;31-7&#34;&gt;3.1&lt;/h3&gt;
 </description>
       
     </item>

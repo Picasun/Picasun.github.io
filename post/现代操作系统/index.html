@@ -69,7 +69,7 @@
 <meta itemprop="name" content="现代操作系统">
 <meta itemprop="description" content="现代操作系统 操作系统从主机计算时代，到个人计算时代，再到移动计算时代实现了两次重大变迁。从技术本质看，操作系统“向下管理各种计算资源”，向上"><meta itemprop="datePublished" content="2022-02-14T13:51:58+08:00" />
 <meta itemprop="dateModified" content="2022-02-14T13:51:58+08:00" />
-<meta itemprop="wordCount" content="4134">
+<meta itemprop="wordCount" content="4529">
 <meta itemprop="keywords" content="OS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="现代操作系统"/>
 <meta name="twitter:description" content="现代操作系统 操作系统从主机计算时代，到个人计算时代，再到移动计算时代实现了两次重大变迁。从技术本质看，操作系统“向下管理各种计算资源”，向上"/>
@@ -353,7 +353,19 @@
         <li><a href="#23-设备与中断">2.3 设备与中断</a></li>
       </ul>
     </li>
-    <li><a href="#chapter3-操作系统结构">chapter3 操作系统结构</a></li>
+    <li><a href="#chapter3-操作系统结构">chapter3 操作系统结构</a>
+      <ul>
+        <li><a href="#31-操作系统的机制和策略">3.1 操作系统的机制和策略</a></li>
+        <li><a href="#31">3.1</a></li>
+        <li><a href="#31-1">3.1</a></li>
+        <li><a href="#31-2">3.1</a></li>
+        <li><a href="#31-3">3.1</a></li>
+        <li><a href="#31-4">3.1</a></li>
+        <li><a href="#31-5">3.1</a></li>
+        <li><a href="#31-6">3.1</a></li>
+        <li><a href="#31-7">3.1</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -519,7 +531,36 @@ TrustZone是ARMv6体系结构开始引入的安全特性，普通世界不能访
 <p><em>中断机制除了使得设备能够主动通知CPU外，还包括让一个CPU核心去通知另一个CPU核心等用途</em></p>
 <p><strong>MMIO使得CPU可以主动地访问设备，中断使设备能够主动地通知CPU，这两种机制使CPU与设备间交互的重要方式</strong></p>
 <h2 id="chapter3-操作系统结构">chapter3 操作系统结构</h2>
-<p>testtest</p>
+<p>构建复杂系统，必须考虑内部结构，在不同的需求之间权衡。</p>
+<p>操作系统的目标：</p>
+<ul>
+<li>用户目标：方便学习、使用、学习、可靠、安全以及流畅等</li>
+<li>系统目标：易于实现与维护、灵活、可靠、不易出错、高效等</li>
+</ul>
+<p>本章围绕操作系统的设计方法和典型的操作系统结构展开介绍，从而帮助读者理解现代操作系统中的一些基础设计方法和架构。</p>
+<h3 id="31-操作系统的机制和策略">3.1 操作系统的机制和策略</h3>
+<ul>
+<li>如何控制操作系统的复杂度？</li>
+<li>什么是机制？什么是策略？为什么要将两者尽可能分离？</li>
+<li>操作系统内核有哪些典型的架构？</li>
+</ul>
+<p>策略（policy）：要做什么<br>
+机制（mechanism）：怎么做</p>
+<p>登陆举例：</p>
+<ul>
+<li>策略：什么用户、什么权限</li>
+<li>机制：调度队列的设计、调度实体的标识、调度的中断处理</li>
+</ul>
+<p>通过机制与策略分离，操作系统一方面可以通过多种不同的策略来适应不同的应用需求，不需要重新实现对应的具体机制，另一方面可以通过持续优化具体的机制来完善策略。</p>
+<p>一个策略对应一个机制，一个需求多种策略，机制可以不断优化</p>
+<h3 id="31">3.1</h3>
+<h3 id="31-1">3.1</h3>
+<h3 id="31-2">3.1</h3>
+<h3 id="31-3">3.1</h3>
+<h3 id="31-4">3.1</h3>
+<h3 id="31-5">3.1</h3>
+<h3 id="31-6">3.1</h3>
+<h3 id="31-7">3.1</h3>
 
     </div>
 
