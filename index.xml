@@ -651,6 +651,7 @@ TrustZone是ARMv6体系结构开始引入的安全特性，普通世界不能访
 &lt;p&gt;&lt;em&gt;中断机制除了使得设备能够主动通知CPU外，还包括让一个CPU核心去通知另一个CPU核心等用途&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;MMIO使得CPU可以主动地访问设备，中断使设备能够主动地通知CPU，这两种机制使CPU与设备间交互的重要方式&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;chapter3-操作系统结构&#34;&gt;chapter3 操作系统结构&lt;/h2&gt;
+&lt;p&gt;testtest&lt;/p&gt;
 </description>
       
     </item>
