@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Picasun</copyright>
-    <lastBuildDate>Mon, 14 Feb 2022 13:51:58 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Mar 2022 12:48:45 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Leetcode</title>
       <link>https://picasun.github.io/post/leetcode/</link>
@@ -15,6 +15,15 @@
       
       <guid>https://picasun.github.io/post/leetcode/</guid>
       <description>Leetcode题解 Week1 1_1 二叉树的中序遍历 输入：root = [1,null,2,3] 输出：[1,3,2] 输入：root = [] 输出：[] 输入：root = [1] 输出：[1] Go</description>
+    </item>
+    
+    <item>
+      <title>研</title>
+      <link>https://picasun.github.io/post/%E7%A0%94/</link>
+      <pubDate>Tue, 15 Mar 2022 12:48:45 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/%E7%A0%94/</guid>
+      <description>不想学习 三月 3.14 线性代数-宋浩-chapter1-行列式 单词320 3.15 线性代数-宋浩-chapter2-矩阵 单词320</description>
     </item>
     
     <item>
