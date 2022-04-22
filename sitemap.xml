@@ -114,55 +114,6 @@
   </url>
   
   <url>
-    <loc>https://picasun.github.io/post/sql/</loc>
-    <lastmod>2021-12-14T20:56:50+08:00</lastmod>
-    <changefreq>Ramdomly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://picasun.github.io/tags/basic/</loc>
-    <lastmod>2021-12-14T14:26:21+08:00</lastmod>
-    <changefreq>Ramdomly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://picasun.github.io/categories/basic/</loc>
-    <lastmod>2021-12-14T14:26:21+08:00</lastmod>
-    <changefreq>Ramdomly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://picasun.github.io/tags/go/</loc>
-    <lastmod>2021-12-14T14:26:21+08:00</lastmod>
-    <changefreq>Ramdomly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://picasun.github.io/categories/go/</loc>
-    <lastmod>2021-12-14T14:26:21+08:00</lastmod>
-    <changefreq>Ramdomly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://picasun.github.io/categories/web/</loc>
-    <lastmod>2021-12-14T14:26:21+08:00</lastmod>
-    <changefreq>Ramdomly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://picasun.github.io/post/webbasic/</loc>
-    <lastmod>2021-12-14T14:26:21+08:00</lastmod>
-    <changefreq>Ramdomly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://picasun.github.io/post/ml_platform/</loc>
     <lastmod>2021-12-06T22:51:50+08:00</lastmod>
     <changefreq>Ramdomly</changefreq>
@@ -177,20 +128,6 @@
   </url>
   
   <url>
-    <loc>https://picasun.github.io/post/godeployment/</loc>
-    <lastmod>2021-12-01T21:48:16+08:00</lastmod>
-    <changefreq>Ramdomly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://picasun.github.io/post/databaseprinciple-1/</loc>
-    <lastmod>2021-11-30T16:43:40+08:00</lastmod>
-    <changefreq>Ramdomly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://picasun.github.io/post/combinatorics/</loc>
     <lastmod>2021-11-18T20:43:36+08:00</lastmod>
     <changefreq>Ramdomly</changefreq>
@@ -199,6 +136,13 @@
   
   <url>
     <loc>https://picasun.github.io/categories/development/</loc>
+    <lastmod>2021-11-18T00:00:00+00:00</lastmod>
+    <changefreq>Ramdomly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://picasun.github.io/tags/go/</loc>
     <lastmod>2021-11-18T00:00:00+00:00</lastmod>
     <changefreq>Ramdomly</changefreq>
     <priority>0.5</priority>

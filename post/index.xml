@@ -54,24 +54,6 @@
     </item>
     
     <item>
-      <title>SQL</title>
-      <link>https://picasun.github.io/post/sql/</link>
-      <pubDate>Tue, 14 Dec 2021 20:56:50 +0800</pubDate>
-      
-      <guid>https://picasun.github.io/post/sql/</guid>
-      <description>SQL必知必会 关于整条语句的执行过程 读取FROM子句中基本表、视图的数据，执行笛卡尔积操作。 选取满足WHERE子句中给出的条件表达式的元组。</description>
-    </item>
-    
-    <item>
-      <title>WebBasic</title>
-      <link>https://picasun.github.io/post/webbasic/</link>
-      <pubDate>Tue, 14 Dec 2021 14:26:21 +0800</pubDate>
-      
-      <guid>https://picasun.github.io/post/webbasic/</guid>
-      <description>Web开发基础 Web程序运行原理 基本原理 运行原理 用户打开浏览器，输入URL地址 客户端浏览器通过HTTP协议向服务器端发送浏览请求 服务器端通过</description>
-    </item>
-    
-    <item>
       <title>ML_Platform</title>
       <link>https://picasun.github.io/post/ml_platform/</link>
       <pubDate>Mon, 06 Dec 2021 22:51:50 +0800</pubDate>
@@ -87,24 +69,6 @@
       
       <guid>https://picasun.github.io/post/shareradio/</guid>
       <description>点歌台片头 段落1 六月 他总喜欢和我讲述那些年的上海 年糕 坐上绿皮火车去追寻热爱 芝士 感谢你放在留声机里翻录的磁带 靖一 虽在远方 却让我满怀期待 伴奏：《</description>
-    </item>
-    
-    <item>
-      <title>GoDeployment</title>
-      <link>https://picasun.github.io/post/godeployment/</link>
-      <pubDate>Wed, 01 Dec 2021 21:48:16 +0800</pubDate>
-      
-      <guid>https://picasun.github.io/post/godeployment/</guid>
-      <description>Go项目Linux服务器部署 掘金文档 Windows 生成二进制文件 1 2 3 4 set CGO_ENABLED=0 //禁用CGO set GOOS=linux //目标平台为linux set GOARCH=amd64 //目标处理器架构是amd64</description>
-    </item>
-    
-    <item>
-      <title>DatabasePrinciple-1</title>
-      <link>https://picasun.github.io/post/databaseprinciple-1/</link>
-      <pubDate>Tue, 30 Nov 2021 16:43:40 +0800</pubDate>
-      
-      <guid>https://picasun.github.io/post/databaseprinciple-1/</guid>
-      <description>数据库原理-1 chapter1 数据库发展史 数据管理技术的发展 人工管理阶段 数据物理结构逻辑结构相同 数据不保存在机器中 没有专用的软件管理 只有程序的概念没有文件</description>
     </item>
     
     <item>
