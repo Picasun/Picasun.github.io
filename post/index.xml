@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Picasun</copyright>
-    <lastBuildDate>Fri, 03 Jun 2022 16:12:00 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Jun 2022 20:26:18 +0800</lastBuildDate><atom:link href="https://picasun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Leetcode</title>
       <link>https://picasun.github.io/post/leetcode/</link>
@@ -18,12 +18,21 @@
     </item>
     
     <item>
+      <title>English_Words</title>
+      <link>https://picasun.github.io/post/english_words/</link>
+      <pubDate>Tue, 21 Jun 2022 20:26:18 +0800</pubDate>
+      
+      <guid>https://picasun.github.io/post/english_words/</guid>
+      <description>高频词 A to E Number Words Classification Meaning 1 absence n 2 absolute a 3 abundance n 4 abundant a 5 accelerate v 6 accumulate v 7 accuracy n 8 acquaintance n 相识的人、与某人有交情、了解某物 9 acquire v 10 acquisition n 得到、收购、购物 11 actor n 12 acute a</description>
+    </item>
+    
+    <item>
       <title>一研为定</title>
       <link>https://picasun.github.io/post/%E4%B8%80%E7%A0%94%E4%B8%BA%E5%AE%9A/</link>
       <pubDate>Fri, 03 Jun 2022 16:12:00 +0800</pubDate>
       
       <guid>https://picasun.github.io/post/%E4%B8%80%E7%A0%94%E4%B8%BA%E5%AE%9A/</guid>
-      <description>参考书籍 数学 《张宇基础30讲——高等数学篇》配套《基础300题》——张宇 《张宇基础30讲——线性代数篇》配套《基础300题》——张宇 《张宇高</description>
+      <description>参考书籍 数学 《张宇基础30讲——高等数学篇》——张宇 《高等数学基础300题》——张宇 《张宇基础30讲——线性代数篇》——张宇 《线性代数基础3</description>
     </item>
     
     <item>

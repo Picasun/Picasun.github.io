@@ -23,15 +23,50 @@
   </url>
   
   <url>
+    <loc>https://picasun.github.io/categories/</loc>
+    <lastmod>2022-06-21T20:26:18+08:00</lastmod>
+    <changefreq>Ramdomly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://picasun.github.io/tags/engliash/</loc>
+    <lastmod>2022-06-21T20:26:18+08:00</lastmod>
+    <changefreq>Ramdomly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://picasun.github.io/categories/english/</loc>
+    <lastmod>2022-06-21T20:26:18+08:00</lastmod>
+    <changefreq>Ramdomly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://picasun.github.io/post/english_words/</loc>
+    <lastmod>2022-06-21T20:26:18+08:00</lastmod>
+    <changefreq>Ramdomly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://picasun.github.io/</loc>
-    <lastmod>2022-06-03T16:12:00+08:00</lastmod>
+    <lastmod>2022-06-21T20:26:18+08:00</lastmod>
     <changefreq>Ramdomly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://picasun.github.io/post/</loc>
-    <lastmod>2022-06-03T16:12:00+08:00</lastmod>
+    <lastmod>2022-06-21T20:26:18+08:00</lastmod>
+    <changefreq>Ramdomly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://picasun.github.io/tags/</loc>
+    <lastmod>2022-06-21T20:26:18+08:00</lastmod>
     <changefreq>Ramdomly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -39,13 +74,6 @@
   <url>
     <loc>https://picasun.github.io/post/%E4%B8%80%E7%A0%94%E4%B8%BA%E5%AE%9A/</loc>
     <lastmod>2022-06-03T16:12:00+08:00</lastmod>
-    <changefreq>Ramdomly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://picasun.github.io/categories/</loc>
-    <lastmod>2022-02-14T13:51:58+08:00</lastmod>
     <changefreq>Ramdomly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -59,13 +87,6 @@
   
   <url>
     <loc>https://picasun.github.io/categories/os/</loc>
-    <lastmod>2022-02-14T13:51:58+08:00</lastmod>
-    <changefreq>Ramdomly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://picasun.github.io/tags/</loc>
     <lastmod>2022-02-14T13:51:58+08:00</lastmod>
     <changefreq>Ramdomly</changefreq>
     <priority>0.5</priority>
