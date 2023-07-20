@@ -243,6 +243,193 @@
 </ul>
 </li>
 </ul>
+<h3 id="图解密码技术笔记"><a href="#图解密码技术笔记" class="headerlink" title="图解密码技术笔记"></a>图解密码技术笔记</h3><h4 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h4><ul>
+<li><p>部分用语</p>
+<ul>
+<li>明文（Plaintext）</li>
+<li>密文（Ciphertext） </li>
+<li>加密（Encrypt）</li>
+<li>解密（Decrypt）</li>
+<li>破译（Cryptanalysis）</li>
+</ul>
+</li>
+<li><p>使用方法分类：确保机密性</p>
+<ul>
+<li>对称密码（Symmetric Cryptography）<ul>
+<li>公共密钥密码（Common-Key Cryptography）</li>
+<li>私钥密码（Secret-Key Cryptography）</li>
+<li>传统密码（Conventional Cryptography）</li>
+<li>共享密钥密码（Shared-Key Cryptography）</li>
+</ul>
+</li>
+<li>非对称密码（Asymmetric Cryptography）<ul>
+<li>公钥密码（Public-Key Cryptography）</li>
+</ul>
+</li>
+<li>混合密码技术（Hybrid Cryptosystem）<ul>
+<li>结合了对称密码和非对称密码的优势</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>其他密码技术</p>
+<ul>
+<li>单向散列函数（One-Way Hash Function）<ul>
+<li>散列值 &#x3D; 哈希值 &#x3D; 密码校验和 &#x3D; 指纹 &#x3D; 消息摘要 </li>
+<li>保证信息完整性</li>
+</ul>
+</li>
+<li>消息认证码（Message Authentication Code）<ul>
+<li>不仅确认篡改，还能确定是否来自期望的对象</li>
+<li>保证完整性+认证（Authentication）机制</li>
+</ul>
+</li>
+<li>数字签名<ul>
+<li>确保完整性+认证+防止否认（Repudiation）</li>
+</ul>
+</li>
+<li>伪随机数生成器（Pseudo Random Number Generator，PRNG）<ul>
+<li>如Web中进行SSL&#x2F;TLS通信，生成仅用于当前通信的临时密钥</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../picture/10.png"
+                      alt="1"
+                ></p>
+<ul>
+<li><p>隐写术与数字水印</p>
+<ul>
+<li>隐写术：消息嵌入，不能代替密码（加密+隐写）<ul>
+<li>密码隐藏的是内容，隐写术隐藏的是消息本身</li>
+</ul>
+</li>
+<li>数字水印：将著作权拥有者及信息隐写到文件的技术</li>
+</ul>
+</li>
+<li><p>常识</p>
+<ul>
+<li>不用保密的密码算法</li>
+<li>低强度的密码比不加密更危险</li>
+<li>任何密码都会被破解<ul>
+<li>严格说不会被破解的密码的存在性<ul>
+<li>一次性密码本（One-Time Pad）</li>
+<li>量子密码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>密码只是信息安全的一部分</li>
+</ul>
+</li>
+</ul>
+<h4 id="历史上的密码"><a href="#历史上的密码" class="headerlink" title="历史上的密码"></a>历史上的密码</h4><ul>
+<li>凯撒密码（Caesar Cipherx）<ul>
+<li>加密<ul>
+<li>明文字母表平移，密钥为平移量</li>
+</ul>
+</li>
+<li>解密<ul>
+<li>暴力破解（Brute-Force Attack）</li>
+<li>穷举搜索（Exhaustive Search）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>简单替换密码（Simple Substitution Cipher）<ul>
+<li>加密<ul>
+<li>替换表作为密钥</li>
+</ul>
+</li>
+<li>解密<ul>
+<li>很难暴力破解，密钥（替换表的可能）太多（26!）</li>
+<li>频率分析，得出替换表</li>
+<li>高频低频字母&#x2F;连续出现字母作为线索，越长越好破解</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Enigma<ul>
+<li>德语：谜</li>
+<li>加密<ul>
+<li>转动的圆盘和电路实现的高强度密码，德国国防军采用</li>
+<li>国防军密码本作为密钥，用于设置Enigma<ul>
+<li>1.用每日密码来设置Enigma<ul>
+<li>2.加密<strong>发送者选择的通信密码</strong>，得到加密后的通信密码</li>
+</ul>
+</li>
+<li>3.发送者选择的通信密码再设置Enigma（输入两次可以校验）<ul>
+<li>4.加密消息</li>
+</ul>
+</li>
+<li>5.拼接加密后的通信密码和消息</li>
+</ul>
+</li>
+<li>每日密码作为加密密钥的密钥</li>
+<li>密钥加密密钥（Key Encrypting Key，KEK）</li>
+</ul>
+</li>
+<li>解密<ul>
+<li>1.分解密码 </li>
+<li>2.利用每日密码设置Enigma</li>
+<li>3.解密通信密码</li>
+<li>4.利用解密的通信密码设置Enigma</li>
+<li>5.解密信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分开密码算法和密钥<ul>
+<li>密钥为密码算法中可变的部分</li>
+<li>解决了希望重复使用，又不增加风险的问题</li>
+</ul>
+</li>
+</ul>
+<h4 id="对称密码"><a href="#对称密码" class="headerlink" title="对称密码"></a>对称密码</h4><ul>
+<li><p>编码：现实中的东西映射为比特序列的操作</p>
+</li>
+<li><p>XOR：异或，不同：1，同：0</p>
+<ul>
+<li>A XOR B XOR B &#x3D; A<ul>
+<li>B作为不可预测的比特序列作为随机数</li>
+</ul>
+</li>
+<li>原始图像 + 蒙版 + 蒙版 &#x3D; 原始图像</li>
+</ul>
+</li>
+<li><p>一次性密码本（绝对不会被破译的运算）</p>
+<ul>
+<li>密钥配送问题，能配送为啥不送明文呢</li>
+</ul>
+</li>
+<li><p>DES（Data Encryption Standard）（Feistel网络）</p>
+<ul>
+<li>1977年美国联邦信息处理标准（FIPS）所采用的一种对称密码</li>
+<li>被美国以及其他国家的政府和银行广泛使用</li>
+<li>加密（一轮）<ul>
+<li>1.左右等份</li>
+<li>2.右侧直接输入</li>
+<li>3.右侧+子密钥送入轮函数生成看似随机的比特序列</li>
+<li>4.比特序列与左侧XOR作为加密左侧</li>
+</ul>
+</li>
+<li>解密<ul>
+<li>相同，XOR的两次不变</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>差分分析与线性分析</p>
+<ul>
+<li>差分分析：改变部分明文观察密文如何改变</li>
+<li>线性分析：</li>
+</ul>
+</li>
+</ul>
 
             </div>
 
@@ -301,7 +488,7 @@
     <div class="post-toc">
         <div class="toc-title">Advertising space for rent ：)</div>
         <div class="page-title">Cryptography</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="nav-text">密码学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%940"><span class="nav-text">研0</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="nav-text">密码学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%940"><span class="nav-text">研0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E8%A7%A3%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0"><span class="nav-text">图解密码技术笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%AA%E8%AE%BA"><span class="nav-text">绪论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%9A%84%E5%AF%86%E7%A0%81"><span class="nav-text">历史上的密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81"><span class="nav-text">对称密码</span></a></li></ol></li></ol></li></ol></li></ol>
 
     </div>
 </div>
