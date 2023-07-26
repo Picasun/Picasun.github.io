@@ -243,7 +243,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="图解密码技术笔记"><a href="#图解密码技术笔记" class="headerlink" title="图解密码技术笔记"></a>图解密码技术笔记</h3><h4 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h4><ul>
+<h3 id="图解密码技术笔记"><a href="#图解密码技术笔记" class="headerlink" title="图解密码技术笔记"></a>图解密码技术笔记</h3><h4 id="C1-绪论"><a href="#C1-绪论" class="headerlink" title="C1 绪论"></a>C1 绪论</h4><ul>
 <li><p>部分用语</p>
 <ul>
 <li>明文（Plaintext）</li>
@@ -256,14 +256,14 @@
 <li><p>使用方法分类：确保机密性</p>
 <ul>
 <li>对称密码（Symmetric Cryptography）<ul>
-<li>公共密钥密码（Common-Key Cryptography）</li>
+<li>公共密钥密码（<strong>Common-Key Cryptography</strong>）</li>
 <li>私钥密码（Secret-Key Cryptography）</li>
 <li>传统密码（Conventional Cryptography）</li>
 <li>共享密钥密码（Shared-Key Cryptography）</li>
 </ul>
 </li>
 <li>非对称密码（Asymmetric Cryptography）<ul>
-<li>公钥密码（Public-Key Cryptography）</li>
+<li>公钥密码（<strong>Public-Key Cryptography</strong>）</li>
 </ul>
 </li>
 <li>混合密码技术（Hybrid Cryptosystem）<ul>
@@ -298,8 +298,8 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/../picture/10.png"
-                      alt="1"
+                     data-src="/../picture_cryptography/1.png"
+                      alt="其他密码技术表"
                 ></p>
 <ul>
 <li><p>隐写术与数字水印</p>
@@ -327,7 +327,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="历史上的密码"><a href="#历史上的密码" class="headerlink" title="历史上的密码"></a>历史上的密码</h4><ul>
+<h4 id="C2-历史上的密码"><a href="#C2-历史上的密码" class="headerlink" title="C2 历史上的密码"></a>C2 历史上的密码</h4><ul>
 <li>凯撒密码（Caesar Cipherx）<ul>
 <li>加密<ul>
 <li>明文字母表平移，密钥为平移量</li>
@@ -389,10 +389,10 @@
 </ul>
 </li>
 </ul>
-<h4 id="对称密码"><a href="#对称密码" class="headerlink" title="对称密码"></a>对称密码</h4><ul>
+<h4 id="C3-对称密码"><a href="#C3-对称密码" class="headerlink" title="C3 对称密码"></a>C3 对称密码</h4><ul>
 <li><p>编码：现实中的东西映射为比特序列的操作</p>
 </li>
-<li><p>XOR：异或，不同：1，同：0</p>
+<li><p><strong>XOR</strong>：异或，不同：1，同：0</p>
 <ul>
 <li>A XOR B XOR B &#x3D; A<ul>
 <li>B作为不可预测的比特序列作为随机数</li>
@@ -404,6 +404,7 @@
 <li><p>一次性密码本（绝对不会被破译的运算）</p>
 <ul>
 <li>密钥配送问题，能配送为啥不送明文呢</li>
+<li>暴力也无法判断正确与否</li>
 </ul>
 </li>
 <li><p>DES（Data Encryption Standard）（Feistel网络）</p>
@@ -421,14 +422,328 @@
 <li>相同，XOR的两次不变</li>
 </ul>
 </li>
+<li>轮函数：根据右侧和子密钥进行加密生成比特序列</li>
 </ul>
 </li>
-<li><p>差分分析与线性分析</p>
+<li><p>差分分析与线性分析（Chosen Plaintext Attack，CPA 选择明文攻击）</p>
 <ul>
 <li>差分分析：改变部分明文观察密文如何改变</li>
-<li>线性分析：</li>
+<li>线性分析：将明文和密文的对应比特进行XOR结果为0的概率是50%</li>
+<li>以AES为代表的现在分组密码算法已经考虑了针对这些分析的安全性</li>
 </ul>
 </li>
+<li><p>三重DES（triple-DES，3DES）	</p>
+<ul>
+<li>加密-&gt;解密-&gt;加密（为了可以兼容普通DES）<strong>向下兼容性</strong></li>
+<li>如果所有密钥都相同，等价DES</li>
+<li>如果13同2不同，DES-EDE2</li>
+<li>如果123都不同，DES-EDE3</li>
+<li>EDE（Encryption -&gt; Decryption -&gt; Encryption） </li>
+<li>解密：反过来走一遍</li>
+<li>现状：处理速度不高，除非需要特别向下</li>
+</ul>
+</li>
+<li><p>AES（Advanced Encryption Standard）</p>
+<ul>
+<li>取代DES成为新标准，有多个作为AES候选</li>
+<li>最终AES被确定为Rijndael </li>
+<li>竞选条件：无条件免费供全世界使用</li>
+<li>竞争实现标准化（standardization by competition）</li>
+<li>考虑弱点，算法速度，实现容易性<ul>
+<li>不仅加密要快，密钥准备速度也要快</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Rijndael</p>
+<ul>
+<li>分组密码算法</li>
+<li>分组长度以及密钥长度可以以32bit为单位在128b到256b范围选择<ul>
+<li>AES中只有128、192、256</li>
+</ul>
+</li>
+<li>多个轮组成（没有用Feistal网络）<ul>
+<li>每一轮为SubBytes、ShiftRows、MixColumns、AddRoundKey</li>
+</ul>
+</li>
+<li>SubBytes<ul>
+<li>输入分组为128比特，16x8bit，16字节</li>
+<li>利用一张有256值的替换表（S-Box）进行替换 </li>
+<li>以字节为单位进行处理？</li>
+</ul>
+</li>
+<li>ShiftRows<ul>
+<li>按照一定规则进行行平移后输出</li>
+</ul>
+</li>
+<li>MixColumns<ul>
+<li>对列进行矩阵运算后输出</li>
+</ul>
+</li>
+<li>AddRoundKey<ul>
+<li>与轮密钥进行XOR</li>
+</ul>
+</li>
+<li>Feistal网络每一轮只加密一半输入<ul>
+<li>Rijndael可以在不同轮分别以不同的单位进行<strong>并行计算</strong></li>
+</ul>
+</li>
+<li>可能要重复10-14轮</li>
+<li>解密<ul>
+<li>轮密钥XOR、逆矩阵运算、反向平移、逆替换</li>
+</ul>
+</li>
+<li>破译<ul>
+<li>计算过程可以全部用公式表达</li>
+<li>因此为新的攻击方法提供可能</li>
+<li>目前还没有有效攻击（2016）</li>
+</ul>
+</li>
+<li>密码技术研究与评估委员会<ul>
+<li>CRYPTREC</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="C4-分组密码的模式——分组密码的迭代（伏笔）"><a href="#C4-分组密码的模式——分组密码的迭代（伏笔）" class="headerlink" title="C4 分组密码的模式——分组密码的迭代（伏笔）"></a>C4 分组密码的模式——分组密码的迭代（伏笔）</h4><ul>
+<li>DES和AES<ul>
+<li>都属于分组密码，只能加密固定长度的明文</li>
+<li>要加密任意长度的明文就需要对分组密码进行迭代：分组密码的“模式”</li>
+</ul>
+</li>
+<li>密码算法可分为分组密码和流密码<ul>
+<li>分组密码<ul>
+<li>每次只能处理特定长度数据的一类密码算法</li>
+<li>特定长度数据被称为分组</li>
+<li>DES 64bit</li>
+<li>AES 128bit</li>
+</ul>
+</li>
+<li>流密码<ul>
+<li>对数据流进行连续处理的一类密码算法</li>
+<li>1bit、8bit、32bit等单位进行加密和解密</li>
+</ul>
+</li>
+<li>区别<ul>
+<li>分组密码处理完一个分组结束，不需要记录加密进度</li>
+<li>流密码对一串数据进行处理，需要保持内部状态</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分组密码算法的迭代（分组密码的模式 mode） <ul>
+<li>ECB模式：Electronic CodeBook mode、电子密码本模式</li>
+<li>CBC模式：Cipher Block Chaining mode、密码分组链接模式</li>
+<li>CFB模式：Cipher FeedBack mode、密文反馈模式</li>
+<li>OFB模式：Output FeedBack mode、输出反馈模式</li>
+<li>CTR模式 ：CounTeR mode、计数器模式</li>
+</ul>
+</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../picture_cryptography/2.jpg"
+                      alt="分组密码模式比较表"
+                ></p>
+<ul>
+<li>明文分组与密文分组<ul>
+<li>明文分组<ul>
+<li>分组密码中的加密对象，明文分组长度与分组密码算法的分组长度相等</li>
+</ul>
+</li>
+<li>密文分组<ul>
+<li>使用分组密码算法将明文分组加密之后所生成的密文</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="C5-公钥密码-⭐️"><a href="#C5-公钥密码-⭐️" class="headerlink" title="C5 公钥密码 ⭐️"></a>C5 公钥密码 ⭐️</h4><ul>
+<li><p>投币寄物柜</p>
+<ul>
+<li>有硬币，任何人都可以关闭寄物柜（硬币是关闭的密钥）</li>
+<li>有钥匙才能打开寄物柜 （钥匙是打开的密钥）</li>
+</ul>
+</li>
+<li><p>密钥配送问题</p>
+<ul>
+<li>对称密码的密钥配送问题很难根本解决</li>
+<li>解决方案<ul>
+<li>事先共享密钥<ul>
+<li>局限于数量和便利程度</li>
+</ul>
+</li>
+<li>密钥分配中心（KDC、Key Distribution Center）<ul>
+<li>1.密钥分配中心通过伪随机数生成器生成一个会话密钥<ul>
+<li>临时密钥</li>
+</ul>
+</li>
+<li>2.KDC用A的密钥对会话密钥进行加密发给A<ul>
+<li>同样操作给B</li>
+</ul>
+</li>
+<li>3.A先用自己的密钥解密出会话密钥</li>
+<li>4.A再用会话密钥对邮件加密发送给B</li>
+<li>5.B再用自己的密钥解密出会话密钥</li>
+<li>6.B解密出邮件内容</li>
+</ul>
+</li>
+<li>Diffie-Hellman密钥交换<ul>
+<li>加密通信的双方交换一定的信息，根据信息生成相同的密钥</li>
+<li>窃听者虽然能得到所交换的信息，但无法生成和双方相同密钥</li>
+</ul>
+</li>
+<li>公钥密码  <ul>
+<li>发送者用加密密钥对通信内容进行加密并发送给接收者</li>
+<li>只有拥有解密密钥的人才能解密</li>
+<li>即对称密码的密钥配送问题可以用公钥密码来解决</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>公钥密码 ⭐️⭐️⭐️⭐️⭐️</p>
+<ul>
+<li>前情提要<ul>
+<li>发送者只需要加密</li>
+<li>接受者只需要解密</li>
+<li>解密密钥（私钥）不能被窃取</li>
+<li>加密密钥（公钥）可以被窃取</li>
+</ul>
+</li>
+<li>公钥私钥一一对应，一堆公钥和私钥统称为密钥对（Key Pair）<ul>
+<li>公钥进行加密的密文，必须用配对的私钥进行解密</li>
+<li>不能单独生成</li>
+</ul>
+</li>
+<li>解决了密钥配送问题，但解决不了公钥认证问题<ul>
+<li>判断所得到的公钥是否合法</li>
+<li>处理速度只有对称密码的鸡百分之一<br>  <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../picture_cryptography/3.jpg"
+                      alt="公钥密码通信简介"
+                ></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>时钟运算</p>
+<ul>
+<li>加减乘、乘方：取mod</li>
+<li>除：如mod12 1&#x2F;7&#x3D;7 <ul>
+<li>7x7mod12&#x3D;1 </li>
+<li><strong>在mod n的世界中，存在倒数的数字和n之间最大公约数是1</strong></li>
+<li>即与n互质的数字</li>
+</ul>
+</li>
+<li>离散对数<ul>
+<li>Diffie-Hellman密钥交换协议</li>
+<li>EIGamal公钥算法就用了离散对数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>RSA </p>
+<ul>
+<li>密文 &#x3D; 明文^E mod N </li>
+<li>E和N的组合就是公钥：公钥（E,N）or  {E,N}</li>
+<li>明文 &#x3D; 密文^D mod N</li>
+<li>D和N的组合就是私钥：私钥（D,N）or  {D,N}</li>
+</ul>
+</li>
+<li><p>生成密钥对<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../picture_cryptography/4.jpg"
+                      alt="公钥密码通信简介"
+                ></p>
+</li>
+<li><p>举例</p>
+<ul>
+<li>如 <ul>
+<li>1.p&#x3D;17、q&#x3D;19、N&#x3D;17x19&#x3D;323</li>
+<li>2.L &#x3D; lcm(p-1,q-1) &#x3D; lcm(16,18) &#x3D; 144</li>
+<li>3.gcd(E,L)&#x3D;1、E &#x3D; <strong>5</strong>，7，11，13，17，19，23，25…..</li>
+<li>4.E x D mod L &#x3D; 1，D &#x3D; 29（ 5 x 29 mod 144 &#x3D; 1）</li>
+</ul>
+</li>
+<li>此时<ul>
+<li>公钥<ul>
+<li>E：5</li>
+<li>N：323</li>
+</ul>
+</li>
+<li>私钥  <ul>
+<li>D：29</li>
+<li>N：323</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>明文<ul>
+<li>比如小于N：323</li>
+<li>明文假设：123</li>
+</ul>
+</li>
+<li>密文<ul>
+<li>明文^E mod N </li>
+<li>123 ^5 mod 323 &#x3D;  225</li>
+</ul>
+</li>
+<li>明文<ul>
+<li>密文^D mod N</li>
+<li>225 ^29 mod 323 </li>
+<li>&#x3D; ( 225^10 mod 323 ) x ( 225^10 mod 323 ) x ( 225^9 mod 323 ) mod 323</li>
+<li>可用二进制提高效率</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对RSA的攻击</p>
+<ul>
+<li>离散对数问题没有高效算法</li>
+<li>对N进行质因数分解攻击</li>
+<li>推测p和q进行分析（如果伪随机数算法很差）</li>
+<li>求D与对N进行质因数分解在确定性多项式时间内等价</li>
+<li>中间人攻击<ul>
+<li><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../picture_cryptography/5.jpg"
+                      alt="公钥密码通信简介"
+                ></li>
+<li>认证：防御中间人攻击，确认公钥是否属于对方<ul>
+<li>公钥的证书</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>选择密文攻击</p>
+<ul>
+<li>假设知道密码算法但不知道密钥</li>
+<li>假设攻击者能使用服务：发送任意数据，服务器会当作密文解析并返回结果<ul>
+<li>解密提示（Decryption Oracle）</li>
+<li>能抵挡选择密文攻击的算法强度很高</li>
+</ul>
+</li>
+<li>对密文的“认证”  <ul>
+<li>RSA-OAEP（Optimal Asymmetric Encryption Padding） <ul>
+<li>最优非对称加密填充（明文前填充认证信息）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h2 id="EIGamal方式"><a href="#EIGamal方式" class="headerlink" title="EIGamal方式"></a>EIGamal方式</h2></li>
+<li><h2 id="Rabin方式"><a href="#Rabin方式" class="headerlink" title="Rabin方式"></a>Rabin方式</h2></li>
+<li><h2 id="椭圆曲线密码"><a href="#椭圆曲线密码" class="headerlink" title="椭圆曲线密码"></a>椭圆曲线密码</h2></li>
 </ul>
 
             </div>
@@ -488,7 +803,7 @@
     <div class="post-toc">
         <div class="toc-title">Advertising space for rent ：)</div>
         <div class="page-title">Cryptography</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="nav-text">密码学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%940"><span class="nav-text">研0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E8%A7%A3%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0"><span class="nav-text">图解密码技术笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%AA%E8%AE%BA"><span class="nav-text">绪论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%9A%84%E5%AF%86%E7%A0%81"><span class="nav-text">历史上的密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81"><span class="nav-text">对称密码</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="nav-text">密码学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%940"><span class="nav-text">研0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E8%A7%A3%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0"><span class="nav-text">图解密码技术笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#C1-%E7%BB%AA%E8%AE%BA"><span class="nav-text">C1 绪论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C2-%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%9A%84%E5%AF%86%E7%A0%81"><span class="nav-text">C2 历史上的密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C3-%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81"><span class="nav-text">C3 对称密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C4-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81%E7%9A%84%E6%A8%A1%E5%BC%8F%E2%80%94%E2%80%94%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81%E7%9A%84%E8%BF%AD%E4%BB%A3%EF%BC%88%E4%BC%8F%E7%AC%94%EF%BC%89"><span class="nav-text">C4 分组密码的模式——分组密码的迭代（伏笔）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C5-%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81-%E2%AD%90%EF%B8%8F"><span class="nav-text">C5 公钥密码 ⭐️</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EIGamal%E6%96%B9%E5%BC%8F"><span class="nav-text">EIGamal方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rabin%E6%96%B9%E5%BC%8F"><span class="nav-text">Rabin方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A4%AD%E5%9C%86%E6%9B%B2%E7%BA%BF%E5%AF%86%E7%A0%81"><span class="nav-text">椭圆曲线密码</span></a></li></ol></li></ol>
 
     </div>
 </div>
