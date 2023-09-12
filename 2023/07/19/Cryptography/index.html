@@ -243,7 +243,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="图解密码技术笔记"><a href="#图解密码技术笔记" class="headerlink" title="图解密码技术笔记"></a>图解密码技术笔记</h3><h4 id="C1-绪论"><a href="#C1-绪论" class="headerlink" title="C1 绪论"></a>C1 绪论</h4><ul>
+<h3 id="密码"><a href="#密码" class="headerlink" title="密码"></a>密码</h3><h4 id="C1-绪论"><a href="#C1-绪论" class="headerlink" title="C1 绪论"></a>C1 绪论</h4><ul>
 <li><p>部分用语</p>
 <ul>
 <li>明文（Plaintext）</li>
@@ -560,7 +560,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="C5-公钥密码-⭐️"><a href="#C5-公钥密码-⭐️" class="headerlink" title="C5 公钥密码 ⭐️"></a>C5 公钥密码 ⭐️</h4><ul>
+<h4 id="C5-公钥密码"><a href="#C5-公钥密码" class="headerlink" title="C5 公钥密码"></a>C5 公钥密码</h4><ul>
 <li><p>投币寄物柜</p>
 <ul>
 <li>有硬币，任何人都可以关闭寄物柜（硬币是关闭的密钥）</li>
@@ -605,7 +605,7 @@
 </li>
 </ul>
 </li>
-<li><p>公钥密码 ⭐️⭐️⭐️⭐️⭐️</p>
+<li><p>公钥密码 </p>
 <ul>
 <li>前情提要<ul>
 <li>发送者只需要加密</li>
@@ -659,7 +659,7 @@
                      lazyload
                      src="/images/loading.svg"
                      data-src="/../picture_cryptography/4.jpg"
-                      alt="公钥密码通信简介"
+                      alt="生成密钥对"
                 ></p>
 </li>
 <li><p>举例</p>
@@ -714,7 +714,7 @@
                      lazyload
                      src="/images/loading.svg"
                      data-src="/../picture_cryptography/5.jpg"
-                      alt="公钥密码通信简介"
+                      alt="中间人攻击"
                 ></li>
 <li>认证：防御中间人攻击，确认公钥是否属于对方<ul>
 <li>公钥的证书</li>
@@ -741,9 +741,251 @@
 </li>
 </ul>
 </li>
-<li><h2 id="EIGamal方式"><a href="#EIGamal方式" class="headerlink" title="EIGamal方式"></a>EIGamal方式</h2></li>
-<li><h2 id="Rabin方式"><a href="#Rabin方式" class="headerlink" title="Rabin方式"></a>Rabin方式</h2></li>
-<li><h2 id="椭圆曲线密码"><a href="#椭圆曲线密码" class="headerlink" title="椭圆曲线密码"></a>椭圆曲线密码</h2></li>
+<li><p>EIGamal方式</p>
+<ul>
+<li>RSA利用了质因数分解的困难度</li>
+<li>EIGamal方式利用了mod N 下求离散对数的困难度</li>
+<li>密文长度为明文两倍</li>
+</ul>
+</li>
+<li><p>Rabin方式</p>
+<ul>
+<li>利用了mod N下求平方根的困难度</li>
+<li>已经证明与质因数分解相当</li>
+</ul>
+</li>
+<li><p>椭圆曲线密码</p>
+<ul>
+<li>密钥长度比RSA短</li>
+<li>利用椭圆曲线上特定点进行特殊乘法运算的逆运算困难这一特点</li>
+</ul>
+</li>
+</ul>
+<h4 id="C6-混合密码系统——对称密码提高速度，公钥密码保护会话密钥-⭐️"><a href="#C6-混合密码系统——对称密码提高速度，公钥密码保护会话密钥-⭐️" class="headerlink" title="C6 混合密码系统——对称密码提高速度，公钥密码保护会话密钥 ⭐️"></a>C6 混合密码系统——对称密码提高速度，公钥密码保护会话密钥 ⭐️</h4><ul>
+<li><p>混合密码系统（hybrid cryptosystem）</p>
+<ul>
+<li>加密<ul>
+<li>对称密码加密明文，公钥加密对称密码，组合为密文<br>  <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../picture_cryptography/6.jpg"
+                      alt="混合密码系统加密"
+                ></li>
+</ul>
+</li>
+<li>解密<ul>
+<li>密文分解，私钥解密对称密码，对称密码解密明文<br>  <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../picture_cryptography/7.jpg"
+                      alt="混合密码系统解密"
+                ></li>
+</ul>
+</li>
+<li>例子<ul>
+<li>密码软件PGP<ul>
+<li>还包含数字签名、数字签名认证以及私钥管理等处理 C13</li>
+</ul>
+</li>
+<li>网络通信SSL &#x2F; TLS</li>
+</ul>
+</li>
+<li>强度判定<ul>
+<li>伪随机数生成器（攻击方法在C12）</li>
+<li>对称密码（合适的分组密码模式）</li>
+<li>公钥密码（高强度公钥密码算法）</li>
+<li>密钥长度的平衡（同等强度）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>密码技术的组合</p>
+<ul>
+<li>数字签名：单向散列函数、公钥密码</li>
+<li>证书：公钥、数字签名</li>
+<li>消息认证码：单向散列函数、密钥；也可以通过对称密码生成</li>
+<li>伪随机数生成器：对称密码、单向散列函数或公钥密码</li>
+<li>电子投票、虚拟货币……</li>
+</ul>
+</li>
+</ul>
+<h3 id="认证"><a href="#认证" class="headerlink" title="认证"></a>认证</h3><h4 id="C7-单向散列函数——获取消息的“指纹”"><a href="#C7-单向散列函数——获取消息的“指纹”" class="headerlink" title="C7 单向散列函数——获取消息的“指纹”"></a>C7 单向散列函数——获取消息的“指纹”</h4><ul>
+<li><p>通过消息内容计算出散列值</p>
+<ul>
+<li>散列值的长度与消息长度无关 </li>
+<li>要求<ul>
+<li>根据任意长度消息算出固定长度散列值</li>
+<li>快速计算</li>
+<li>消息不同散列值不同（抗碰撞）</li>
+<li>单向性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>单向散列函数</p>
+<ul>
+<li>消息摘要函数</li>
+<li>哈希函数</li>
+<li>杂凑函数</li>
+</ul>
+</li>
+<li><p>消息</p>
+<ul>
+<li>原像</li>
+</ul>
+</li>
+<li><p>散列（hash）值</p>
+<ul>
+<li>消息摘要</li>
+<li>指纹</li>
+</ul>
+</li>
+<li><p>完整性</p>
+<ul>
+<li>一致性</li>
+</ul>
+</li>
+<li><p>单向散列函数的实际应用</p>
+<ul>
+<li>确认下载的软件是否被篡改<ul>
+<li>公布散列值</li>
+</ul>
+</li>
+<li>基于口令的加密（Password Based Encryption，PBE）<ul>
+<li>将口令和盐混合计算得到散列值，作为加密的密钥</li>
+</ul>
+</li>
+<li>消息认证码<ul>
+<li>共享密钥和消息混合计算得出的散列值，防止错误、篡改和伪装</li>
+</ul>
+</li>
+<li>数字签名<ul>
+<li>单向散列后对散列值施加数字签名</li>
+</ul>
+</li>
+<li>伪随机数生成器<ul>
+<li>保证随机数的不可预测性，利用单向散列函数</li>
+</ul>
+</li>
+<li>一次性口令<ul>
+<li>服务器对和客户端的合法性认证，保证口令在通信链路上只传送一次</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>单向散列函数的具体例子</p>
+<ul>
+<li>MD4、MD5<ul>
+<li>MD4：128bit散列值，有找散列碰撞的方法，不安全了</li>
+<li>MD5：128比特散列值，强抗碰撞性被攻破</li>
+</ul>
+</li>
+<li>SHA-1、SHA-256、SHA-384、SHA-512   <ul>
+<li>SHA-1：产生160bit的散列值的单向散列函数</li>
+<li>为保持兼容性，可谨慎运用 </li>
+<li>SHA-2（六种版本）<br>  <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../picture_cryptography/8.jpg"
+                      alt="SHA-2（六种版本）"
+                ></li>
+</ul>
+</li>
+<li>RIPEMD-160<ul>
+<li>为保持兼容性，可谨慎运用</li>
+</ul>
+</li>
+<li>SHA-3<ul>
+<li>公开竞争实现标准化，SHA-3中选择了Keccak算法 </li>
+<li>采用与SHA-2完全不同结构</li>
+<li>结构清晰、容易分析</li>
+<li>设备适用多样，可用于嵌入式</li>
+<li>不同硬件上的实现性能都很强</li>
+<li>安全性边际更大</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Keccak	</p>
+<ul>
+<li>内容<ul>
+<li>可以生成任意长度散列值</li>
+<li>为了配合SHA-2规定了 224&#x2F;256&#x2F;384&#x2F;512四个版本</li>
+<li>输入上限<ul>
+<li>SHA-1：2^64 - 1 bit</li>
+<li>SHA-2：2^128 - 1 bit</li>
+<li>SHA-3：没有长度限制</li>
+</ul>
+</li>
+<li>GitHub上有KeccakTools软件</li>
+</ul>
+</li>
+<li>海绵结构<ul>
+<li>r：比特率，内部状态</li>
+<li>c：容量，不受输入分组的内容直接影响，防止将输入消息中的特征泄漏<br>  <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../picture_cryptography/9.jpg"
+                      alt="Keccak海绵结构"
+                ></li>
+</ul>
+</li>
+<li>双工结构<ul>
+<li>输入输出相同速率进行<br>  <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../picture_cryptography/10.jpg"
+                      alt="Keccak双工结构"
+                ></li>
+</ul>
+</li>
+<li>内部状态<ul>
+<li>三维比特数组<br>  <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../picture_cryptography/11.jpg"
+                      alt="Keccak内部状态"
+                ></li>
+</ul>
+<p>	 </p>
+</li>
+<li>函数Keccak-f[b]<ul>
+<li>参数b被称为宽度，25的1、2、4、8…倍</li>
+<li>b&#x2F;25是slice的片数</li>
+<li>slice大小永远5x5</li>
+<li>每一轮包含五个步骤<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../picture_cryptography/12.jpg"
+                      alt="Keccak-f函数"
+                >	<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../picture_cryptography/13.jpg"
+                      alt="Keccak-f函数"
+                >	<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../picture_cryptography/14.jpg"
+                      alt="Keccak-f函数"
+                >	<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/../picture_cryptography/15.jpg"
+                      alt="Keccak-f函数"
+                ></li>
+</ul>
+<p>	 </p>
+</li>
+<li>对Keccak的攻击</li>
+</ul>
+</li>
+<li><p>单向散列函数的使用 </p>
+</li>
+<li><p>对单向散列函数的攻击</p>
+</li>
+<li><p>单向散列函数无法解决的问题</p>
+</li>
 </ul>
 
             </div>
@@ -774,6 +1016,21 @@
             
                 <div class="article-nav">
                     
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2023/09/11/FuturePlan/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">FuturePlan</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
+                    
                     
                         <div class="article-next">
                             <a class="next"
@@ -803,7 +1060,7 @@
     <div class="post-toc">
         <div class="toc-title">Advertising space for rent ：)</div>
         <div class="page-title">Cryptography</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="nav-text">密码学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%940"><span class="nav-text">研0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E8%A7%A3%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0"><span class="nav-text">图解密码技术笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#C1-%E7%BB%AA%E8%AE%BA"><span class="nav-text">C1 绪论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C2-%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%9A%84%E5%AF%86%E7%A0%81"><span class="nav-text">C2 历史上的密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C3-%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81"><span class="nav-text">C3 对称密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C4-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81%E7%9A%84%E6%A8%A1%E5%BC%8F%E2%80%94%E2%80%94%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81%E7%9A%84%E8%BF%AD%E4%BB%A3%EF%BC%88%E4%BC%8F%E7%AC%94%EF%BC%89"><span class="nav-text">C4 分组密码的模式——分组密码的迭代（伏笔）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C5-%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81-%E2%AD%90%EF%B8%8F"><span class="nav-text">C5 公钥密码 ⭐️</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EIGamal%E6%96%B9%E5%BC%8F"><span class="nav-text">EIGamal方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rabin%E6%96%B9%E5%BC%8F"><span class="nav-text">Rabin方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A4%AD%E5%9C%86%E6%9B%B2%E7%BA%BF%E5%AF%86%E7%A0%81"><span class="nav-text">椭圆曲线密码</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="nav-text">密码学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%940"><span class="nav-text">研0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%86%E7%A0%81"><span class="nav-text">密码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#C1-%E7%BB%AA%E8%AE%BA"><span class="nav-text">C1 绪论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C2-%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%9A%84%E5%AF%86%E7%A0%81"><span class="nav-text">C2 历史上的密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C3-%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81"><span class="nav-text">C3 对称密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C4-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81%E7%9A%84%E6%A8%A1%E5%BC%8F%E2%80%94%E2%80%94%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81%E7%9A%84%E8%BF%AD%E4%BB%A3%EF%BC%88%E4%BC%8F%E7%AC%94%EF%BC%89"><span class="nav-text">C4 分组密码的模式——分组密码的迭代（伏笔）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C5-%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81"><span class="nav-text">C5 公钥密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C6-%E6%B7%B7%E5%90%88%E5%AF%86%E7%A0%81%E7%B3%BB%E7%BB%9F%E2%80%94%E2%80%94%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81%E6%8F%90%E9%AB%98%E9%80%9F%E5%BA%A6%EF%BC%8C%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E4%BF%9D%E6%8A%A4%E4%BC%9A%E8%AF%9D%E5%AF%86%E9%92%A5-%E2%AD%90%EF%B8%8F"><span class="nav-text">C6 混合密码系统——对称密码提高速度，公钥密码保护会话密钥 ⭐️</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A4%E8%AF%81"><span class="nav-text">认证</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#C7-%E5%8D%95%E5%90%91%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E7%9A%84%E2%80%9C%E6%8C%87%E7%BA%B9%E2%80%9D"><span class="nav-text">C7 单向散列函数——获取消息的“指纹”</span></a></li></ol></li></ol></li></ol></li></ol>
 
     </div>
 </div>
