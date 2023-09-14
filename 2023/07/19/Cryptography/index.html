@@ -223,7 +223,7 @@
             
 
             <div class="article-content markdown-body">
-                <h1 id="密码学"><a href="#密码学" class="headerlink" title="密码学"></a>密码学</h1><h2 id="研0"><a href="#研0" class="headerlink" title="研0"></a>研0</h2><ul>
+                <h1 id="密码学"><a href="#密码学" class="headerlink" title="密码学"></a>密码学</h1><h2 id="课件"><a href="#课件" class="headerlink" title="课件"></a>课件</h2><ul>
 <li>Coursera_Dan Boneh_Cryptography_1_Stanford<ul>
 <li><a class="link"   target="_blank" rel="noopener" href="https://www.coursera.org/learn/crypto/home/week/1" >https://www.coursera.org/learn/crypto/home/week/1 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><ul>
 <li>全英授课（含中文脚本）</li>
@@ -243,749 +243,51 @@
 </ul>
 </li>
 </ul>
-<h3 id="密码"><a href="#密码" class="headerlink" title="密码"></a>密码</h3><h4 id="C1-绪论"><a href="#C1-绪论" class="headerlink" title="C1 绪论"></a>C1 绪论</h4><ul>
-<li><p>部分用语</p>
-<ul>
-<li>明文（Plaintext）</li>
-<li>密文（Ciphertext） </li>
-<li>加密（Encrypt）</li>
-<li>解密（Decrypt）</li>
-<li>破译（Cryptanalysis）</li>
+<h2 id="会议"><a href="#会议" class="headerlink" title="会议"></a>会议</h2><h3 id="四大安全会议"><a href="#四大安全会议" class="headerlink" title="四大安全会议"></a>四大安全会议</h3><ul>
+<li>S&amp;P IEEE Symposium on Security and Privacy（CCF-A）<ul>
+<li>每年11月截稿，第二年5月开会，在美国开会</li>
 </ul>
 </li>
-<li><p>使用方法分类：确保机密性</p>
-<ul>
-<li>对称密码（Symmetric Cryptography）<ul>
-<li>公共密钥密码（<strong>Common-Key Cryptography</strong>）</li>
-<li>私钥密码（Secret-Key Cryptography）</li>
-<li>传统密码（Conventional Cryptography）</li>
-<li>共享密钥密码（Shared-Key Cryptography）</li>
+<li>CCS ACM Conference on Computer and Communications Security（CCF-A）<ul>
+<li>每年5月截稿，同年10月开会，在美国开会</li>
 </ul>
 </li>
-<li>非对称密码（Asymmetric Cryptography）<ul>
-<li>公钥密码（<strong>Public-Key Cryptography</strong>）</li>
+<li>USENIX Security Usenix Security Symposium （System-oriented）（CCF-A）<ul>
+<li>每年2月截稿，同年8月开会，在美国开会</li>
 </ul>
 </li>
-<li>混合密码技术（Hybrid Cryptosystem）<ul>
-<li>结合了对称密码和非对称密码的优势</li>
+<li>NDSS ISOC Network and Distributed System Security （CCF-A）<ul>
+<li>每年8月截稿，第二年2月开会，在美国开会</li>
+<li>大陆迄今录用最少, 引用最好</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>其他密码技术</p>
-<ul>
-<li>单向散列函数（One-Way Hash Function）<ul>
-<li>散列值 &#x3D; 哈希值 &#x3D; 密码校验和 &#x3D; 指纹 &#x3D; 消息摘要 </li>
-<li>保证信息完整性</li>
-</ul>
-</li>
-<li>消息认证码（Message Authentication Code）<ul>
-<li>不仅确认篡改，还能确定是否来自期望的对象</li>
-<li>保证完整性+认证（Authentication）机制</li>
-</ul>
-</li>
-<li>数字签名<ul>
-<li>确保完整性+认证+防止否认（Repudiation）</li>
-</ul>
-</li>
-<li>伪随机数生成器（Pseudo Random Number Generator，PRNG）<ul>
-<li>如Web中进行SSL&#x2F;TLS通信，生成仅用于当前通信的临时密钥</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/../picture_cryptography/1.png"
-                      alt="其他密码技术表"
-                ></p>
-<ul>
-<li><p>隐写术与数字水印</p>
-<ul>
-<li>隐写术：消息嵌入，不能代替密码（加密+隐写）<ul>
-<li>密码隐藏的是内容，隐写术隐藏的是消息本身</li>
-</ul>
-</li>
-<li>数字水印：将著作权拥有者及信息隐写到文件的技术</li>
-</ul>
-</li>
-<li><p>常识</p>
-<ul>
-<li>不用保密的密码算法</li>
-<li>低强度的密码比不加密更危险</li>
-<li>任何密码都会被破解<ul>
-<li>严格说不会被破解的密码的存在性<ul>
-<li>一次性密码本（One-Time Pad）</li>
-<li>量子密码</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>密码只是信息安全的一部分</li>
-</ul>
-</li>
-</ul>
-<h4 id="C2-历史上的密码"><a href="#C2-历史上的密码" class="headerlink" title="C2 历史上的密码"></a>C2 历史上的密码</h4><ul>
-<li>凯撒密码（Caesar Cipherx）<ul>
-<li>加密<ul>
-<li>明文字母表平移，密钥为平移量</li>
-</ul>
-</li>
-<li>解密<ul>
-<li>暴力破解（Brute-Force Attack）</li>
-<li>穷举搜索（Exhaustive Search）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>简单替换密码（Simple Substitution Cipher）<ul>
-<li>加密<ul>
-<li>替换表作为密钥</li>
-</ul>
-</li>
-<li>解密<ul>
-<li>很难暴力破解，密钥（替换表的可能）太多（26!）</li>
-<li>频率分析，得出替换表</li>
-<li>高频低频字母&#x2F;连续出现字母作为线索，越长越好破解</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Enigma<ul>
-<li>德语：谜</li>
-<li>加密<ul>
-<li>转动的圆盘和电路实现的高强度密码，德国国防军采用</li>
-<li>国防军密码本作为密钥，用于设置Enigma<ul>
-<li>1.用每日密码来设置Enigma<ul>
-<li>2.加密<strong>发送者选择的通信密码</strong>，得到加密后的通信密码</li>
-</ul>
-</li>
-<li>3.发送者选择的通信密码再设置Enigma（输入两次可以校验）<ul>
-<li>4.加密消息</li>
-</ul>
-</li>
-<li>5.拼接加密后的通信密码和消息</li>
-</ul>
-</li>
-<li>每日密码作为加密密钥的密钥</li>
-<li>密钥加密密钥（Key Encrypting Key，KEK）</li>
-</ul>
-</li>
-<li>解密<ul>
-<li>1.分解密码 </li>
-<li>2.利用每日密码设置Enigma</li>
-<li>3.解密通信密码</li>
-<li>4.利用解密的通信密码设置Enigma</li>
-<li>5.解密信息</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>分开密码算法和密钥<ul>
-<li>密钥为密码算法中可变的部分</li>
-<li>解决了希望重复使用，又不增加风险的问题</li>
-</ul>
-</li>
-</ul>
-<h4 id="C3-对称密码"><a href="#C3-对称密码" class="headerlink" title="C3 对称密码"></a>C3 对称密码</h4><ul>
-<li><p>编码：现实中的东西映射为比特序列的操作</p>
-</li>
-<li><p><strong>XOR</strong>：异或，不同：1，同：0</p>
-<ul>
-<li>A XOR B XOR B &#x3D; A<ul>
-<li>B作为不可预测的比特序列作为随机数</li>
-</ul>
-</li>
-<li>原始图像 + 蒙版 + 蒙版 &#x3D; 原始图像</li>
-</ul>
-</li>
-<li><p>一次性密码本（绝对不会被破译的运算）</p>
-<ul>
-<li>密钥配送问题，能配送为啥不送明文呢</li>
-<li>暴力也无法判断正确与否</li>
-</ul>
-</li>
-<li><p>DES（Data Encryption Standard）（Feistel网络）</p>
-<ul>
-<li>1977年美国联邦信息处理标准（FIPS）所采用的一种对称密码</li>
-<li>被美国以及其他国家的政府和银行广泛使用</li>
-<li>加密（一轮）<ul>
-<li>1.左右等份</li>
-<li>2.右侧直接输入</li>
-<li>3.右侧+子密钥送入轮函数生成看似随机的比特序列</li>
-<li>4.比特序列与左侧XOR作为加密左侧</li>
-</ul>
-</li>
-<li>解密<ul>
-<li>相同，XOR的两次不变</li>
-</ul>
-</li>
-<li>轮函数：根据右侧和子密钥进行加密生成比特序列</li>
-</ul>
-</li>
-<li><p>差分分析与线性分析（Chosen Plaintext Attack，CPA 选择明文攻击）</p>
-<ul>
-<li>差分分析：改变部分明文观察密文如何改变</li>
-<li>线性分析：将明文和密文的对应比特进行XOR结果为0的概率是50%</li>
-<li>以AES为代表的现在分组密码算法已经考虑了针对这些分析的安全性</li>
-</ul>
-</li>
-<li><p>三重DES（triple-DES，3DES）	</p>
-<ul>
-<li>加密-&gt;解密-&gt;加密（为了可以兼容普通DES）<strong>向下兼容性</strong></li>
-<li>如果所有密钥都相同，等价DES</li>
-<li>如果13同2不同，DES-EDE2</li>
-<li>如果123都不同，DES-EDE3</li>
-<li>EDE（Encryption -&gt; Decryption -&gt; Encryption） </li>
-<li>解密：反过来走一遍</li>
-<li>现状：处理速度不高，除非需要特别向下</li>
-</ul>
-</li>
-<li><p>AES（Advanced Encryption Standard）</p>
-<ul>
-<li>取代DES成为新标准，有多个作为AES候选</li>
-<li>最终AES被确定为Rijndael </li>
-<li>竞选条件：无条件免费供全世界使用</li>
-<li>竞争实现标准化（standardization by competition）</li>
-<li>考虑弱点，算法速度，实现容易性<ul>
-<li>不仅加密要快，密钥准备速度也要快</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Rijndael</p>
-<ul>
-<li>分组密码算法</li>
-<li>分组长度以及密钥长度可以以32bit为单位在128b到256b范围选择<ul>
-<li>AES中只有128、192、256</li>
-</ul>
-</li>
-<li>多个轮组成（没有用Feistal网络）<ul>
-<li>每一轮为SubBytes、ShiftRows、MixColumns、AddRoundKey</li>
-</ul>
-</li>
-<li>SubBytes<ul>
-<li>输入分组为128比特，16x8bit，16字节</li>
-<li>利用一张有256值的替换表（S-Box）进行替换 </li>
-<li>以字节为单位进行处理？</li>
-</ul>
-</li>
-<li>ShiftRows<ul>
-<li>按照一定规则进行行平移后输出</li>
-</ul>
-</li>
-<li>MixColumns<ul>
-<li>对列进行矩阵运算后输出</li>
-</ul>
-</li>
-<li>AddRoundKey<ul>
-<li>与轮密钥进行XOR</li>
-</ul>
-</li>
-<li>Feistal网络每一轮只加密一半输入<ul>
-<li>Rijndael可以在不同轮分别以不同的单位进行<strong>并行计算</strong></li>
-</ul>
-</li>
-<li>可能要重复10-14轮</li>
-<li>解密<ul>
-<li>轮密钥XOR、逆矩阵运算、反向平移、逆替换</li>
-</ul>
-</li>
-<li>破译<ul>
-<li>计算过程可以全部用公式表达</li>
-<li>因此为新的攻击方法提供可能</li>
-<li>目前还没有有效攻击（2016）</li>
-</ul>
-</li>
-<li>密码技术研究与评估委员会<ul>
-<li>CRYPTREC</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="C4-分组密码的模式——分组密码的迭代（伏笔）"><a href="#C4-分组密码的模式——分组密码的迭代（伏笔）" class="headerlink" title="C4 分组密码的模式——分组密码的迭代（伏笔）"></a>C4 分组密码的模式——分组密码的迭代（伏笔）</h4><ul>
-<li>DES和AES<ul>
-<li>都属于分组密码，只能加密固定长度的明文</li>
-<li>要加密任意长度的明文就需要对分组密码进行迭代：分组密码的“模式”</li>
-</ul>
-</li>
-<li>密码算法可分为分组密码和流密码<ul>
-<li>分组密码<ul>
-<li>每次只能处理特定长度数据的一类密码算法</li>
-<li>特定长度数据被称为分组</li>
-<li>DES 64bit</li>
-<li>AES 128bit</li>
-</ul>
-</li>
-<li>流密码<ul>
-<li>对数据流进行连续处理的一类密码算法</li>
-<li>1bit、8bit、32bit等单位进行加密和解密</li>
-</ul>
-</li>
-<li>区别<ul>
-<li>分组密码处理完一个分组结束，不需要记录加密进度</li>
-<li>流密码对一串数据进行处理，需要保持内部状态</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>分组密码算法的迭代（分组密码的模式 mode） <ul>
-<li>ECB模式：Electronic CodeBook mode、电子密码本模式</li>
-<li>CBC模式：Cipher Block Chaining mode、密码分组链接模式</li>
-<li>CFB模式：Cipher FeedBack mode、密文反馈模式</li>
-<li>OFB模式：Output FeedBack mode、输出反馈模式</li>
-<li>CTR模式 ：CounTeR mode、计数器模式</li>
-</ul>
-</li>
-</ul>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/../picture_cryptography/2.jpg"
-                      alt="分组密码模式比较表"
-                ></p>
-<ul>
-<li>明文分组与密文分组<ul>
-<li>明文分组<ul>
-<li>分组密码中的加密对象，明文分组长度与分组密码算法的分组长度相等</li>
-</ul>
-</li>
-<li>密文分组<ul>
-<li>使用分组密码算法将明文分组加密之后所生成的密文</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="C5-公钥密码"><a href="#C5-公钥密码" class="headerlink" title="C5 公钥密码"></a>C5 公钥密码</h4><ul>
-<li><p>投币寄物柜</p>
-<ul>
-<li>有硬币，任何人都可以关闭寄物柜（硬币是关闭的密钥）</li>
-<li>有钥匙才能打开寄物柜 （钥匙是打开的密钥）</li>
-</ul>
-</li>
-<li><p>密钥配送问题</p>
-<ul>
-<li>对称密码的密钥配送问题很难根本解决</li>
-<li>解决方案<ul>
-<li>事先共享密钥<ul>
-<li>局限于数量和便利程度</li>
-</ul>
-</li>
-<li>密钥分配中心（KDC、Key Distribution Center）<ul>
-<li>1.密钥分配中心通过伪随机数生成器生成一个会话密钥<ul>
-<li>临时密钥</li>
-</ul>
-</li>
-<li>2.KDC用A的密钥对会话密钥进行加密发给A<ul>
-<li>同样操作给B</li>
-</ul>
-</li>
-<li>3.A先用自己的密钥解密出会话密钥</li>
-<li>4.A再用会话密钥对邮件加密发送给B</li>
-<li>5.B再用自己的密钥解密出会话密钥</li>
-<li>6.B解密出邮件内容</li>
-</ul>
-</li>
-<li>Diffie-Hellman密钥交换<ul>
-<li>加密通信的双方交换一定的信息，根据信息生成相同的密钥</li>
-<li>窃听者虽然能得到所交换的信息，但无法生成和双方相同密钥</li>
-</ul>
-</li>
-<li>公钥密码  <ul>
-<li>发送者用加密密钥对通信内容进行加密并发送给接收者</li>
-<li>只有拥有解密密钥的人才能解密</li>
-<li>即对称密码的密钥配送问题可以用公钥密码来解决</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>公钥密码 </p>
-<ul>
-<li>前情提要<ul>
-<li>发送者只需要加密</li>
-<li>接受者只需要解密</li>
-<li>解密密钥（私钥）不能被窃取</li>
-<li>加密密钥（公钥）可以被窃取</li>
-</ul>
-</li>
-<li>公钥私钥一一对应，一堆公钥和私钥统称为密钥对（Key Pair）<ul>
-<li>公钥进行加密的密文，必须用配对的私钥进行解密</li>
-<li>不能单独生成</li>
-</ul>
-</li>
-<li>解决了密钥配送问题，但解决不了公钥认证问题<ul>
-<li>判断所得到的公钥是否合法</li>
-<li>处理速度只有对称密码的鸡百分之一<br>  <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/../picture_cryptography/3.jpg"
-                      alt="公钥密码通信简介"
-                ></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>时钟运算</p>
-<ul>
-<li>加减乘、乘方：取mod</li>
-<li>除：如mod12 1&#x2F;7&#x3D;7 <ul>
-<li>7x7mod12&#x3D;1 </li>
-<li><strong>在mod n的世界中，存在倒数的数字和n之间最大公约数是1</strong></li>
-<li>即与n互质的数字</li>
-</ul>
-</li>
-<li>离散对数<ul>
-<li>Diffie-Hellman密钥交换协议</li>
-<li>EIGamal公钥算法就用了离散对数</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>RSA </p>
-<ul>
-<li>密文 &#x3D; 明文^E mod N </li>
-<li>E和N的组合就是公钥：公钥（E,N）or  {E,N}</li>
-<li>明文 &#x3D; 密文^D mod N</li>
-<li>D和N的组合就是私钥：私钥（D,N）or  {D,N}</li>
-</ul>
-</li>
-<li><p>生成密钥对<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/../picture_cryptography/4.jpg"
-                      alt="生成密钥对"
-                ></p>
-</li>
-<li><p>举例</p>
-<ul>
-<li>如 <ul>
-<li>1.p&#x3D;17、q&#x3D;19、N&#x3D;17x19&#x3D;323</li>
-<li>2.L &#x3D; lcm(p-1,q-1) &#x3D; lcm(16,18) &#x3D; 144</li>
-<li>3.gcd(E,L)&#x3D;1、E &#x3D; <strong>5</strong>，7，11，13，17，19，23，25…..</li>
-<li>4.E x D mod L &#x3D; 1，D &#x3D; 29（ 5 x 29 mod 144 &#x3D; 1）</li>
-</ul>
-</li>
-<li>此时<ul>
-<li>公钥<ul>
-<li>E：5</li>
-<li>N：323</li>
-</ul>
-</li>
-<li>私钥  <ul>
-<li>D：29</li>
-<li>N：323</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>明文<ul>
-<li>比如小于N：323</li>
-<li>明文假设：123</li>
-</ul>
-</li>
-<li>密文<ul>
-<li>明文^E mod N </li>
-<li>123 ^5 mod 323 &#x3D;  225</li>
-</ul>
-</li>
-<li>明文<ul>
-<li>密文^D mod N</li>
-<li>225 ^29 mod 323 </li>
-<li>&#x3D; ( 225^10 mod 323 ) x ( 225^10 mod 323 ) x ( 225^9 mod 323 ) mod 323</li>
-<li>可用二进制提高效率</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>对RSA的攻击</p>
-<ul>
-<li>离散对数问题没有高效算法</li>
-<li>对N进行质因数分解攻击</li>
-<li>推测p和q进行分析（如果伪随机数算法很差）</li>
-<li>求D与对N进行质因数分解在确定性多项式时间内等价</li>
-<li>中间人攻击<ul>
-<li><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/../picture_cryptography/5.jpg"
-                      alt="中间人攻击"
-                ></li>
-<li>认证：防御中间人攻击，确认公钥是否属于对方<ul>
-<li>公钥的证书</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>选择密文攻击</p>
-<ul>
-<li>假设知道密码算法但不知道密钥</li>
-<li>假设攻击者能使用服务：发送任意数据，服务器会当作密文解析并返回结果<ul>
-<li>解密提示（Decryption Oracle）</li>
-<li>能抵挡选择密文攻击的算法强度很高</li>
-</ul>
-</li>
-<li>对密文的“认证”  <ul>
-<li>RSA-OAEP（Optimal Asymmetric Encryption Padding） <ul>
-<li>最优非对称加密填充（明文前填充认证信息）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>EIGamal方式</p>
-<ul>
-<li>RSA利用了质因数分解的困难度</li>
-<li>EIGamal方式利用了mod N 下求离散对数的困难度</li>
-<li>密文长度为明文两倍</li>
-</ul>
-</li>
-<li><p>Rabin方式</p>
-<ul>
-<li>利用了mod N下求平方根的困难度</li>
-<li>已经证明与质因数分解相当</li>
-</ul>
-</li>
-<li><p>椭圆曲线密码</p>
-<ul>
-<li>密钥长度比RSA短</li>
-<li>利用椭圆曲线上特定点进行特殊乘法运算的逆运算困难这一特点</li>
-</ul>
-</li>
+<h3 id="三大密码会"><a href="#三大密码会" class="headerlink" title="三大密码会"></a>三大密码会</h3><ul>
+<li>CRYPTO International Cryptology Conference（CCF-A）<ul>
+<li>美密会 每年2月截稿，同年8月开会，在美国开会</li>
 </ul>
-<h4 id="C6-混合密码系统——对称密码提高速度，公钥密码保护会话密钥-⭐️"><a href="#C6-混合密码系统——对称密码提高速度，公钥密码保护会话密钥-⭐️" class="headerlink" title="C6 混合密码系统——对称密码提高速度，公钥密码保护会话密钥 ⭐️"></a>C6 混合密码系统——对称密码提高速度，公钥密码保护会话密钥 ⭐️</h4><ul>
-<li><p>混合密码系统（hybrid cryptosystem）</p>
-<ul>
-<li>加密<ul>
-<li>对称密码加密明文，公钥加密对称密码，组合为密文<br>  <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/../picture_cryptography/6.jpg"
-                      alt="混合密码系统加密"
-                ></li>
-</ul>
-</li>
-<li>解密<ul>
-<li>密文分解，私钥解密对称密码，对称密码解密明文<br>  <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/../picture_cryptography/7.jpg"
-                      alt="混合密码系统解密"
-                ></li>
-</ul>
-</li>
-<li>例子<ul>
-<li>密码软件PGP<ul>
-<li>还包含数字签名、数字签名认证以及私钥管理等处理 C13</li>
-</ul>
-</li>
-<li>网络通信SSL &#x2F; TLS</li>
-</ul>
-</li>
-<li>强度判定<ul>
-<li>伪随机数生成器（攻击方法在C12）</li>
-<li>对称密码（合适的分组密码模式）</li>
-<li>公钥密码（高强度公钥密码算法）</li>
-<li>密钥长度的平衡（同等强度）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>密码技术的组合</p>
-<ul>
-<li>数字签名：单向散列函数、公钥密码</li>
-<li>证书：公钥、数字签名</li>
-<li>消息认证码：单向散列函数、密钥；也可以通过对称密码生成</li>
-<li>伪随机数生成器：对称密码、单向散列函数或公钥密码</li>
-<li>电子投票、虚拟货币……</li>
-</ul>
-</li>
-</ul>
-<h3 id="认证"><a href="#认证" class="headerlink" title="认证"></a>认证</h3><h4 id="C7-单向散列函数——获取消息的“指纹”"><a href="#C7-单向散列函数——获取消息的“指纹”" class="headerlink" title="C7 单向散列函数——获取消息的“指纹”"></a>C7 单向散列函数——获取消息的“指纹”</h4><ul>
-<li><p>通过消息内容计算出散列值</p>
-<ul>
-<li>散列值的长度与消息长度无关 </li>
-<li>要求<ul>
-<li>根据任意长度消息算出固定长度散列值</li>
-<li>快速计算</li>
-<li>消息不同散列值不同（抗碰撞）</li>
-<li>单向性</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>单向散列函数</p>
-<ul>
-<li>消息摘要函数</li>
-<li>哈希函数</li>
-<li>杂凑函数</li>
-</ul>
-</li>
-<li><p>消息</p>
-<ul>
-<li>原像</li>
-</ul>
-</li>
-<li><p>散列（hash）值</p>
-<ul>
-<li>消息摘要</li>
-<li>指纹</li>
-</ul>
-</li>
-<li><p>完整性</p>
-<ul>
-<li>一致性</li>
-</ul>
-</li>
-<li><p>单向散列函数的实际应用</p>
-<ul>
-<li>确认下载的软件是否被篡改<ul>
-<li>公布散列值</li>
-</ul>
-</li>
-<li>基于口令的加密（Password Based Encryption，PBE）<ul>
-<li>将口令和盐混合计算得到散列值，作为加密的密钥</li>
-</ul>
-</li>
-<li>消息认证码<ul>
-<li>共享密钥和消息混合计算得出的散列值，防止错误、篡改和伪装</li>
-</ul>
-</li>
-<li>数字签名<ul>
-<li>单向散列后对散列值施加数字签名</li>
-</ul>
-</li>
-<li>伪随机数生成器<ul>
-<li>保证随机数的不可预测性，利用单向散列函数</li>
-</ul>
-</li>
-<li>一次性口令<ul>
-<li>服务器对和客户端的合法性认证，保证口令在通信链路上只传送一次</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>单向散列函数的具体例子</p>
-<ul>
-<li>MD4、MD5<ul>
-<li>MD4：128bit散列值，有找散列碰撞的方法，不安全了</li>
-<li>MD5：128比特散列值，强抗碰撞性被攻破</li>
-</ul>
-</li>
-<li>SHA-1、SHA-256、SHA-384、SHA-512   <ul>
-<li>SHA-1：产生160bit的散列值的单向散列函数</li>
-<li>为保持兼容性，可谨慎运用 </li>
-<li>SHA-2（六种版本）<br>  <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/../picture_cryptography/8.jpg"
-                      alt="SHA-2（六种版本）"
-                ></li>
-</ul>
-</li>
-<li>RIPEMD-160<ul>
-<li>为保持兼容性，可谨慎运用</li>
-</ul>
 </li>
-<li>SHA-3<ul>
-<li>公开竞争实现标准化，SHA-3中选择了Keccak算法 </li>
-<li>采用与SHA-2完全不同结构</li>
-<li>结构清晰、容易分析</li>
-<li>设备适用多样，可用于嵌入式</li>
-<li>不同硬件上的实现性能都很强</li>
-<li>安全性边际更大</li>
+<li>EUROCRYPT Annual International Conference on the Theory and Applications of Cryptographic Techniques（CCF-A）<ul>
+<li>欧密会 每年10月截稿，翌年5月开会，在欧洲开会</li>
 </ul>
 </li>
+<li>ASIACRYPT Annual Int Conf on Theory and Application of Cryptology and Information Security（CCF-B） <ul>
+<li>亚密会 每年5月截稿，同年12月开会，在亚洲开会</li>
+<li>录用率比美密、欧密低</li>
 </ul>
 </li>
-<li><p>Keccak	</p>
-<ul>
-<li>内容<ul>
-<li>可以生成任意长度散列值</li>
-<li>为了配合SHA-2规定了 224&#x2F;256&#x2F;384&#x2F;512四个版本</li>
-<li>输入上限<ul>
-<li>SHA-1：2^64 - 1 bit</li>
-<li>SHA-2：2^128 - 1 bit</li>
-<li>SHA-3：没有长度限制</li>
 </ul>
-</li>
-<li>GitHub上有KeccakTools软件</li>
-</ul>
-</li>
-<li>海绵结构<ul>
-<li>r：比特率，内部状态</li>
-<li>c：容量，不受输入分组的内容直接影响，防止将输入消息中的特征泄漏<br>  <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/../picture_cryptography/9.jpg"
-                      alt="Keccak海绵结构"
-                ></li>
-</ul>
-</li>
-<li>双工结构<ul>
-<li>输入输出相同速率进行<br>  <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/../picture_cryptography/10.jpg"
-                      alt="Keccak双工结构"
-                ></li>
-</ul>
-</li>
-<li>内部状态<ul>
-<li>三维比特数组<br>  <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/../picture_cryptography/11.jpg"
-                      alt="Keccak内部状态"
-                ></li>
-</ul>
-<p>	 </p>
-</li>
-<li>函数Keccak-f[b]<ul>
-<li>参数b被称为宽度，25的1、2、4、8…倍</li>
-<li>b&#x2F;25是slice的片数</li>
-<li>slice大小永远5x5</li>
-<li>每一轮包含五个步骤<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/../picture_cryptography/12.jpg"
-                      alt="Keccak-f函数"
-                >	<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/../picture_cryptography/13.jpg"
-                      alt="Keccak-f函数"
-                >	<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/../picture_cryptography/14.jpg"
-                      alt="Keccak-f函数"
-                >	<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/../picture_cryptography/15.jpg"
-                      alt="Keccak-f函数"
-                ></li>
-</ul>
-<p>	 </p>
-</li>
-<li>对Keccak的攻击</li>
-</ul>
-</li>
-<li><p>单向散列函数的使用 </p>
-</li>
-<li><p>对单向散列函数的攻击</p>
-</li>
-<li><p>单向散列函数无法解决的问题</p>
-</li>
+<h3 id="中国计算机学会推荐国际学术期刊-x2F-学术会议方向大全-https-www-ccf-org-cn-Academic-Evaluation-By-category"><a href="#中国计算机学会推荐国际学术期刊-x2F-学术会议方向大全-https-www-ccf-org-cn-Academic-Evaluation-By-category" class="headerlink" title="中国计算机学会推荐国际学术期刊&#x2F;学术会议方向大全(https://www.ccf.org.cn/Academic_Evaluation/By_category/)"></a>中国计算机学会推荐国际学术期刊&#x2F;学术会议方向大全(<a class="link"   target="_blank" rel="noopener" href="https://www.ccf.org.cn/Academic_Evaluation/By_category/" >https://www.ccf.org.cn/Academic_Evaluation/By_category/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>)</h3><ul>
+<li>计算机体系结构&#x2F;并行与分布计算&#x2F;存储系统</li>
+<li>计算机网络</li>
+<li><strong>网络与信息安全</strong></li>
+<li>软件工程&#x2F;系统软件&#x2F;程序设计语言</li>
+<li>数据库&#x2F;数据挖掘&#x2F;内容检索</li>
+<li>计算机科学理论</li>
+<li>计算机图形学与多媒体</li>
+<li>人工智能</li>
+<li>人机交互与普适计算</li>
+<li>交叉&#x2F;综合&#x2F;新兴</li>
 </ul>
 
             </div>
@@ -1019,13 +321,13 @@
                         <div class="article-prev">
                             <a class="prev"
                             rel="prev"
-                            href="/2023/09/11/FuturePlan/"
+                            href="/2023/09/12/Courses/"
                             >
                                 <span class="left arrow-icon flex-center">
                                     <i class="fa-solid fa-chevron-left"></i>
                                 </span>
                                 <span class="title flex-center">
-                                    <span class="post-nav-title-item">FuturePlan</span>
+                                    <span class="post-nav-title-item">Courses</span>
                                     <span class="post-nav-item">Prev posts</span>
                                 </span>
                             </a>
@@ -1060,7 +362,7 @@
     <div class="post-toc">
         <div class="toc-title">Advertising space for rent ：)</div>
         <div class="page-title">Cryptography</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="nav-text">密码学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%940"><span class="nav-text">研0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%86%E7%A0%81"><span class="nav-text">密码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#C1-%E7%BB%AA%E8%AE%BA"><span class="nav-text">C1 绪论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C2-%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%9A%84%E5%AF%86%E7%A0%81"><span class="nav-text">C2 历史上的密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C3-%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81"><span class="nav-text">C3 对称密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C4-%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81%E7%9A%84%E6%A8%A1%E5%BC%8F%E2%80%94%E2%80%94%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81%E7%9A%84%E8%BF%AD%E4%BB%A3%EF%BC%88%E4%BC%8F%E7%AC%94%EF%BC%89"><span class="nav-text">C4 分组密码的模式——分组密码的迭代（伏笔）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C5-%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81"><span class="nav-text">C5 公钥密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C6-%E6%B7%B7%E5%90%88%E5%AF%86%E7%A0%81%E7%B3%BB%E7%BB%9F%E2%80%94%E2%80%94%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81%E6%8F%90%E9%AB%98%E9%80%9F%E5%BA%A6%EF%BC%8C%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E4%BF%9D%E6%8A%A4%E4%BC%9A%E8%AF%9D%E5%AF%86%E9%92%A5-%E2%AD%90%EF%B8%8F"><span class="nav-text">C6 混合密码系统——对称密码提高速度，公钥密码保护会话密钥 ⭐️</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A4%E8%AF%81"><span class="nav-text">认证</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#C7-%E5%8D%95%E5%90%91%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E7%9A%84%E2%80%9C%E6%8C%87%E7%BA%B9%E2%80%9D"><span class="nav-text">C7 单向散列函数——获取消息的“指纹”</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="nav-text">密码学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E4%BB%B6"><span class="nav-text">课件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%9A%E8%AE%AE"><span class="nav-text">会议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E5%A4%A7%E5%AE%89%E5%85%A8%E4%BC%9A%E8%AE%AE"><span class="nav-text">四大安全会议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E5%A4%A7%E5%AF%86%E7%A0%81%E4%BC%9A"><span class="nav-text">三大密码会</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A%E6%8E%A8%E8%8D%90%E5%9B%BD%E9%99%85%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A-x2F-%E5%AD%A6%E6%9C%AF%E4%BC%9A%E8%AE%AE%E6%96%B9%E5%90%91%E5%A4%A7%E5%85%A8-https-www-ccf-org-cn-Academic-Evaluation-By-category"><span class="nav-text">中国计算机学会推荐国际学术期刊&#x2F;学术会议方向大全(https:&#x2F;&#x2F;www.ccf.org.cn&#x2F;Academic_Evaluation&#x2F;By_category&#x2F; )</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
