@@ -418,7 +418,7 @@
 </li>
 <li><p>Stream Ciphers</p>
 <ul>
-<li>对数据流进行连续处理的一类密码算法 </li>
+<li><strong>对数据流进行连续处理的一类密码算法</strong> </li>
 <li>make one-time pad more practical  </li>
 <li>replace random key by pseudorandom key</li>
 <li>长为s的随机种子做为固定的函数G的输入 G：伪随机发生器(PRG)</li>
@@ -521,7 +521,59 @@
 </ul>
 </li>
 </ul>
-<h3 id="WEEK-2"><a href="#WEEK-2" class="headerlink" title="WEEK 2"></a>WEEK 2</h3><h3 id="WEEK-3"><a href="#WEEK-3" class="headerlink" title="WEEK 3"></a>WEEK 3</h3><h3 id="WEEK-4"><a href="#WEEK-4" class="headerlink" title="WEEK 4"></a>WEEK 4</h3><h3 id="WEEK-5"><a href="#WEEK-5" class="headerlink" title="WEEK 5"></a>WEEK 5</h3><h3 id="WEEK-6"><a href="#WEEK-6" class="headerlink" title="WEEK 6"></a>WEEK 6</h3><h3 id="WEEK-7"><a href="#WEEK-7" class="headerlink" title="WEEK 7"></a>WEEK 7</h3>
+<h3 id="WEEK-2"><a href="#WEEK-2" class="headerlink" title="WEEK 2"></a>WEEK 2</h3><ul>
+<li>Block Ciphers（分组密码）<ul>
+<li>信息被分组加密 </li>
+<li><strong>maps N bits inputs to exactly N bits of outputs</strong><ul>
+<li>3DES：n&#x3D;64bits k&#x3D;168bits 48rounds</li>
+<li>AES： n&#x3D;128bits k&#x3D;128(10rounds)、192、256 bits</li>
+</ul>
+</li>
+<li>built by Iteration （迭代）<ul>
+<li>round function</li>
+</ul>
+</li>
+<li>performance numbers（性能参数）<ul>
+<li>Speed<ul>
+<li>slower than stream ciphers</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>PRPs and PRFs<ul>
+<li>PRFs：Pseudo Random Function（伪随机函数）<ul>
+<li>K x X -&gt; Y </li>
+<li>PRPs：Pseudo Random Permutation（伪随机置换） <ul>
+<li>作为PRFs的特例   </li>
+<li>K x X -&gt; X</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Funs[X,Y]：所有从集合X映射到集合Y的函数的集合<ul>
+<li>大小为|Y|^|X|<ul>
+<li>举例2个元素映射3个元素，每个元素都有三种地方可以映射   </li>
+<li>单射：不同射不同</li>
+<li>满射：对象被射满</li>
+<li>双射：一一映射（单+满）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如果攻击者无法区分是在和<strong>真随机函数</strong>互动还是和<strong>伪随机函数</strong>互动，PRF是安全的</li>
+</ul>
+</li>
+<li>伪随机置换，不是选择一个随机函数，而是选择一个随机置换<ul>
+<li>随机的双射函数</li>
+<li>同样的输入 输出也必须不同</li>
+<li>伪随机函数可以创造伪随机数生成器PRG  </li>
+<li>扩张的生成器可以满足并行计算</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="WEEK-3"><a href="#WEEK-3" class="headerlink" title="WEEK 3"></a>WEEK 3</h3><h3 id="WEEK-4"><a href="#WEEK-4" class="headerlink" title="WEEK 4"></a>WEEK 4</h3><h3 id="WEEK-5"><a href="#WEEK-5" class="headerlink" title="WEEK 5"></a>WEEK 5</h3><h3 id="WEEK-6"><a href="#WEEK-6" class="headerlink" title="WEEK 6"></a>WEEK 6</h3><h3 id="WEEK-7"><a href="#WEEK-7" class="headerlink" title="WEEK 7"></a>WEEK 7</h3>
             </div>
 
             

@@ -223,7 +223,224 @@
             
 
             <div class="article-content markdown-body">
-                <h2 id="Paper-Reading"><a href="#Paper-Reading" class="headerlink" title="Paper Reading"></a>Paper Reading</h2><h3 id="IEEE-Symposium-on-Security-and-Privacy"><a href="#IEEE-Symposium-on-Security-and-Privacy" class="headerlink" title="IEEE Symposium on Security and Privacy"></a>IEEE Symposium on Security and Privacy</h3><h4 id="MPCAuth-Multi-factor-Authentication-for-Distributed-trust-Systems"><a href="#MPCAuth-Multi-factor-Authentication-for-Distributed-trust-Systems" class="headerlink" title="MPCAuth: Multi-factor Authentication for Distributed-trust Systems"></a>MPCAuth: Multi-factor Authentication for Distributed-trust Systems</h4><p>- </p>
+                <h2 id="Paper-Reading"><a href="#Paper-Reading" class="headerlink" title="Paper Reading"></a>Paper Reading</h2><ul>
+<li><p>Key words</p>
+<ul>
+<li>Decentralizing trust 去中心化信任 分散信任</li>
+<li>secure multi-party computation (SMPC) 安全多方计算</li>
+<li>distributed trust 分布式可信</li>
+<li>cryptocurrency custody 加密货币托管</li>
+<li>xx hosted 托管</li>
+<li>cryptocurrency custody 加密工具</li>
+<li>impersonate 冒充</li>
+<li>signing keys 签名密钥（代表数字资产的所有权）</li>
+<li>MPC primitives MPC原语</li>
+<li>strawman 稻草人</li>
+<li>xxx compromised 妥协了 指被损害</li>
+<li>trust domains 信任域</li>
+<li>security properties 安全属性</li>
+<li>credential 身份验证讯息（凭证）</li>
+<li>SMPC<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://blog.51cto.com/u_16123658/6324049" >https://blog.51cto.com/u_16123658/6324049 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://blog.51cto.com/u_12312066/3693804?articleABtest=0" >https://blog.51cto.com/u_12312066/3693804?articleABtest=0 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+</ul>
+</li>
+<li>collude 串通</li>
+<li>invoke 调用</li>
+</ul>
+</li>
+<li><p>speacil protocol or abbreviation</p>
+<ul>
+<li>U2F(Universal 2 Factor) 用户在浏览器上登陆在线服务，输入用户名和密码后，轻按 U2F 安全密钥上的按钮即可完成二次验证。使用专门的 USB 或 NFC 设备来加强并简化双重身份验证。(<a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/47577107" >https://zhuanlan.zhihu.com/p/47577107 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>)</li>
+</ul>
+</li>
+</ul>
+<h3 id="IEEE-Symposium-on-Security-and-Privacy"><a href="#IEEE-Symposium-on-Security-and-Privacy" class="headerlink" title="IEEE Symposium on Security and Privacy"></a>IEEE Symposium on Security and Privacy</h3><h4 id="MPCAuth-Multi-factor-Authentication-for-Distributed-trust-Systems"><a href="#MPCAuth-Multi-factor-Authentication-for-Distributed-trust-Systems" class="headerlink" title="MPCAuth: Multi-factor Authentication for Distributed-trust Systems"></a>MPCAuth: Multi-factor Authentication for Distributed-trust Systems</h4><ul>
+<li><p>目前分布式可信系统会把关键信息分布式存储</p>
+<ul>
+<li>从而会多次认证消耗资源（易用问题）</li>
+<li>敏感暴露给多个服务器，有更多的攻击手段（隐私问题、安全问题）</li>
+</ul>
+</li>
+<li><p><strong>一个多因素认证系统</strong>：为了分布式可信应用创立，可以解决以上问题</p>
+</li>
+<li><p><strong>这个系统能让客户端一次向N个服务器独立认证，提供文件（信息）隐藏功能</strong></p>
+</li>
+<li><p>可实际应用于加密货币保管和协作机器学习领域、 并有利于未来采用可分布式的应用</p>
+</li>
+<li><p>信息分散存储，托管给多个服务器，被攻击时利用加密工具（如SMPC）联合执行私有计算避免成为攻击的中心</p>
+</li>
+<li><p>困境</p>
+<ul>
+<li>如果客户端向一个被多服务器信任的主服务器进行验证，那么攻击者可以冒充客户端恢复信息</li>
+<li>如果需要向多个服务器进行独立认证，需要做很多次工作</li>
+<li>易用性和分布式安全很难同时保障</li>
+</ul>
+</li>
+<li><p>应用</p>
+<ul>
+<li>加密货币托管（签名密钥代表数字资产的所有权，作为秘密被共享存储在多个服务器上，交易的时候利用<strong>共享签名密钥</strong>产生<strong>数字签名</strong>）</li>
+<li>敏感组织信息的协作训练&#x2F;分析（两个公司希望在对方数据集上进行协作，有些事敏感信息，利用SMPC联合训练or分析）</li>
+</ul>
+</li>
+<li><p>对于易用问题与隐私问题的讨论</p>
+<ul>
+<li>易用问题（在安全的前提下） <ul>
+<li>不能是一个主服务器和很多副服务器，破坏了分布式信任的初衷（主服务器被破坏，攻击者可以作为客户端与副服务器进行认证，利用客户端身份发布未经授权的交易） </li>
+<li>为了保持安全，客户端可以向多个服务器进行独立认证，但此时客户端必须执行多次工作，导致体验很差</li>
+<li>构建客户端应用程序自动进行验证部分身份信息，不适用于其他信息，但这个方法不足以解决以上问题</li>
+</ul>
+</li>
+<li>隐私问题（安全问题）<ul>
+<li>客户端的factors（上面翻译成信息，其实是要素）会泄露用户的信息</li>
+<li>集中式服务器只有一个服务器学习客户端配置信息，分布式系统中会有多个</li>
+<li>本质上，会有更多攻击手段（伏笔Section VI）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>MPCAuth</p>
+<ul>
+<li>只用做一次认证的工作、隐藏认证信息</li>
+<li>支持使用客户端习惯的认证要素（伏笔Section IV）</li>
+<li>利用底层（相同的安全属性 相对于那些认证信息）身份认证协议，保障即使N-1个服务器全部被攻击的情况下的安全性</li>
+</ul>
+</li>
+<li><p>insights and techniques</p>
+<ul>
+<li>One logical server, N physical servers<ul>
+<li>传统认证工作流，服务端发送质询，客户端响应</li>
+<li>这些物理服务器充当一个逻辑服务器发送联合质询</li>
+<li>因为这些服务器彼此不信任，因此需要独立认证客户端的响应</li>
+<li>问题：这些服务器产生一个集体私密质询，在发送的SMS或EMAIL内但是任何服务器都没法知道其中的秘密</li>
+<li>给定分布式信任的前提下，哪个服务器承担发送职责？</li>
+<li>如何在安全的分布式环境下运行SMTP协议orSMS协议<ul>
+<li>使得运营商能够接受</li>
+</ul>
+</li>
+<li>MPCAuth系统中的N个服务器运行在SMPC的一个逻辑服务器中<ul>
+<li>产生联合质询</li>
+<li>无论是短信还是EMAIL都运行各自协议</li>
+<li>运行TLS协议来加密电子邮件或短信的通信信道<ul>
+<li>都在SMPC的操作中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>MPCAuth系统的SMPC能做到安全，即使在N-1台服务器被入侵</strong></li>
+<li>SMPC出来的是TLS加密并认证的流量</li>
+<li>因为内容被TLS保护，所以任意服务器都可以转发给运营商</li>
+</ul>
+</li>
+<li>SMPC内部的加密TLS隧道<ul>
+<li>TLS：包含很多密码学工具的复杂协议</li>
+<li>用现成的TLS库会贵8倍</li>
+<li><strong>本系统中的TLS很高效，也有很多基于TLS本身的特点并与wolfSSL库集成 整合</strong></li>
+<li>伏笔 Section V-E</li>
+</ul>
+</li>
+<li>在SMPC中隐藏客户端文件<ul>
+<li>传统集成系统中很难保护隐私，需要邮箱和手机号发送email和message</li>
+<li>利用预先存在的分布式信任的基础设施（原始协议or系统）实现文件隐藏</li>
+<li><strong>MPCAuth对数据分割在N个服务器上</strong></li>
+<li><strong>当N个服务器执行SMPC发送email或sms时，在SMPC内部组装，然后用TLS加密</strong></li>
+<li>发送网络数据包的服务器需要知道电子邮件的供应商</li>
+<li>没有一个服务器看得到明文文件（伏笔 定义II.3）</li>
+<li>后续讨论每个要素如何达到目标属性</li>
+</ul>
+</li>
+<li>常见身份认证信要素的安全、实用构造<ul>
+<li>除了email 和 SMS 还支持 U2F 安全问题和服务器端生物识别？</li>
+<li>这些信息在分布式环境下都遭遇了实用性和隐私性的问题</li>
+<li>在威胁模型之下 客户端安全属性不会被削弱</li>
+<li>可能会有恶意服务器收到客户端相应并伪装客户端和其他的服务器进行通信</li>
+<li>伏笔Seciton II的CD</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Contributions</p>
+<ul>
+<li>提出了一种新的分布式信任应用的多因素认证系统<ul>
+<li>认证一次就可以独立向N个服务器进行认证</li>
+</ul>
+</li>
+<li>为了广泛的认证因素设计了安全、实用且保护隐私的建设<ul>
+<li>TLS-in-SMPC作为子模块支持部分因素</li>
+</ul>
+</li>
+<li>提供了有效的实现和实验评估我们所有的认证协议，并证明其实用性<ul>
+<li>比没有系统优化的协议快8倍</li>
+<li>N&#x3D;5 只需要1.81s就可以完成TLS握手并传送email的负载<ul>
+<li>很好的避免TLS超时 并 成功和未修改的TLS电子邮件服务器通信  </li>
+<li>（因为系统中的TLS协议被修改过）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>系统概述 Overview</p>
+<ul>
+<li>系统设置和信任模型<ul>
+<li>MPCAuth的部署由一组N台服务器和许多客户端组成。这些服务器共同托管需要分布式信任应用程序（例如，加密货币托管，协作学习）</li>
+<li>客户端需要向这些服务器进行身份验证才能使用服务。这N个服务器托管在不同的信任域下。</li>
+<li>系统在多因素认证（MFA）模型下运行</li>
+<li>注册至少需要两个不同的因素，允许客户端灵活选择其他无密码身份验证因素作为其第一因素</li>
+<li>客户端必须提供唯一标识符（例如，用户名）到MPCAuth</li>
+<li>MPCAuth中的每个因素的协议独立于其他因素运行，使得各个协议能够在MFA之外的身份验证模型中单独使用</li>
+<li>容忍尝试模拟客户端的不可信身份验证提供程序，只要它们不全都串通</li>
+<li>利用额外的因素进行账户追回</li>
+<li>每个客户端可以下载无状态客户端应用或者用Web账户来加入协议<ul>
+<li>仅作为客户端和服务器之间的接口，不需要其他的应用权限</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>支持要素<ul>
+<li>Email&#x2F;SMS、U2F、安全问题&#x2F;密码、生物特征</li>
+</ul>
+<p>	  </p>
+</li>
+<li>工作流<ul>
+<li>Enrollment<ul>
+<li>用Client app来和N个服务器沟通</li>
+<li>如果是新的客户端就要提供特别的身份认证（例如，用户名），新建账户</li>
+<li>每个要素都会运行MPCAuth的认证协议</li>
+<li>客户端通过了所有的要素检查就会在账户下保存相关的信息为未来认证</li>
+</ul>
+</li>
+<li>Authentication    <ul>
+<li>客户端提供特别身份认证，选择至少两个认证要素</li>
+<li>每个要素（因子），服务端都会调用对应的认证协议</li>
+<li>通过协议检查，就可以对N个服务器通过认证</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>MPCAuth的实际用途<ul>
+<li>提供数字资产托管服务的公司通过在N个服务器之间秘密共享其签名密钥来保护客户端的资产。<ul>
+<li>当客户端授权交易时，服务器使用SMPC来联合产生具有签名密钥的数字签名</li>
+<li>一些服务提供商保管所有资产，会维护这些服务器避免攻击中心</li>
+<li>其他一些让外部机构维护服务器的子集，更多信任域</li>
+</ul>
+</li>
+<li>协作学习服务的公司各自维护自己的安装了SMPC软件的服务器<ul>
+<li>服务提供商可以提供充当可信第三方或直接参与SMPC协议的服务器</li>
+<li>客户将是这些机构的员工，负责上传数据和授权合作培训&#x2F;分析</li>
+<li>客户端需要对所有信任域进行身份验证，以防止中心攻击点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>威胁模型</li>
+</ul>
+</li>
+</ul>
+<h4 id="Silph-A-Framework-for-Scalable-and-Accurate-Generation-of-Hybrid-MPC-Protocols"><a href="#Silph-A-Framework-for-Scalable-and-Accurate-Generation-of-Hybrid-MPC-Protocols" class="headerlink" title="Silph: A Framework for Scalable and Accurate Generation of Hybrid MPC Protocols"></a>Silph: A Framework for Scalable and Accurate Generation of Hybrid MPC Protocols</h4><ul>
+<li>相互不信任的各方可以在不公开共享数据的情况下进行协作的一种方法是使用安全多方计算（MPC）</li>
+<li><strong>提出了Silph框架</strong>：自动把高级语言写的程序进行优化；框架使用<strong>一种混合MPC协议</strong>：安全高效的混合了MPC的原语；编译速度提高30000倍，在数据库分析和机器学习负载上，达到或超过之前的工作3.6倍</li>
+</ul>
 
             </div>
 
@@ -282,7 +499,7 @@
     <div class="post-toc">
         <div class="toc-title">Advertising space for rent ：)</div>
         <div class="page-title">PaperReading</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Paper-Reading"><span class="nav-text">Paper Reading</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IEEE-Symposium-on-Security-and-Privacy"><span class="nav-text">IEEE Symposium on Security and Privacy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MPCAuth-Multi-factor-Authentication-for-Distributed-trust-Systems"><span class="nav-text">MPCAuth: Multi-factor Authentication for Distributed-trust Systems</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Paper-Reading"><span class="nav-text">Paper Reading</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IEEE-Symposium-on-Security-and-Privacy"><span class="nav-text">IEEE Symposium on Security and Privacy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MPCAuth-Multi-factor-Authentication-for-Distributed-trust-Systems"><span class="nav-text">MPCAuth: Multi-factor Authentication for Distributed-trust Systems</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Silph-A-Framework-for-Scalable-and-Accurate-Generation-of-Hybrid-MPC-Protocols"><span class="nav-text">Silph: A Framework for Scalable and Accurate Generation of Hybrid MPC Protocols</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
