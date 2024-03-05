@@ -247,6 +247,8 @@
 </li>
 <li>collude 串通</li>
 <li>invoke 调用</li>
+<li>impersonate 模仿</li>
+<li>compromise 使妥协，引申义为危害</li>
 </ul>
 </li>
 <li><p>speacil protocol or abbreviation</p>
@@ -359,7 +361,7 @@
 </li>
 </ul>
 </li>
-<li><p>Contributions</p>
+<li><p>贡献 Contributions</p>
 <ul>
 <li>提出了一种新的分布式信任应用的多因素认证系统<ul>
 <li>认证一次就可以独立向N个服务器进行认证</li>
@@ -419,13 +421,13 @@
 </ul>
 </li>
 <li>MPCAuth的实际用途<ul>
-<li>提供数字资产托管服务的公司通过在N个服务器之间秘密共享其签名密钥来保护客户端的资产。<ul>
+<li>提供数字资产托管服务的公司通过在N个服务器之间秘密共享其签名密钥来保护客户端的资产（数字资产）<ul>
 <li>当客户端授权交易时，服务器使用SMPC来联合产生具有签名密钥的数字签名</li>
 <li>一些服务提供商保管所有资产，会维护这些服务器避免攻击中心</li>
 <li>其他一些让外部机构维护服务器的子集，更多信任域</li>
 </ul>
 </li>
-<li>协作学习服务的公司各自维护自己的安装了SMPC软件的服务器<ul>
+<li>协作学习服务的公司各自维护自己的安装了SMPC软件的服务器（机器学习）<ul>
 <li>服务提供商可以提供充当可信第三方或直接参与SMPC协议的服务器</li>
 <li>客户将是这些机构的员工，负责上传数据和授权合作培训&#x2F;分析</li>
 <li>客户端需要对所有信任域进行身份验证，以防止中心攻击点</li>
@@ -433,7 +435,96 @@
 </li>
 </ul>
 </li>
-<li>威胁模型</li>
+<li>威胁模型<ul>
+<li>N个部署了分布式信任应用程序的服务器，很多可信的用户使用，一个恶意攻击者</li>
+<li>恶意攻击者尝试模拟这些可信的客户端，最多可以危害N-1台服务器</li>
+<li>攻击者可以观察并修改所有的（已被危害的服务器的）输入、状态、网络流量</li>
+<li>攻击者无法控制那个剩余的可信客户端，但可以观测他和已被攻陷的服务器的流量</li>
+<li>在email or SMS 认证中有认证器附加托管的TLS服务，不被攻击者控制</li>
+<li>假设可信客户端使用不被危害的客户端程序</li>
+<li>客户端程序没有任何秘密信息，但必须从可信的来源获得？？？</li>
+<li>TLS保证攻击者无法观察到可信客户端之间的流量</li>
+</ul>
+</li>
+<li>安全目标</li>
+</ul>
+</li>
+<li><p>定义1：一个认证协议安全性质</p>
+<ul>
+<li>正确性<ul>
+<li>压倒性的可能性：接受拥有要素凭证可信客户端</li>
+</ul>
+</li>
+<li>稳定性<ul>
+<li>压倒性的不可能性：接受没有安全凭证，但攻克了N-1个服务器的恶意攻击者</li>
+<li>认证协议需要抵抗<strong>重放攻击</strong><ul>
+<li>如果客户端以相同的响应向服务器进行身份验证，就会发生重放攻击</li>
+</ul>
+</li>
+<li>在此威胁模型下，如果（收到客户端响应的）恶意服务器比客户端更快的到达可信服务器， 那么可信的服务器会认为恶意服务器通过认证，而不是那个客户端</li>
+<li>恶意服务器此时获得客户的关键秘密<ul>
+<li>为了防止，客户端要向每个服务器发送不同的认证</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>C节会给出协议的定义、安全性证明、拓展服务等</li>
+<li>MPCAuth的安全性依靠 TLS-in- SMPC协议，定义了一个功能，可以对与可信的TLS服务器沟通的TLS客户端软件进行建模，基于这个功能，可以通过标准型的恶意安全定义来定义TLS-in- SMPC协议的安全性</li>
+</ul>
+</li>
+<li><p>定义2：TLS-in- SMPC协议的安全性</p>
+<ul>
+<li>PPT：非均匀概率多项式时间           </li>
+<li>有一个攻陷了N-1个服务器的恶意敌人</li>
+<li>现实世界中有一个PPT敌人A，理想世界中就有个PPT敌人S</li>
+</ul>
+</li>
+<li><p>隐藏认证信息</p>
+<ul>
+<li>不同类型认证因素有不同的隐私目标</li>
+<li>对于知识or固有因素</li>
+<li>对于涉及所有权的认证因素，如果服务器不能将客户端的应用帐户与拥有其的设备或对象相关联，则这些因素被认为是隐藏。</li>
+<li>定义了信息隐藏属性，为了达到以下每一个认证要素</li>
+</ul>
+</li>
+<li><p>定义3：信息隐藏</p>
+<ul>
+<li>Email：攻击者不知道用户名（@之前的），但可能知道域名（@之后的）</li>
+<li>SMS：攻击者不知道手机号，但可能知道运营商</li>
+<li>U2F：攻击者不能把U2F的公钥和客户端关联</li>
+<li>Security questions &amp; passwords：攻击者不知道安全问题的内容和答案（密码亦然）</li>
+<li>Biometric：攻击者不能知道客户端的生物信息</li>
+</ul>
+</li>
+<li><p>需要客户端对每个服务器提供一个特殊的身份认证，每个客户端都会明文存储，为了保证隐私，特殊身份认证（unique identifier）要和以上信息不同</p>
+<ul>
+<li>传统上，就是登录的username，但如果username也忘了不是G了？</li>
+<li>客户端无法求助于身份验证因素，因为这些都是被username索引的</li>
+<li>伏笔：Section VI的恢复机制</li>
+</ul>
+</li>
+<li><p>虽然MPCAuth的信息隐藏协议增加了隐私性，也有很多限制需要考虑</p>
+<ul>
+<li>Email &amp; SMS：不会隐藏全部，运营商和域名不会被隐藏，伏笔Section IV</li>
+<li>没有隐藏认证给服务器的客户端IP </li>
+<li>不隐藏客户端的访问模式，可以用来推断客户端行为的敏感信息<ul>
+<li>future work 但有方法实现</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>模块：TLS IN SMPC</p>
+<ul>
+<li>能够让N个服务器联合和未修改的TLS服务端建立一个安全的TLS链接 <ul>
+<li>后续用语构建Email 和 SMS认证协议</li>
+<li>在最新的TLS 1.3协议上进行构建</li>
+</ul>
+</li>
+<li>总览（Figure 2）<ul>
+<li>因为N个服务器彼此并不相信，所以都妹妹发解密通过TLS发送的业务</li>
+<li>N个服务器在SMPC中联合产生TLS客户端终端，由此可以和TLS服务器沟通</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -441,6 +532,7 @@
 <li>相互不信任的各方可以在不公开共享数据的情况下进行协作的一种方法是使用安全多方计算（MPC）</li>
 <li><strong>提出了Silph框架</strong>：自动把高级语言写的程序进行优化；框架使用<strong>一种混合MPC协议</strong>：安全高效的混合了MPC的原语；编译速度提高30000倍，在数据库分析和机器学习负载上，达到或超过之前的工作3.6倍</li>
 </ul>
+<h4 id="MECHANISM-DESIGN-WITH-PREDICTIONS"><a href="#MECHANISM-DESIGN-WITH-PREDICTIONS" class="headerlink" title="MECHANISM DESIGN WITH PREDICTIONS"></a>MECHANISM DESIGN WITH PREDICTIONS</h4><p>有n个jobs<br>$$<br>X_ij<br>$$</p>
 
             </div>
 
@@ -469,6 +561,21 @@
 
             
                 <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2024/03/05/Blockchain/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">Blockchain</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
                     
                     
                         <div class="article-next">
@@ -499,7 +606,7 @@
     <div class="post-toc">
         <div class="toc-title">Advertising space for rent ：)</div>
         <div class="page-title">PaperReading</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Paper-Reading"><span class="nav-text">Paper Reading</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IEEE-Symposium-on-Security-and-Privacy"><span class="nav-text">IEEE Symposium on Security and Privacy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MPCAuth-Multi-factor-Authentication-for-Distributed-trust-Systems"><span class="nav-text">MPCAuth: Multi-factor Authentication for Distributed-trust Systems</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Silph-A-Framework-for-Scalable-and-Accurate-Generation-of-Hybrid-MPC-Protocols"><span class="nav-text">Silph: A Framework for Scalable and Accurate Generation of Hybrid MPC Protocols</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Paper-Reading"><span class="nav-text">Paper Reading</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IEEE-Symposium-on-Security-and-Privacy"><span class="nav-text">IEEE Symposium on Security and Privacy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MPCAuth-Multi-factor-Authentication-for-Distributed-trust-Systems"><span class="nav-text">MPCAuth: Multi-factor Authentication for Distributed-trust Systems</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Silph-A-Framework-for-Scalable-and-Accurate-Generation-of-Hybrid-MPC-Protocols"><span class="nav-text">Silph: A Framework for Scalable and Accurate Generation of Hybrid MPC Protocols</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MECHANISM-DESIGN-WITH-PREDICTIONS"><span class="nav-text">MECHANISM DESIGN WITH PREDICTIONS</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
@@ -526,7 +633,7 @@
               <span>2022</span>
               -
             
-            2023&nbsp;&nbsp;<i class="fa-regular fa-computer-classic"></i>&nbsp;&nbsp;<a href="/">Picasun</a>
+            2024&nbsp;&nbsp;<i class="fa-regular fa-computer-classic"></i>&nbsp;&nbsp;<a href="/">Picasun</a>
         </div>
         
             <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
