@@ -223,7 +223,287 @@
             
 
             <div class="article-content markdown-body">
-                
+                <h1 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h1><h2 id="蚂蚁课程"><a href="#蚂蚁课程" class="headerlink" title="蚂蚁课程"></a>蚂蚁课程</h2><h3 id="区块链系统开发与应用（初级）"><a href="#区块链系统开发与应用（初级）" class="headerlink" title="区块链系统开发与应用（初级）"></a>区块链系统开发与应用（初级）</h3><h4 id="区块链核心概念"><a href="#区块链核心概念" class="headerlink" title="区块链核心概念"></a>区块链核心概念</h4><ul>
+<li><p>区块链本质是去中心化的（<strong>账本</strong>）数据库</p>
+<ul>
+<li>中心化<ul>
+<li>单点失效 系统无法使用</li>
+<li>隐私保护性差</li>
+<li>信息泄漏</li>
+<li>诚信问题</li>
+</ul>
+</li>
+<li>去中心化<ul>
+<li>避免单点失效</li>
+<li>公开透明</li>
+<li>不可篡改</li>
+<li>可追溯</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>链块式结构：假象式区块链（时序的链块式结构）</p>
+<ul>
+<li>如今成为行业</li>
+<li>技术<ul>
+<li>密码学（签名让交易不可抵赖 可信 ）<ul>
+<li>私钥才能签名</li>
+</ul>
+</li>
+<li>数据结构</li>
+<li>分布式存储</li>
+<li>P2P网络</li>
+<li>共识算法</li>
+<li>博弈论</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>区块链分类与架构相关术语   </p>
+<ul>
+<li>分类<ul>
+<li>划分1（节点的加入、退出是否需要区块链系统的许可）<ul>
+<li>许可链<ul>
+<li>根据权限的主体是否集中<ul>
+<li>联盟链（只允许一个节点介入网络的半开放式区块链）</li>
+<li>私有链（企业或组织部署，权限严格内部控制）</li>
+</ul>
+</li>
+<li>如蚂蚁链</li>
+</ul>
+</li>
+<li>非许可链（公有链）<ul>
+<li>开放程度最高，任何人可以参与</li>
+<li>加密货币 </li>
+<li>可以参与网络共识</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>架构相关术语<ul>
+<li>一个区块 一页账目 包含多笔交易</li>
+<li>利用链连起来，时序，时间戳</li>
+<li>DAG（有向无环图）<ul>
+<li>区块链的变种 也算区块链系统</li>
+</ul>
+</li>
+<li>P2P网络<ul>
+<li>去中心化 每个主机都可以看成服务器和客户端</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>区块链常用术语</p>
+<ul>
+<li>智能合约<ul>
+<li>智能合约之于区块链</li>
+<li>相当于SQL之于数据库</li>
+</ul>
+</li>
+<li>协议<ul>
+<li>共同遵从的一组约定</li>
+</ul>
+</li>
+<li>双花<ul>
+<li>把一笔资金花出去2次或多次</li>
+<li>想要成功 一定要分叉（因为不可能在同一个区块、时序问题会避免同链）</li>
+<li>算力或资金足够强大</li>
+</ul>
+</li>
+<li>共识算法<ul>
+<li><strong>各分布节点对事务或状态的验证、记录、修改等行为达成一致确认的算法</strong></li>
+<li>伏笔 共识算法章节才有</li>
+</ul>
+</li>
+<li>数字签名<ul>
+<li>附加在数据单元上的数据or对数据进行密码变换</li>
+<li>数据单元的接受者可以确认来源和完整性，防止伪造抵赖</li>
+</ul>
+</li>
+<li>国密算法（国产加密算法）<ul>
+<li>加密算法<ul>
+<li>非对称<ul>
+<li>RSA Elgamal ECC</li>
+</ul>
+</li>
+<li>对称<ul>
+<li>AES DES</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>国产加密算法 国家密码局认定<ul>
+<li>SM1对称</li>
+<li>SM2非对称</li>
+<li>SM3消息摘要算法</li>
+<li>SM4无限局域网标准的分组数据方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>区块链的匿名性和开放性</p>
+<ul>
+<li>技术特征<ul>
+<li>匿名性 开放性 可追溯 不可篡改 共识 完整 自治 不可抵赖….</li>
+</ul>
+</li>
+<li>匿名性<ul>
+<li>只需要<strong>加密货币地址</strong>进行交易，不知道个人信息（如是谁 资产）</li>
+<li>违法行为的保护伞</li>
+<li>级别划分<ul>
+<li>基础：知道是谁，就可以查交易</li>
+<li>高级：知道是谁，也查不到所有转账信息</li>
+<li>极致：只有私钥持有者才能看到对应地址交易行为</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>开放性 （参与程度）<ul>
+<li>账目、组织结构、生态</li>
+<li>公有链 联盟链 私有链</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>区块链的可编程和可追溯</p>
+<ul>
+<li>进化<ul>
+<li>可编程货币</li>
+<li>可编程金融（通过智能合约生产金融衍生产品）</li>
+<li>可编程社会（不仅仅是货币和金融衍生品）</li>
+</ul>
+</li>
+<li>智能合约并不是一定要在区块链系统中运行<ul>
+<li>区块链是最合适的环境</li>
+</ul>
+</li>
+<li>可追溯性<ul>
+<li>加入链中的交易记录永久存储</li>
+<li>交易记录绑定交易者信息、完整记录、可追溯、不可被摧毁<ul>
+<li>一头牛从出生到被食用</li>
+<li>农产品</li>
+</ul>
+</li>
+<li>基于区块链溯源的优势<ul>
+<li>安全性有效提高</li>
+<li>记录不可篡改</li>
+<li>数据透明度高 容易追溯</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>区块链的不可篡改性</p>
+<ul>
+<li>在开放的网络实现一个可信的账本、数据安全是第一要务 </li>
+<li>数据安全：账本不可损坏和不可篡改 </li>
+<li>不可篡改的技术实现<ul>
+<li>1、分布式多点记账 P2P</li>
+<li>2、链块式结构（重点是防碰撞的hash函数） <ul>
+<li>区块内包含时间戳、交易信息、前和本块hash</li>
+</ul>
+</li>
+<li>默克尔🌲<ul>
+<li>区块分为区块头和区块体</li>
+<li>区块的hash由前一块hash、随机数、树根、时间戳作为输入获得<ul>
+<li>记录在区块头</li>
+</ul>
+</li>
+<li>通过只同步区块头来减少流量和存储、<ul>
+<li>利用默克尔🌲来验证数据安全可靠（因为区块头和体分开）  </li>
+<li>平衡二叉树</li>
+<li>叶子结点都是交易数据</li>
+<li>非叶子结点是下属节点作为输入得到的hash<ul>
+<li>某个交易信息改了，树根也改了，快速定位篡改</li>
+</ul>
+</li>
+<li>可以快速验证交易是否属于这个区块</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>区块链其他技术特征</p>
+<ul>
+<li>数据完整性<ul>
+<li>精确 可靠</li>
+<li>hash函数（是否修改） 数字签名（修改者身份） P2P网络（多点数据备份）</li>
+</ul>
+</li>
+<li>自治性<ul>
+<li>通过区块链协议和特性本身达到自治</li>
+</ul>
+</li>
+<li>集体维护性<ul>
+<li>各个参与方基于协议共同维护区块链系统</li>
+<li>由于开放 自治 必然需要集体维护</li>
+<li>可信交易</li>
+<li>提升可扩展性和健壮性</li>
+</ul>
+</li>
+<li>不可抵赖性<ul>
+<li>行为不可抵赖：数字签名</li>
+<li>发生时间不可抵赖：时间戳</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>区块链系统架构概述</p>
+<ul>
+<li>架构<ul>
+<li>应用层：封装应用场景和案例<ul>
+<li>传统应用部署在区块链平台（冷链、等等）</li>
+</ul>
+</li>
+<li>合约层：封装脚本、算法、智能合约<ul>
+<li>无需第三方 </li>
+<li>可编程的基础</li>
+<li>不止转账 记账也是 智能合约控制</li>
+</ul>
+</li>
+<li>通信层：节点间通信的通信协议<ul>
+<li>RPC HTTP IPC等</li>
+</ul>
+</li>
+<li><strong>共识层</strong>：对区块数据的有效性达成共识<ul>
+<li>进行验证的交易数据通过共识机制来决定记账权</li>
+<li>得到符合条件的hash值，就可以记账</li>
+</ul>
+</li>
+<li>通道层：<strong>联盟链</strong>中确保隐私安全（跨组织数据信任）<ul>
+<li>需要隔离 也需要复用</li>
+</ul>
+</li>
+<li><strong>网络层</strong>：区块链网络中节点与节点之间的信息交流方式<ul>
+<li>P2P组网机制</li>
+<li>数据传播机制<ul>
+<li>全网广播 验证 临近节点</li>
+</ul>
+</li>
+<li>数据验证机制<ul>
+<li>格式 输入输出 数字签名</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>数据层</strong>：存储区块链基础数据</li>
+<li>不同链不同结构</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><h4 id="-2"><a href="#-2" class="headerlink" title=""></a></h4><h4 id="-3"><a href="#-3" class="headerlink" title=""></a></h4><h4 id="-4"><a href="#-4" class="headerlink" title=""></a></h4><h4 id="-5"><a href="#-5" class="headerlink" title=""></a></h4><h4 id="-6"><a href="#-6" class="headerlink" title=""></a></h4><h4 id="-7"><a href="#-7" class="headerlink" title=""></a></h4><h4 id="-8"><a href="#-8" class="headerlink" title=""></a></h4><h4 id="-9"><a href="#-9" class="headerlink" title=""></a></h4><h4 id="-10"><a href="#-10" class="headerlink" title=""></a></h4><h3 id="区块链系统开发与应用（高级）"><a href="#区块链系统开发与应用（高级）" class="headerlink" title="区块链系统开发与应用（高级）"></a>区块链系统开发与应用（高级）</h3><h4 id="-11"><a href="#-11" class="headerlink" title=""></a></h4><h4 id="-12"><a href="#-12" class="headerlink" title=""></a></h4><h4 id="-13"><a href="#-13" class="headerlink" title=""></a></h4><h4 id="-14"><a href="#-14" class="headerlink" title=""></a></h4><h4 id="-15"><a href="#-15" class="headerlink" title=""></a></h4><h4 id="-16"><a href="#-16" class="headerlink" title=""></a></h4><h4 id="-17"><a href="#-17" class="headerlink" title=""></a></h4><h4 id="-18"><a href="#-18" class="headerlink" title=""></a></h4>
             </div>
 
             
@@ -281,7 +561,7 @@
     <div class="post-toc">
         <div class="toc-title">Advertising space for rent ：)</div>
         <div class="page-title">Blockchain</div>
-        
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE"><span class="nav-text">区块链</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%9A%82%E8%9A%81%E8%AF%BE%E7%A8%8B"><span class="nav-text">蚂蚁课程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E4%B8%8E%E5%BA%94%E7%94%A8%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89"><span class="nav-text">区块链系统开发与应用（初级）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-text">区块链核心概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-1"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-2"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-3"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-4"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-5"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-6"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-7"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-8"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-9"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-10"><span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E4%B8%8E%E5%BA%94%E7%94%A8%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89"><span class="nav-text">区块链系统开发与应用（高级）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#-11"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-12"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-13"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-14"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-15"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-16"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-17"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-18"><span class="nav-text"></span></a></li></ol></li></ol></li></ol></li></ol>
 
     </div>
 </div>
