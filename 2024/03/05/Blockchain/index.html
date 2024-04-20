@@ -223,7 +223,441 @@
             
 
             <div class="article-content markdown-body">
-                <h1 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h1><h2 id="蚂蚁课程"><a href="#蚂蚁课程" class="headerlink" title="蚂蚁课程"></a>蚂蚁课程</h2><h3 id="区块链系统开发与应用（初级）"><a href="#区块链系统开发与应用（初级）" class="headerlink" title="区块链系统开发与应用（初级）"></a>区块链系统开发与应用（初级）</h3><h4 id="区块链核心概念"><a href="#区块链核心概念" class="headerlink" title="区块链核心概念"></a>区块链核心概念</h4><ul>
+                <h1 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h1><h2 id="肖臻"><a href="#肖臻" class="headerlink" title="肖臻"></a>肖臻</h2><ul>
+<li>不需要不存在证明，只需要存在性证明，不要求排序</li>
+<li></li>
+</ul>
+<h2 id="北京大学Web3公开课"><a href="#北京大学Web3公开课" class="headerlink" title="北京大学Web3公开课"></a>北京大学Web3公开课</h2><h3 id="1、Web3-综述-24-x2F-03-x2F-26"><a href="#1、Web3-综述-24-x2F-03-x2F-26" class="headerlink" title="1、Web3 综述 24&#x2F;03&#x2F;26"></a>1、Web3 综述 24&#x2F;03&#x2F;26</h3><ul>
+<li>Web1：只读、静态内容</li>
+<li>Web2：可读写交互、数据存在中心化服务器、用户生成内容：社交媒体 	</li>
+<li>Web3：可拥有<ul>
+<li>区块链技术</li>
+<li>智能合约</li>
+<li>去中心化</li>
+<li>不可篡改</li>
+</ul>
+</li>
+<li>密码学是区块链底层安全的保证<ul>
+<li>公钥密码学</li>
+<li>哈希函数</li>
+</ul>
+</li>
+<li>比特币<ul>
+<li>去中心化电子记账系统</li>
+<li>工作量证明PoW共识机制</li>
+<li>不可篡改</li>
+</ul>
+</li>
+<li>以太坊<ul>
+<li>开源、去中心化、有智能合约的区块链</li>
+<li>去中心化的全球计算机</li>
+<li>智能合约</li>
+<li>PoW共识机制</li>
+<li>22年转为权益证明PoS共识机制</li>
+</ul>
+</li>
+<li>智能合约<ul>
+<li>图灵完备、Solidity语言创建运行在EVM上的应用程序——智能合约</li>
+<li>去中心化</li>
+<li>代码即法律，无需第三方</li>
+<li>无需准入</li>
+<li>可组合</li>
+</ul>
+</li>
+<li>加密钱包<ul>
+<li>Web3，使用加密钱包管理链上资产</li>
+<li>助记词&#x2F;私钥：谁拥有，就拥有资产</li>
+<li>公钥：链上地址、用户名</li>
+</ul>
+</li>
+<li>DeFi（去中心化金融）<ul>
+<li>建立在区块链、智能合约平台上的金融类产品工具</li>
+<li>去中心化交易所DEX</li>
+<li>链上借贷</li>
+<li>稳定币</li>
+</ul>
+</li>
+<li>NFT<ul>
+<li>非同质化代币</li>
+<li>不能互换，独特数字代币</li>
+<li>门槛低</li>
+<li>链上艺术品&#x2F;头像</li>
+<li>虚拟房产</li>
+<li>链上凭证</li>
+<li>NFT交易所</li>
+</ul>
+</li>
+<li>DAO<ul>
+<li>去中心化自治组织</li>
+<li>与公司制相对</li>
+<li>通过智能合约保持运转的组织</li>
+</ul>
+</li>
+</ul>
+<pre><code> 	
+</code></pre>
+<h3 id="2、密码学基础-24-x2F-03-x2F-28"><a href="#2、密码学基础-24-x2F-03-x2F-28" class="headerlink" title="2、密码学基础 24&#x2F;03&#x2F;28"></a>2、密码学基础 24&#x2F;03&#x2F;28</h3><ul>
+<li>数字签名<ul>
+<li>私钥签名，公钥验证</li>
+<li>ECDSA（椭圆曲线数字签名算法）</li>
+</ul>
+</li>
+<li>区块链中的密码学<ul>
+<li>钱包地址<ul>
+<li>每个钱包地址都是一个公私钥对</li>
+<li>私钥 产生 公钥</li>
+<li>公钥 产生 地址</li>
+<li>私钥是证明你拥有账户的唯一方式<ul>
+<li>不要复制私钥&#x2F;助记词</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>交易<ul>
+<li>每个交易就是一条message</li>
+</ul>
+</li>
+<li>哈希算法<ul>
+<li>除了暴力枚举以外没有其他挖矿方法</li>
+<li>pow靠hash出块</li>
+<li>维护最长链（链式结构）</li>
+<li>前改后都改</li>
+<li>枚举哈希很难，所以很难对抗全网算力</li>
+</ul>
+</li>
+<li>Merkle Tree<ul>
+<li>快速确认某个值是否在某个集合中的数据结构</li>
+<li>用于区块存储交易、发行白名单</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3、以太坊和Layer2"><a href="#3、以太坊和Layer2" class="headerlink" title="3、以太坊和Layer2"></a>3、以太坊和Layer2</h3><ul>
+<li>Layer2（加速）<ul>
+<li>交易批量打包压缩</li>
+<li>状态转移确认</li>
+<li>交易不用在以太坊Layer1上执行，在链下执行完上传就行</li>
+<li>Rollup把状态更新提交到主链的智能合约<ul>
+<li>智能合约的验证并不用执行交易</li>
+<li>Optimistic Rollups<ul>
+<li>欺诈性证明</li>
+<li>假设正确，有人发现不对可以发布证明，验证主链错误，恢复Rollups之前状态，惩罚、奖赏</li>
+<li>用挑战期来保护数据正确性（时间太长）</li>
+<li>激励验证 </li>
+<li>OPTIMISM<ul>
+<li>单轮交互式欺诈式证明</li>
+</ul>
+</li>
+<li>ARBITRUM<ul>
+<li>L2上的多轮 L1上一轮</li>
+<li>不断拆分存在争议的部分</li>
+<li>切分出一个最小的不能拆分的单位，发送给L1，最后确定争议的胜者（智能合约的可组合性？）</li>
+<li>分成200份 优化 缩小范围 <ul>
+<li>并不减少复杂度</li>
+</ul>
+</li>
+<li>多伦交互式证明，窗口争议期更长，</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>zk-Rollups（基于零知识证明的Rollup扩容方案）<ul>
+<li>有效性证明（不需要挑战期）<ul>
+<li>目前的zk-rollup通用计算能力较差</li>
+</ul>
+</li>
+<li>提交的时候就带着证明</li>
+<li>更安全，当场验证</li>
+<li>依赖的证明很复杂</li>
+<li>目前无法和EVM完全兼容</li>
+<li><strong>零知识证明</strong><ul>
+<li>证明者向验证者证明一个陈述是正确的，而无需透露除该陈述是正确的之外的其他信息</li>
+<li>证明者负责计算交易并聚合成零知识证明</li>
+<li>验证者证明其有效性 </li>
+<li>数学基础：同态加密（公私钥签名验证）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>zk-SNARK<ul>
+<li>证明者向验证者一次性发送一个较细 无需交互</li>
+<li>验证速度快 存储空间小 </li>
+<li>应用：<ul>
+<li>Zcash 用其来隐藏具体交易信息</li>
+<li>Filecoin</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>zkSync 基于SNARKs<ul>
+<li>链上存储 链下存储</li>
+<li>EVM兼容，把智能合约转换操作码来实现Solidity兼容</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4、智能合约"><a href="#4、智能合约" class="headerlink" title="4、智能合约"></a>4、智能合约</h3><h3 id="5、DEFI-去中心化金融"><a href="#5、DEFI-去中心化金融" class="headerlink" title="5、DEFI 去中心化金融"></a>5、DEFI 去中心化金融</h3><h3 id="6、Web3应用"><a href="#6、Web3应用" class="headerlink" title="6、Web3应用"></a>6、Web3应用</h3><h3 id="7、去中心化安全"><a href="#7、去中心化安全" class="headerlink" title="7、去中心化安全"></a>7、去中心化安全</h3><h2 id="MOOC"><a href="#MOOC" class="headerlink" title="MOOC"></a>MOOC</h2><h3 id="c1-什么是区块链和区块链思维"><a href="#c1-什么是区块链和区块链思维" class="headerlink" title="c1 什么是区块链和区块链思维"></a>c1 什么是区块链和区块链思维</h3><h3 id="c2-比特币分布式账本初探"><a href="#c2-比特币分布式账本初探" class="headerlink" title="c2 比特币分布式账本初探"></a>c2 比特币分布式账本初探</h3><ul>
+<li><p>在比特币中，公钥用于接收比特币，私钥用于生成其对应地址上支付此特币所必需的签名，以唯一确定这些比特币的所有权。具体到比特币地址的生成，其实是先产生私钥，私钥通过椭圆曲线算法这种不可逆的函数来产生公钥，公钥经过一系列不可逆的运算再来产生地址。</p>
+</li>
+<li><p>私钥持有者，是比特币的拥有者</p>
+</li>
+<li><p>钱包：用来装密钥的容器，不包含具体几个比特币</p>
+<ul>
+<li>钱包装了一系列密钥用于完成比特币交易</li>
+<li>钱包地址（银行账户）公开、私钥：银行卡密码</li>
+</ul>
+</li>
+<li><p>持有比特币：拥有特定<strong>比特币的地址（银行账户）</strong></p>
+</li>
+<li><p>需要知道余额需要到区块链计算</p>
+</li>
+<li><p>交易</p>
+<ul>
+<li>第一笔是矿工挖矿所得</li>
+<li>之后都有一个或者多个输入、一个或者多个输出</li>
+<li>输入：谁给A的币的地址</li>
+<li>数目：币数目</li>
+<li>输出：B的地址</li>
+<li>每一个交易输入，都和之前的某个交易输出关联</li>
+<li>本质：包含输入值和输出值的数据结构<ul>
+<li>输出是对之前输入的引用</li>
+<li>A给B转账的时候，加了公钥脚本（使用输出的必须是Bob本人）</li>
+<li>签名需要用私钥，私钥对应的公钥才能验证签名通过<ul>
+<li>B签名后，其他人可以用Bob提供的公钥验签</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>某个地址，具有多个比特币，其实是钱包根据未花费的交易输出算出来的</p>
+</li>
+<li><p>地址是公钥的hash 多方签名</p>
+</li>
+<li><p>私钥生成公钥，公钥生成地址</p>
+<ul>
+<li>公钥加密的内容只能用私钥解密，利用公钥可以生成比特币地址</li>
+<li><strong>私钥签名，公钥验签名</strong> </li>
+<li>公私钥生成以及签名算法都基于椭圆曲线算法</li>
+</ul>
+</li>
+<li><p>避免假账</p>
+<ul>
+<li>私钥签名，公钥验证</li>
+<li>签名过的交易信息广播，广泛验签</li>
+<li>接受信息，生成区块，组装（默克尔树）</li>
+</ul>
+</li>
+<li><p>哈希指针</p>
+</li>
+<li><p>双花问题（利用UTXO解决）</p>
+<ul>
+<li>一笔钱被花了多次</li>
+<li>比特币以交易输出（TXO）的形式存在</li>
+<li>输入输出配平（12 &#x3D; 2（给别人） + 10（给自己）） </li>
+<li>majority attack （实现双花）</li>
+</ul>
+</li>
+<li><p>算力 </p>
+<ul>
+<li>用来衡量哈希运算能力的指标（每秒能进行多少次hash运算）</li>
+<li>矿工通过算力解答加密难题，把转账信息放到区块中，完成这笔转账 </li>
+<li>51%攻击，控制算力</li>
+</ul>
+</li>
+<li><p>共识算法：规定了下一个新区块由哪个矿工生成</p>
+<ul>
+<li>工作量证明 pow 通过工作结果证明完成一定的工作量（不对称性）<ul>
+<li>容易重算，不容易得到</li>
+</ul>
+</li>
+<li>权益证明</li>
+<li>委托工作量证明</li>
+<li>实用拜占庭容错算法</li>
+</ul>
+</li>
+<li><p>区块的链接</p>
+<ul>
+<li>元数据：难度、时间戳和nonce</li>
+<li>找到区块：hash or 区块高度（不能唯一表示）</li>
+</ul>
+</li>
+<li><p>共识算法规定下一个新区块由哪个矿工生成</p>
+<ul>
+<li>区块包含交易记录，生成的矿工获得比特币奖励</li>
+</ul>
+</li>
+</ul>
+<h3 id="c3-从分布式信息系统视角分析比特币"><a href="#c3-从分布式信息系统视角分析比特币" class="headerlink" title="c3 从分布式信息系统视角分析比特币"></a>c3 从分布式信息系统视角分析比特币</h3><ul>
+<li>分布式系统随意分布空间位置，没有控制整个系统的主机<ul>
+<li>系统资源被所有计算机共享，可以用系统中其他资源<ul>
+<li>CPU 文件 打印机</li>
+</ul>
+</li>
+<li>任意两台计算机可以通信交换信息</li>
+</ul>
+</li>
+<li>分布式系统<ul>
+<li>信息发布与传输：任意节点都可以发起，相邻交互，全网公开</li>
+<li>记账：根据共识机制完成工作量设定获得记账权，可以溯源，不可篡改</li>
+<li>存储：每个节点有完整本地数据存储，实时更新<ul>
+<li>选择完整or部分存储</li>
+</ul>
+</li>
+<li>一致性</li>
+</ul>
+</li>
+<li>一致性<ul>
+<li>原子提交协议，引入多个leader机器</li>
+<li>leader机器故障？</li>
+<li>保证一定数量的机器能够运行，利用共识机制</li>
+</ul>
+</li>
+<li>Paxos<ul>
+<li>解决分布式一致性问题</li>
+<li>Proposer 提议者<ul>
+<li>利用更大的ID抢占临时访问权 避免思索</li>
+</ul>
+</li>
+<li>Acceptor 批准者 完全对等独立</li>
+<li>Learner 学习者 学习value</li>
+</ul>
+</li>
+<li>拜占庭将军问题 <ul>
+<li>可能出现丢失or错误的不可靠信道，如何通过消息传递的方式达到一致性</li>
+<li>要求<ul>
+<li>所有忠诚接受相同命令，恶意消息不被接受</li>
+<li>发送命令的将军忠诚，忠诚将军遵守</li>
+</ul>
+</li>
+<li>选择正确的人（不同共识算法不同），加大造价成本</li>
+</ul>
+</li>
+<li>拜占庭容错算法（BFT）<ul>
+<li>类似于POW  </li>
+<li>PBFT（实用拜占庭容错算法）<ul>
+<li>复杂度指数级降低到多项式级</li>
+<li>失效节点不超过1&#x2F;3保证信息可靠</li>
+<li>通信次数换取可靠性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="c4-智能合约和区块链操作系统"><a href="#c4-智能合约和区块链操作系统" class="headerlink" title="c4 智能合约和区块链操作系统"></a>c4 智能合约和区块链操作系统</h3><ul>
+<li><p>以太坊：开源的有智能合约功能的公共区块链平台，以太币（ETH），以太虚拟机（EVM）</p>
+</li>
+<li><p>智能合约：脚本代码（计算机程序定义 自动执行的承诺和协议）</p>
+</li>
+<li><p>以太坊的优化：图灵完备、可编程的底层系统（区块链网络）</p>
+</li>
+<li><p>共识：POW+POS 矿工和持币者利益平衡</p>
+</li>
+<li><p>以太坊智能合约：代码（合约功能）和数据（合约状态的集合），存在于特定地址，依靠EVM以二进制形式在区块链运行</p>
+</li>
+<li><p>智能合约	</p>
+<ul>
+<li>数据库合约：数据存储，允许其他合约crud </li>
+<li>管理员合约：在数据库合约上运行，批量读写</li>
+<li>合约管理合约：管理其他合约<ul>
+<li>跟踪所有合约&#x2F;组建，处理通信，简化模块设计</li>
+</ul>
+</li>
+<li>应用逻辑合约：包含应用程序的特定代码</li>
+<li>公用合约：执行特定任务，被其他合约无限制调用<ul>
+<li>少依赖，少空间</li>
+</ul>
+</li>
+</ul>
+<p> 	  </p>
+</li>
+<li><p>区块链虚拟机</p>
+<ul>
+<li>自动兼容所有硬件</li>
+<li>本质实现将硬件层or系统层进行抽象，隐藏底层实现细节，实现快速应用部署</li>
+<li>将高级语言程序转换成CPU相关指令</li>
+<li>语言 业务分离</li>
+<li>提供原始API为了编写智能合约的需要</li>
+<li>ABI：其他应用要知道本合约提供的借口以及数据结构 </li>
+<li>流程<ul>
+<li>高级语言和API编写智能合约</li>
+<li>编译成byte codes 并同时生成ABI</li>
+<li>测试后就可以利用byte codes 进行交易</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>以太坊虚拟机</p>
+<ul>
+<li>Solidity 面向合约 类似JS 静态语言<ul>
+<li>基于账户而不是UTXO</li>
+<li>address类型 定位用户 定位合约 定位合约代码</li>
+<li>合约本身也是一个账户</li>
+<li>再去中心化网络运行</li>
+<li>强调 合约 函数 的调用方式</li>
+<li>异常机制，全部回撤，保证原子性</li>
+<li>REMIX（IDE）</li>
+</ul>
+</li>
+<li>Solidity<ul>
+<li>版本申明</li>
+<li>引用文件</li>
+<li>路经相关</li>
+<li>在实际编译器中的使用</li>
+<li>代码注释</li>
+<li>文档注释</li>
+</ul>
+</li>
+<li>合约结构<ul>
+<li>状态变量</li>
+<li>函数（可执行单元）</li>
+<li>函数的修饰符：声明时修改语义  </li>
+<li>事件（日志提供的便利借口）</li>
+<li>结构体类型</li>
+<li>枚举类型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>以太坊的共识机制</p>
+<ul>
+<li>POW <ul>
+<li>前沿</li>
+<li>家园</li>
+<li>大都会</li>
+</ul>
+</li>
+<li>POS<ul>
+<li>宁静</li>
+</ul>
+</li>
+<li>Casper<ul>
+<li>基于保证金的经济激励共识协议</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>挖矿</p>
+<ul>
+<li>生成钱包（地址 可获取）</li>
+<li>电脑（显卡 主板电源决定稳定程度）</li>
+<li>挖矿软件（xxx）</li>
+</ul>
+</li>
+<li><p>EOS</p>
+<ul>
+<li>加密货币令牌 区块链操作系统</li>
+<li>为去中心化公司打造智能合约平台 </li>
+<li>实现分布式横纵向扩展 </li>
+<li><h2 id="目标-成为支持工厂模式的去中心化操作系统-每秒处理百万笔级别的交易"><a href="#目标-成为支持工厂模式的去中心化操作系统-每秒处理百万笔级别的交易" class="headerlink" title="目标  - 成为支持工厂模式的去中心化操作系统  - 每秒处理百万笔级别的交易"></a>目标<br>  - 成为支持工厂模式的去中心化操作系统<br>  - 每秒处理百万笔级别的交易</h2></li>
+</ul>
+</li>
+</ul>
+<h2 id="蚂蚁课程"><a href="#蚂蚁课程" class="headerlink" title="蚂蚁课程"></a>蚂蚁课程</h2><h3 id="区块链系统开发与应用（初级）"><a href="#区块链系统开发与应用（初级）" class="headerlink" title="区块链系统开发与应用（初级）"></a>区块链系统开发与应用（初级）</h3><h4 id="区块链核心概念"><a href="#区块链核心概念" class="headerlink" title="区块链核心概念"></a>区块链核心概念</h4><ul>
 <li><p>区块链本质是去中心化的（<strong>账本</strong>）数据库</p>
 <ul>
 <li>中心化<ul>
@@ -503,7 +937,56 @@
 </ul>
 </li>
 </ul>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><h4 id="-2"><a href="#-2" class="headerlink" title=""></a></h4><h4 id="-3"><a href="#-3" class="headerlink" title=""></a></h4><h4 id="-4"><a href="#-4" class="headerlink" title=""></a></h4><h4 id="-5"><a href="#-5" class="headerlink" title=""></a></h4><h4 id="-6"><a href="#-6" class="headerlink" title=""></a></h4><h4 id="-7"><a href="#-7" class="headerlink" title=""></a></h4><h4 id="-8"><a href="#-8" class="headerlink" title=""></a></h4><h4 id="-9"><a href="#-9" class="headerlink" title=""></a></h4><h4 id="-10"><a href="#-10" class="headerlink" title=""></a></h4><h3 id="区块链系统开发与应用（高级）"><a href="#区块链系统开发与应用（高级）" class="headerlink" title="区块链系统开发与应用（高级）"></a>区块链系统开发与应用（高级）</h3><h4 id="-11"><a href="#-11" class="headerlink" title=""></a></h4><h4 id="-12"><a href="#-12" class="headerlink" title=""></a></h4><h4 id="-13"><a href="#-13" class="headerlink" title=""></a></h4><h4 id="-14"><a href="#-14" class="headerlink" title=""></a></h4><h4 id="-15"><a href="#-15" class="headerlink" title=""></a></h4><h4 id="-16"><a href="#-16" class="headerlink" title=""></a></h4><h4 id="-17"><a href="#-17" class="headerlink" title=""></a></h4><h4 id="-18"><a href="#-18" class="headerlink" title=""></a></h4>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><h4 id="-2"><a href="#-2" class="headerlink" title=""></a></h4><h4 id="-3"><a href="#-3" class="headerlink" title=""></a></h4><h4 id="-4"><a href="#-4" class="headerlink" title=""></a></h4><h4 id="-5"><a href="#-5" class="headerlink" title=""></a></h4><h4 id="-6"><a href="#-6" class="headerlink" title=""></a></h4><h4 id="-7"><a href="#-7" class="headerlink" title=""></a></h4><h4 id="-8"><a href="#-8" class="headerlink" title=""></a></h4><h4 id="-9"><a href="#-9" class="headerlink" title=""></a></h4><h4 id="-10"><a href="#-10" class="headerlink" title=""></a></h4><h3 id="区块链系统开发与应用（高级）"><a href="#区块链系统开发与应用（高级）" class="headerlink" title="区块链系统开发与应用（高级）"></a>区块链系统开发与应用（高级）</h3><h4 id="共识机制"><a href="#共识机制" class="headerlink" title="共识机制"></a>共识机制</h4><ul>
+<li>BFT拜占庭共识<ul>
+<li>区别两军问题，两军问题在于可信信道</li>
+<li>拜占庭信道无问题，问题在于如何达成共识</li>
+<li>忠诚的将军让别的将军收到自己的真实意图<ul>
+<li>仅仅靠一致性，就能解决吗？<ul>
+<li>由于叛徒的存在，可能一致没有进攻</li>
+<li>不该进攻却又一致进攻</li>
+<li>需要看客观事实</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>形式化：<strong>一致性</strong>、<strong>正确性</strong></li>
+<li>一个发送命令的将军要发送一个命令给其他n-1个将军<ul>
+<li>所有忠诚的接受命令的将军遵守相同的命令</li>
+<li>如果发送命令的将军也是忠诚的<ul>
+<li>所有忠诚的接受命令的将军遵守所接受的命令</li>
+<li>在分布式系统中非常有挑战性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>问题修复<ul>
+<li>口头协议<ul>
+<li>实现简单 算法复杂 需要克服更多困难</li>
+<li>知道谁发的 能被正确发 知道缺少的消息</li>
+<li>少于1&#x2F;3 可解</li>
+<li>不能追本溯源</li>
+</ul>
+</li>
+<li>书面协议  <ul>
+<li>实现困难 算法简单 无需克服很多困难  </li>
+<li>知道谁发的 能被正确发 知道缺少的消息+签名不可伪造 否则发现</li>
+<li>所有消息追本溯源 采用即可</li>
+<li>忠诚将军必定一致<ul>
+<li>书面协议在实际情况下的问题可以通过区块链解决</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>POW共识</li>
+<li>POS共识</li>
+</ul>
+<h4 id="-11"><a href="#-11" class="headerlink" title=""></a></h4><h4 id="-12"><a href="#-12" class="headerlink" title=""></a></h4><h4 id="-13"><a href="#-13" class="headerlink" title=""></a></h4><h4 id="-14"><a href="#-14" class="headerlink" title=""></a></h4><p>aweaweweaw<br>aweaweawea</p>
+<h4 id="-15"><a href="#-15" class="headerlink" title=""></a></h4><h4 id="-16"><a href="#-16" class="headerlink" title=""></a></h4><h4 id="-17"><a href="#-17" class="headerlink" title=""></a></h4>
             </div>
 
             
@@ -531,6 +1014,21 @@
 
             
                 <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2024/04/20/FHE-BlockChain/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">FHE+BlockChain</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
                     
                     
                         <div class="article-next">
@@ -561,7 +1059,7 @@
     <div class="post-toc">
         <div class="toc-title">Advertising space for rent ：)</div>
         <div class="page-title">Blockchain</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE"><span class="nav-text">区块链</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%9A%82%E8%9A%81%E8%AF%BE%E7%A8%8B"><span class="nav-text">蚂蚁课程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E4%B8%8E%E5%BA%94%E7%94%A8%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89"><span class="nav-text">区块链系统开发与应用（初级）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-text">区块链核心概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-1"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-2"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-3"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-4"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-5"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-6"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-7"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-8"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-9"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-10"><span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E4%B8%8E%E5%BA%94%E7%94%A8%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89"><span class="nav-text">区块链系统开发与应用（高级）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#-11"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-12"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-13"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-14"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-15"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-16"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-17"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-18"><span class="nav-text"></span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE"><span class="nav-text">区块链</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%82%96%E8%87%BB"><span class="nav-text">肖臻</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%97%E4%BA%AC%E5%A4%A7%E5%AD%A6Web3%E5%85%AC%E5%BC%80%E8%AF%BE"><span class="nav-text">北京大学Web3公开课</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81Web3-%E7%BB%BC%E8%BF%B0-24-x2F-03-x2F-26"><span class="nav-text">1、Web3 综述 24&#x2F;03&#x2F;26</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80-24-x2F-03-x2F-28"><span class="nav-text">2、密码学基础 24&#x2F;03&#x2F;28</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%92%8CLayer2"><span class="nav-text">3、以太坊和Layer2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6"><span class="nav-text">4、智能合约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81DEFI-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%87%91%E8%9E%8D"><span class="nav-text">5、DEFI 去中心化金融</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81Web3%E5%BA%94%E7%94%A8"><span class="nav-text">6、Web3应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E5%AE%89%E5%85%A8"><span class="nav-text">7、去中心化安全</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MOOC"><span class="nav-text">MOOC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#c1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8C%BA%E5%9D%97%E9%93%BE%E5%92%8C%E5%8C%BA%E5%9D%97%E9%93%BE%E6%80%9D%E7%BB%B4"><span class="nav-text">c1 什么是区块链和区块链思维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c2-%E6%AF%94%E7%89%B9%E5%B8%81%E5%88%86%E5%B8%83%E5%BC%8F%E8%B4%A6%E6%9C%AC%E5%88%9D%E6%8E%A2"><span class="nav-text">c2 比特币分布式账本初探</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c3-%E4%BB%8E%E5%88%86%E5%B8%83%E5%BC%8F%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E8%A7%86%E8%A7%92%E5%88%86%E6%9E%90%E6%AF%94%E7%89%B9%E5%B8%81"><span class="nav-text">c3 从分布式信息系统视角分析比特币</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c4-%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%92%8C%E5%8C%BA%E5%9D%97%E9%93%BE%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-text">c4 智能合约和区块链操作系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87-%E6%88%90%E4%B8%BA%E6%94%AF%E6%8C%81%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E6%AF%8F%E7%A7%92%E5%A4%84%E7%90%86%E7%99%BE%E4%B8%87%E7%AC%94%E7%BA%A7%E5%88%AB%E7%9A%84%E4%BA%A4%E6%98%93"><span class="nav-text">目标  - 成为支持工厂模式的去中心化操作系统  - 每秒处理百万笔级别的交易</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%9A%82%E8%9A%81%E8%AF%BE%E7%A8%8B"><span class="nav-text">蚂蚁课程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E4%B8%8E%E5%BA%94%E7%94%A8%EF%BC%88%E5%88%9D%E7%BA%A7%EF%BC%89"><span class="nav-text">区块链系统开发与应用（初级）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-text">区块链核心概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-1"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-2"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-3"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-4"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-5"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-6"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-7"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-8"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-9"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-10"><span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E4%B8%8E%E5%BA%94%E7%94%A8%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89"><span class="nav-text">区块链系统开发与应用（高级）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B1%E8%AF%86%E6%9C%BA%E5%88%B6"><span class="nav-text">共识机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-11"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-12"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-13"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-14"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-15"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-16"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-17"><span class="nav-text"></span></a></li></ol></li></ol></li></ol></li></ol>
 
     </div>
 </div>
