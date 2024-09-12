@@ -223,7 +223,443 @@
             
 
             <div class="article-content markdown-body">
-                
+                <h1 id="Smart-Contract"><a href="#Smart-Contract" class="headerlink" title="Smart Contract"></a>Smart Contract</h1><h4 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h4><ul>
+<li>message<ul>
+<li>Id（这是消息中携带的数据标识符）</li>
+<li>Tags<ul>
+<li>DataId（用于标识与消息内容相关的数据）</li>
+<li>Price<ul>
+<li>price</li>
+<li>symbol</li>
+</ul>
+</li>
+<li>Name</li>
+<li>Error<ul>
+<li>userData</li>
+</ul>
+</li>
+<li>Datastatus </li>
+<li>Address</li>
+<li>Desc（相关描述）</li>
+<li>ComputeNodes</li>
+</ul>
+</li>
+<li>Data  </li>
+<li>From</li>
+<li>Timestamp</li>
+</ul>
+</li>
+</ul>
+<h4 id="base-lua（3-functions）"><a href="#base-lua（3-functions）" class="headerlink" title="base.lua（3 functions）"></a>base.lua（3 functions）</h4><ul>
+<li>DATA_PROCESS_ID <ul>
+<li>数据管理的节点ID（公钥）</li>
+</ul>
+</li>
+<li>NODE_PROCESS_ID <ul>
+<li>节点管理的节点ID（公钥）</li>
+</ul>
+</li>
+<li>需要写入PROCESS_DATA_ID和PROCESS_NODE_ID</li>
+<li>**findIndex(list, element) **<ul>
+<li>在list中找element的索引并返回</li>
+</ul>
+</li>
+<li>归一化响应<ul>
+<li>**sendErrorResponse(request, errorMessage) **</li>
+<li><strong>sendSuccessResponse(request, responseData)</strong><ul>
+<li>如在dataregistry中，检查 DataTag 是否存在<ul>
+<li>if message.Tags.DataTag &#x3D;&#x3D; nil then<br>     - sendErrorResponse(message, “DataTag is required”)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="dataregistry-lua"><a href="#dataregistry-lua" class="headerlink" title="dataregistry.lua"></a>dataregistry.lua</h4><ul>
+<li><p>初始化数据存储</p>
+<ul>
+<li>RegisteredData &#x3D; RegisteredData or {}  – 存储所有注册的数据</li>
+<li>AwaitingData &#x3D; AwaitingData or {}      – 存储待处理的数据</li>
+<li>SymbolList &#x3D; SymbolList or {}          – 存储支持的价格代币</li>
+</ul>
+</li>
+<li><p><strong>initializeDataRegistry()</strong></p>
+<ul>
+<li>在代币列表中加入AOCRED和war（原生or测试代币）</li>
+</ul>
+</li>
+<li><p><strong>isSymbolSupported(symbol)</strong></p>
+<ul>
+<li>检查代币是否被支持（是否在代币列表中）</li>
+</ul>
+</li>
+<li><p><strong>extractInitialKey(message)</strong></p>
+<ul>
+<li>获取消息的初始数据键</li>
+</ul>
+</li>
+<li><p><strong>extractExistingKey(message)</strong></p>
+<ul>
+<li>获取消息的现有数据键</li>
+</ul>
+</li>
+<li><p><strong>handlers</strong>⭐️</p>
+<ul>
+<li>“register”<ul>
+<li>需要检查tags是否齐全，以及Price标签的price 和symbol是否齐全  </li>
+<li>检查是否已经注册</li>
+<li>将数据添加到待处理数据中</li>
+<li>向ao发送请求以获取计算节点</li>
+</ul>
+</li>
+<li>“getComputeNodesSuccess”<ul>
+<li>处理获取计算节点成功的响应</li>
+</ul>
+</li>
+<li>“getComputeNodesError”<ul>
+<li>处理获取计算节点错误的响应</li>
+</ul>
+</li>
+<li>“getDataById”<ul>
+<li>处理按 ID 获取数据的请求</li>
+</ul>
+</li>
+<li>“delete”<ul>
+<li>处理删除数据的请求</li>
+</ul>
+</li>
+<li>“allData”<ul>
+<li>处理获取所有数据的请求 </li>
+<li>返回RegisteredData表</li>
+</ul>
+</li>
+<li>“deleteNodeNotice”（会在节点成功删除时被调用）<ul>
+<li>处理节点删除通知，流程如下：</li>
+<li>收到 “DeleteNodeNotice” 消息，获取被删除的节点名称。</li>
+<li>遍历所有已注册的数据，检查每个数据条目中是否与被删除节点有关联。</li>
+<li>如果某个条目与该节点相关联，则将该条目标记为无效。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="noderegistry-lua"><a href="#noderegistry-lua" class="headerlink" title="noderegistry.lua"></a>noderegistry.lua</h4><ul>
+<li>NODE_MANAGER &#x3D; NODE_MANAGER or ao.env.Process.Owner <ul>
+<li>节点管理（比如添加白名单操作就需要）</li>
+</ul>
+</li>
+<li>NodeList &#x3D; NodeList or {}<ul>
+<li>节点列表</li>
+</ul>
+</li>
+<li>Whitelist &#x3D; Whitelist or {}<ul>
+<li>白名单节点列表</li>
+</ul>
+</li>
+<li>CurrentNodeIndex &#x3D; CurrentNodeIndex or 0<ul>
+<li>节点索引列表</li>
+</ul>
+</li>
+<li><strong>extractNodeKey(msg)</strong><ul>
+<li>获取节点的键 返回tags.name</li>
+</ul>
+</li>
+<li><strong>handlers</strong>⭐️<ul>
+<li>“addWhitelistEntry”<ul>
+<li>处理添加白名单请求，流程如下： </li>
+<li>验证消息中是否包含地址字段。</li>
+<li>确认请求来源是否是 NODE_MANAGER。</li>
+<li>检查地址是否已存在于白名单中。</li>
+<li>将地址添加到白名单（如果地址是新的）。</li>
+<li>向消息发送者发送相应的成功或错误反馈。</li>
+</ul>
+</li>
+<li>“retrieveWhitelist”<ul>
+<li>处理获取白名单请求</li>
+</ul>
+</li>
+<li>“removeWhitelistEntry” <ul>
+<li>处理移除白名单请求</li>
+</ul>
+</li>
+<li>“registerNode”<ul>
+<li>处理节点注册请求</li>
+</ul>
+</li>
+<li>“updateNode”<ul>
+<li>处理节点更新请求</li>
+</ul>
+</li>
+<li>“deleteNode”<ul>
+<li>处理节点删除请求</li>
+</ul>
+</li>
+<li>“listNodes”<ul>
+<li>处理获取所有节点请求</li>
+</ul>
+</li>
+<li>“fetchNodeByName”<ul>
+<li>处理根据名称获取节点请求</li>
+</ul>
+<p>	 </p>
+</li>
+<li>“retrieveComputeNodes”<ul>
+<li>处理获取计算节点请求</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="tasks-lua"><a href="#tasks-lua" class="headerlink" title="tasks.lua"></a>tasks.lua</h4><p>– 初始化 Token 处理 ID 表，如果已经存在则保留原有值<br>TOKEN_PROCESS_ID &#x3D; TOKEN_PROCESS_ID or {}<br>代币-合约地址</p>
+<p>– 初始化计算价格表，如果已经存在则保留原有值<br>COMPUTATION_PRICE &#x3D; COMPUTATION_PRICE or {}</p>
+<p>– 设置报告超时时间，如果没有设置则默认为 60 秒<br>REPORT_TIMEOUT &#x3D; REPORT_TIMEOUT or 60 * 1000  – 超时时间单位为毫秒</p>
+<p>– 初始化已完成任务的表，如果已经存在则保留原有值<br>CompletedTasks &#x3D; CompletedTasks or {}</p>
+<p>– 初始化待处理任务的表，如果已经存在则保留原有值<br>PendingTasks &#x3D; PendingTasks or {}</p>
+<p>– 初始化自由余额的表，如果已经存在则保留原有值<br>FreeAllowances &#x3D; FreeAllowances or {}</p>
+<p>– 初始化锁定余额的表，如果已经存在则保留原有值<br>LockedAllowances &#x3D; LockedAllowances or {}</p>
+<p>– 初始化信用通知表，如果已经存在则保留原有值<br>CreditNotice &#x3D; CreditNotice or {}</p>
+<p>– 初始化借记通知表，如果已经存在则保留原有值<br>DebitNotice &#x3D; DebitNotice or {}</p>
+<p>– 初始化转账错误通知表，如果已经存在则保留原有值<br>TransferErrorNotice &#x3D; TransferErrorNotice or {}</p>
+<ul>
+<li><p><strong>initializeJobEnvironment</strong></p>
+<ul>
+<li>初始化任务环境，针对aocred 和 war两个代币 </li>
+<li>设置计算成本</li>
+</ul>
+</li>
+<li><p><strong>findPriceSymbolByProcessId(processId)</strong></p>
+<ul>
+<li>根据代币合约ID返回代币</li>
+</ul>
+</li>
+<li><p><strong>getTokenProcessId(priceSymbol)</strong></p>
+<ul>
+<li>根据代币返回合约地址</li>
+</ul>
+</li>
+<li><p><strong>getInitialTaskKey(message)</strong></p>
+<ul>
+<li>获取消息的id</li>
+</ul>
+</li>
+<li><p><strong>getExistingTaskKey(message)</strong></p>
+<ul>
+<li>获取消息中相关数据的id</li>
+</ul>
+</li>
+<li><p><strong>getAllowanceKey(address, priceSymbol)</strong></p>
+<ul>
+<li>生成一个唯一的键值，格式为 “address:priceSymbol”</li>
+</ul>
+</li>
+<li><p><strong>getTaskList(tasks)</strong></p>
+<ul>
+<li>将任务表转换为一个新的任务列表</li>
+</ul>
+</li>
+<li><p><strong>calculateRequiredTokens(computeNodeCount, dataPrice, priceSymbol)</strong></p>
+<ul>
+<li>计算所需的代币数量</li>
+</ul>
+</li>
+<li><p>**checkReportTimeout(now)**？？？？？？</p>
+<ul>
+<li>检查挂起任务的超时状态</li>
+<li>如果超时且报告次数达到阈值，完成任务</li>
+</ul>
+</li>
+<li><p><strong>handlers</strong></p>
+<ul>
+<li>“computationPrice”<ul>
+<li>返回代币计算价格</li>
+</ul>
+<p>	 </p>
+</li>
+<li>“reportTimeout”<ul>
+<li>超时响应</li>
+</ul>
+</li>
+<li>“CheckReportTimeout”<ul>
+<li>检察任务超时情况   调用（checkReportTimeout(now)）</li>
+</ul>
+</li>
+<li>“creditNotice”<ul>
+<li>从消息中获取信息：获取价格符号、发件人地址和通知中的数量。</li>
+<li>记录信用通知：创建一个包含数量、时间戳和价格符号的信用通知对象，并将其添加到 CreditNotice 表中，以发件人地址为键。</li>
+<li>更新自由余额：根据通知中的数量，更新 FreeAllowances 表中相应的自由余额。</li>
+</ul>
+</li>
+<li>“debitNotice”<ul>
+<li>从消息中提取信息：获取价格符号、接收者地址和通知中的数量。</li>
+<li>记录借记通知：创建一个包含数量、时间戳和价格符号的借记通知对象，并将其添加到 DebitNotice 表中，以接收者地址为键。</li>
+</ul>
+</li>
+<li>“Notice”<ul>
+<li>确定目标地址：从消息中获取目标地址。如果消息中指定了地址，则使用该地址，否则使用消息中的 From 字段。</li>
+<li>收集通知信息：从 CreditNotice 和 DebitNotice 表中获取与目标地址相关的借记和贷记通知。</li>
+<li>回复消息：将收集到的通知信息作为响应发送回去。</li>
+</ul>
+</li>
+<li>“transferError”<ul>
+<li>往TransferErrorNotice插入信息</li>
+</ul>
+</li>
+<li>“allowance”<ul>
+<li>根据请求的 PriceSymbol 返回指定用户的自由余额和锁定余额</li>
+</ul>
+</li>
+<li>“withdraw”<ul>
+<li>它处理提现请求，检查余额并执行相应的转账操作</li>
+</ul>
+</li>
+<li>“submit”<ul>
+<li>处理任务提交请求，验证必要参数，初始化任务记录，发送相关请求以获取计算节点和数据，并检查任务是否超时</li>
+</ul>
+</li>
+<li>“getComputeNodesSuccess”<ul>
+<li>处理计算节点成功返回后的逻辑，更新任务的状态，检查代币余额是否足够，并相应地更新任务状态和回复消息。</li>
+</ul>
+</li>
+<li>“getPendingTasks”<ul>
+<li>获取所有待处理任务</li>
+</ul>
+</li>
+<li>“getCompletedTaskById”<ul>
+<li>通过ID获得已经完成的任务</li>
+</ul>
+</li>
+<li>“reportResult”<ul>
+<li>处理计算节点提交的结果报告，验证节点信息和数据，并在所有节点都报告后完成任务。</li>
+</ul>
+</li>
+<li>“getCompletedTasks”<ul>
+<li>获取所有已经完成的任务</li>
+</ul>
+</li>
+<li>“getAllTasks”<ul>
+<li>获取所有的任务</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>completeTask(taskKey)</strong></p>
+<ul>
+<li>完成了任务处理，执行了代币的转账，并在任务完成后更新相关的任务状态和代币信息。</li>
+</ul>
+</li>
+<li><p>server</p>
+<ul>
+<li><p>aos padodata1</p>
+</li>
+<li><p>aos padonode1</p>
+</li>
+<li><p>aos padotask1 </p>
+</li>
+<li><p>padouser1</p>
+</li>
+<li><p>aos pado_usr1</p>
+</li>
+</ul>
+</li>
+<li><p>aos 节点</p>
+</li>
+<li><p>padodata1：FioTCXlbEHJjSwfUsb5VR66KsB2LWxWaLrb18Da5ij4</p>
+</li>
+<li><p>padadata2 : tyZVsDZ1BEDJ_55UwrqG33xq68-oeLff5SkCFxyTz24</p>
+</li>
+<li><p>padonote1：1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-lC81oBb0</p>
+</li>
+<li><p>padouser1：lAo8AB8xHHIiR1JQkuTMvxzzy9D5ncehgBgrdjpYUhg</p>
+</li>
+<li><p>pado_usr1：LaD0rlPDLQXUhSQF55cdsXNJkZqJXWxg-MNlzgyvxQo</p>
+</li>
+<li><p>pado_usr2：pcK4jkHyJuOx6pAxc2xOB8YUHLgjD4QLM408JcfGUb4</p>
+</li>
+</ul>
+<h2 id="结点"><a href="#结点" class="headerlink" title="结点"></a>结点</h2><p>Data就是公钥</p>
+<ul>
+<li><p>获取白名单（）</p>
+<ul>
+<li>Send({Target&#x3D;”1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-	lC81oBb0”,Action&#x3D;”GetWhiteList”})</li>
+<li>返回到msg.data</li>
+</ul>
+</li>
+<li><p>添加白名单</p>
+<ul>
+<li>Send({Target&#x3D;”1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-lC81oBb0”,Action&#x3D;”AddWhiteList”,Tags&#x3D;{Address&#x3D;”LaD0rlPDLQXUhSQF55cdsXNJkZqJXWxg-MNlzgyvxQo”}})</li>
+<li>需要Target Action Tags.Address</li>
+</ul>
+</li>
+<li><p>注册节点</p>
+<ul>
+<li>Send({Action&#x3D;”Register”,Target&#x3D;”1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-lC81oBb0”,Data&#x3D;”LaD0rlPDLQXUhSQF55cdsXNJkZqJXWxg-MNlzgyvxQo”,Tags&#x3D;{Name&#x3D;”Usr1”,Desc&#x3D;”i m test”}})</li>
+<li>要在白名单内 数据是公钥 Tag要有Name（就是NodeKey）和Desc </li>
+<li>需要Action Target Data Tags.Name Tags.Desc</li>
+</ul>
+</li>
+<li><p>更新节点</p>
+<ul>
+<li>Send({Action&#x3D;”Update”,Target&#x3D;”1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-lC81oBb0”,Data&#x3D;”LaD0rlPDLQXUhSQF55cdsXNJkZqJXWxg-MNlzgyvxQo”,Tags&#x3D;{Name&#x3D;”Usr1”,Desc&#x3D;”i m test new new new”}})</li>
+<li>只能更新Desc部分，</li>
+<li>需要Action Target Tags.Name 新的Tags.Desc</li>
+</ul>
+</li>
+<li><p>删除节点</p>
+<ul>
+<li>Send({Action&#x3D;”Delete”,Target&#x3D;”1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-lC81oBb0”,Tags&#x3D;{Name&#x3D;”Usr2222”}})</li>
+<li>需要Action Target Tags.Name</li>
+</ul>
+</li>
+<li><p>获取节点所有数据</p>
+<ul>
+<li>Send({Action&#x3D;”Nodes”,Target&#x3D;”1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-lC81oBb0”})</li>
+<li>需要Target Action 返回的就是Nodes合约环境下的Nodes所有参数</li>
+<li>返回值为JSON 要从Inbox[#Inbox].Data</li>
+</ul>
+</li>
+<li><p>通过Tags.name获得节点数据</p>
+<ul>
+<li>Send({Action&#x3D;”GetNodeByName”,Target&#x3D;”1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-lC81oBb0”,Tags&#x3D;{Name&#x3D;”Usr2222”}})</li>
+<li>需要Action Target Tags.Name</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><ul>
+<li>全局变量( x k n l nc nk )<ul>
+<li>Send({Action&#x3D;”Addx”,Target&#x3D;”tyZVsDZ1BEDJ_55UwrqG33xq68-oeLff5SkCFxyTz24”,Tags&#x3D;{Name&#x3D;”X”,Desc&#x3D;”7”}})</li>
+<li>此时nc nk k n都会赋值好</li>
+</ul>
+</li>
+<li>数据注册<ul>
+<li>Send({Action&#x3D;”Register”,Target&#x3D;”tyZVsDZ1BEDJ_55UwrqG33xq68-oeLff5SkCFxyTz24”,Tags&#x3D;{Name&#x3D;”like”,Desc&#x3D;”syww”}})</li>
+<li>Name放数据的名称 </li>
+<li>Desc放数据的值</li>
+</ul>
+</li>
+</ul>
+<h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><ul>
+<li>注册<ul>
+<li><pre><code>Send(&#123;Action=&quot;Register&quot;,Target=&quot;lAo8AB8xHHIiR1JQkuTMvxzzy9D5ncehgBgrdjpYUhg&quot;,Data=&quot;Xiechenxiang_PK&quot;,Tags=&#123;Name=&quot;szqq&quot;,Desc=&quot;woshishabi&quot;&#125;&#125;)
+</code></pre>
+</li>
+<li>Data放公钥 名字就是用户名 Desc放属性集</li>
+</ul>
+</li>
+<li>获得全部人员信息<ul>
+<li>Send({Action&#x3D;”Users”,Target&#x3D;”lAo8AB8xHHIiR1JQkuTMvxzzy9D5ncehgBgrdjpYUhg”})</li>
+</ul>
+</li>
+<li>通过Index获得人员信息<ul>
+<li>Send({Action&#x3D;”GetUserByIndex”,Target&#x3D;”lAo8AB8xHHIiR1JQkuTMvxzzy9D5ncehgBgrdjpYUhg”,Tags&#x3D;{Index&#x3D;”1”}})</li>
+</ul>
+</li>
+<li>通过Name获得人员信息<ul>
+<li>Send({Action&#x3D;”GetUserByName”,Target&#x3D;”lAo8AB8xHHIiR1JQkuTMvxzzy9D5ncehgBgrdjpYUhg”,Tags&#x3D;{Name&#x3D;”yanghao”}})</li>
+</ul>
+</li>
+</ul>
+
             </div>
 
             
@@ -251,6 +687,21 @@
 
             
                 <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2024/09/12/%E5%8D%8E%E4%B8%9C%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80%E5%88%9B%E4%B8%9A%E5%9B%A2%E9%98%9F/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">华东师范大学金融科技创业团队</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
                     
                     
                         <div class="article-next">
@@ -281,7 +732,7 @@
     <div class="post-toc">
         <div class="toc-title">Advertising space for rent ：)</div>
         <div class="page-title">Arweave</div>
-        
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Smart-Contract"><span class="nav-text">Smart Contract</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AE%B9"><span class="nav-text">内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#base-lua%EF%BC%883-functions%EF%BC%89"><span class="nav-text">base.lua（3 functions）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dataregistry-lua"><span class="nav-text">dataregistry.lua</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#noderegistry-lua"><span class="nav-text">noderegistry.lua</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tasks-lua"><span class="nav-text">tasks.lua</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E7%82%B9"><span class="nav-text">结点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE"><span class="nav-text">数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7"><span class="nav-text">用户</span></a></li></ol></li></ol>
 
     </div>
 </div>
