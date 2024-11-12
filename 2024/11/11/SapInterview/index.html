@@ -240,11 +240,11 @@
 </ul>
 </li>
 <li>结构型模式（Structural Patterns）：这些模式涉及对象的组合，以获得更大的结构。常见的结构型模式包括：<ul>
-<li>代理模式（Proxy）：为其他对象提供一种代理以控制对这个对象的访问。</li>
+<li>代理控制着对于原对象的访问， 并允许在将请求提交给对象前后进行一些处理。</li>
 </ul>
 </li>
 <li>行为型模式（Behavioral Patterns）：这些模式专注于对象间的通信。常见的行为型模式包括：<ul>
-<li>策略模式（Strategy）：定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换。</li>
+<li>备忘录模式是一种行为设计模式， 允许在不暴露对象实现细节的情况下保存和恢复对象之前的状态。</li>
 </ul>
 </li>
 </ul>
@@ -258,6 +258,37 @@
 <li>依赖倒转原则（DIP）：高层模块不依赖低层模块，而是依赖抽象。</li>
 <li>合成复用原则（CRP）：通过组合而非继承实现复用。</li>
 <li>迪米特法则（LoD）：减少对象之间的依赖，降低耦合度。</li>
+</ul>
+</li>
+<li><p>Go的面向对象方法：</p>
+<ul>
+<li>没有类（Class）： Go没有传统意义上的类（class），而是通过<strong>结构体（struct）</strong>来定义对象的属性。 结构体通过方法（method）为其提供行为。</li>
+<li>接口（Interface）： Go的接口是隐式实现的，一个类型只要实现了接口定义的方法，就自动实现了该接口，不需要显式声明。 这种特性使得Go具有很高的灵活性和可扩展性。</li>
+<li>封装： Go的封装通过<strong>大写字母（public）和小写字母（private）</strong>来控制字段和方法的可见性，而不是传统语言中的访问修饰符。</li>
+<li>组合而非继承： Go没有继承（inheritance）机制。取而代之的是组合（Composition），即通过将一个结构体嵌入到另一个结构体中，实现对象的复用。 Go通过结构体组合而非继承来实现代码重用，避免了传统OOP中的继承层次问题。</li>
+<li>多态： Go的多态通过接口实现，一个类型通过实现接口中的方法集来实现多态。接口方法的调用是动态的，类似于其他面向对象语言的多态实现。</li>
+</ul>
+</li>
+<li><p>其他传统面向对象语言（如Java、C++）的面向对象方法：</p>
+<ul>
+<li>类与对象： 传统的面向对象语言通过<strong>类（Class）</strong>来定义对象的蓝图，并通过类实例化对象。 类中包含字段（属性）和方法（行为），类是面向对象的核心概念。</li>
+<li>封装： 封装是面向对象的基本特性之一，通常通过访问控制修饰符（如public、private、protected等）来实现字段和方法的封装，控制对象的外部访问。</li>
+<li>继承： 继承是面向对象的重要特性，通过父类和子类的关系来实现代码复用和扩展。 子类可以继承父类的属性和方法，并可以重写父类的方法。</li>
+<li>多态： 多态在传统面向对象语言中通过类继承和接口实现。子类可以重写父类方法，或通过接口引用来动态决定对象的行为。</li>
+<li>接口与实现： 在传统面向对象语言中，接口是显式声明的，类型必须显式声明实现某个接口，并提供接口方法的实现。</li>
+</ul>
+</li>
+<li><p>方法重载和重写</p>
+<ul>
+<li>重写(Override)：是子类对父类允许方位的方法的实现过程进行重新编写，返回值和形参都不能改变。即外壳不变，核心重写。<ul>
+<li>假设有一个父类 Animal，它有一个方法 makeSound()，表示动物发出声音。子类 Dog 重写了 makeSound() 方法，实现了狗叫的声音。此时，Dog 类中的 makeSound() 方法和 Animal 类中的 makeSound() 方法具有相同的签名（方法名、参数列表、返回类型），但具体的实现逻辑不同。</li>
+</ul>
+</li>
+<li>重载(Overload)：是在一个类里面，方法名字相同，二参数不同。返回类型可以相同也可以不同，每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。<ul>
+<li>运算符重载、方法重载</li>
+<li>假设有一个类 Calculator，它有多个 add() 方法，用来计算不同类型的加法。一个 add() 方法接收两个整数，另一个 add() 方法接收两个浮点数，还有一个 add() 方法接收一个整数和一个浮点数。虽然方法名相同，但由于参数列表不同（参数类型或数量不同），这些方法构成了重载。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -407,10 +438,89 @@
 </li>
 <li><p>列存储适合高效的数据分析和聚合计算，但在频繁更新和事务型操作中表现不佳。</p>
 </li>
+<li><p>事物隔离级别<br><a class="link"   target="_blank" rel="noopener" href="https://xiaolincoding.com/os/4_process/pessim_and_optimi_lock.html" >https://xiaolincoding.com/os/4_process/pessim_and_optimi_lock.html <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</li>
+<li><p>B 树和 B+ 树的结构区别</p>
+<ul>
+<li>B 树：<ul>
+<li>每个节点都存储键值和数据指针（或数据记录）。</li>
+<li>内部节点和叶子节点都包含键值和数据，叶子节点之间无指针连接。</li>
+<li>查询时可以在非叶子节点中找到目标数据。</li>
+</ul>
+</li>
+<li>B+ 树：<ul>
+<li>所有数据都存储在叶子节点中，内部节点仅存储键值和指向子节点的指针，不直接存储数据。</li>
+<li>叶子节点之间按顺序双向链表连接，方便范围查询。</li>
+<li>查询时必须到叶子节点才能找到目标数据。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>B+ 树相对 B 树的优势</p>
+<ul>
+<li>查询效率更高：B+ 树的所有数据都在叶子节点上，每次查询必须从根节点到叶子节点，因此查询路径固定且较短，容易优化。</li>
+<li>范围查询效率高：B+ 树的叶子节点通过链表连接，可以顺序扫描，特别适合 MySQL 中的范围查询需求。</li>
+<li>更高的磁盘利用率：B+ 树的非叶节点不存储数据，仅存储键和指针，使得每个节点可以存储更多的键值，减少了树的高度，降低了磁盘 I&#x2F;O 次数。</li>
+<li>稳定的查找速度：由于所有数据都在叶子节点上，查找过程和路径长度一致，因此 B+ 树的查找速度较为稳定。</li>
+</ul>
+</li>
 </ul>
 <h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><ul>
-<li>进程 线程 调度<ul>
+<li><p>进程 线程 调度</p>
+<ul>
 <li><a class="link"   target="_blank" rel="noopener" href="https://xiaolincoding.com/os/4_process/process_base.html#%E8%BF%9B%E7%A8%8B" >https://xiaolincoding.com/os/4_process/process_base.html#%E8%BF%9B%E7%A8%8B <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+</ul>
+</li>
+<li><p>死锁的四个必要条件：</p>
+<ul>
+<li>互斥条件：一个资源只能被一个进程或线程占用。	</li>
+<li>非抢占条件：已分配给一个进程的资源，不能被其他进程强制抢占。</li>
+<li>占有并等待条件：一个进程或线程占有一个资源，并且等待其他进程的资源。</li>
+<li>循环等待条件：多个进程或线程之间形成环形等待链。</li>
+</ul>
+</li>
+<li><p>避免死锁的策略：</p>
+<ul>
+<li>破坏互斥条件：通过共享资源或者非互斥的方式来避免死锁。</li>
+<li>破坏非抢占条件：允许线程在等待其他资源时释放已占用的资源。</li>
+<li>破坏占有并等待条件：要求线程在申请资源时，必须一次性申请所有需要的资源。</li>
+<li>破坏循环等待条件：通过对资源申请顺序进行统一排列，避免环形等待。</li>
+</ul>
+</li>
+<li><p>死锁的预防和解决方法：</p>
+<ul>
+<li>资源分配策略：例如银行家算法，通过对进程资源的请求进行判断，确保系统始终处于一个安全状态。</li>
+<li>检测与恢复：定期检测系统中的死锁，若发生死锁，选择某个进程终止或者回滚来打破死锁。</li>
+<li>超时机制：让进程等待一段时间后，主动释放已获得的资源，避免死锁。</li>
+</ul>
+</li>
+<li><p>多线程编程的难点及解决方法：</p>
+<ul>
+<li>死锁：<ul>
+<li>问题：多个线程互相等待对方释放资源，导致程序卡住。</li>
+<li>解决方法：避免循环依赖资源，可以通过排序资源请求、使用超时机制等方式来避免死锁。</li>
+</ul>
+</li>
+<li>竞态条件、线程安全：<ul>
+<li>问题：多个线程并发访问共享数据并修改，可能导致数据不一致。</li>
+<li>解决方法：使用锁（如互斥锁 Mutex）、使用线程安全的数据结构（如 Go 的 sync.Mutex）、原子操作等，确保对共享资源的独占访问。</li>
+</ul>
+</li>
+<li>线程通信：<ul>
+<li>问题：线程之间如何有效传递信息，避免竞争条件。</li>
+<li>解决方法：使用线程间通信机制（如消息队列、信号量、Go 的 channel）确保数据的有序传递。</li>
+</ul>
+</li>
+<li>线程调度：<ul>
+<li>问题：过多的线程切换会导致性能下降。</li>
+<li>解决方法：合理设计线程池，减少不必要的线程创建与销毁，控制并发线程数量</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>锁</p>
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://xiaolincoding.com/os/4_process/pessim_and_optimi_lock.html" >https://xiaolincoding.com/os/4_process/pessim_and_optimi_lock.html <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
 </ul>
 </li>
 </ul>
@@ -524,6 +634,66 @@
 <li>探索性测试：根据经验随机测试软件，寻找潜在问题。</li>
 </ul>
 </li>
+<li><p>堆与栈对比</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>栈</th>
+<th>堆</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>存储内容</td>
+<td>局部变量、函数调用等</td>
+<td>动态分配的对象、数据结构</td>
+</tr>
+<tr>
+<td>内存管理方式</td>
+<td>静态分配，自动管理</td>
+<td>动态分配，程序员手动管理或垃圾回收</td>
+</tr>
+<tr>
+<td>分配速度</td>
+<td>快</td>
+<td>较慢</td>
+</tr>
+<tr>
+<td>生命周期</td>
+<td>自动管理，随函数的调用和返回</td>
+<td>手动管理，直到显式释放或垃圾回收</td>
+</tr>
+<tr>
+<td>内存限制</td>
+<td>较小，受操作系统限制</td>
+<td>较大，受系统总内存限制</td>
+</tr>
+<tr>
+<td>优缺点</td>
+<td>速度快，但内存有限</td>
+<td>灵活且能存储大数据，但管理复杂</td>
+</tr>
+</tbody></table>
+<ul>
+<li>总结：<ul>
+<li><p><strong>栈</strong>：</p>
+<ul>
+<li>用于存储局部变量和函数调用。</li>
+<li>内存分配快，自动管理，但空间较小，内存不能动态增长。</li>
+<li>适合用于存储生命周期明确、大小固定的数据。</li>
+</ul>
+</li>
+<li><p><strong>堆</strong>：</p>
+<ul>
+<li>用于动态分配内存，如对象和动态数据结构。</li>
+<li>内存分配较慢，且需要手动管理或依赖垃圾回收机制，但空间较大，能存储更多的数据。</li>
+<li>适合用于存储需要动态变化的对象或较大数据。</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><ul>
 <li>Node：<ul>
@@ -552,9 +722,79 @@
 </ul>
 </li>
 </ul>
-<h2 id="群面"><a href="#群面" class="headerlink" title="群面"></a>群面</h2><ul>
-<li>面包 </li>
-<li></li>
+<h3 id="开发方案"><a href="#开发方案" class="headerlink" title="开发方案"></a>开发方案</h3><ul>
+<li><p>开发方案：上下游之间的关系理清 代码结构（开发 测试 上线 流程）</p>
+</li>
+<li><p>技术评审：开会 可行性 消耗预估 耗时 QPS</p>
+</li>
+<li><p>开发阶段：</p>
+</li>
+<li><p>测试阶段：</p>
+<ul>
+<li>线下环境 BOE 完全隔离</li>
+<li>线上 小流量 POE</li>
+</ul>
+</li>
+<li><p>正常上线</p>
+<ul>
+<li>灰度上线 一部分流量走新上线 一部分原来  </li>
+<li>分机房 小流量上 看接口问题 swagger 日志 </li>
+<li>监控台 接口QPS cpu负载 接口耗时</li>
+</ul>
+</li>
+<li><p>不正常上线</p>
+<ul>
+<li>接口耗时过高 下游接口出问题 <ul>
+<li>数据库查询导致 要不要加缓存</li>
+</ul>
+</li>
+<li>CPU资源暴增 线程释放问题 	 </li>
+<li>版本回滚 git</li>
+</ul>
+</li>
+<li><p>文档和代码不一致</p>
+<ul>
+<li>加强定期交流协作  </li>
+<li>自动化文档生成工具</li>
+<li>确定文档为开发流程的一部分</li>
+<li>定期的审核和更新文档</li>
+</ul>
+</li>
+<li><p>主库和副库代码不一致问题</p>
+<ul>
+<li>直接读主库 服务器负载压力</li>
+<li>强制同步 再进行读 （举例子 数据重要程度 亏钱问题）</li>
+<li>通过锁来进行控制</li>
+</ul>
+</li>
+</ul>
+<h2 id="群面问题"><a href="#群面问题" class="headerlink" title="群面问题"></a>群面问题</h2><ul>
+<li><p>语言Go</p>
+<ul>
+<li>简单易学：语法简洁，开发效率高。</li>
+<li>高效并发：内置协程（goroutine）和通道（channel），适合高并发。</li>
+<li>编译快：编译速度快，生成小型可执行文件，便于部署。</li>
+<li>自动内存管理：垃圾回收（GC）机制，减少内存管理负担。</li>
+<li>强大标准库：丰富的标准库，便于网络和系统级开发。</li>
+<li>跨平台支持：编译后可直接在不同操作系统运行。</li>
+<li>类型安全：静态类型语言，增强代码安全性。</li>
+</ul>
+</li>
+<li><p>SAP 在区块链领域的主要贡献和工作集中在以下几个方面：</p>
+<ul>
+<li>区块链平台集成： SAP 提供了 SAP Cloud Platform Blockchain，允许企业通过云服务快速部署和管理区块链解决方案。这个平台支持多种区块链技术，包括 以太坊 和 Hyperledger 等。通过这一平台，企业可以在现有业务流程中整合区块链技术，如智能合约和去中心化应用（DApps）。</li>
+<li>智能合约和供应链管理： SAP 集成了 智能合约 功能，尤其是在供应链管理中，利用区块链提高透明度、减少欺诈，并确保交易的可靠性。例如，企业可以通过智能合约在区块链上自动执行合同条款，从而实现更高效的供应链操作。</li>
+<li>区块链即服务（BaaS）： SAP 提供了区块链即服务（Blockchain as a Service，BaaS），为企业提供一个快速、灵活的开发平台，使其能够创建和管理基于区块链的应用。这使得企业无需自己搭建区块链基础设施，即可轻松实现智能合约、数据共享和去中心化交易等功能</li>
+<li>与企业合作的实际应用： SAP 在一些实际的行业应用中，采用了区块链技术帮助企业优化业务流程。例如，食品溯源和跨境支付等场景，企业能够通过区块链提高透明度、简化流程，并减少交易成本。</li>
+<li>合作与联盟： SAP 也与多家区块链公司和技术合作伙伴合作，包括与 IBM（Hyperledger）和 以太坊 的合作。通过这些合作，SAP 能够将区块链技术融入其产品生态，并为企业提供多种选择。</li>
+</ul>
+</li>
+<li><p>特点</p>
+<ul>
+<li>sync.WaitGroup  控制 goroutine 的⽣命周期</li>
+<li>通道（channel）来通知 goroutine 退出</li>
+</ul>
+</li>
 </ul>
 
             </div>
@@ -614,7 +854,7 @@
     <div class="post-toc">
         <div class="toc-title">Advertising space for rent ：)</div>
         <div class="page-title">SapInterview</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D"><span class="nav-text">自我介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95"><span class="nav-text">技术面试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#oop"><span class="nav-text">oop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-text">操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C"><span class="nav-text">网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%82"><span class="nav-text">杂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80"><span class="nav-text">语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SAP"><span class="nav-text">SAP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%A4%E9%9D%A2"><span class="nav-text">群面</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D"><span class="nav-text">自我介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95"><span class="nav-text">技术面试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#oop"><span class="nav-text">oop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-text">操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C"><span class="nav-text">网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-text">算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%82"><span class="nav-text">杂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80"><span class="nav-text">语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SAP"><span class="nav-text">SAP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E6%96%B9%E6%A1%88"><span class="nav-text">开发方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%A4%E9%9D%A2%E9%97%AE%E9%A2%98"><span class="nav-text">群面问题</span></a></li></ol>
 
     </div>
 </div>
