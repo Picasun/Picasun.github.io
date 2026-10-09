@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Blog,Blockchain,Cryptography,Photography">
+    
+    
+    <meta name="author" content="Picasun">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes ASAP (before DOMContentLoaded)
+            (function() {
+                const addBodyClass = () => {
+                    const b = document.body;
+                    if (!b) return false;
+                    b.classList.add(theme + "-mode");
+                    return true;
+                };
+
+                // Try immediately
+                if (addBodyClass()) return;
+
+                // Observe until body exists
+                const mo = new MutationObserver(() => {
+                    if (addBodyClass()) mo.disconnect();
+                });
+                mo.observe(document.documentElement, { childList: true, subtree: true });
+            })();
+        })();
+    </script>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://picasun.github.io/2024/09/06/arweave/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+        
+        <meta name="description" content="Your youth will be infinitely revived by Picasun!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arweave">
+<meta property="og:url" content="https://picasun.github.io/2024/09/06/Arweave/index.html">
+<meta property="og:site_name" content="Picasun&#39;s Blog">
+<meta property="og:description" content="Your youth will be infinitely revived by Picasun!">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://picasun.github.io/images/avatar.jpg">
+<meta property="article:published_time" content="2024-09-06T05:09:09.000Z">
+<meta property="article:modified_time" content="2026-10-09T01:28:24.924Z">
+<meta property="article:author" content="Picasun">
+<meta property="article:tag" content="Blockchain">
+<meta property="article:tag" content="Blog">
+<meta property="article:tag" content="Cryptography">
+<meta property="article:tag" content="Photography">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picasun.github.io/images/avatar.jpg">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Arweave | Picasun&#39;s Blog
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"picasun.github.io","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/avatar.jpg","description":"Your youth will be infinitely revived by Picasun!"},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Picasun's Blog","subtitle":{"text":["Your youth will be infinitely revived by Picasun!"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":[{"icon":"fa-brands fa-github","url":null},{"icon":"fa-brands fa-twitter","url":null},{"icon":"fa-solid fa-at","url":"you@example.com"},{"icon":"fa-brands fa-telegram","url":null},{"icon":"/images/custom-icon.svg","url":null}],"qrs":[{"icon":"fa-brands fa-weixin","qr":null},{"icon":"/images/custom-icon.svg","qr":null}]}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1","theme":{"light":"default","dark":"dark"}}},"version":"2.9.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur","masonry":{"batch_size":12,"initial_batch_size":24}},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footer":{"runtime":true,"icon":"<i class=\"fa-solid fa-heart fa-beat\" style=\"--fa-animation-duration: 0.5s; color: #f54545\"></i>","start":"2022/8/17 11:45:14","statistics":true,"customize":null,"icp":{"enable":false,"number":null,"url":null}},"footerStart":"2022/8/17 11:45:14","mermaid":{"style":{"light":"default","dark":"dark"}}};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.i18n = {"search":"Search...","toc":"On this page","prev":"Prev","next":"Next","prev_posts":"Prev posts","next_posts":"Next posts","page":"Page %d","recent_posts":"Recent Posts","share":"Share","powered_by":"POWERED BY %s","theme":"THEME","rss_feed":"RSS Feed","category":"Category","categories":"Categories","tag":"Tag","tags":"Tags","post":"Post","posts":"Posts","tagcloud":"Tag Cloud","comment":"Comment","comments":"Comments","home":"Home","archive":"Archive","archives":"Archives","top":"TOP","sticky":"Sticky","go-back-home":"Go Back Home","masonry_loading":"Loading photos...","image_viewer":"Image viewer","close":"Close","exif":{"title":"EXIF","cards":{"camera":"Camera","lens":"Lens","exposure":"Exposure","other":"Other"},"fields":{"make":"Brand","model":"Model","date_taken":"Date taken","lens_model":"Lens","focal_length":"Focal length","focus_mode":"Focus mode","shutter":"Shutter","aperture":"Aperture","iso":"ISO","exposure_program":"Exposure program","exposure_compensation":"Exposure compensation","metering_mode":"Metering mode","flash":"Flash","white_balance":"White balance","latitude":"Latitude","longitude":"Longitude","altitude":"Altitude"},"status":{"loading":"Loading...","no_exif":"No EXIF available","library_missing":"EXIF library not loaded","image_source_missing":"Image source unavailable","unavailable":"EXIF unavailable (blocked by CORS or missing metadata)","flag_unavailable":"EXIF unavailable"}},"about":"About","changelog":"Changelog","links":"Links","link":"Link","friends":"Friends","friend":"Friend","timeline":"Timeline","shuoshuo":"Shuoshuo","bookmarks":"Bookmarks","site_uv":"VISITOR COUNT","site_pv":"TOTAL PAGE VIEWS","read_more":"Read more","wordcount":"Words","min2read":"Mins","status":"Status","runtime":"Blog up for","days":"days","hours":"hrs","minutes":"Min","seconds":"Sec","optimized_by":"and Optimized by Evan","rights":"All Rights Reserved","site_posts":"%s posts in total","site_wordcount":"%s words in total","copyright":{"author":"Author","title":"Title","link":"Link","create_time":"Created at","update_time":"Updated at","license_title":"License","license_content":"This work is licensed under %s.","all_rights_reserved":"All Rights Reserved &#169; %s","public_domain":"This work is in the public domain."},"ago":{"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"},"create_time":"Created","update_time":"Updated","expired":"This post is written %s days ago, and the content may not be up to date."};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Picasun&#39;s Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">35</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Arweave</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] shrink-0 rounded-medium border border-border-color p-px">
+				<img src="/images/avatar.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Picasun</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv4</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-09-06 13:09:09</span>
+        <span class="mobile">2024-09-06 13:09:09</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2026-10-09 09:28:24</span>
+            <span class="mobile">2026-10-09 09:28:24</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h1 id="Smart-Contract"><a href="#Smart-Contract" class="headerlink" title="Smart Contract"></a>Smart Contract</h1><h4 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h4><ul>
+<li>message<ul>
+<li>Id（这是消息中携带的数据标识符）</li>
+<li>Tags<ul>
+<li>DataId（用于标识与消息内容相关的数据）</li>
+<li>Price<ul>
+<li>price</li>
+<li>symbol</li>
+</ul>
+</li>
+<li>Name</li>
+<li>Error<ul>
+<li>userData</li>
+</ul>
+</li>
+<li>Datastatus </li>
+<li>Address</li>
+<li>Desc（相关描述）</li>
+<li>ComputeNodes</li>
+</ul>
+</li>
+<li>Data  </li>
+<li>From</li>
+<li>Timestamp</li>
+</ul>
+</li>
+</ul>
+<h4 id="base-lua（3-functions）"><a href="#base-lua（3-functions）" class="headerlink" title="base.lua（3 functions）"></a>base.lua（3 functions）</h4><ul>
+<li>DATA_PROCESS_ID <ul>
+<li>数据管理的节点ID（公钥）</li>
+</ul>
+</li>
+<li>NODE_PROCESS_ID <ul>
+<li>节点管理的节点ID（公钥）</li>
+</ul>
+</li>
+<li>需要写入PROCESS_DATA_ID和PROCESS_NODE_ID</li>
+<li>**findIndex(list, element) **<ul>
+<li>在list中找element的索引并返回</li>
+</ul>
+</li>
+<li>归一化响应<ul>
+<li>**sendErrorResponse(request, errorMessage) **</li>
+<li><strong>sendSuccessResponse(request, responseData)</strong><ul>
+<li>如在dataregistry中，检查 DataTag 是否存在<ul>
+<li>if message.Tags.DataTag &#x3D;&#x3D; nil then<br>     - sendErrorResponse(message, “DataTag is required”)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="dataregistry-lua"><a href="#dataregistry-lua" class="headerlink" title="dataregistry.lua"></a>dataregistry.lua</h4><ul>
+<li><p>初始化数据存储</p>
+<ul>
+<li>RegisteredData &#x3D; RegisteredData or {}  – 存储所有注册的数据</li>
+<li>AwaitingData &#x3D; AwaitingData or {}      – 存储待处理的数据</li>
+<li>SymbolList &#x3D; SymbolList or {}          – 存储支持的价格代币</li>
+</ul>
+</li>
+<li><p><strong>initializeDataRegistry()</strong></p>
+<ul>
+<li>在代币列表中加入AOCRED和war（原生or测试代币）</li>
+</ul>
+</li>
+<li><p><strong>isSymbolSupported(symbol)</strong></p>
+<ul>
+<li>检查代币是否被支持（是否在代币列表中）</li>
+</ul>
+</li>
+<li><p><strong>extractInitialKey(message)</strong></p>
+<ul>
+<li>获取消息的初始数据键</li>
+</ul>
+</li>
+<li><p><strong>extractExistingKey(message)</strong></p>
+<ul>
+<li>获取消息的现有数据键</li>
+</ul>
+</li>
+<li><p><strong>handlers</strong>⭐️</p>
+<ul>
+<li>“register”<ul>
+<li>需要检查tags是否齐全，以及Price标签的price 和symbol是否齐全  </li>
+<li>检查是否已经注册</li>
+<li>将数据添加到待处理数据中</li>
+<li>向ao发送请求以获取计算节点</li>
+</ul>
+</li>
+<li>“getComputeNodesSuccess”<ul>
+<li>处理获取计算节点成功的响应</li>
+</ul>
+</li>
+<li>“getComputeNodesError”<ul>
+<li>处理获取计算节点错误的响应</li>
+</ul>
+</li>
+<li>“getDataById”<ul>
+<li>处理按 ID 获取数据的请求</li>
+</ul>
+</li>
+<li>“delete”<ul>
+<li>处理删除数据的请求</li>
+</ul>
+</li>
+<li>“allData”<ul>
+<li>处理获取所有数据的请求 </li>
+<li>返回RegisteredData表</li>
+</ul>
+</li>
+<li>“deleteNodeNotice”（会在节点成功删除时被调用）<ul>
+<li>处理节点删除通知，流程如下：</li>
+<li>收到 “DeleteNodeNotice” 消息，获取被删除的节点名称。</li>
+<li>遍历所有已注册的数据，检查每个数据条目中是否与被删除节点有关联。</li>
+<li>如果某个条目与该节点相关联，则将该条目标记为无效。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="noderegistry-lua"><a href="#noderegistry-lua" class="headerlink" title="noderegistry.lua"></a>noderegistry.lua</h4><ul>
+<li>NODE_MANAGER &#x3D; NODE_MANAGER or ao.env.Process.Owner <ul>
+<li>节点管理（比如添加白名单操作就需要）</li>
+</ul>
+</li>
+<li>NodeList &#x3D; NodeList or {}<ul>
+<li>节点列表</li>
+</ul>
+</li>
+<li>Whitelist &#x3D; Whitelist or {}<ul>
+<li>白名单节点列表</li>
+</ul>
+</li>
+<li>CurrentNodeIndex &#x3D; CurrentNodeIndex or 0<ul>
+<li>节点索引列表</li>
+</ul>
+</li>
+<li><strong>extractNodeKey(msg)</strong><ul>
+<li>获取节点的键 返回tags.name</li>
+</ul>
+</li>
+<li><strong>handlers</strong>⭐️<ul>
+<li>“addWhitelistEntry”<ul>
+<li>处理添加白名单请求，流程如下： </li>
+<li>验证消息中是否包含地址字段。</li>
+<li>确认请求来源是否是 NODE_MANAGER。</li>
+<li>检查地址是否已存在于白名单中。</li>
+<li>将地址添加到白名单（如果地址是新的）。</li>
+<li>向消息发送者发送相应的成功或错误反馈。</li>
+</ul>
+</li>
+<li>“retrieveWhitelist”<ul>
+<li>处理获取白名单请求</li>
+</ul>
+</li>
+<li>“removeWhitelistEntry” <ul>
+<li>处理移除白名单请求</li>
+</ul>
+</li>
+<li>“registerNode”<ul>
+<li>处理节点注册请求</li>
+</ul>
+</li>
+<li>“updateNode”<ul>
+<li>处理节点更新请求</li>
+</ul>
+</li>
+<li>“deleteNode”<ul>
+<li>处理节点删除请求</li>
+</ul>
+</li>
+<li>“listNodes”<ul>
+<li>处理获取所有节点请求</li>
+</ul>
+</li>
+<li>“fetchNodeByName”<ul>
+<li>处理根据名称获取节点请求</li>
+</ul>
+</li>
+<li>“retrieveComputeNodes”<ul>
+<li>处理获取计算节点请求</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="tasks-lua"><a href="#tasks-lua" class="headerlink" title="tasks.lua"></a>tasks.lua</h4><p>– 初始化 Token 处理 ID 表，如果已经存在则保留原有值<br>TOKEN_PROCESS_ID &#x3D; TOKEN_PROCESS_ID or {}<br>代币-合约地址</p>
+<p>– 初始化计算价格表，如果已经存在则保留原有值<br>COMPUTATION_PRICE &#x3D; COMPUTATION_PRICE or {}</p>
+<p>– 设置报告超时时间，如果没有设置则默认为 60 秒<br>REPORT_TIMEOUT &#x3D; REPORT_TIMEOUT or 60 * 1000  – 超时时间单位为毫秒</p>
+<p>– 初始化已完成任务的表，如果已经存在则保留原有值<br>CompletedTasks &#x3D; CompletedTasks or {}</p>
+<p>– 初始化待处理任务的表，如果已经存在则保留原有值<br>PendingTasks &#x3D; PendingTasks or {}</p>
+<p>– 初始化自由余额的表，如果已经存在则保留原有值<br>FreeAllowances &#x3D; FreeAllowances or {}</p>
+<p>– 初始化锁定余额的表，如果已经存在则保留原有值<br>LockedAllowances &#x3D; LockedAllowances or {}</p>
+<p>– 初始化信用通知表，如果已经存在则保留原有值<br>CreditNotice &#x3D; CreditNotice or {}</p>
+<p>– 初始化借记通知表，如果已经存在则保留原有值<br>DebitNotice &#x3D; DebitNotice or {}</p>
+<p>– 初始化转账错误通知表，如果已经存在则保留原有值<br>TransferErrorNotice &#x3D; TransferErrorNotice or {}</p>
+<ul>
+<li><p><strong>initializeJobEnvironment</strong></p>
+<ul>
+<li>初始化任务环境，针对aocred 和 war两个代币 </li>
+<li>设置计算成本</li>
+</ul>
+</li>
+<li><p><strong>findPriceSymbolByProcessId(processId)</strong></p>
+<ul>
+<li>根据代币合约ID返回代币</li>
+</ul>
+</li>
+<li><p><strong>getTokenProcessId(priceSymbol)</strong></p>
+<ul>
+<li>根据代币返回合约地址</li>
+</ul>
+</li>
+<li><p><strong>getInitialTaskKey(message)</strong></p>
+<ul>
+<li>获取消息的id</li>
+</ul>
+</li>
+<li><p><strong>getExistingTaskKey(message)</strong></p>
+<ul>
+<li>获取消息中相关数据的id</li>
+</ul>
+</li>
+<li><p><strong>getAllowanceKey(address, priceSymbol)</strong></p>
+<ul>
+<li>生成一个唯一的键值，格式为 “address:priceSymbol”</li>
+</ul>
+</li>
+<li><p><strong>getTaskList(tasks)</strong></p>
+<ul>
+<li>将任务表转换为一个新的任务列表</li>
+</ul>
+</li>
+<li><p><strong>calculateRequiredTokens(computeNodeCount, dataPrice, priceSymbol)</strong></p>
+<ul>
+<li>计算所需的代币数量</li>
+</ul>
+</li>
+<li><p><strong>checkReportTimeout(now)</strong>？？？？？？</p>
+<ul>
+<li>检查挂起任务的超时状态</li>
+<li>如果超时且报告次数达到阈值，完成任务</li>
+</ul>
+</li>
+<li><p><strong>handlers</strong></p>
+<ul>
+<li>“computationPrice”<ul>
+<li>返回代币计算价格</li>
+</ul>
+</li>
+<li>“reportTimeout”<ul>
+<li>超时响应</li>
+</ul>
+</li>
+<li>“CheckReportTimeout”<ul>
+<li>检察任务超时情况   调用（checkReportTimeout(now)）</li>
+</ul>
+</li>
+<li>“creditNotice”<ul>
+<li>从消息中获取信息：获取价格符号、发件人地址和通知中的数量。</li>
+<li>记录信用通知：创建一个包含数量、时间戳和价格符号的信用通知对象，并将其添加到 CreditNotice 表中，以发件人地址为键。</li>
+<li>更新自由余额：根据通知中的数量，更新 FreeAllowances 表中相应的自由余额。</li>
+</ul>
+</li>
+<li>“debitNotice”<ul>
+<li>从消息中提取信息：获取价格符号、接收者地址和通知中的数量。</li>
+<li>记录借记通知：创建一个包含数量、时间戳和价格符号的借记通知对象，并将其添加到 DebitNotice 表中，以接收者地址为键。</li>
+</ul>
+</li>
+<li>“Notice”<ul>
+<li>确定目标地址：从消息中获取目标地址。如果消息中指定了地址，则使用该地址，否则使用消息中的 From 字段。</li>
+<li>收集通知信息：从 CreditNotice 和 DebitNotice 表中获取与目标地址相关的借记和贷记通知。</li>
+<li>回复消息：将收集到的通知信息作为响应发送回去。</li>
+</ul>
+</li>
+<li>“transferError”<ul>
+<li>往TransferErrorNotice插入信息</li>
+</ul>
+</li>
+<li>“allowance”<ul>
+<li>根据请求的 PriceSymbol 返回指定用户的自由余额和锁定余额</li>
+</ul>
+</li>
+<li>“withdraw”<ul>
+<li>它处理提现请求，检查余额并执行相应的转账操作</li>
+</ul>
+</li>
+<li>“submit”<ul>
+<li>处理任务提交请求，验证必要参数，初始化任务记录，发送相关请求以获取计算节点和数据，并检查任务是否超时</li>
+</ul>
+</li>
+<li>“getComputeNodesSuccess”<ul>
+<li>处理计算节点成功返回后的逻辑，更新任务的状态，检查代币余额是否足够，并相应地更新任务状态和回复消息。</li>
+</ul>
+</li>
+<li>“getPendingTasks”<ul>
+<li>获取所有待处理任务</li>
+</ul>
+</li>
+<li>“getCompletedTaskById”<ul>
+<li>通过ID获得已经完成的任务</li>
+</ul>
+</li>
+<li>“reportResult”<ul>
+<li>处理计算节点提交的结果报告，验证节点信息和数据，并在所有节点都报告后完成任务。</li>
+</ul>
+</li>
+<li>“getCompletedTasks”<ul>
+<li>获取所有已经完成的任务</li>
+</ul>
+</li>
+<li>“getAllTasks”<ul>
+<li>获取所有的任务</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>completeTask(taskKey)</strong></p>
+<ul>
+<li>完成了任务处理，执行了代币的转账，并在任务完成后更新相关的任务状态和代币信息。</li>
+</ul>
+</li>
+<li><p>server</p>
+<ul>
+<li><p>aos padodata1</p>
+</li>
+<li><p>aos padonode1</p>
+</li>
+<li><p>aos padotask1 </p>
+</li>
+<li><p>padouser1</p>
+</li>
+<li><p>aos pado_usr1</p>
+</li>
+</ul>
+</li>
+<li><p>aos 节点</p>
+</li>
+<li><p>padodata1：FioTCXlbEHJjSwfUsb5VR66KsB2LWxWaLrb18Da5ij4</p>
+</li>
+<li><p>padadata2 : tyZVsDZ1BEDJ_55UwrqG33xq68-oeLff5SkCFxyTz24</p>
+</li>
+<li><p>padonote1：1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-lC81oBb0</p>
+</li>
+<li><p>padouser1：lAo8AB8xHHIiR1JQkuTMvxzzy9D5ncehgBgrdjpYUhg</p>
+</li>
+<li><p>pado_usr1：LaD0rlPDLQXUhSQF55cdsXNJkZqJXWxg-MNlzgyvxQo</p>
+</li>
+<li><p>pado_usr2：pcK4jkHyJuOx6pAxc2xOB8YUHLgjD4QLM408JcfGUb4</p>
+</li>
+</ul>
+<h2 id="结点"><a href="#结点" class="headerlink" title="结点"></a>结点</h2><p>Data就是公钥</p>
+<ul>
+<li><p>获取白名单（）</p>
+<ul>
+<li>Send({Target&#x3D;”1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-    lC81oBb0”,Action&#x3D;”GetWhiteList”})</li>
+<li>返回到msg.data</li>
+</ul>
+</li>
+<li><p>添加白名单</p>
+<ul>
+<li>Send({Target&#x3D;”1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-lC81oBb0”,Action&#x3D;”AddWhiteList”,Tags&#x3D;{Address&#x3D;”LaD0rlPDLQXUhSQF55cdsXNJkZqJXWxg-MNlzgyvxQo”}})</li>
+<li>需要Target Action Tags.Address</li>
+</ul>
+</li>
+<li><p>注册节点</p>
+<ul>
+<li>Send({Action&#x3D;”Register”,Target&#x3D;”1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-lC81oBb0”,Data&#x3D;”LaD0rlPDLQXUhSQF55cdsXNJkZqJXWxg-MNlzgyvxQo”,Tags&#x3D;{Name&#x3D;”Usr1”,Desc&#x3D;”i m test”}})</li>
+<li>要在白名单内 数据是公钥 Tag要有Name（就是NodeKey）和Desc </li>
+<li>需要Action Target Data Tags.Name Tags.Desc</li>
+</ul>
+</li>
+<li><p>更新节点</p>
+<ul>
+<li>Send({Action&#x3D;”Update”,Target&#x3D;”1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-lC81oBb0”,Data&#x3D;”LaD0rlPDLQXUhSQF55cdsXNJkZqJXWxg-MNlzgyvxQo”,Tags&#x3D;{Name&#x3D;”Usr1”,Desc&#x3D;”i m test new new new”}})</li>
+<li>只能更新Desc部分，</li>
+<li>需要Action Target Tags.Name 新的Tags.Desc</li>
+</ul>
+</li>
+<li><p>删除节点</p>
+<ul>
+<li>Send({Action&#x3D;”Delete”,Target&#x3D;”1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-lC81oBb0”,Tags&#x3D;{Name&#x3D;”Usr2222”}})</li>
+<li>需要Action Target Tags.Name</li>
+</ul>
+</li>
+<li><p>获取节点所有数据</p>
+<ul>
+<li>Send({Action&#x3D;”Nodes”,Target&#x3D;”1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-lC81oBb0”})</li>
+<li>需要Target Action 返回的就是Nodes合约环境下的Nodes所有参数</li>
+<li>返回值为JSON 要从Inbox[#Inbox].Data</li>
+</ul>
+</li>
+<li><p>通过Tags.name获得节点数据</p>
+<ul>
+<li>Send({Action&#x3D;”GetNodeByName”,Target&#x3D;”1U1Kn214JNRc96C93ASKzVbhpc0HbxMvFv-lC81oBb0”,Tags&#x3D;{Name&#x3D;”Usr2222”}})</li>
+<li>需要Action Target Tags.Name</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><ul>
+<li>全局变量( x k n l nc nk )<ul>
+<li>Send({Action&#x3D;”Addx”,Target&#x3D;”tyZVsDZ1BEDJ_55UwrqG33xq68-oeLff5SkCFxyTz24”,Tags&#x3D;{Name&#x3D;”X”,Desc&#x3D;”7”}})</li>
+<li>此时nc nk k n都会赋值好</li>
+</ul>
+</li>
+<li>数据注册<ul>
+<li>Send({Action&#x3D;”Register”,Target&#x3D;”tyZVsDZ1BEDJ_55UwrqG33xq68-oeLff5SkCFxyTz24”,Tags&#x3D;{Name&#x3D;”like”,Desc&#x3D;”syww”}})</li>
+<li>Name放数据的名称 </li>
+<li>Desc放数据的值</li>
+</ul>
+</li>
+</ul>
+<h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><ul>
+<li>注册<ul>
+<li><pre><code>Send({Action=&quot;Register&quot;,Target=&quot;lAo8AB8xHHIiR1JQkuTMvxzzy9D5ncehgBgrdjpYUhg&quot;,Data=&quot;Xiechenxiang_PK&quot;,Tags={Name=&quot;szqq&quot;,Desc=&quot;woshishabi&quot;}})
+</code></pre>
+</li>
+<li>Data放公钥 名字就是用户名 Desc放属性集</li>
+</ul>
+</li>
+<li>获得全部人员信息<ul>
+<li>Send({Action&#x3D;”Users”,Target&#x3D;”lAo8AB8xHHIiR1JQkuTMvxzzy9D5ncehgBgrdjpYUhg”})</li>
+</ul>
+</li>
+<li>通过Index获得人员信息<ul>
+<li>Send({Action&#x3D;”GetUserByIndex”,Target&#x3D;”lAo8AB8xHHIiR1JQkuTMvxzzy9D5ncehgBgrdjpYUhg”,Tags&#x3D;{Index&#x3D;”1”}})</li>
+</ul>
+</li>
+<li>通过Name获得人员信息<ul>
+<li>Send({Action&#x3D;”GetUserByName”,Target&#x3D;”lAo8AB8xHHIiR1JQkuTMvxzzy9D5ncehgBgrdjpYUhg”,Tags&#x3D;{Name&#x3D;”yanghao”}})</li>
+</ul>
+</li>
+</ul>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> Arweave</li>
+        <li><strong>Author:</strong> Picasun</li>
+        <li><strong>Created at
+                :</strong> 2024-09-06 13:09:09</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2026-10-09 09:28:24
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://picasun.github.io/2024/09/06/Arweave/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2024/09/12/Recruit/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">华东师范大学金融科技创业团队招人</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2024/07/31/MEV/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">MEV</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.js';
+
+      (function() {
+        const startPath = location.pathname;
+        const startTime = Date.now();
+        const retryDelay = 200;
+        const retryLimit = 5000;
+
+        const runWaline = () => {
+          if (location.pathname !== startPath) {
+            return;
+          }
+
+          const container = document.getElementById('waline');
+          if (!container) {
+            if (Date.now() - startTime < retryLimit) {
+              setTimeout(runWaline, retryDelay);
+            }
+            return;
+          }
+
+          if (window.redefineWalineInstance?.destroy) {
+            window.redefineWalineInstance.destroy();
+          }
+
+          container.innerHTML = '';
+          window.redefineWalineInstance = init({
+            el: '#waline',
+            serverURL: 'https://example.example.com',
+            path: location.pathname,
+            dark: 'body[class~="dark-mode"]',
+            reaction: false,
+            requiredMeta: ['nick', 'mail'],
+            emoji: [],
+                      lang: 'zh-CN',
+          });
+        };
+
+        runWaline();
+      })();
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">Arweave</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Smart-Contract"><span class="nav-text">Smart Contract</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E7%82%B9"><span class="nav-text">结点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE"><span class="nav-text">数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7"><span class="nav-text">用户</span></a></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2026&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Picasun</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        35 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.9.0</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container" role="dialog" aria-modal="true" aria-label="Image viewer">
+	<button class="image-viewer-close" type="button" aria-label="Close">
+		<i class="fa-solid fa-xmark"></i>
+	</button>
+	<button class="image-viewer-prev" type="button" aria-label="Prev">
+		<i class="fa-solid fa-chevron-left"></i>
+	</button>
+	<div class="image-viewer-frame">
+		<img src="" alt="">
+	</div>
+	<div class="image-viewer-exif-panel hidden absolute left-1/2 bottom-20 -translate-x-1/2 w-[min(92vw,420px)] max-h-[60vh] overflow-hidden rounded-2xl bg-background-color-transparent-80 p-4 text-left shadow-redefine-flat backdrop-blur-md" role="dialog" aria-label="EXIF" aria-hidden="true">
+		<div class="flex items-center justify-between mb-3">
+			<span class="text-sm font-semibold text-first-text-color">EXIF</span>
+			<button class="image-viewer-exif-close flex h-8 w-8 items-center justify-center rounded-full bg-background-color-transparent-80 text-first-text-color transition hover:bg-background-color-transparent-40" type="button" aria-label="Close">
+				<i class="fa-solid fa-xmark text-[0.65rem]"></i>
+			</button>
+		</div>
+		<div class="image-viewer-exif-cards grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto pr-1 scrollbar-hide"></div>
+		<template class="image-viewer-exif-card-template">
+			<div class="rounded-lg bg-background-color-transparent-40 px-3 py-2">
+				<div class="image-viewer-exif-card-header flex items-center gap-2 mb-1">
+					<i class="image-viewer-exif-card-icon fa-solid fa-circle-info text-xs text-third-text-color"></i>
+					<div class="image-viewer-exif-card-title text-xs font-semibold text-first-text-color"></div>
+				</div>
+				<div class="image-viewer-exif-card-items flex flex-col gap-1"></div>
+			</div>
+		</template>
+	</div>
+	<button class="image-viewer-exif-toggle flex items-center gap-2 hidden absolute left-1/2 bottom-6 -translate-x-1/2 rounded-full border border-border-color bg-background-color-transparent-80 px-4 py-2 text-first-text-color backdrop-blur-md transition hover:bg-background-color-transparent-40" type="button" aria-label="EXIF" aria-expanded="false">
+		<i class="fa-solid fa-circle-info text-xs"></i>
+		<span class="text-xs font-semibold uppercase tracking-wider">EXIF</span>
+	</button>
+	<button class="image-viewer-next" type="button" aria-label="Next">
+		<i class="fa-solid fa-chevron-right"></i>
+	</button>
+</div>
+
+
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    window.swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+
+    window.dispatchEvent(
+        new CustomEvent("redefine:swup:ready", {
+            detail: {
+                swup: window.swup,
+            },
+        }),
+    );
+</script>
+
+
+
+
+	
+<script src="/js/build/main.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+
+	
+</body>
+
+</html>

@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Blog,Blockchain,Cryptography,Photography">
+    
+    
+    <meta name="author" content="Picasun">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes ASAP (before DOMContentLoaded)
+            (function() {
+                const addBodyClass = () => {
+                    const b = document.body;
+                    if (!b) return false;
+                    b.classList.add(theme + "-mode");
+                    return true;
+                };
+
+                // Try immediately
+                if (addBodyClass()) return;
+
+                // Observe until body exists
+                const mo = new MutationObserver(() => {
+                    if (addBodyClass()) mo.disconnect();
+                });
+                mo.observe(document.documentElement, { childList: true, subtree: true });
+            })();
+        })();
+    </script>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://picasun.github.io/2024/05/06/quantization/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+        
+        <meta name="description" content="Your youth will be infinitely revived by Picasun!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quantization">
+<meta property="og:url" content="https://picasun.github.io/2024/05/06/Quantization/index.html">
+<meta property="og:site_name" content="Picasun&#39;s Blog">
+<meta property="og:description" content="Your youth will be infinitely revived by Picasun!">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://picasun.github.io/images/avatar.jpg">
+<meta property="article:published_time" content="2024-05-06T11:39:47.000Z">
+<meta property="article:modified_time" content="2026-10-09T01:28:25.092Z">
+<meta property="article:author" content="Picasun">
+<meta property="article:tag" content="BlockChain">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picasun.github.io/images/avatar.jpg">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Quantization | Picasun&#39;s Blog
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"picasun.github.io","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/avatar.jpg","description":"Your youth will be infinitely revived by Picasun!"},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Picasun's Blog","subtitle":{"text":["Your youth will be infinitely revived by Picasun!"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":[{"icon":"fa-brands fa-github","url":null},{"icon":"fa-brands fa-twitter","url":null},{"icon":"fa-solid fa-at","url":"you@example.com"},{"icon":"fa-brands fa-telegram","url":null},{"icon":"/images/custom-icon.svg","url":null}],"qrs":[{"icon":"fa-brands fa-weixin","qr":null},{"icon":"/images/custom-icon.svg","qr":null}]}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1","theme":{"light":"default","dark":"dark"}}},"version":"2.9.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur","masonry":{"batch_size":12,"initial_batch_size":24}},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footer":{"runtime":true,"icon":"<i class=\"fa-solid fa-heart fa-beat\" style=\"--fa-animation-duration: 0.5s; color: #f54545\"></i>","start":"2022/8/17 11:45:14","statistics":true,"customize":null,"icp":{"enable":false,"number":null,"url":null}},"footerStart":"2022/8/17 11:45:14","mermaid":{"style":{"light":"default","dark":"dark"}}};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.i18n = {"search":"Search...","toc":"On this page","prev":"Prev","next":"Next","prev_posts":"Prev posts","next_posts":"Next posts","page":"Page %d","recent_posts":"Recent Posts","share":"Share","powered_by":"POWERED BY %s","theme":"THEME","rss_feed":"RSS Feed","category":"Category","categories":"Categories","tag":"Tag","tags":"Tags","post":"Post","posts":"Posts","tagcloud":"Tag Cloud","comment":"Comment","comments":"Comments","home":"Home","archive":"Archive","archives":"Archives","top":"TOP","sticky":"Sticky","go-back-home":"Go Back Home","masonry_loading":"Loading photos...","image_viewer":"Image viewer","close":"Close","exif":{"title":"EXIF","cards":{"camera":"Camera","lens":"Lens","exposure":"Exposure","other":"Other"},"fields":{"make":"Brand","model":"Model","date_taken":"Date taken","lens_model":"Lens","focal_length":"Focal length","focus_mode":"Focus mode","shutter":"Shutter","aperture":"Aperture","iso":"ISO","exposure_program":"Exposure program","exposure_compensation":"Exposure compensation","metering_mode":"Metering mode","flash":"Flash","white_balance":"White balance","latitude":"Latitude","longitude":"Longitude","altitude":"Altitude"},"status":{"loading":"Loading...","no_exif":"No EXIF available","library_missing":"EXIF library not loaded","image_source_missing":"Image source unavailable","unavailable":"EXIF unavailable (blocked by CORS or missing metadata)","flag_unavailable":"EXIF unavailable"}},"about":"About","changelog":"Changelog","links":"Links","link":"Link","friends":"Friends","friend":"Friend","timeline":"Timeline","shuoshuo":"Shuoshuo","bookmarks":"Bookmarks","site_uv":"VISITOR COUNT","site_pv":"TOTAL PAGE VIEWS","read_more":"Read more","wordcount":"Words","min2read":"Mins","status":"Status","runtime":"Blog up for","days":"days","hours":"hrs","minutes":"Min","seconds":"Sec","optimized_by":"and Optimized by Evan","rights":"All Rights Reserved","site_posts":"%s posts in total","site_wordcount":"%s words in total","copyright":{"author":"Author","title":"Title","link":"Link","create_time":"Created at","update_time":"Updated at","license_title":"License","license_content":"This work is licensed under %s.","all_rights_reserved":"All Rights Reserved &#169; %s","public_domain":"This work is in the public domain."},"ago":{"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"},"create_time":"Created","update_time":"Updated","expired":"This post is written %s days ago, and the content may not be up to date."};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Picasun&#39;s Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">35</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Quantization</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] shrink-0 rounded-medium border border-border-color p-px">
+				<img src="/images/avatar.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Picasun</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv4</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-05-06 19:39:47</span>
+        <span class="mobile">2024-05-06 19:39:47</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2026-10-09 09:28:25</span>
+            <span class="mobile">2026-10-09 09:28:25</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/BlockChain/">BlockChain</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="Keywords"><a href="#Keywords" class="headerlink" title="Keywords"></a>Keywords</h2><ul>
+<li><p>做空（Short sale）</p>
+<ul>
+<li>做空是指投资者预期某个资产（比如股票、商品或货币）的价格将下跌，因此采取卖出该资产的操作，以在价格下跌后再买入以获利。做空的投资者借入资产，将其卖出，然后在价格下跌后再购回资产归还借出者，从而获利差价。</li>
+<li>盈利有限，亏损无穷</li>
+</ul>
+</li>
+<li><p>做多（Going Long）</p>
+<ul>
+<li>做多是指投资者预期某个资产的价格将上涨，因此采取买入该资产的操作。投资者购买资产后，如果价格上涨，他们可以在未来以更高的价格卖出，从而获利。</li>
+<li>亏损有限，盈利无穷</li>
+</ul>
+</li>
+<li><p>浑水（Muddy Waters Research）</p>
+<ul>
+<li>“浑水”通常是指一个投资研究机构，它以揭示上市公司的财务不端和操纵为其特点。该机构以其公开披露有关公司不当行为和财务漏洞的报告而闻名，这些报告通常会导致被指控公司股价下跌。浑水研究使用深入的调查和分析，寻找潜在的问题，并通过发布研究报告向公众披露。他们的报告通常引起市场的关注，引发投资者对涉及公司的担忧，从而导致股价下跌。当人们提到”浑水”时，他们通常是指这个投资研究机构，以及他们揭示的关于某些公司的财务问题和风险。</li>
+</ul>
+</li>
+<li><p>泡沫（Bubble）</p>
+<ul>
+<li>某种资产或市场价格远高于其真实价值的状态，这种高估往往是暂时的，并可能在未来发生猛烈的下跌或崩溃。</li>
+</ul>
+</li>
+<li><p>杠杆（Leverage）</p>
+<ul>
+<li>是指借用资金进行投资或经营活动的行为，以期望通过资本的增值来获取更高的回报。杠杆可以增加投资的潜在回报率，但也伴随着更高的风险和潜在损失。</li>
+</ul>
+</li>
+<li><p>头寸（Position）</p>
+<ul>
+<li>指的是投资者或交易者在某种金融资产（如股票、外汇、期货合约等）上持有的数量或交易方向。头寸可以分为两种主要类型：<ul>
+<li>多头头寸（Long Position）：多头头寸是指投资者预期资产价格上涨，因此购买该资产或者买入相关合约。持有多头头寸的投资者期望资产价格上升，以便在未来以更高的价格出售或平仓，从而获利。</li>
+<li>空头头寸（Short Position）：空头头寸是指投资者预期资产价格下跌，因此卖空该资产或者卖出相关合约。持有空头头寸的投资者期望资产价格下降，以便在未来以更低的价格买回或平仓，从而获利。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>空投（Airdrop）</p>
+<ul>
+<li>是指在加密货币领域中，项目方向现有持有特定数字货币的用户免费分发或发送新的代币或加密货币的过程。空投通常是项目方为了促进代币的传播、社区建设或宣传而采取的一种营销策略。</li>
+</ul>
+</li>
+<li><p>量化（Quantitative）</p>
+<ul>
+<li>是指使用数学、统计学和计算机科学等定量方法来进行金融分析、投资决策和交易的一种方法。量化金融（Quantitative Finance）是指运用定量技术和数学模型来分析和管理金融市场风险、进行交易和投资的领域。</li>
+</ul>
+</li>
+<li><p>现货（Spot）</p>
+<ul>
+<li>定义：现货是指实际上即时交付和结算的资产，交易的标的物是实物或实际货币，交易发生的时间点和价格是在交易执行后不久确定的。</li>
+<li>特点：现货交易发生在当前时间点，按照当前市场价格进行交易，买卖双方在交易后需要履行实际交割（或转移资产所有权）的义务。示例：在数字货币领域，比特币、以太坊等数字资产的直接买卖交易即为现货交易。买方支付现金或其他货币，卖方将数字资产转移给买方。</li>
+</ul>
+</li>
+<li><p>永续合约（Perpetual Contract）</p>
+<ul>
+<li>定义：永续合约是一种无限期的衍生品合约，类似于期货合约，但没有固定的交割日期。它旨在模拟现货市场的交易体验，但不涉及实际资产的交付和转移。</li>
+<li>特点：永续合约的价格与标的资产的价格保持紧密关联，通常采用资金费率来调整合约价格，以防止合约价格与标的资产价格出现较大偏差。</li>
+<li>交易方式：永续合约可以被看作是一种衍生品，允许交易者通过做多（买入）或做空（卖出）的方式参与价格波动，而无需实际持有或交割标的资产。</li>
+<li>杠杆交易：永续合约通常支持杠杆交易，允许交易者用较少的资金控制更大的头寸，从而放大盈利或亏损的潜力。</li>
+</ul>
+</li>
+<li><p>换手率（Turnover Rate）</p>
+<ul>
+<li>是指某一资产在特定时间段内的交易量与总流通股数（或总流通量）的比率，通常用来衡量资产的流动性和交易活跃程度。换手率可以用百分比表示，是一个重要的市场指标，反映了市场上资产的交易活跃程度和投资者对该资产的交易兴趣。</li>
+</ul>
+</li>
+<li><p>现货（Spot）</p>
+<ul>
+<li>指立即交易和交割实际资产或商品的交易方式。在现货交易中，买方和卖方立即交换资产和款项。<strong>现货交易量大的会上合约、多头的币的数量一定要多</strong></li>
+</ul>
+</li>
+<li><p>合约（Futures）</p>
+<ul>
+<li>指按照预定的条件和价格在未来某个特定时间交割或结算的金融衍生品。合约允许投资者在未来对某个资产进行买入或卖出。</li>
+</ul>
+</li>
+<li><p>爆仓（Liquidation）</p>
+<ul>
+<li>指投资者或交易者因为资金不足而被强制平仓或清算其持有的头寸，以弥补亏损或还清债务的过程。爆仓通常发生在使用杠杆交易或借入资金的情况下，当市场价格朝着不利于持仓方向变动时，会导致账户资金不足以满足保证金要求，从而触发强制平仓。</li>
+</ul>
+</li>
+<li><p>平仓（Closing a Position）</p>
+<ul>
+<li>是指交易者了结持仓的交易行为，了结的方式是针对持仓方向作相反的对冲买卖。 期货交易中的平仓相当于股票交易中的卖出。</li>
+</ul>
+</li>
+<li><p>换仓</p>
+<ul>
+<li>是指在金融交易中调整已有的投资头寸或资产配置，以适应市场变化或实现特定的投资策略。换仓涉及卖出一种或多种资产，并用这些资金购买另一种或多种资产，从而改变投资组合的构成和权重分配。</li>
+</ul>
+</li>
+<li><p>开仓</p>
+<ul>
+<li>是指投资者或交易者开始建立新的交易头寸，买入或卖出某种资产或金融工具，以期望从市场走势中获得盈利。</li>
+</ul>
+</li>
+<li><p>横盘震荡</p>
+<ul>
+<li>是指市场价格在一定时间内在相对窄的范围内波动，形成水平或近似水平的价格区间，而没有明显的趋势方向。这种行情特点通常表现为价格在支撑线和阻力线之间来回振荡，没有明显的上升或下降趋势。</li>
+</ul>
+</li>
+<li><p>滑点（Slippage）</p>
+<ul>
+<li>是指交易执行时实际成交价格与预期价格之间的差异或偏移。在市场波动或流动性较低时，交易执行可能会出现滑点，导致成交价格与预期价格不同。</li>
+<li>亏钱：市场震荡</li>
+<li>赚钱：套利机器人</li>
+<li>滑点的原因：</li>
+</ul>
+</li>
+</ul>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">市场波动性： 当市场波动剧烈或交易量较低时，订单可能无法以期望的价格立即成交，从而导致滑点。</span><br><span class="line">流动性问题： 在流动性不足的市场或交易时段，买卖盘口的差距较大，执行订单可能受到影响。</span><br><span class="line">订单大小： 较大的订单可能需要分批成交，因此可能会导致部分订单以不同于预期价格的价格成交。</span><br><span class="line">执行速度： 市场上的交易执行速度可能影响订单成交价格，尤其是在快速波动的市场环境中。</span><br><span class="line">滑点的影响：</span><br><span class="line">成本增加： 滑点可能导致交易成本增加，因为实际成交价格与预期价格之间的差异会影响交易的盈利和损失。</span><br><span class="line">不利的成交： 高额滑点可能导致不利的成交，即成交价格偏离预期，影响交易者的预期收益。</span><br><span class="line">执行延迟： 滑点可能导致订单执行时间延长，特别是在市场波动较大或流动性较低的情况下。</span><br><span class="line">如何减少滑点：</span><br><span class="line">选择高流动性市场： 在高流动性的市场交易，订单执行更为稳定，滑点可能较小。</span><br><span class="line">使用限价订单： 使用限价订单而不是市价订单，可以控制订单的最高买入价和最低卖出价，降低滑点的风险。</span><br><span class="line">避开高波动时段： 避免在市场波动剧烈或交易量较低的时段交易，以减少滑点的影响。</span><br><span class="line">选择合适的交易平台和经纪商： 选择可靠的交易平台和经纪商，他们通常能够提供较低的滑点和更快的订单执行速度。</span><br></pre></td></tr></table></figure></div>
+
+
+<ul>
+<li><p>股票中的BS点</p>
+<ul>
+<li>的意思是指中线或者短线股票的买卖点。 B点就是Buy 买入的意思，S就是sell卖出的意思。</li>
+</ul>
+</li>
+<li><p>资金费率（Funding Rate）</p>
+<ul>
+<li>一个重要的概念，特别是在永续合约交易（Perpetual Swap Contracts）中。资金费率的设计目的是为了确保永续合约的价格尽可能接近现货市场价格，从而避免较大的价格偏离。</li>
+</ul>
+</li>
+<li><p>分箱（Binning）是一种将连续变量转化为离散变量的技术。</p>
+<ul>
+<li>这种技术通过将数据分成多个“箱”（Bin），每个箱代表一个特定的数值范围，从而将连续数据离散化。分箱在数据预处理、特征工程和数据可视化中非常有用</li>
+</ul>
+</li>
+<li><p>票息率（Coupon Rate）</p>
+<ul>
+<li><p>定义：票息率是指债券发行时规定的每年支付给债券持有人的利息金额占债券面值的百分比。</p>
+</li>
+<li><p>计算公式：票息率 &#x3D; 年利息支付额 &#x2F; 债券面值</p>
+</li>
+<li><p>例子：假设一张面值为1000美元的债券，每年支付50美元的利息，那么其票息率为5%（50美元&#x2F;1000美元）。</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>票息率是固定的，不会因市场利率的变化而改变。</li>
+<li>票息率直接决定了持有债券期间定期收到的利息收入</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>到期收益率（Yield to Maturity, YTM）</p>
+<ul>
+<li><p>定义：到期收益率是指投资者如果持有债券直到到期，将会获得的总收益率。它考虑了债券的当前市场价格、票息支付以及持有至到期时的本金偿还。</p>
+</li>
+<li><p>计算方法：到期收益率通过解方程求得，该方程将债券的当前市场价格与未来现金流（票息和本金）进行折现。</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>到期收益率反映了债券在当前市场价格下的真实收益率。</li>
+<li>到期收益率会随市场利率和债券价格的波动而变化。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ETF（Exchange-Traded Fund）</p>
+<ul>
+<li>即交易所交易基金，是一种在证券交易所上市交易的投资基金，结合了股票和共同基金的特点。ETF在全球金融市场中非常受欢迎，主要因为其灵活性、透明度和低成本。</li>
+<li>ETF的基本概念<ul>
+<li>定义：ETF是一种在证券交易所上市并交易的投资基金，旨在追踪某一特定指数、行业、商品或其他资产类别的表现。</li>
+<li>结构：ETF通常由一篮子股票、债券、商品或其他资产组成，代表一个特定的投资组合。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>看涨期权（Call Option）：</p>
+<ul>
+<li>看涨期权是一份合同，其中期权买方支付一定的权利金（或价格）以获取权利，但不是义务，以在将来的某个时间以特定价格购买某个基础资产（通常是某家公司的股票）。合同规定了可以购买该资产的行使（执行）价格和到期日。买方将根据基础资产的市场价格选择是否行使购买的权利。</li>
+<li>已经涨了我就可以低价买入</li>
+</ul>
+</li>
+<li><p>看跌期权（Put Option）：</p>
+<ul>
+<li>看跌期权赋予买方权利，但不是义务，以将来某一时间以特定价格出售某个基础资产（通常是某家公司的股票）。</li>
+<li>已经跌了我就可以更高价格卖出</li>
+</ul>
+</li>
+<li><p>NFT（非同质化代币，Non-Fungible Token）</p>
+<ul>
+<li>是一种区块链技术，用于表示独特的数字资产。与比特币或以太坊等同质化代币不同，NFT具有唯一性和不可替代性，每个NFT都有独特的标识信息，使其不同于其他代币。</li>
+<li>唯一性：每个NFT都是独一无二的，有独特的元数据和属性，使其与其他NFT区别开来。</li>
+<li>不可分割性：大多数NFT是不可分割的，不能像比特币或以太坊那样分成更小的单位。</li>
+<li>所有权和验证：NFT的所有权记录在区块链上，可以公开验证，确保其真实性和不可篡改性。</li>
+<li>可编程性：NFT可以通过智能合约进行编程，添加额外功能，如版税、使用权等。</li>
+<li>NFT创建与交易流程<ul>
+<li>创建（铸造）NFT：</li>
+<li>选择区块链平台（如以太坊、Flow、Binance Smart Chain）。</li>
+<li>使用平台上的NFT标准（如ERC-721或ERC-1155）创建智能合约。</li>
+<li>上传数字资产（如图像、视频或音乐）并生成NFT。</li>
+</ul>
+</li>
+<li>交易平台：<ul>
+<li>在去中心化交易所（如OpenSea、Rarible）或专门的NFT平台（如Foundation、SuperRare）上发布和销售NFT。用户可以通过这些平台购买、出售和拍卖NFT。</li>
+</ul>
+</li>
+<li>所有权和转移：<ul>
+<li>NFT的所有权记录在区块链上，购买者支付后，智能合约自动将NFT转移给新所有者。</li>
+<li>所有交易记录和所有权变更可以在区块链上公开查看。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> Quantization</li>
+        <li><strong>Author:</strong> Picasun</li>
+        <li><strong>Created at
+                :</strong> 2024-05-06 19:39:47</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2026-10-09 09:28:25
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://picasun.github.io/2024/05/06/Quantization/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/BlockChain/">#BlockChain</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2024/06/18/Berachain/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">Berachain</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2024/04/20/FHE-BlockChain/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">FHE+BlockChain</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.js';
+
+      (function() {
+        const startPath = location.pathname;
+        const startTime = Date.now();
+        const retryDelay = 200;
+        const retryLimit = 5000;
+
+        const runWaline = () => {
+          if (location.pathname !== startPath) {
+            return;
+          }
+
+          const container = document.getElementById('waline');
+          if (!container) {
+            if (Date.now() - startTime < retryLimit) {
+              setTimeout(runWaline, retryDelay);
+            }
+            return;
+          }
+
+          if (window.redefineWalineInstance?.destroy) {
+            window.redefineWalineInstance.destroy();
+          }
+
+          container.innerHTML = '';
+          window.redefineWalineInstance = init({
+            el: '#waline',
+            serverURL: 'https://example.example.com',
+            path: location.pathname,
+            dark: 'body[class~="dark-mode"]',
+            reaction: false,
+            requiredMeta: ['nick', 'mail'],
+            emoji: [],
+                      lang: 'zh-CN',
+          });
+        };
+
+        runWaline();
+      })();
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">Quantization</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Keywords"><span class="nav-text">Keywords</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2026&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Picasun</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        35 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.9.0</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container" role="dialog" aria-modal="true" aria-label="Image viewer">
+	<button class="image-viewer-close" type="button" aria-label="Close">
+		<i class="fa-solid fa-xmark"></i>
+	</button>
+	<button class="image-viewer-prev" type="button" aria-label="Prev">
+		<i class="fa-solid fa-chevron-left"></i>
+	</button>
+	<div class="image-viewer-frame">
+		<img src="" alt="">
+	</div>
+	<div class="image-viewer-exif-panel hidden absolute left-1/2 bottom-20 -translate-x-1/2 w-[min(92vw,420px)] max-h-[60vh] overflow-hidden rounded-2xl bg-background-color-transparent-80 p-4 text-left shadow-redefine-flat backdrop-blur-md" role="dialog" aria-label="EXIF" aria-hidden="true">
+		<div class="flex items-center justify-between mb-3">
+			<span class="text-sm font-semibold text-first-text-color">EXIF</span>
+			<button class="image-viewer-exif-close flex h-8 w-8 items-center justify-center rounded-full bg-background-color-transparent-80 text-first-text-color transition hover:bg-background-color-transparent-40" type="button" aria-label="Close">
+				<i class="fa-solid fa-xmark text-[0.65rem]"></i>
+			</button>
+		</div>
+		<div class="image-viewer-exif-cards grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto pr-1 scrollbar-hide"></div>
+		<template class="image-viewer-exif-card-template">
+			<div class="rounded-lg bg-background-color-transparent-40 px-3 py-2">
+				<div class="image-viewer-exif-card-header flex items-center gap-2 mb-1">
+					<i class="image-viewer-exif-card-icon fa-solid fa-circle-info text-xs text-third-text-color"></i>
+					<div class="image-viewer-exif-card-title text-xs font-semibold text-first-text-color"></div>
+				</div>
+				<div class="image-viewer-exif-card-items flex flex-col gap-1"></div>
+			</div>
+		</template>
+	</div>
+	<button class="image-viewer-exif-toggle flex items-center gap-2 hidden absolute left-1/2 bottom-6 -translate-x-1/2 rounded-full border border-border-color bg-background-color-transparent-80 px-4 py-2 text-first-text-color backdrop-blur-md transition hover:bg-background-color-transparent-40" type="button" aria-label="EXIF" aria-expanded="false">
+		<i class="fa-solid fa-circle-info text-xs"></i>
+		<span class="text-xs font-semibold uppercase tracking-wider">EXIF</span>
+	</button>
+	<button class="image-viewer-next" type="button" aria-label="Next">
+		<i class="fa-solid fa-chevron-right"></i>
+	</button>
+</div>
+
+
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    window.swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+
+    window.dispatchEvent(
+        new CustomEvent("redefine:swup:ready", {
+            detail: {
+                swup: window.swup,
+            },
+        }),
+    );
+</script>
+
+
+
+
+	
+<script src="/js/build/main.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+
+	
+</body>
+
+</html>
